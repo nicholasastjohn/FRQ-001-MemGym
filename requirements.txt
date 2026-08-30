@@ -1,0 +1,8 @@
+# Intentionally not pinned yet.
+# v1 is a reproduction scaffold, not a claim that the environment has been reconstructed.
+#
+# Before execution:
+# 1. Pin the upstream MemGym commit in UPSTREAM.md.
+# 2. Reconstruct the environment from that commit's dependency files.
+# 3. Freeze the resolved environment here (or add a lockfile) with exact versions.
+
