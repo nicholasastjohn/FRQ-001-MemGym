@@ -1,0 +1,13 @@
+project: FRQ-001-MemGym
+status: scaffold
+track: MEMGYM-DR
+upstream_commit: TBD
+paper_target: "Figure 2b - verify exact upstream experiment mapping"
+model: TBD
+provider: TBD
+seeds: TBD
+horizons: TBD
+strategies: TBD
+metric: TBD
+reproduction_tolerance: TBD
+
