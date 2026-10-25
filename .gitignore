@@ -8,5 +8,21 @@ venv/
 .ipynb_checkpoints/
 *.log
 
+# Evidence logs are deliberately committed after review; caches and environments are not.
+!results/raw/**/*.log
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+*.part
+data/
+models/
+checkpoints/
+
+# Large public dataset payloads stay local; commit their hashes and row identities.
+# Preserve command JSONLs and small, explicitly labelled synthetic fixture payloads.
+results/raw/**/3hop_verified.jsonl
+results/raw/**/4hop_paper_run.jsonl
+results/raw/**/56hop_clean.jsonl
+
 # Never commit provider secrets or API keys.
 

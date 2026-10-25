@@ -1,0 +1,185 @@
+{
+  "artifacts": {
+    "01_python_version.log": {
+      "bytes": 15,
+      "sha256": "4c3569f5da09975434dd9fd9a91fadbc4367a91d8f3c3fab59e9241ab9ee4bd8"
+    },
+    "02_pip_freeze.log": {
+      "bytes": 3295,
+      "sha256": "dbdac681ac4f3075b73deffc58b93d62b37bc20f0042bfa4ce322eb97596a2e6"
+    },
+    "03_pip_check.log": {
+      "bytes": 30,
+      "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09"
+    },
+    "04_harness_safety_tests.log": {
+      "bytes": 878,
+      "sha256": "19eae04c11a20cc1f21eda1b8c9005caab988259af480234ba2437b0a1b4802f"
+    },
+    "05_frq_diff_check.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "backend_presence.json": {
+      "bytes": 953,
+      "sha256": "c96ef632cfc2086cbc255c19b379a060897fc6882251a871fa0a6e5b9aecb8a7"
+    },
+    "execute_final_checks.py": {
+      "bytes": 734,
+      "sha256": "937032e06758f1d5dad02d3f533b2fe95d4817d6932b09780b8d9069fddd8d70"
+    },
+    "harness_source/configs/reproduction.yaml": {
+      "bytes": 3293,
+      "sha256": "fe317822f9317b15c49118c06642ca03c735e2f28e4d85ddfb7f57335103f1d5"
+    },
+    "harness_source/scripts/offline_worker.py": {
+      "bytes": 6726,
+      "sha256": "1fc0937ef8d6a7110ca488c1aef397d299e43efb853ddb910c3fab955a764330"
+    },
+    "harness_source/scripts/reproduce.py": {
+      "bytes": 18034,
+      "sha256": "17c35c4dd80e5b4654bbb2593a14fa37f46e72efa648b718e158c213d983dbdc"
+    },
+    "harness_source/scripts/tests/test_safety.py": {
+      "bytes": 5389,
+      "sha256": "51b4229fe797d3a37beeaad0e570a21cae7279cf722a504005810b34cb562bde"
+    },
+    "system.json": {
+      "bytes": 357,
+      "sha256": "8f84e744eca9613bb74645a7d3a7bcf6ea2d25e0bc45cd9cd36864188ff4ea4a"
+    },
+    "upstream_files.json": {
+      "bytes": 55099,
+      "sha256": "6baa073efe515a9a66379abb7e047086ccc3b46786caab0c3b35bc9135f023da"
+    }
+  },
+  "commands": [
+    {
+      "argv": [
+        "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/venvs/memgym/bin/python",
+        "--version"
+      ],
+      "cwd": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym",
+      "elapsed_seconds": 0.0121,
+      "finished_utc": "2026-10-25T19:40:02.677981+00:00",
+      "label": "python_version",
+      "log": "01_python_version.log",
+      "log_sha256": "4c3569f5da09975434dd9fd9a91fadbc4367a91d8f3c3fab59e9241ab9ee4bd8",
+      "python_network_guard": false,
+      "returncode": 0,
+      "started_utc": "2026-10-25T19:40:02.665667+00:00"
+    },
+    {
+      "argv": [
+        "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/venvs/memgym/bin/python",
+        "-m",
+        "pip",
+        "freeze",
+        "--all"
+      ],
+      "cwd": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym",
+      "elapsed_seconds": 0.2944,
+      "finished_utc": "2026-10-25T19:40:02.973017+00:00",
+      "label": "pip_freeze",
+      "log": "02_pip_freeze.log",
+      "log_sha256": "dbdac681ac4f3075b73deffc58b93d62b37bc20f0042bfa4ce322eb97596a2e6",
+      "python_network_guard": false,
+      "returncode": 0,
+      "started_utc": "2026-10-25T19:40:02.678405+00:00"
+    },
+    {
+      "argv": [
+        "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/venvs/memgym/bin/python",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "cwd": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym",
+      "elapsed_seconds": 0.2979,
+      "finished_utc": "2026-10-25T19:40:03.271833+00:00",
+      "label": "pip_check",
+      "log": "03_pip_check.log",
+      "log_sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+      "python_network_guard": false,
+      "returncode": 0,
+      "started_utc": "2026-10-25T19:40:02.973667+00:00"
+    },
+    {
+      "argv": [
+        "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/venvs/memgym/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym/scripts/tests",
+        "-v"
+      ],
+      "cwd": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym",
+      "elapsed_seconds": 0.3466,
+      "finished_utc": "2026-10-25T19:40:03.619319+00:00",
+      "label": "harness_safety_tests",
+      "log": "04_harness_safety_tests.log",
+      "log_sha256": "19eae04c11a20cc1f21eda1b8c9005caab988259af480234ba2437b0a1b4802f",
+      "python_network_guard": false,
+      "returncode": 0,
+      "started_utc": "2026-10-25T19:40:03.272467+00:00"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym",
+        "diff",
+        "--check"
+      ],
+      "cwd": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym",
+      "elapsed_seconds": 0.0201,
+      "finished_utc": "2026-10-25T19:40:03.640193+00:00",
+      "label": "frq_diff_check",
+      "log": "05_frq_diff_check.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "python_network_guard": false,
+      "returncode": 0,
+      "started_utc": "2026-10-25T19:40:03.619908+00:00"
+    }
+  ],
+  "empirical_benchmark": false,
+  "finished_utc": "2026-10-25T19:40:03.657672+00:00",
+  "harness_git_head": "36fefda6a18e4eb3e2a1f7b674a61366cb1f483e",
+  "harness_git_status_at_start": "M .gitignore\n M README.md\n M REPRODUCTION.md\n M UPSTREAM.md\n M VERSION\n M analysis/README.md\n M configs/reproduction.yaml\n M experiments/README.md\n M report/README.md\n M requirements.txt\n M scripts/README.md\n?? experiments/protocol-audit.md\n?? report/validation-2026-10-25.md\n?? results/raw/2026-10-25-dataset-audited/\n?? results/raw/2026-10-25-dataset/\n?? results/raw/2026-10-25-guarded-validation/\n?? results/raw/2026-10-25-offline-smoke/\n?? results/raw/2026-10-25-preflight/\n?? results/raw/2026-10-25-synthetic-dry-run/\n?? scripts/offline_worker.py\n?? scripts/reproduce.py\n?? scripts/tests/",
+  "harness_source_at_start": {
+    "configs/reproduction.yaml": {
+      "bytes": 3293,
+      "sha256": "fe317822f9317b15c49118c06642ca03c735e2f28e4d85ddfb7f57335103f1d5",
+      "snapshot": "harness_source/configs/reproduction.yaml"
+    },
+    "scripts/offline_worker.py": {
+      "bytes": 6726,
+      "sha256": "1fc0937ef8d6a7110ca488c1aef397d299e43efb853ddb910c3fab955a764330",
+      "snapshot": "harness_source/scripts/offline_worker.py"
+    },
+    "scripts/reproduce.py": {
+      "bytes": 18034,
+      "sha256": "17c35c4dd80e5b4654bbb2593a14fa37f46e72efa648b718e158c213d983dbdc",
+      "snapshot": "harness_source/scripts/reproduce.py"
+    },
+    "scripts/tests/test_safety.py": {
+      "bytes": 5389,
+      "sha256": "51b4229fe797d3a37beeaad0e570a21cae7279cf722a504005810b34cb562bde",
+      "snapshot": "harness_source/scripts/tests/test_safety.py"
+    }
+  },
+  "invocation": [
+    "../execute_final_checks.py"
+  ],
+  "model_calls_made": 0,
+  "model_calls_permitted": false,
+  "operation": "preflight",
+  "python_executable": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/venvs/memgym/bin/python",
+  "schema_version": 1,
+  "seed": 42,
+  "started_utc": "2026-10-25T19:40:02.550496+00:00",
+  "status": "passed",
+  "upstream_path": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym",
+  "upstream_sha": "50b404e6ae4e1fcd453d3e07963eb3e6312cbded"
+}

@@ -1,0 +1,18 @@
+$ /Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/venvs/memgym/bin/python -m pytest tests/unit/test_imports.py
+cwd: /Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym
+start_utc: 2026-10-25T19:29:50.853346+00:00
+
+============================= test session starts ==============================
+platform darwin -- Python 3.12.14, pytest-9.1.1, pluggy-1.7.0
+rootdir: /Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym
+configfile: pyproject.toml
+plugins: cov-7.1.0, langsmith-0.14.12, anyio-4.15.1, platformdirs-4.13.5
+collected 4 items
+
+tests/unit/test_imports.py ....                                          [100%]
+
+========================= 4 passed in 65.25s (0:01:05) =========================
+
+end_utc: 2026-10-25T19:31:01.682848+00:00
+exit_code: 0
+elapsed_seconds: 70.83

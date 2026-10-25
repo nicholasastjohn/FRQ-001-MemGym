@@ -1,0 +1,24 @@
+$ /Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/venvs/memgym/bin/python -c 'import importlib.metadata as m; import json; print(json.dumps({name:m.version(name) for name in ["pip","uv","memgym","pytest","torch","numpy","transformers","litellm","openai","datasets","sentence-transformers","bitsandbytes","simplemem","mem0ai"]},indent=2))'
+cwd: /Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym
+start_utc: 2026-10-25T19:31:21.827812+00:00
+
+{
+  "pip": "26.2.2",
+  "uv": "0.13.5",
+  "memgym": "0.2.0",
+  "pytest": "9.1.1",
+  "torch": "2.14.1",
+  "numpy": "2.5.4",
+  "transformers": "5.20.2",
+  "litellm": "1.106.4",
+  "openai": "2.54.0",
+  "datasets": "5.1.0",
+  "sentence-transformers": "6.2.0",
+  "bitsandbytes": "0.50.2",
+  "simplemem": "0.1.0",
+  "mem0ai": "2.2.1"
+}
+
+end_utc: 2026-10-25T19:31:21.882273+00:00
+exit_code: 0
+elapsed_seconds: 0.054

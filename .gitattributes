@@ -1,0 +1,2 @@
+# Raw evidence preserves exact bytes, including original whitespace.
+results/raw/** -text -whitespace

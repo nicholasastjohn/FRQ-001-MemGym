@@ -1,0 +1,11 @@
+test_arbitrary_secret_variables_do_not_reach_children (test_safety.SafetyTests.test_arbitrary_secret_variables_do_not_reach_children) ... ok
+test_duplicate_dataset_ids_preserve_distinct_row_identity (test_safety.SafetyTests.test_duplicate_dataset_ids_preserve_distinct_row_identity) ... ok
+test_network_guard_blocks_dns_and_connections (test_safety.SafetyTests.test_network_guard_blocks_dns_and_connections) ... ok
+test_output_directory_cannot_be_reused (test_safety.SafetyTests.test_output_directory_cannot_be_reused) ... ok
+test_untracked_source_rejected_ignored_cache_allowed (test_safety.SafetyTests.test_untracked_source_rejected_ignored_cache_allowed) ... ok
+test_wrong_or_dirty_upstream_is_rejected (test_safety.SafetyTests.test_wrong_or_dirty_upstream_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.243s
+
+OK

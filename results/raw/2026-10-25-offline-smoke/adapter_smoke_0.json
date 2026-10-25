@@ -1,0 +1,70 @@
+{
+  "dataset_path": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym/results/raw/2026-10-25-dataset/3hop_verified.jsonl",
+  "dataset_sha256": "88be2c475fa80f754fac50e6d982a421684463777e3633a3ccb0e24fe6740939",
+  "empirical_benchmark": false,
+  "instances": [
+    {
+      "adapters": {
+        "ir_bm25": {
+          "indexed_chunks": 160,
+          "nonempty_retrieval": true,
+          "retrieval_sha256": "2d6f8b518162e1e4faf94a7a288138377b356be692ef4aa26ee412f4ddfbb366",
+          "retrieved_characters": 29725
+        },
+        "ir_passthrough": {
+          "retained_characters": 462298,
+          "retains_all_turns": true
+        }
+      },
+      "eviction_policy": {
+        "allow_notes": true,
+        "mode": "full_eviction",
+        "notes_budget_tokens": 200,
+        "window_size": 1
+      },
+      "input_row_index": 0,
+      "instance_id": "memgym_ir__research3__02865",
+      "num_hops": 3,
+      "num_turns": 3,
+      "turn_trace": [
+        {
+          "observation_characters": 148486,
+          "observation_sha256": "9503cae4bf30a151e511ca3cb40805cc7931dc8fc1c917e3c5f438d49722314b",
+          "turn_index": 0,
+          "visible_document_count": 101,
+          "visible_start": 0
+        },
+        {
+          "observation_characters": 156080,
+          "observation_sha256": "ebf0193c0290613f5528c709922879775c3c4379dad0e09fe15ec3797570ac5e",
+          "turn_index": 1,
+          "visible_document_count": 101,
+          "visible_start": 1
+        },
+        {
+          "observation_characters": 157730,
+          "observation_sha256": "3817e6df4d45be083dd89a7a4ac654f59a8048e995c2d3ad647d7a70568075b4",
+          "turn_index": 2,
+          "visible_document_count": 100,
+          "visible_start": 2
+        }
+      ]
+    }
+  ],
+  "kind": "offline evaluator eviction and adapter wiring check; no task answering or judging",
+  "limit": 1,
+  "model_calls_made": 0,
+  "notes": [
+    "PassThrough retains all observations in current upstream; this differs from the paper's no-memory condition.",
+    "BM25 retrieval output length and hash are wiring evidence, not accuracy or fact recall.",
+    "No generated answers, rubric scores, or benchmark accuracy values are produced."
+  ],
+  "schema_validated_rows": 1,
+  "seed": 42,
+  "selection": "first N file rows, unchanged order",
+  "upstream_replay_functions": [
+    "eval.agent._get_ir_manager",
+    "eval.agent._build_visible_docs",
+    "eval.agent.IRMemoryAdapter.process_turn"
+  ]
+}

@@ -1,0 +1,1418 @@
+{
+  ".github/workflows/ci.yml": {
+    "bytes": 1526,
+    "sha256": "6663721ec1f8d5b57e731c66463ec8485c4fb236dd88259ddc24958bbff6f88f"
+  },
+  ".gitignore": {
+    "bytes": 1184,
+    "sha256": "26dc4bbbd27b4c1c3840161ae956729912fc695b255b43c208df0c3b40f791e9"
+  },
+  "CHANGELOG.md": {
+    "bytes": 7792,
+    "sha256": "f50780a327de0f28a24171a690a40ba206e61680c812bcac92b0b5ddda39dd1b"
+  },
+  "CONTRIBUTING.md": {
+    "bytes": 2971,
+    "sha256": "122943f5999f97bca9c345014098777e46749c15d5dffc7539ad16b21824c973"
+  },
+  "LICENSE": {
+    "bytes": 11305,
+    "sha256": "04a6dfa6a8e2222a1dc9959758c94e29335eaa7bb782da9470788396aa5bf64f"
+  },
+  "NOTICE": {
+    "bytes": 5652,
+    "sha256": "67866b5f1f5c41843e68f5c435e529d5ec86af31c2fe5265de868fd7986fe989"
+  },
+  "README.md": {
+    "bytes": 9511,
+    "sha256": "f93ff2e8dc45c1ec8342c1bae94d82447336c52e85806ad1ab001b89ca4d1483"
+  },
+  "assets/README.md": {
+    "bytes": 741,
+    "sha256": "537d3294682ef41937d5b33924b587d2d58f25e96932601df7d08ca6544c2ef8"
+  },
+  "assets/framework.png": {
+    "bytes": 231155,
+    "sha256": "378e8a3b1aa051d0796799997ce65b4989b02860708dad2910353271308f21f5"
+  },
+  "data/swebench_verified_instance_ids.txt": {
+    "bytes": 11234,
+    "sha256": "a6b0fd7c8c2969a0eef892e032250adcfa6d32362d395c246930e61b575ac9b9"
+  },
+  "data/swegym_diverse_500.txt": {
+    "bytes": 11393,
+    "sha256": "32ade3219a0ac3e2e0c27875f751f32f434aa83ac68af74009a7fd5ddb887ab0"
+  },
+  "data/swegym_diverse_500_v2.txt": {
+    "bytes": 10952,
+    "sha256": "5c70e96c2ea3306c74e5415b4a8bfbb3b75f0a56c1e6260a6ab491f8c744625a"
+  },
+  "docs/README.md": {
+    "bytes": 1598,
+    "sha256": "57c3a207d19198dbfb1d7a6cd4db00abdac12ea1895d9420011e3ef6404bf9de"
+  },
+  "docs/architecture.md": {
+    "bytes": 5389,
+    "sha256": "2b0236f7843262125ea18b308d90dce4f044f041a87be97eca74951ac7a13085"
+  },
+  "docs/backends.md": {
+    "bytes": 3067,
+    "sha256": "54a375acbb377e60fe95b8b6cf79a768fb0ea347ac441a4a5c219bef688c909f"
+  },
+  "docs/data.md": {
+    "bytes": 10521,
+    "sha256": "4077e5e5716dd75a8526fc7372a6f278edecf6ff64e59aa3d10410c19d7bc0c0"
+  },
+  "docs/datasets-upstream.md": {
+    "bytes": 2645,
+    "sha256": "4b1c2950552619af78f4b2ac37f6e2bdd53583c271f52832a4ae0b8608bb798b"
+  },
+  "docs/licenses.md": {
+    "bytes": 2422,
+    "sha256": "1cba8fd3611068cf166b91c48107e74157a450ffe8437f97998d181ddc3318fc"
+  },
+  "docs/memrm.md": {
+    "bytes": 4147,
+    "sha256": "b77d783a9203c9b5ecadcdc4cad17354ae0dd891c39f136a1f8865a8b2414621"
+  },
+  "docs/quickstart.md": {
+    "bytes": 7795,
+    "sha256": "99e91a161ff099f2e39a7c1fd8a58bac60b4ed01252177d3df87255639b5781a"
+  },
+  "docs/reproducibility.md": {
+    "bytes": 4732,
+    "sha256": "31cb8ffa207dd699289fa95733ccdb92ddb13666868623491c493409738fbea1"
+  },
+  "docs/reproduction_audit_2026-05-28.md": {
+    "bytes": 36930,
+    "sha256": "1e5a3a6ec70030f6bdaf981a5a8e9109d51fb04f64d6721b50169b6e1394cd2c"
+  },
+  "docs/swe_bench.md": {
+    "bytes": 4152,
+    "sha256": "4ee1f4f7c6c019101e45337391c97ed889619c22bdc05aff5bce5b7b7b291adb"
+  },
+  "docs/testing.md": {
+    "bytes": 10986,
+    "sha256": "ab28351eed2317ae0b4cac79037270345a8be465859260d451b3ad58b0239036"
+  },
+  "docs/tracks.md": {
+    "bytes": 3577,
+    "sha256": "0c40eccab49f8f4653502e2883fd477680fd740119cc08f2ddedea540d05d489"
+  },
+  "examples/README.md": {
+    "bytes": 1494,
+    "sha256": "0fe44e7845eddfc53ba05ecc7d8eba62589ef098ca677bcc2efc125f3145df7e"
+  },
+  "examples/memgym_codeqa/eval_solvability.py": {
+    "bytes": 358,
+    "sha256": "74e5470dc8a85652f3fd36472b8f0735ff9ce4d60fa025c227ac95a9664bf91c"
+  },
+  "examples/memgym_codeqa/run_pipeline.py": {
+    "bytes": 2437,
+    "sha256": "efe1d5f109cfa33237dbc720edeb90dacf45e9773e05703c4272f6eab871121f"
+  },
+  "examples/memgym_dr/run_ir_benchmark.py": {
+    "bytes": 7989,
+    "sha256": "ced0a37b5f8cdbd27c7ad9acb41a7e0960b4f4f687a8cb054c88e8a00a874c3a"
+  },
+  "examples/run_episode.py": {
+    "bytes": 3864,
+    "sha256": "b680c7a82f6b30275175a7e8b93921188f054d6755618b12902ff61e132480c2"
+  },
+  "examples/swe_bench/compare.py": {
+    "bytes": 5453,
+    "sha256": "0072e96131ce6b0a30ea5a88ae819000df09acadd734e6aa11a4b47188a35d74"
+  },
+  "examples/swe_bench/evaluate_swe_bench.py": {
+    "bytes": 450,
+    "sha256": "da5f9d70904922a45a1d5b6224638c69e39fc8cf165369993588f02e36ca317f"
+  },
+  "examples/swe_bench/replay.py": {
+    "bytes": 48147,
+    "sha256": "33558156db340c1b2005abb8394316e59b784ee99aff3f6b98f39d86928295a5"
+  },
+  "examples/swe_bench/run_all_strategies.sh": {
+    "bytes": 2629,
+    "sha256": "47cbc87315cbb43222689843ac75a0ced104a8298c4f9b167f1a762c571ad210"
+  },
+  "examples/swe_bench/run_official_eval.sh": {
+    "bytes": 3678,
+    "sha256": "2f8d9f2a582791d9652906ed92f282bd987a797388900566b4d837d44e91d7a9"
+  },
+  "install.sh": {
+    "bytes": 8373,
+    "sha256": "01e04d5d0e10c8e81943c2f4e830f24eb9a444f503ea55efb5263d1c744b4628"
+  },
+  "pyproject.toml": {
+    "bytes": 6378,
+    "sha256": "587d1f482136d07f0eb5ec8820bd57b49a7e24de67ec86ae8e0beffd86a91d48"
+  },
+  "requirements-amem.txt": {
+    "bytes": 1133,
+    "sha256": "ee164299bf61fe498387737fffd61c115b38cc819b68998a256c789b611dd3b3"
+  },
+  "requirements-hipporag.txt": {
+    "bytes": 1037,
+    "sha256": "1f9b2e575047c05a976cd92aaa4f12f9f20954b1071069f8181fdbcc65325379"
+  },
+  "requirements-mem0.txt": {
+    "bytes": 633,
+    "sha256": "c064ce4e17fad72dd73fbf60d12ac81e6eecd1e9fb0cd9f276f278676dadabe8"
+  },
+  "requirements-simplemem.txt": {
+    "bytes": 494,
+    "sha256": "c8f67a1f50339424db7a2e7efb5313bb47bb814f03d12fe670963c9e29510921"
+  },
+  "requirements-swe.txt": {
+    "bytes": 693,
+    "sha256": "da2f32eb5b74feea12176fc2d801bf4b5eff736fbb4d4459a07b72e78b44c965"
+  },
+  "requirements-tau2.txt": {
+    "bytes": 833,
+    "sha256": "4889e322711aad44c6ed798dcb514b0be3fdd9c070312be07595494991d1a5ed"
+  },
+  "requirements-webarena.txt": {
+    "bytes": 575,
+    "sha256": "6a84775f1f575efff2125465f301e7b07bdf6a70619f98e28f1a73d52f4af8e4"
+  },
+  "requirements.txt": {
+    "bytes": 319,
+    "sha256": "dff5eef00a3f8020f23a276a5ea69f56c9ad3e5d1cf44339cb27fd76acdba4a7"
+  },
+  "scripts/README.md": {
+    "bytes": 1194,
+    "sha256": "0c08811583d47be301eaac7c411469e679b3b613dc0e956ae911bc8e2bcb0b92"
+  },
+  "scripts/ops/cleanup_stale_torchelastic.py": {
+    "bytes": 2228,
+    "sha256": "0097ffb337923539669d5ae4cdd29f1e61b450833dc86a1f8d0c81d937c1a2c6"
+  },
+  "scripts/ops/dump_attn_config.py": {
+    "bytes": 638,
+    "sha256": "aba2d61e4eb1021c02242cb28377f4b5c06c09e51321751eced3ae5f5d9738d4"
+  },
+  "scripts/ops/dump_rollout_config.py": {
+    "bytes": 2414,
+    "sha256": "e06f98a2fc6f4fa3bb57ad41cdf483e453f720024025928aa8859f0713352aef"
+  },
+  "scripts/ops/kill_gpu_procs.py": {
+    "bytes": 1785,
+    "sha256": "31f6b1702b2a0fa7f7efed111c6c2496f1d8cf89783f7814681b23d07af06ec4"
+  },
+  "scripts/ops/kill_stale_torchrun.py": {
+    "bytes": 2190,
+    "sha256": "e79cbaeaa2ba92088a631789d0e8c820e2a79c1fea668951c22f96b9e78c6ba7"
+  },
+  "scripts/ops/kill_stale_workers.py": {
+    "bytes": 1782,
+    "sha256": "7f7ff7cde54e51b3ef1ff204be4b9101e7a527cecf56c6055f5dec1e14c186c0"
+  },
+  "scripts/ops/run_50_sequential.sh": {
+    "bytes": 1980,
+    "sha256": "b7a3ca81be5bfe2d40570725ee335e40074887c9b843cd98853b25ca2da0822e"
+  },
+  "scripts/setup_swebench.sh": {
+    "bytes": 6346,
+    "sha256": "5ac5daa0e370e050d7f5604fc3489d7c39c98618e82956f119f40a87385ca142"
+  },
+  "setup.py": {
+    "bytes": 164,
+    "sha256": "9ee6183f43f87c9523455318ef2e16a65f1d8f1b51f3c71274a0212b4e040882"
+  },
+  "src/memgym/__init__.py": {
+    "bytes": 4105,
+    "sha256": "cc0ffac8f21cac3daa49ddbd8cedb0301f7176bd953db69e883be3a0e7805772"
+  },
+  "src/memgym/agents/__init__.py": {
+    "bytes": 1832,
+    "sha256": "eb32f095b24f3f5f84042ce5512bec8302d12c6a3e57c39ed2eb0d84883ed800"
+  },
+  "src/memgym/agents/base.py": {
+    "bytes": 6312,
+    "sha256": "55f41e384c284ceec0544f011962eba698a27023e4420a6287a2b6b2def6ae8a"
+  },
+  "src/memgym/agents/codeact_wrapper.py": {
+    "bytes": 23483,
+    "sha256": "e93ea71fbf1384432ff621e46c35e44f5b60d5a20555bec7fe3b02ec52b6bdc7"
+  },
+  "src/memgym/envs/__init__.py": {
+    "bytes": 2041,
+    "sha256": "bf7a907e839d2bbb08b53f39f742fef50a59ed1e56625f403910140edb41acf6"
+  },
+  "src/memgym/envs/base.py": {
+    "bytes": 7673,
+    "sha256": "27ed7159e22d9b218d73b8c5a3c1d70f2f861adb41fd4a8e05b4f8a3dec66383"
+  },
+  "src/memgym/gym/__init__.py": {
+    "bytes": 66,
+    "sha256": "7d199d0810fd91cd05c69e7cd5f3f7174e0a2338aaea7e0fc0946eb995e1d034"
+  },
+  "src/memgym/gym/swe_bench/__init__.py": {
+    "bytes": 61,
+    "sha256": "f1680d6c327d8c4d2bd9c0cbb1933349eaf911996353b219a91672cd7ed74aec"
+  },
+  "src/memgym/gym/swe_bench/__main__.py": {
+    "bytes": 71,
+    "sha256": "9b14fa9301fd3a01e03dde18f982ce0860d41f344bc806cd44d7558ee17abfef"
+  },
+  "src/memgym/gym/swe_bench/agent.py": {
+    "bytes": 16683,
+    "sha256": "beec212700a8f4ad17994b2ecbab8fca626feaae93c3ebb4b664d2517d33f6f7"
+  },
+  "src/memgym/gym/swe_bench/bubblewrap_env.py": {
+    "bytes": 4171,
+    "sha256": "746afc6d761b853e5f792463b45d73e7e698410cdbc755c8724211999a3b3394"
+  },
+  "src/memgym/gym/swe_bench/container.py": {
+    "bytes": 7843,
+    "sha256": "d222a5bbcaf59c36c4556a6f5e94b0a74ad3220b3ecee43b5fbf4eb5202da240"
+  },
+  "src/memgym/gym/swe_bench/enrich_trajectories.py": {
+    "bytes": 17724,
+    "sha256": "0af917d20d626707e984fa7311dc695ca1ef344622e9bb56b9ca52b685adb57e"
+  },
+  "src/memgym/gym/swe_bench/env.py": {
+    "bytes": 53841,
+    "sha256": "dc2e186f918019a16e04e251d2ff86d8cf71ddba7fec504fefa50ea75c8c26c7"
+  },
+  "src/memgym/gym/swe_bench/evaluate.py": {
+    "bytes": 35172,
+    "sha256": "e941dcaa7616849f4f30213144c7f89785f3a4d302352ff9248dd4007a47bd5e"
+  },
+  "src/memgym/gym/swe_bench/reasoning_litellm_model.py": {
+    "bytes": 2352,
+    "sha256": "d0f2330867e88c45e3dcac178e2a5e16f78a6267dc9d76629ab52153a12a9c41"
+  },
+  "src/memgym/gym/swe_bench/reeval.py": {
+    "bytes": 8158,
+    "sha256": "8b443a1a602ed7eec32680d924b48920b15ceed1987de52236d1e4c3cb8b84ae"
+  },
+  "src/memgym/gym/swe_bench/tracker.py": {
+    "bytes": 6835,
+    "sha256": "1150aa0b4384a34b5072e6ec4482ac321ea2c72b3146ca9d77a412a13312c4fb"
+  },
+  "src/memgym/gym/tau2_bench/__init__.py": {
+    "bytes": 1724,
+    "sha256": "e96981c15bf5dbaa3d287f5309c26b307e12e79e92ad8b35698787c7c16b3eeb"
+  },
+  "src/memgym/gym/tau2_bench/__main__.py": {
+    "bytes": 168,
+    "sha256": "43fe895aa61c6e89a63a578e3527edc32518cabe65179d136dd02c1a41756637"
+  },
+  "src/memgym/gym/tau2_bench/agent.py": {
+    "bytes": 7179,
+    "sha256": "da3cc839fdc2c9c4b13ec62ab1c5a293ddae15a64e07d855f9c8023feb24afed"
+  },
+  "src/memgym/gym/tau2_bench/env.py": {
+    "bytes": 21064,
+    "sha256": "2bc280d0f538af2ddf05e9d6ff9211f2fe1d1cb887fa35733bf01df9bba1569e"
+  },
+  "src/memgym/gym/tau2_bench/evaluate.py": {
+    "bytes": 27909,
+    "sha256": "f319ba63cd82f98cd712a416fd97d8afe9a8bc022e94e39960981efe3c0484c7"
+  },
+  "src/memgym/gym/tau2_bench/install.py": {
+    "bytes": 7752,
+    "sha256": "69152e71bff38a42051de205490d067d36b982a144e9939e5b4177df0d90ca3d"
+  },
+  "src/memgym/gym/tau2_bench/memory_adapter.py": {
+    "bytes": 29264,
+    "sha256": "2536520a93c8ee142123d3143a2cc86a7aa45faaeddcc867c9e287eb06466631"
+  },
+  "src/memgym/gym/webarena/__init__.py": {
+    "bytes": 1617,
+    "sha256": "7371a815a12c099406b5405b0698ffeda09982d4ee9f7b0a5f96d27c9b2b9fc0"
+  },
+  "src/memgym/gym/webarena/__main__.py": {
+    "bytes": 88,
+    "sha256": "a2ea2cbae9e4d9a19bca483807a4585fc77ec638257c0cacc68d296c591461ea"
+  },
+  "src/memgym/gym/webarena/agent.py": {
+    "bytes": 14930,
+    "sha256": "b8d732b7da1ca5f33a067252f4fe0ed69978737d12a4679a39374aacc33e6a86"
+  },
+  "src/memgym/gym/webarena/dataset_stats.py": {
+    "bytes": 3572,
+    "sha256": "7d05e8822d5e1ba326b6f6c00828c8fb87189eb7c20c664cd648998c57ab9e67"
+  },
+  "src/memgym/gym/webarena/env.py": {
+    "bytes": 41230,
+    "sha256": "57b56bd60945be514a01b6f593c8502b779ae28a837dcb41eb26d3756c6c63a3"
+  },
+  "src/memgym/gym/webarena/evaluate.py": {
+    "bytes": 30030,
+    "sha256": "284930d20e611099ad0c26154e4ad6e751c4273cb19d23764c4c874838da885d"
+  },
+  "src/memgym/gym/webarena/install.py": {
+    "bytes": 5121,
+    "sha256": "50c8e61dfa54b5e3a46e18ea69ac23c74a16cc4141c889dcbb135eea4d3fab05"
+  },
+  "src/memgym/gym/webarena/replay_probe.py": {
+    "bytes": 19446,
+    "sha256": "1196d93a06cd59cc4bf05e73bd72a5e03ffe44539fd4ede6b9f4122478f186cf"
+  },
+  "src/memgym/gym/webarena/server_pool.py": {
+    "bytes": 12842,
+    "sha256": "b77de46a77f2e1e9d874afb2339a0541bf8a902a071d462372d9dbdead0cde2c"
+  },
+  "src/memgym/memory/__init__.py": {
+    "bytes": 4331,
+    "sha256": "7ff54d7c2223779bd339dba080831bb3359a35045c6422f00c2db6daa7865226"
+  },
+  "src/memgym/memory/adapters/__init__.py": {
+    "bytes": 228,
+    "sha256": "b64a6d720db3d003c1edb9425fa093667bc8f71dd9dedf36196aa4a34dc51297"
+  },
+  "src/memgym/memory/adapters/cua/__init__.py": {
+    "bytes": 848,
+    "sha256": "94c20bc957f6aeaddb002ef10c668063815618a70105799e5c93bbadfe501352"
+  },
+  "src/memgym/memory/adapters/cua/cua_llm_summarizing.py": {
+    "bytes": 5851,
+    "sha256": "2077a9e892af05ca299c0c6d77baea5f56e165d98f3399540db320669ad8c08a"
+  },
+  "src/memgym/memory/adapters/cua/cua_naive_summarization.py": {
+    "bytes": 5780,
+    "sha256": "7730f0c78ec084a11168d6f0c68684c242f8c59437d344608084d74d039e2e31"
+  },
+  "src/memgym/memory/adapters/cua/cua_structured_summary.py": {
+    "bytes": 9613,
+    "sha256": "cf90d7163b272baf9eca0a69e91356b67fc093e5081192903a12e30d585db5d2"
+  },
+  "src/memgym/memory/adapters/tau2_bench/__init__.py": {
+    "bytes": 1427,
+    "sha256": "ec80f4065ba490bccbb1763938c83afd7b226f635ad997347f7d9cba22624c42"
+  },
+  "src/memgym/memory/adapters/tau2_bench/tau2_structured.py": {
+    "bytes": 23149,
+    "sha256": "085f40339857b9c922f61fb44e13db30a6a5dda399c4f456962395fa77a0b6fe"
+  },
+  "src/memgym/memory/adapters/tau2_bench/tau2_summarizing.py": {
+    "bytes": 27400,
+    "sha256": "13d08692206b8bad6dea00ee32363f400009671a64b0117b45110aa527c36b29"
+  },
+  "src/memgym/memory/adapters/webarena/__init__.py": {
+    "bytes": 1049,
+    "sha256": "19537d5ee85355b9e8eaa2ea1c2337b4a1fbfded046ab1982d345c53767e3966"
+  },
+  "src/memgym/memory/adapters/webarena/webarena_structured_summary.py": {
+    "bytes": 22048,
+    "sha256": "8482e4e580ccffdd65ee41cabbd2eb1d1bf4306a3314c504b2e65069da52b5b6"
+  },
+  "src/memgym/memory/adapters/webarena/webarena_summarizing.py": {
+    "bytes": 21013,
+    "sha256": "df109bb29b04f734bcb64077409ebae7bc38350aa7f90b8a3fea8f163cd855e0"
+  },
+  "src/memgym/memory/backends/__init__.py": {
+    "bytes": 268,
+    "sha256": "5c9b3816187609b136b6fecdbe7c61046b5ed4cea19137bc831e2f54c3cb0b37"
+  },
+  "src/memgym/memory/backends/llmlingua_backend.py": {
+    "bytes": 6194,
+    "sha256": "692ffa2d3ec3aaabee7848ca709571235eb21a70567ffe89641fbbf11e2d3f71"
+  },
+  "src/memgym/memory/backends/summarizer_backend.py": {
+    "bytes": 16288,
+    "sha256": "f3f2d66e9d1b48783b11c2b7574f54f1a2b18d7b24fc58e97aff8971e96028fe"
+  },
+  "src/memgym/memory/base.py": {
+    "bytes": 18829,
+    "sha256": "f36fec356ad249590085290cfb60d3c1d416db6dd4f18ef0140182be1bc5deed"
+  },
+  "src/memgym/memory/external/__init__.py": {
+    "bytes": 317,
+    "sha256": "a252b6accd8f16982a9194943d5fc30994bbfe20b0161f8831f2714fdaec38cc"
+  },
+  "src/memgym/memory/external/amem/__init__.py": {
+    "bytes": 2220,
+    "sha256": "84b5167bc9295f4a08b98cf99a329295cfdf5e7ff60beb1951c584f7240e7887"
+  },
+  "src/memgym/memory/external/amem/llm_controller.py": {
+    "bytes": 5926,
+    "sha256": "4733aaeb122bb6670ad579cfe22a6f431cda694559f9c612ab18dc7466d8fa3e"
+  },
+  "src/memgym/memory/external/amem/model.py": {
+    "bytes": 9636,
+    "sha256": "c8ce38095b9337c31749d7151cb783e9b9c8351af57bb635af5ce6a3293e19f0"
+  },
+  "src/memgym/memory/external/amem/note.py": {
+    "bytes": 8202,
+    "sha256": "93c156d36baae8c6eb25b0bf9c8daf49e13d72b37e09d5979bc3e89760c7d715"
+  },
+  "src/memgym/memory/external/amem/retriever.py": {
+    "bytes": 5887,
+    "sha256": "e53143cf4ef9734ef9eb99fb23efb9c6d4bb734727606be40241506a87a65a00"
+  },
+  "src/memgym/memory/external/amem/swe_model.py": {
+    "bytes": 9644,
+    "sha256": "884e9b64c0588173276902462aa2aefffef3b014038090afae3fe6814c00f90b"
+  },
+  "src/memgym/memory/external/amem/system.py": {
+    "bytes": 33584,
+    "sha256": "ede85af3be96f49a207ecd33bb59ed8c9f53567afc6aba8f08caa6f3f40e8058"
+  },
+  "src/memgym/memory/external/hipporag/__init__.py": {
+    "bytes": 419,
+    "sha256": "647ebd57c0607cd49ee32857f0814f39211fddb9ee76fc02aebfcfadbccbb403"
+  },
+  "src/memgym/memory/external/hipporag/system.py": {
+    "bytes": 5173,
+    "sha256": "524fdb7189ce979a9ea9369335f8e67c5d6e525f3156cca65f12586f1c8c8f09"
+  },
+  "src/memgym/memory/external/mem0/__init__.py": {
+    "bytes": 320,
+    "sha256": "cf33d4d339318083bf297783b581bb4528b16b4f70c869242f08804b1cb1fa9e"
+  },
+  "src/memgym/memory/external/mem0/system.py": {
+    "bytes": 4195,
+    "sha256": "dc113ba3552cea06721efd46077583207eb842f85d09cdc0f328838d3a325ae8"
+  },
+  "src/memgym/memory/external/memorybank/__init__.py": {
+    "bytes": 383,
+    "sha256": "918db7b7ddd04fcf0281a5dbbcd4a219ae414cb4a6fc9f50835522a6d6f78d5e"
+  },
+  "src/memgym/memory/external/memorybank/system.py": {
+    "bytes": 4841,
+    "sha256": "ee291a2aa913549da12e74e1db00e866e38e16b64a9c78d43a2ea32f9de5b9e0"
+  },
+  "src/memgym/memory/external/simplemem/__init__.py": {
+    "bytes": 481,
+    "sha256": "1cf6cbc50ffa729dce24068c690f06922a982c1d990ba460285b5844432daf66"
+  },
+  "src/memgym/memory/external/simplemem/system.py": {
+    "bytes": 10813,
+    "sha256": "88fab614cc3e1a385423b161a15b5ebb5165329839e667321cf9747d281a915e"
+  },
+  "src/memgym/memory/ir/__init__.py": {
+    "bytes": 4089,
+    "sha256": "100f855119e7b8a6fd4b8fd6f3507f9f2950d41fdae7e93cd810b27a0568a26b"
+  },
+  "src/memgym/memory/ir/ir_amem.py": {
+    "bytes": 8266,
+    "sha256": "0470dc857b8743c026ed1362255f238f16549a404dcae0af309b31a00369c915"
+  },
+  "src/memgym/memory/ir/ir_bm25.py": {
+    "bytes": 4320,
+    "sha256": "ba837b8855ddfb84a6a2a1aa844cdf452a81c203eb5b68af5d21654dfdb8d932"
+  },
+  "src/memgym/memory/ir/ir_hipporag.py": {
+    "bytes": 3733,
+    "sha256": "b99b6dac22eae32c27fc021e103a261036c6a66cf3f0fa9e062e59385787a256"
+  },
+  "src/memgym/memory/ir/ir_lightmem.py": {
+    "bytes": 10180,
+    "sha256": "7e2e4790f9f302dd47df245ad8bb2048ebc55cc5664e6378ee37b4adc83cbe7f"
+  },
+  "src/memgym/memory/ir/ir_mem0.py": {
+    "bytes": 3491,
+    "sha256": "942eb58d34ddd2e5e5bd66e0002ab9646094865cc4f75dd9a5b35028538ee6b3"
+  },
+  "src/memgym/memory/ir/ir_memorybank.py": {
+    "bytes": 3872,
+    "sha256": "4b9a09f957ca28932585982eaf01c161147fbc7c76945fe13bca9a090f68b7ec"
+  },
+  "src/memgym/memory/ir/ir_naive_rag.py": {
+    "bytes": 4026,
+    "sha256": "ba6018dce38e2f7ca3c96ae622c7d281bc85b6bc3652669ac56558fef078b7df"
+  },
+  "src/memgym/memory/ir/ir_simplemem.py": {
+    "bytes": 3974,
+    "sha256": "0036e3bf0d111bc6a4b71cc0249ecd7bcfe3c2182f1d5b5b6c2830078dc2bdd4"
+  },
+  "src/memgym/memory/ir/ir_structured_summary.py": {
+    "bytes": 8590,
+    "sha256": "ca1fdfa44e4a0c7f0a80ec892340b44490e2807910cd22ecfb3c61929dcae24b"
+  },
+  "src/memgym/memory/ir/ir_summarizing.py": {
+    "bytes": 5642,
+    "sha256": "c91ff432ca6ad6f7f1de1fd015dc6ba41fe58813af142e00cb8382ec476140a9"
+  },
+  "src/memgym/memory/ir/lightmem_server.py": {
+    "bytes": 3862,
+    "sha256": "549d5aef8ebc22cdf06cc0c8da0add97c3c9dbfe007fa4e52e4c8c416e3f5701"
+  },
+  "src/memgym/memory/strategies/__init__.py": {
+    "bytes": 361,
+    "sha256": "e787c54bfa145de71a7295c26c11526b1cc546bae557758fa09f3efc22d759ba"
+  },
+  "src/memgym/memory/strategies/_lightmem_prompts.py": {
+    "bytes": 2809,
+    "sha256": "f983101be71b7173bd72f88c2e6f9055c13bf03567f5603362f9ff0cfc1858af"
+  },
+  "src/memgym/memory/strategies/adaptive_token_budget.py": {
+    "bytes": 15881,
+    "sha256": "276b92b06b8e3dcb94d3297bc5fa65d2446b9e1a7c0e4f55e10375109848b8e7"
+  },
+  "src/memgym/memory/strategies/llm_summarizing.py": {
+    "bytes": 21634,
+    "sha256": "6ca8bd671bb90ca03754fa6645e32530d5fd7edd38a87797efc210d9646cec4f"
+  },
+  "src/memgym/memory/strategies/multimodal_adapter.py": {
+    "bytes": 7707,
+    "sha256": "a526c9d74a3627d1eb7b427eb6a99c7add876dec872fc8d1fdd89ac873fa5f66"
+  },
+  "src/memgym/memory/strategies/naive_summarization.py": {
+    "bytes": 14625,
+    "sha256": "378dbcf732647c9445a52f9af8634464534a401ba8b7762ee332951b34cacd01"
+  },
+  "src/memgym/memory/strategies/observation_masking.py": {
+    "bytes": 5498,
+    "sha256": "41be3a1c996198ba9a0d2eb04f7ec4eb887dccb5ae92b8f655cd1f84a95c135d"
+  },
+  "src/memgym/memory/strategies/pipeline.py": {
+    "bytes": 4661,
+    "sha256": "ebc6fbdb77c333a1add837508213a76599371fadb296f924da7396d0f8c847ba"
+  },
+  "src/memgym/memory/strategies/sliding_window_summary.py": {
+    "bytes": 12741,
+    "sha256": "ef769738feb194d70d43daae0e3644ac9e0495d02ce290e2a0f208fbedb76f27"
+  },
+  "src/memgym/memory/strategies/structured_summary.py": {
+    "bytes": 16815,
+    "sha256": "18951e69e9c7ba475da95cb55d5b9e8c672552fad12f32008755a9df3a774806"
+  },
+  "src/memgym/memory/strategies/summarization.py": {
+    "bytes": 7933,
+    "sha256": "950ac9cf07557c93586f3c2828d0f401a2fe0a127ac6f98244ea358ad3959eaa"
+  },
+  "src/memgym/pipelines/__init__.py": {
+    "bytes": 64,
+    "sha256": "80084df5ca3cf5182771c824f908071ac37f3e3de17b2a2740e9e0cbe8052d86"
+  },
+  "src/memgym/pipelines/coding_synthetic/__init__.py": {
+    "bytes": 336,
+    "sha256": "a84d4408d6787bd58772196d6e80fc685ce447677d3ab9f55f5b1738f007de10"
+  },
+  "src/memgym/pipelines/coding_synthetic/__main__.py": {
+    "bytes": 1715,
+    "sha256": "4f0cc864bcb50acbf86961028530ec692de03327679c8cb06d9b609a095acf15"
+  },
+  "src/memgym/pipelines/coding_synthetic/eval/__init__.py": {
+    "bytes": 134,
+    "sha256": "bac0e40065099e4f9825e09124e46d3b8cce1fcd5d4652ff44a91b36bcad71d7"
+  },
+  "src/memgym/pipelines/coding_synthetic/eval/eval_solvability_agent.py": {
+    "bytes": 22906,
+    "sha256": "309f0d1c008c5285a2fa0fe2a22624d4841ed5cd8a30bd4f56fda313a6e510dc"
+  },
+  "src/memgym/pipelines/coding_synthetic/eval/eval_solvability_pilot.py": {
+    "bytes": 8716,
+    "sha256": "a9443e13f34cb793ccf4d1d5a4c2273827e902a0872e391900f5ba93dc2107a3"
+  },
+  "src/memgym/pipelines/coding_synthetic/eval_coding_qa.py": {
+    "bytes": 25237,
+    "sha256": "b8ca21811c27ebddc0731c4516914fe7cda9f58214e6c16783d3b05994b8471e"
+  },
+  "src/memgym/pipelines/coding_synthetic/llm/__init__.py": {
+    "bytes": 737,
+    "sha256": "9dd57a2e5cc936e7be6af0b5dfad1eba25efe86ab930b240df0928964ec71b19"
+  },
+  "src/memgym/pipelines/coding_synthetic/llm/client.py": {
+    "bytes": 11859,
+    "sha256": "03c207cb5735ff3daaf8054cb4419daa3914da5014f55c78629bff1e5883bdc3"
+  },
+  "src/memgym/pipelines/coding_synthetic/llm/prompts.py": {
+    "bytes": 36126,
+    "sha256": "f237125942fde9d768c07198af1a0f4c8fb02925cc4fd5afa77b44c77503a880"
+  },
+  "src/memgym/pipelines/coding_synthetic/memory_methods/__init__.py": {
+    "bytes": 6176,
+    "sha256": "eb18936b37c6b0977658d3ce42dcaae8456b870ee3d8e57bce0176a0e018125b"
+  },
+  "src/memgym/pipelines/coding_synthetic/memory_methods/amem_method.py": {
+    "bytes": 2652,
+    "sha256": "2a5811c6cf04e4e2d2aed030582a8aee835f8992a6cfd028d22bfe0c3429e921"
+  },
+  "src/memgym/pipelines/coding_synthetic/memory_methods/hipporag_method.py": {
+    "bytes": 1603,
+    "sha256": "d614f1ff10b1910d8b1f8b4496a87f63b7c8aaae1435447a2c3207214c11db91"
+  },
+  "src/memgym/pipelines/coding_synthetic/memory_methods/lightmem_method.py": {
+    "bytes": 9202,
+    "sha256": "42d0b362da6814348e5b32b8c0e6364fb7d1411ba92523441b0bfa13a00325d9"
+  },
+  "src/memgym/pipelines/coding_synthetic/memory_methods/mem0_method.py": {
+    "bytes": 1475,
+    "sha256": "cb0198fd9dd01487beff41e8c2fedf01b21ae43d191dfc882791c12e016f05ee"
+  },
+  "src/memgym/pipelines/coding_synthetic/memory_methods/memorybank_method.py": {
+    "bytes": 1635,
+    "sha256": "1c13de2806326c02593419d6c7e49c8c78e85e1a97dddac4dcb3434ebe85df78"
+  },
+  "src/memgym/pipelines/coding_synthetic/memory_methods/protocol.py": {
+    "bytes": 3924,
+    "sha256": "65727dd470be6b31c8f00ea7dfe3683c38ca55c884aa2da74c1b0f7697336982"
+  },
+  "src/memgym/pipelines/coding_synthetic/memory_methods/simplemem_method.py": {
+    "bytes": 1866,
+    "sha256": "5718817ff78d4ac942d622e3dc030b4bcc2a0f0e6bfcd100e0d9419e94eca6fb"
+  },
+  "src/memgym/pipelines/coding_synthetic/memory_methods/truncated_method.py": {
+    "bytes": 966,
+    "sha256": "683e0e0db0d606f40d843850560460d2727566f615dafe3b301a7fb82386ee7f"
+  },
+  "src/memgym/pipelines/coding_synthetic/pipeline.py": {
+    "bytes": 23132,
+    "sha256": "3ac0778426f4305c7b27ec4380c05f34ecc204bafd3057a3d14f88f4848b4eb7"
+  },
+  "src/memgym/pipelines/coding_synthetic/stages/__init__.py": {
+    "bytes": 1431,
+    "sha256": "1fef532eb0e54f80261ec15eba32b1ba1adb88b1c4f566f48c5f7b2daa88800c"
+  },
+  "src/memgym/pipelines/coding_synthetic/stages/expand.py": {
+    "bytes": 12049,
+    "sha256": "2d1e5df649356be2901763fc3a046836a65eb04012040364decc7451ff2814ae"
+  },
+  "src/memgym/pipelines/coding_synthetic/stages/extract.py": {
+    "bytes": 32496,
+    "sha256": "4234789c94f2f2324be669742a75f7870855b7fdaae1d63bb1d0595bcf9d8839"
+  },
+  "src/memgym/pipelines/coding_synthetic/stages/fact_tests/__init__.py": {
+    "bytes": 862,
+    "sha256": "12e3a10da24d6c10a9ef9ffa01dbc8d418bdd9aac86570bd3a8e8d4e07a13e73"
+  },
+  "src/memgym/pipelines/coding_synthetic/stages/fact_tests/run.py": {
+    "bytes": 5978,
+    "sha256": "c481241e33ac320adfec39af8db0731f6cc91133645362d8d2290f579abf5d33"
+  },
+  "src/memgym/pipelines/coding_synthetic/stages/fact_tests/schemas.py": {
+    "bytes": 1308,
+    "sha256": "0ef0a70291de1d13fa35b52cb1c6bd5a676408afe8c92758a64692a614a947be"
+  },
+  "src/memgym/pipelines/coding_synthetic/stages/fact_tests/synthesize.py": {
+    "bytes": 2624,
+    "sha256": "3101565e90bd1deaf45a2adf7755593ba2019251e90d10e4d2b3accc24010f6f"
+  },
+  "src/memgym/pipelines/coding_synthetic/stages/filter.py": {
+    "bytes": 6161,
+    "sha256": "39490eed9ef43f6c79e769a1a3304810fa341332394b4d5de25d1fb0356f9bf5"
+  },
+  "src/memgym/pipelines/coding_synthetic/stages/generate.py": {
+    "bytes": 39015,
+    "sha256": "417138da64391a1ee4b32614cd6e03c9ae49d1b9c49c31f675c4667b076d76d9"
+  },
+  "src/memgym/pipelines/coding_synthetic/stages/harden.py": {
+    "bytes": 5652,
+    "sha256": "82da816e961526b27867d02780e486b36737dea70a0f6a5a1a2935c8dd9165bd"
+  },
+  "src/memgym/pipelines/coding_synthetic/stages/prescreen.py": {
+    "bytes": 6947,
+    "sha256": "2f80a20a10754a7c6328a886a38a4aadc3d6b761173b0286c52854b564501598"
+  },
+  "src/memgym/pipelines/coding_synthetic/stages/qa/__init__.py": {
+    "bytes": 270,
+    "sha256": "a36f0985e72039483b59f01f3d86eb8031475269956e2630e73192ff9b889840"
+  },
+  "src/memgym/pipelines/coding_synthetic/stages/qa/convert.py": {
+    "bytes": 42227,
+    "sha256": "211524beeaf45b4dd30906ec09a4482093ba5d46b0483748a2de32d1ff5f6152"
+  },
+  "src/memgym/pipelines/coding_synthetic/stages/qa/distractor_pool.py": {
+    "bytes": 5276,
+    "sha256": "564f46fff059e4f5d7ad1e847476ca579fcddf4ac84e8942aae30423cf85ea4d"
+  },
+  "src/memgym/pipelines/coding_synthetic/stages/qa/eval.py": {
+    "bytes": 35997,
+    "sha256": "130de4d1eff144d0bfa8c78e2cc0ff075ce7e1896bdad224e79dcff2eda004e3"
+  },
+  "src/memgym/pipelines/coding_synthetic/stages/qa/score.py": {
+    "bytes": 11776,
+    "sha256": "9774c2e55a1e1d257b062ec6d7690ae097bc8c305d9a47712369f433f6e2dcfa"
+  },
+  "src/memgym/pipelines/coding_synthetic/stages/qa/verify.py": {
+    "bytes": 23000,
+    "sha256": "5c1d0abd0f75b20db9f98e3b55eedd5f071a76683038032b35abbf7950dcdb36"
+  },
+  "src/memgym/pipelines/coding_synthetic/stages/validate.py": {
+    "bytes": 15364,
+    "sha256": "055e1e583c484a4d8a809d693cba56e4d147013de1b556de2058c82814b6e7b0"
+  },
+  "src/memgym/pipelines/coding_synthetic/transforms/__init__.py": {
+    "bytes": 556,
+    "sha256": "c0c3ce0e8c66a82ce22ffaa4d274f1d49e16040bd26bb13545bf8dac9249a6dc"
+  },
+  "src/memgym/pipelines/coding_synthetic/transforms/base.py": {
+    "bytes": 1379,
+    "sha256": "5f1027034e4e76322578a1081258d819c0ffbb43019eea1fc514b7a66d7e391b"
+  },
+  "src/memgym/pipelines/coding_synthetic/transforms/distractor_scale.py": {
+    "bytes": 3200,
+    "sha256": "8805b3babc6018dd21b34e8b1b45e2c802b1371b4da064ec12d732af412860ef"
+  },
+  "src/memgym/pipelines/coding_synthetic/transforms/fact_fragment.py": {
+    "bytes": 3332,
+    "sha256": "d4e2c029e51df17d6bb8df66819310cb11d5c63366248e1c3756aea43504c0d9"
+  },
+  "src/memgym/pipelines/coding_synthetic/transforms/indirection.py": {
+    "bytes": 2647,
+    "sha256": "58b7af03c79883c5b9a33bad5356ed83651e3c4f6d2f51a818525daf7ab1e79c"
+  },
+  "src/memgym/pipelines/coding_synthetic/transforms/prompt_fuzz.py": {
+    "bytes": 1663,
+    "sha256": "e345b2749e91c11c21c4c68076708b71361f62a1978c928f2274ed4365fd5b74"
+  },
+  "src/memgym/pipelines/coding_synthetic/types/__init__.py": {
+    "bytes": 827,
+    "sha256": "03bb8a622a34ca9066f0fa5d080b7e0786e4a35972d9fc2d655dbf0aeab1827e"
+  },
+  "src/memgym/pipelines/coding_synthetic/types/schemas.py": {
+    "bytes": 30961,
+    "sha256": "090c83d8a2feb6ee6cd7e0e7763600338900bb7702824654a6dbb2ad0fbd1059"
+  },
+  "src/memgym/pipelines/coding_synthetic/utils/__init__.py": {
+    "bytes": 205,
+    "sha256": "d07ba17e49cbe009aae87d00172686b7fd8e8aae0e2a2e3b46c525eb6a2ce6f9"
+  },
+  "src/memgym/pipelines/coding_synthetic/utils/diff_parser.py": {
+    "bytes": 4600,
+    "sha256": "dcac712c582b131700dabed2c0d72a145c9d73cda0c9abb2b87a2768210da31d"
+  },
+  "src/memgym/pipelines/coding_synthetic/utils/expansion.py": {
+    "bytes": 1971,
+    "sha256": "e143e8212221d3dc71bfc36e40e16080f964a6f6914b10b4ef7db88c6f9fef6a"
+  },
+  "src/memgym/pipelines/coding_synthetic/utils/parallel.py": {
+    "bytes": 5776,
+    "sha256": "a2aa8754cc97807da79eeb7492fddb23268cfa6e5c9efa02dec7cf4c26845a4f"
+  },
+  "src/memgym/pipelines/coding_synthetic/utils/patch_utils.py": {
+    "bytes": 2187,
+    "sha256": "06a0ae951c54b37cace734a5c8bc77085907376c3f99cf73c6c12ad8b1ac4c7b"
+  },
+  "src/memgym/pipelines/coding_synthetic/utils/token_counter.py": {
+    "bytes": 486,
+    "sha256": "e6af33ce007ea782713196bcde718f705810e59f0c06e10cf479c4d051837dc0"
+  },
+  "src/memgym/pipelines/coding_synthetic/viewer.py": {
+    "bytes": 33219,
+    "sha256": "5b30d89e75550d521d178da970c082a88e62c48530d2b40f2ac19c019a54400d"
+  },
+  "src/memgym/pipelines/configs/default.yaml": {
+    "bytes": 806,
+    "sha256": "f5ea9c81add754a5d3150556a28cd4a028c3676b74cc5ef9e103b6a965b4285d"
+  },
+  "src/memgym/pipelines/memgym_ir/README.md": {
+    "bytes": 3078,
+    "sha256": "5c0046205d5a58cfa0d3acab1720ffd7f4b6dc60bfe1a056ab62cdf329a0a874"
+  },
+  "src/memgym/pipelines/memgym_ir/TESTING.md": {
+    "bytes": 3283,
+    "sha256": "f1270a43ac21527441525c308847ed1806ecf750bb8e30086a0e08e72dccb0f9"
+  },
+  "src/memgym/pipelines/memgym_ir/__init__.py": {
+    "bytes": 64,
+    "sha256": "60c5b7b7224d107264cb35825f7e359f8dcc05fd48144a4217486fe88be6c212"
+  },
+  "src/memgym/pipelines/memgym_ir/__main__.py": {
+    "bytes": 10284,
+    "sha256": "b5577854599dc9be88b349d14933d9e1cd5e0ad5cd230180cf8db9978bb2b6c8"
+  },
+  "src/memgym/pipelines/memgym_ir/backends/__init__.py": {
+    "bytes": 3711,
+    "sha256": "ce8ff13bcf5d4544742616fc924fa2f77e6428be868c63ad6e6a5d2578869581"
+  },
+  "src/memgym/pipelines/memgym_ir/backends/arxiv_backend.py": {
+    "bytes": 2840,
+    "sha256": "aa5c2b81cb2b24de89b4d8226b6d76fe42aad8994caffbe5dbe38fcecf82b275"
+  },
+  "src/memgym/pipelines/memgym_ir/backends/combined.py": {
+    "bytes": 1952,
+    "sha256": "38fa7d2e4e4b8087fb15b7c6e27c40f2c97b9e4333bbf8bff65a8493f81ecaa1"
+  },
+  "src/memgym/pipelines/memgym_ir/backends/core_api.py": {
+    "bytes": 3473,
+    "sha256": "52c14a28d60e60bf8ba0cd72e7a61c632116904a5092a4c98374619b2430d99f"
+  },
+  "src/memgym/pipelines/memgym_ir/backends/ddg.py": {
+    "bytes": 3138,
+    "sha256": "bcacca6faaa2e020ff3e34433e892649fcf7c1fa3b9591de49b417b1c1c2cd2a"
+  },
+  "src/memgym/pipelines/memgym_ir/backends/fictionalized.py": {
+    "bytes": 12060,
+    "sha256": "b4e6e083f458ac4c4b7d68f025e8081f9dedc2a1aceb8f6a621d3420399cc77b"
+  },
+  "src/memgym/pipelines/memgym_ir/backends/local_arxiv.py": {
+    "bytes": 5341,
+    "sha256": "fec0553a38037a72011250e723be991edc87a6724d5fc6d1440616b8b9853478"
+  },
+  "src/memgym/pipelines/memgym_ir/backends/openalex.py": {
+    "bytes": 4106,
+    "sha256": "933bccbe8cd6658b60527fa7c58ec35405706d7a9271789c8aa4df6fbbd9573e"
+  },
+  "src/memgym/pipelines/memgym_ir/backends/paper_id.py": {
+    "bytes": 1968,
+    "sha256": "9e7f8d3dd825c34bd187cc7218904a772a670639684f39552c87729d6783c210"
+  },
+  "src/memgym/pipelines/memgym_ir/backends/pubmed.py": {
+    "bytes": 5751,
+    "sha256": "ca06d8da5c728c94da95a014e05d8e602ff01d8f97f299e9a11ac9dbe070f2e1"
+  },
+  "src/memgym/pipelines/memgym_ir/backends/semantic_scholar.py": {
+    "bytes": 5087,
+    "sha256": "4fe621a5fe96217a8cd77238c3be0dba946cf7774fe2b30fca404086c8cf4723"
+  },
+  "src/memgym/pipelines/memgym_ir/backends/wikipedia.py": {
+    "bytes": 3299,
+    "sha256": "1e28a88e07ead0afa1450df480edaf78fa2ff5ac782ffff8bd5c5bfde8d3eacc"
+  },
+  "src/memgym/pipelines/memgym_ir/config.py": {
+    "bytes": 10173,
+    "sha256": "c9a81a99b1a1d39d2d91e4c025fd14a95ceec7f2c749d458ce626d0f189f278b"
+  },
+  "src/memgym/pipelines/memgym_ir/configs/default.yaml": {
+    "bytes": 497,
+    "sha256": "aee988cec6c4d6f69c0a503590ef03e118c342aca697d8c75e581c78ed76894c"
+  },
+  "src/memgym/pipelines/memgym_ir/configs/eval_compare_all.yaml": {
+    "bytes": 390,
+    "sha256": "ed79c9e7c7469719e9411a2fe37d8e66b22246df9b93cfabe3e577eccccf46b5"
+  },
+  "src/memgym/pipelines/memgym_ir/configs/memory_extreme.yaml": {
+    "bytes": 589,
+    "sha256": "172a2c974466a9d67598b932806175ef2ddccd7bd72dd14b6c03e075b000dd92"
+  },
+  "src/memgym/pipelines/memgym_ir/configs/memory_hard_3hop.yaml": {
+    "bytes": 546,
+    "sha256": "02e11aad5b5c4abe5131f5611579b77d23d68b23940d3dbb3a0d8e3e35fd2d70"
+  },
+  "src/memgym/pipelines/memgym_ir/configs/research_academic.yaml": {
+    "bytes": 711,
+    "sha256": "c7e2871f62696c7d2cc1fb0dae767f269d047b8de982fc04c8bdf05a21907a23"
+  },
+  "src/memgym/pipelines/memgym_ir/configs/research_default.yaml": {
+    "bytes": 674,
+    "sha256": "759e70be879e80476b2437d62382d91bb8ea6bcabc903242ea72a3f8dc7743d8"
+  },
+  "src/memgym/pipelines/memgym_ir/configs/research_science.yaml": {
+    "bytes": 446,
+    "sha256": "2bc70319b88146c2dbadade1c41935c52833b0ceed82aa06aae4a61d4518a891"
+  },
+  "src/memgym/pipelines/memgym_ir/configs/smoke_test.yaml": {
+    "bytes": 563,
+    "sha256": "0dfe609e1d1ef23d4047cbda604ebb6680ede7659e23cdf0f3d30aeae8a19ae5"
+  },
+  "src/memgym/pipelines/memgym_ir/configs/structural_3hop.yaml": {
+    "bytes": 340,
+    "sha256": "3b85f40fbbfcd77af522e25ab927893456d0b3064b362af58dfa3e473e88ca1f"
+  },
+  "src/memgym/pipelines/memgym_ir/eval/__init__.py": {
+    "bytes": 48,
+    "sha256": "b89802a56882dc38aee3a02ea94d069981e9179b854d3b1ebb092fd6048d7862"
+  },
+  "src/memgym/pipelines/memgym_ir/eval/agent.py": {
+    "bytes": 16431,
+    "sha256": "e784f60763dacc15605c4af540ab095a5b2962b51b9f2bf353a304049e7cc8fa"
+  },
+  "src/memgym/pipelines/memgym_ir/eval/delayed_reveal.py": {
+    "bytes": 3216,
+    "sha256": "8b0a28206699cdec70c0ba7c3aabbfa42350393e9f2c3fe54a683a5cab6ec933"
+  },
+  "src/memgym/pipelines/memgym_ir/eval/memory.py": {
+    "bytes": 22325,
+    "sha256": "115ef67f009b03a600d78288a39c90efb8d05a70ae31bde5b0cf45c706ce74c4"
+  },
+  "src/memgym/pipelines/memgym_ir/eval/quality_review.py": {
+    "bytes": 23953,
+    "sha256": "dcb385eed19643cf3849cc7c753229801e8c82a5afbc7323fa62af26edf55661"
+  },
+  "src/memgym/pipelines/memgym_ir/generators/__init__.py": {
+    "bytes": 77,
+    "sha256": "273af5c90f3eb4035dbb78990acfc27a126201c9570cd72fde0c3dd6101664c5"
+  },
+  "src/memgym/pipelines/memgym_ir/generators/build_instances.py": {
+    "bytes": 11352,
+    "sha256": "8f960ec96f47c219c6713f016caa310afd6d3e1b373697bd58afc3be3e974b5c"
+  },
+  "src/memgym/pipelines/memgym_ir/generators/question_grower.py": {
+    "bytes": 12209,
+    "sha256": "b4c207b77180291543de19f4a1558cc4c847ff8f5b98411ec213954311fc9989"
+  },
+  "src/memgym/pipelines/memgym_ir/generators/research_generator.py": {
+    "bytes": 20475,
+    "sha256": "f2091cf0ece856a07ea731a06a3fa470bff1c368a7b259b3285159e152a55961"
+  },
+  "src/memgym/pipelines/memgym_ir/llm/__init__.py": {
+    "bytes": 728,
+    "sha256": "1a5c32a8200c534cc4277b0fee40eb7745c93d47983e6644f7b0be5e1e8a7c4d"
+  },
+  "src/memgym/pipelines/memgym_ir/llm/client.py": {
+    "bytes": 7057,
+    "sha256": "c1eb6d7a66d574f16d687e32601fcc195bc1af98ec205f3f1aee46b769ae501a"
+  },
+  "src/memgym/pipelines/memgym_ir/llm/prompts.py": {
+    "bytes": 79343,
+    "sha256": "ce0e1fefda9c8a7f0307f761c49ed2916b29bb702d79de19c85abec1c4cf931e"
+  },
+  "src/memgym/pipelines/memgym_ir/orchestrators/__init__.py": {
+    "bytes": 44,
+    "sha256": "3f4ef454a88b03bd546f32f2af02813fcfaded11b9783f14ba4b0d6513838052"
+  },
+  "src/memgym/pipelines/memgym_ir/orchestrators/dataset_pipeline.py": {
+    "bytes": 12825,
+    "sha256": "e17f3094c2e6c5d262d3aa3170b66cfa3337f86cbb57ddc9b19e0acf43b9f482"
+  },
+  "src/memgym/pipelines/memgym_ir/orchestrators/deep_research_pipeline.py": {
+    "bytes": 44409,
+    "sha256": "3bde34f98cf32c5b71b4a2e57bd32da0b08a1bfb6e6aa0ab68bc26ee7d6ea830"
+  },
+  "src/memgym/pipelines/memgym_ir/orchestrators/research_pipeline.py": {
+    "bytes": 10693,
+    "sha256": "f5bc16499e3f4d9be58fef5dc1e9b47b189d0c4fa93f2ca7282aaf02fb71e763"
+  },
+  "src/memgym/pipelines/memgym_ir/requirements.txt": {
+    "bytes": 166,
+    "sha256": "f4db916b415b559ebafc4b08b6dfab084fb12578aaf96ea3ece99e883ae8c534"
+  },
+  "src/memgym/pipelines/memgym_ir/stages/__init__.py": {
+    "bytes": 40,
+    "sha256": "64c4022416673fa4e699948ead526cb9656d282b90f42f1c0f386d0a6b34a811"
+  },
+  "src/memgym/pipelines/memgym_ir/stages/adapters/__init__.py": {
+    "bytes": 365,
+    "sha256": "936a7894494fcb9449dea492798fea18e9355fdec63f2cf5624ab9fba8250108"
+  },
+  "src/memgym/pipelines/memgym_ir/stages/adapters/hotpotqa.py": {
+    "bytes": 5585,
+    "sha256": "3e6d859a992a04ab3435eed3763f5ddb97b166e853c6c35f9e5445af01a4ce78"
+  },
+  "src/memgym/pipelines/memgym_ir/stages/adapters/musique.py": {
+    "bytes": 3578,
+    "sha256": "727c53f0771cab1480de03139f21dd0b0234a6133edfea81214edc3e5051206e"
+  },
+  "src/memgym/pipelines/memgym_ir/stages/adapters/synthetic.py": {
+    "bytes": 7450,
+    "sha256": "7ba16529daad588528588cf98f777d55e104562ae730fefda20cd03a3cbc6b8e"
+  },
+  "src/memgym/pipelines/memgym_ir/stages/adapters/wikimultihop.py": {
+    "bytes": 8276,
+    "sha256": "3267d006b84d5495a9797545f6348bf80e9e0654223d84132beb41717818d2e3"
+  },
+  "src/memgym/pipelines/memgym_ir/stages/calibrate.py": {
+    "bytes": 8958,
+    "sha256": "0c51c2275016d7839af9defd68cd295a468c18f2323cab094540b527e1017e14"
+  },
+  "src/memgym/pipelines/memgym_ir/stages/extract.py": {
+    "bytes": 14359,
+    "sha256": "c3c066d9b7eadafbf12a2b73f599c6d258582f4c76a44196c84e7e839dbdc4ae"
+  },
+  "src/memgym/pipelines/memgym_ir/stages/filter.py": {
+    "bytes": 3416,
+    "sha256": "95c7ab419683387ad73ec4255863164825e71fa9cab93728c0e2488d4082c381"
+  },
+  "src/memgym/pipelines/memgym_ir/stages/generate.py": {
+    "bytes": 78267,
+    "sha256": "9a0900206f74e4a02012c644ae29e351396297400fcaddfa9db1c7b18fb6aeec"
+  },
+  "src/memgym/pipelines/memgym_ir/stages/harden.py": {
+    "bytes": 14488,
+    "sha256": "b0ea5e8a0ef0e183b0d0721569885be524b0b604424edfe80928b74fc28c5b29"
+  },
+  "src/memgym/pipelines/memgym_ir/stages/prescreen.py": {
+    "bytes": 8519,
+    "sha256": "f68ee6eb3fef45e5d7f67be079fce1506c03ac7168bb5547c059befffd2f8495"
+  },
+  "src/memgym/pipelines/memgym_ir/stages/report.py": {
+    "bytes": 9619,
+    "sha256": "1b8671d352051749e63a1e53b6a822ae0adb9c56cacf7b246d96745806cfc3fc"
+  },
+  "src/memgym/pipelines/memgym_ir/stages/upgrade.py": {
+    "bytes": 14918,
+    "sha256": "4154f13489cb19e6ef068fb9a1ec2054d2d09faaa2afedcb57c277410a6a072c"
+  },
+  "src/memgym/pipelines/memgym_ir/stages/validate.py": {
+    "bytes": 18048,
+    "sha256": "1bb7b24c0f1e9e5a3c4242676e1ffc987d91e93805544e3dea56d404e71a8f01"
+  },
+  "src/memgym/pipelines/memgym_ir/topics/__init__.py": {
+    "bytes": 69,
+    "sha256": "0148f3d3d4a4cf0f8968e44766309ab7cb024eb86afd36e2a87b0073616c04a9"
+  },
+  "src/memgym/pipelines/memgym_ir/topics/generator.py": {
+    "bytes": 17916,
+    "sha256": "8f22092a8b3253d6a2f14c47ae13a74bdc2bbf7d0f953ef64b0e96727426badc"
+  },
+  "src/memgym/pipelines/memgym_ir/types/__init__.py": {
+    "bytes": 385,
+    "sha256": "facf1b23ee04ba7035539d031f12968f899e3e24a50c0e925570cb07c7d62367"
+  },
+  "src/memgym/pipelines/memgym_ir/types/schemas.py": {
+    "bytes": 10519,
+    "sha256": "387d8093dff66f7135fc7e27c79a491d4efeccae057e8fcd36f585a9666d7b3f"
+  },
+  "src/memgym/pipelines/memgym_ir/utils/__init__.py": {
+    "bytes": 37,
+    "sha256": "a36a622791e16124fec111d76ef4f2df034b7c41ebd118794a00309d99574896"
+  },
+  "src/memgym/pipelines/memgym_ir/utils/scraper.py": {
+    "bytes": 1403,
+    "sha256": "43d163e350fd2ba3e26a047b493e3c24e8e9dae9cd94970d16670a846f3deb02"
+  },
+  "src/memgym/pipelines/memgym_ir/utils/search_tools.py": {
+    "bytes": 4159,
+    "sha256": "1c20c47fbb8e4ea5c8b801946b6681e6c5580b7203a7f3b27286da5c6a9aa421"
+  },
+  "src/memgym/pipelines/quality_report.py": {
+    "bytes": 25484,
+    "sha256": "cc7575b2432f25986bd95d0e7b7980f1fffaa406eacc4287f41ce99802ea090b"
+  },
+  "src/memgym/pipelines/run_coding_synthetic.py": {
+    "bytes": 4822,
+    "sha256": "13cdd5fd2d7edf78fc664aa5a6960ebf81811074efc027871c6b60c03f75b34a"
+  },
+  "src/memgym/pipelines/webarena_experiments.py": {
+    "bytes": 15942,
+    "sha256": "d71fd2b323402dc9042c219e84d3e2d53ff0caa3adcfc50e5178ac1d6b373c24"
+  },
+  "src/memgym/runners/__init__.py": {
+    "bytes": 1069,
+    "sha256": "7a91cf68eee07280d1787543520e42729eec2b16cd62b0b468d9a806c591b022"
+  },
+  "src/memgym/runners/base.py": {
+    "bytes": 8059,
+    "sha256": "d404c95e0c64c416d14c094e850876db2df4f83bf562c9ec2eb078e83032200b"
+  },
+  "src/memgym/runners/swe_runner.py": {
+    "bytes": 7709,
+    "sha256": "39fa88a3195320240fdd79fbadef5542cc02874cefb4b8658a9b9a0efda93ce1"
+  },
+  "src/memgym/runners/tau2_bench_runner.py": {
+    "bytes": 21326,
+    "sha256": "7625b18e45333c15848619cb85eed9f7316e65dd0f671f355abf0e457b875e11"
+  },
+  "src/memgym/runners/webarena_replay_runner.py": {
+    "bytes": 15890,
+    "sha256": "d822a7d59335ddfe09ca2bd7afd32beddfb2e7c07129d9c0aae1c12eaf0e049c"
+  },
+  "src/memgym/runners/webarena_runner.py": {
+    "bytes": 31638,
+    "sha256": "17c739350e0ed7e9460f26071b9a5436b0828bd960bf706d7fcb299a9f8d3356"
+  },
+  "src/memgym/training/__init__.py": {
+    "bytes": 1373,
+    "sha256": "46f53c2dcc9b1de9426b6f217d1a5d3492fa5030064b7e49de815dfcb8c979ed"
+  },
+  "src/memgym/training/augmentation/__init__.py": {
+    "bytes": 249,
+    "sha256": "693e8bd9f82c55319037569e4268d77be8d3f24f4eebb1fc7660b747bd54a412"
+  },
+  "src/memgym/training/augmentation/env_replay.py": {
+    "bytes": 27071,
+    "sha256": "557887ae07ed3f430a76a1616807838ce771e0529e49d3e958661e2f5be8ca11"
+  },
+  "src/memgym/training/augmentation/llm_judge.py": {
+    "bytes": 5011,
+    "sha256": "8653ca73f30c313d87401589b229de977aec97a6eb7f587038e7e2de02f2db38"
+  },
+  "src/memgym/training/augmentation/perturbations.py": {
+    "bytes": 17877,
+    "sha256": "0f733825a5f702017cbfad93d24875d16036c4d50f44d8939e6bddd5a8818a62"
+  },
+  "src/memgym/training/augmentation/replay.py": {
+    "bytes": 18957,
+    "sha256": "2d4800e0ab3968553d0478a7443651e45b0b04d87d21abf464aa8f04377b3e36"
+  },
+  "src/memgym/training/base.py": {
+    "bytes": 5904,
+    "sha256": "774c299da96bf4a42f5a1082b532dd6388f7d1e96eb35560036d3e4ac9145c31"
+  },
+  "src/memgym/training/configs/accelerate_8gpu.yaml": {
+    "bytes": 133,
+    "sha256": "96cc1b3c1ac8393b3c3c375392299c50fbd4227ddcf89851adaf98c3638d2ee3"
+  },
+  "src/memgym/training/data/__init__.py": {
+    "bytes": 65,
+    "sha256": "a9eade0c12dbef38327170099aa426b54c1ed3cb09694691ef3e96a1d217bb32"
+  },
+  "src/memgym/training/data/aug_pairs.py": {
+    "bytes": 13492,
+    "sha256": "8cffa6ecae10d70d7cf76f2f48f9b96142b536285226db369533b2620a5b37b5"
+  },
+  "src/memgym/training/data/compaction.py": {
+    "bytes": 15474,
+    "sha256": "091a2d279258e1fdfc8e466dcc5c02bda95385870c037be5a7935518b2193b50"
+  },
+  "src/memgym/training/data/dataset.py": {
+    "bytes": 14792,
+    "sha256": "41c307e9fda883caeb3db4b6106b2f72464f36f8947b1eafc437e3cb4935b1a5"
+  },
+  "src/memgym/training/data/labels.py": {
+    "bytes": 7584,
+    "sha256": "3e6638d8eb974925e0822b9602623d0401724901c9f7f986256103d82c0a7b4c"
+  },
+  "src/memgym/training/data/loader.py": {
+    "bytes": 22210,
+    "sha256": "45abeddc4b19da9ff6c38d66fd7ff08548bff4098c4d879273e3e34c09ebe00e"
+  },
+  "src/memgym/training/data/memory_gain_pairs.py": {
+    "bytes": 15456,
+    "sha256": "74207fefeda1f2a60380f8a920a328aeb847eb0256bc21270341770189fdc6a2"
+  },
+  "src/memgym/training/data/reward_model_pairs.py": {
+    "bytes": 25371,
+    "sha256": "6064fc0bd4547350941e86b7114c288de6c0d18fe2f42f4143e89eec83150c38"
+  },
+  "src/memgym/training/data/strategy_ood_long_context_pairs.py": {
+    "bytes": 22966,
+    "sha256": "dc86ce6a6c111acca0ab5f9dd0cbc77aeb0a11a5f370b603c958bb6ba0259ad3"
+  },
+  "src/memgym/training/data/tau2_long_context_pairs.py": {
+    "bytes": 20505,
+    "sha256": "04f09b3b4d16597d67d6c8a843b9167da84a754398417ddd020e19864ea263c3"
+  },
+  "src/memgym/training/data/webarena_long_context_pairs.py": {
+    "bytes": 21211,
+    "sha256": "060393727dcd736f1f628cc3ced9daf410eb230056a95b474cc137684d55796d"
+  },
+  "src/memgym/training/eval/__init__.py": {
+    "bytes": 256,
+    "sha256": "f3b9e957d96265aaf5a95ce8eff7adaba697ba9bf7c0d82a47d696b5e7bb0f34"
+  },
+  "src/memgym/training/eval/memory_eval.py": {
+    "bytes": 18180,
+    "sha256": "f9b1b748ae1400b84235e8b9f1ac661fc34b6f4ffe3c567b9f772dcb05879d1f"
+  },
+  "src/memgym/training/eval/memory_eval_cli.py": {
+    "bytes": 8344,
+    "sha256": "b29e11b4423224dc23b44c65bb605196f4bbae20d8331ca8d1f2e1aee307a5e6"
+  },
+  "src/memgym/training/eval/rm_cli.py": {
+    "bytes": 8643,
+    "sha256": "d88ceae26668c6989fc10a6b5837bc3d569bcabd8ae2fdcd85771a4fcab86f69"
+  },
+  "src/memgym/training/eval/rm_eval.py": {
+    "bytes": 20943,
+    "sha256": "898b75d7d024278852da4acedbb93f3664c6c1a189dcb258f7ce44ccddca5b74"
+  },
+  "src/memgym/training/models/__init__.py": {
+    "bytes": 624,
+    "sha256": "d47fd12a10cb456b659a945c1b75daf4c467d370aa8afc43004b353096fb7361"
+  },
+  "src/memgym/training/models/evaluator.py": {
+    "bytes": 21816,
+    "sha256": "f1dcc528c99a2945c954967a2aa7b578a713e24edf052b1211561148ee78f727"
+  },
+  "src/memgym/training/models/sft.py": {
+    "bytes": 24719,
+    "sha256": "763e75935ede8f64986d4234517f6251d9a6ef20ee9f7a765d73bf9bd69b616f"
+  },
+  "src/memgym/training/models/weighted_trainer.py": {
+    "bytes": 9937,
+    "sha256": "ed40e18745692c5e2022668d043ecdc71dfa32b1b6461af4a596d1a44fc3bbcc"
+  },
+  "src/memgym/training/models/world_model.py": {
+    "bytes": 14830,
+    "sha256": "c07eade1675542ea8b248a73769c81a80757de4e17ba58f2807a51d3a37bcc97"
+  },
+  "src/memgym/training/scripts/__init__.py": {
+    "bytes": 50,
+    "sha256": "00aab28887ebd6833413a9e91a29d13e73f5607fdb0ca8659e0036825551ae91"
+  },
+  "src/memgym/training/scripts/augment.py": {
+    "bytes": 10269,
+    "sha256": "d4b9d1a95d1192d2c9ae5587ab45a462e28d9d0443d639d5ddc90745d1ec02c6"
+  },
+  "src/memgym/training/scripts/build_all_strategy_ood.py": {
+    "bytes": 6839,
+    "sha256": "d449cfe8efe9858757c21011d75dbcd6cf3c08a3c526c2680ccda62c0e603d0b"
+  },
+  "src/memgym/training/scripts/build_memory_gain_pairs.py": {
+    "bytes": 2292,
+    "sha256": "986bd910874e586c083c9dd762faa010c353cc88e952f9258a62a1a6090dfc26"
+  },
+  "src/memgym/training/scripts/build_reward_model_dataset.py": {
+    "bytes": 759,
+    "sha256": "bbbf975c120ee58f1067d9faeeb6c1b15e731f5f7c5eb6c5a1c792d10f8dcfb4"
+  },
+  "src/memgym/training/scripts/build_split_manifest.py": {
+    "bytes": 4929,
+    "sha256": "2988d07e54b4b21d84f831a2ae7b8172826daa2b6ce172ec0292b704ff517d6a"
+  },
+  "src/memgym/training/scripts/build_tau2_long_context_pairs.py": {
+    "bytes": 3893,
+    "sha256": "635c2b6f7d8717441e88188d4329407826a253c6ded9c68a429f1976540c662f"
+  },
+  "src/memgym/training/scripts/build_tau2_ood_pairs.py": {
+    "bytes": 11905,
+    "sha256": "7eb0a64bd8f188beed17daad1a8dac827e549a671e047e7bc6ffc58982b20ab4"
+  },
+  "src/memgym/training/scripts/build_webarena_long_context_pairs.py": {
+    "bytes": 9608,
+    "sha256": "f38705b95f299ae90a48a7c27683f9bebf968060bb8fa09dfc404a138f6f7263"
+  },
+  "src/memgym/training/scripts/eval_aug_sft.py": {
+    "bytes": 10375,
+    "sha256": "5e3b5e2df16a1cac9ad7d8f5b6a4f08ca6f9929d62326eb5ccdcb2ac46bff2e9"
+  },
+  "src/memgym/training/scripts/eval_three_distributions.py": {
+    "bytes": 12591,
+    "sha256": "78af0e68bcb1dfdd94b58ff1c4a58947b703a3b1001783d04037f50eb77939ce"
+  },
+  "src/memgym/training/scripts/launch_train.sh": {
+    "bytes": 615,
+    "sha256": "f73d740dd2f882225ce58e4537fc911b2d7356256692397a7045e512f17531bb"
+  },
+  "src/memgym/training/scripts/per_source_threshold_sweep.py": {
+    "bytes": 5887,
+    "sha256": "7244816324785fd5a410bb895454200ecc006230534d63ffd04cf3886c5e0181"
+  },
+  "src/memgym/training/scripts/split_jsonl_by_manifest.py": {
+    "bytes": 2988,
+    "sha256": "d387df50acdd079cabadca62d92fdb0b864562625821e33c1c3a6b45c78efae2"
+  },
+  "src/memgym/training/scripts/threshold_sweep.py": {
+    "bytes": 6229,
+    "sha256": "e33aa3153a6f9c653991f964d2caae84ba138708e1594c169c884c3ef5ad0c13"
+  },
+  "src/memgym/training/scripts/train_sft.py": {
+    "bytes": 20638,
+    "sha256": "32c0936ac5c580604528a8c2824eaf7eb23a6ed3cfeed122a98e0f8225d42fa8"
+  },
+  "src/memgym/types.py": {
+    "bytes": 1443,
+    "sha256": "b631cc742701e3f35e57cf8a834e1e1e61580d1988744fa2d73476a550cbed83"
+  },
+  "src/memgym/utils/__init__.py": {
+    "bytes": 519,
+    "sha256": "2b2c8db2a98ddc8b274956824c163efad2e23d69bb9f6bb8124ca999f6aec207"
+  },
+  "src/memgym/utils/swegym_specs.py": {
+    "bytes": 26979,
+    "sha256": "682e57160f906fea1ff2f49071bc4607e45458cd7dc877863b952e867e03d3ce"
+  },
+  "src/memgym/utils/token_tracker.py": {
+    "bytes": 5171,
+    "sha256": "ba9466eee10ebf9e39b852a40444c295d516a891f1addeec48ba4c1a18ef3cbf"
+  },
+  "src/memgym/utils/trajectory_recorder.py": {
+    "bytes": 9347,
+    "sha256": "c2301949bc2b9abe532997378b7aa2cde42513697717e18a8cfc4dc20e65a9b3"
+  },
+  "tests/__init__.py": {
+    "bytes": 20,
+    "sha256": "b12c5efbd676e9181c5b6133fd339772a548c7e8ecff403c5ca0e5b8a6d640ce"
+  },
+  "tests/conftest.py": {
+    "bytes": 1286,
+    "sha256": "3ad6c6e7c00cb74c2382dfe3e6da0b8022c33655eeb99a628459556ad9c9ac28"
+  },
+  "tests/fixtures/trajectories/tau2_bench_run/memory/retail/0/0_replay.json": {
+    "bytes": 28214,
+    "sha256": "cce417c236c4cec0e6fdc3c134b24d32d571d904b7c5dcae2430bb5d9f0a1c7a"
+  },
+  "tests/fixtures/trajectories/tau2_bench_run/memory/retail/0/0_training.json": {
+    "bytes": 4717,
+    "sha256": "85c55f353ec12712d0d208c401fa6dbedfdbabe4314d6f879656d4f49629680f"
+  },
+  "tests/fixtures/trajectories/tau2_bench_run/memory/retail/0/result.json": {
+    "bytes": 7153,
+    "sha256": "c74cd64ec2fdff2cfb107ddfc14f9b4b135f83038b971a893c1e47d20ac1d4c5"
+  },
+  "tests/integration/__init__.py": {
+    "bytes": 20,
+    "sha256": "b12c5efbd676e9181c5b6133fd339772a548c7e8ecff403c5ca0e5b8a6d640ce"
+  },
+  "tests/integration/test_amem.py": {
+    "bytes": 9233,
+    "sha256": "09b505ea7527b80187070ed7af517db11ab3d7c3633dd809d60784e174bf7694"
+  },
+  "tests/integration/test_e2e_trajectory.py": {
+    "bytes": 17136,
+    "sha256": "c8e9c7993d262191370ec2af325f966bd638ce8c20eee0639d0251bd5c69cec4"
+  },
+  "tests/integration/test_swe_integration.py": {
+    "bytes": 13367,
+    "sha256": "7900d2387c549a58e63438b99712fecff2987400d37ea5c081dc6ddc23550b4c"
+  },
+  "tests/integration/test_track_smoke.py": {
+    "bytes": 4192,
+    "sha256": "f6969bc4153074050ba4c6ccbac39760c9541ca3345397594fa1c153164edef6"
+  },
+  "tests/unit/__init__.py": {
+    "bytes": 20,
+    "sha256": "b12c5efbd676e9181c5b6133fd339772a548c7e8ecff403c5ca0e5b8a6d640ce"
+  },
+  "tests/unit/test_adaptive_token_budget.py": {
+    "bytes": 4033,
+    "sha256": "54d85b2d0105bf3f522d4732649c81dcb2e78311ac67bfc5aaeb6bc4943a9eaa"
+  },
+  "tests/unit/test_bugfixes.py": {
+    "bytes": 16139,
+    "sha256": "12e3a2876e517efd32e10e0f7dd6b2f29c735085a59d9ab371413349b8d2874c"
+  },
+  "tests/unit/test_coding_qa_resume.py": {
+    "bytes": 5624,
+    "sha256": "6679ac24c1138ad8300c3f946dc989491b45a00c50855a06869307cfca915046"
+  },
+  "tests/unit/test_container_backends.py": {
+    "bytes": 3403,
+    "sha256": "0152c30a992ed5862cba18ac7ce46ddaed3e9586cba048efb23629ad19f502a7"
+  },
+  "tests/unit/test_diff_parser.py": {
+    "bytes": 6305,
+    "sha256": "0d3f0bcf5cf2461da6a589e3f269f3ce24ca0f8cd19bda731e839869ea63bcf6"
+  },
+  "tests/unit/test_element_id_translation.py": {
+    "bytes": 6457,
+    "sha256": "ff782493a5efc40110df71d872203e415bc530a47448e8ece0da8649df49c361"
+  },
+  "tests/unit/test_extract.py": {
+    "bytes": 9749,
+    "sha256": "295203a2814d3027a73d077532c0d7cf3980b1641706ae75599ed23aa7038ee6"
+  },
+  "tests/unit/test_hipporag_backend.py": {
+    "bytes": 14509,
+    "sha256": "3d264edd8b6938a2e6e7c1f40451e99f00a979d87022d28265847c0a8ce7b853"
+  },
+  "tests/unit/test_imports.py": {
+    "bytes": 2211,
+    "sha256": "96c2788671eb079714c06a78ca124bf012ac1494bef4160c5272db275f0cea44"
+  },
+  "tests/unit/test_known_bugs.py": {
+    "bytes": 9005,
+    "sha256": "05c7beffeff49dbfdc6382487993f39b8919ef72dbe0e34bc72307523675a06a"
+  },
+  "tests/unit/test_mem0_backend.py": {
+    "bytes": 9671,
+    "sha256": "485d72bf0bd1bd3c736dfe8628333b1c50c7c4d7bee602ebbfe4b094a3955cc3"
+  },
+  "tests/unit/test_memory_eval.py": {
+    "bytes": 11768,
+    "sha256": "4b7add661114c8ccb8eab9c4d50c19e16332e33421137d278c0b5dafa2f38d39"
+  },
+  "tests/unit/test_memory_strategies_roundtrip.py": {
+    "bytes": 10446,
+    "sha256": "bdf0634ba5aa94dc4fa8f1e0408039f62ab031e4cadf42ad5a97a036f11add68"
+  },
+  "tests/unit/test_memorybank_backend.py": {
+    "bytes": 10264,
+    "sha256": "04e66e676ab72d3b91877d6647e11bfe4350b8912bf2e2e0083a79bdba43eaa8"
+  },
+  "tests/unit/test_naive_summarization.py": {
+    "bytes": 17415,
+    "sha256": "3f1cb6cb72cba28e9a3f8dca57be9a96bd05f1eb36b56fee4cda3084997a6abe"
+  },
+  "tests/unit/test_rm_eval.py": {
+    "bytes": 11333,
+    "sha256": "69a0891ae378e2fda8a0c1ad577466806a4fe916b1eecd1cfbd330e47a328d2b"
+  },
+  "tests/unit/test_schemas.py": {
+    "bytes": 9634,
+    "sha256": "01454b834959e6767d403dab85afd6e76e498f88cdcead1ff7efc6a47399b01e"
+  },
+  "tests/unit/test_simplemem_backend.py": {
+    "bytes": 12492,
+    "sha256": "ea88911ebcbfbf6a2c66535fd6cbabbf4fbea652b8bbb06a8612763f26068fb2"
+  },
+  "tests/unit/test_tau2_trajectory_loader.py": {
+    "bytes": 8256,
+    "sha256": "1f073a9adfb15121566b7dfd850bdc541dbdf71bf95a7834892610919e2dd8f6"
+  },
+  "tests/unit/test_trajectory_bugs.py": {
+    "bytes": 19295,
+    "sha256": "c05ebb965835777f6a33d9daa8070f681ea3434d0a7c5cb9f497d8789a0c0989"
+  },
+  "tests/unit/test_world_model.py": {
+    "bytes": 10818,
+    "sha256": "fedfaf54a81a3915b84221215f0e27c93c7f7a0f178c7cda79bcd75c6af8de51"
+  }
+}

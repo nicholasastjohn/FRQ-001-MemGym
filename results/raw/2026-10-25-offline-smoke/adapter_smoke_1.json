@@ -1,0 +1,77 @@
+{
+  "dataset_path": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym/results/raw/2026-10-25-dataset/4hop_paper_run.jsonl",
+  "dataset_sha256": "e99eebf4c1c8cdb75428905b13409b02cfe610801599b48c9712d7fcc9091352",
+  "empirical_benchmark": false,
+  "instances": [
+    {
+      "adapters": {
+        "ir_bm25": {
+          "indexed_chunks": 223,
+          "nonempty_retrieval": true,
+          "retrieval_sha256": "a13024f14cbf75130c417eaca02e6c480a5baadc5c93822926f45235931c245b",
+          "retrieved_characters": 30995
+        },
+        "ir_passthrough": {
+          "retained_characters": 670531,
+          "retains_all_turns": true
+        }
+      },
+      "eviction_policy": {
+        "allow_notes": true,
+        "mode": "full_eviction",
+        "notes_budget_tokens": 200,
+        "window_size": 1
+      },
+      "input_row_index": 0,
+      "instance_id": "memgym_ir__research__40424",
+      "num_hops": 4,
+      "num_turns": 4,
+      "turn_trace": [
+        {
+          "observation_characters": 161558,
+          "observation_sha256": "fa5291692c4b833f110dc1e9e13932c55ef4e5d6eae7c8f4da8472363c606273",
+          "turn_index": 0,
+          "visible_document_count": 97,
+          "visible_start": 0
+        },
+        {
+          "observation_characters": 174424,
+          "observation_sha256": "31e6e2b374316102432f10045a8729517b5f795c7146b33a6efd8eedcc1150b1",
+          "turn_index": 1,
+          "visible_document_count": 97,
+          "visible_start": 1
+        },
+        {
+          "observation_characters": 161042,
+          "observation_sha256": "ba1a7a4861d917da38905766105a658b5ea2f18988f3848f705d05c0c39ddc45",
+          "turn_index": 2,
+          "visible_document_count": 95,
+          "visible_start": 2
+        },
+        {
+          "observation_characters": 173504,
+          "observation_sha256": "1fa82665cf9bd4ad98da2cc9a392303285f5e932fdd6e0d96cb1e08567861ca3",
+          "turn_index": 3,
+          "visible_document_count": 95,
+          "visible_start": 3
+        }
+      ]
+    }
+  ],
+  "kind": "offline evaluator eviction and adapter wiring check; no task answering or judging",
+  "limit": 1,
+  "model_calls_made": 0,
+  "notes": [
+    "PassThrough retains all observations in current upstream; this differs from the paper's no-memory condition.",
+    "BM25 retrieval output length and hash are wiring evidence, not accuracy or fact recall.",
+    "No generated answers, rubric scores, or benchmark accuracy values are produced."
+  ],
+  "schema_validated_rows": 1,
+  "seed": 42,
+  "selection": "first N file rows, unchanged order",
+  "upstream_replay_functions": [
+    "eval.agent._get_ir_manager",
+    "eval.agent._build_visible_docs",
+    "eval.agent.IRMemoryAdapter.process_turn"
+  ]
+}

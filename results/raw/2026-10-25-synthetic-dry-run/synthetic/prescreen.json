@@ -1,0 +1,16 @@
+[
+  {
+    "instance_id": "synthetic__synthetic_00000",
+    "parametric_score": 0.0,
+    "partial_score": 0.0,
+    "rejected": false,
+    "reason": "dry_run"
+  },
+  {
+    "instance_id": "synthetic__synthetic_00001",
+    "parametric_score": 0.0,
+    "partial_score": 0.0,
+    "rejected": false,
+    "reason": "dry_run"
+  }
+]

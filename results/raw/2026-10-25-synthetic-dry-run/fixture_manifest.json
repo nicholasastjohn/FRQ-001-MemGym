@@ -1,0 +1,31 @@
+{
+  "audit": {
+    "bytes": 15528,
+    "hops": {
+      "3": 2
+    },
+    "instance_id_collisions": {},
+    "ordered_instance_ids": [
+      "memgym_ir__synthetic__synthetic_00000",
+      "memgym_ir__synthetic__synthetic_00001"
+    ],
+    "ordered_rows": [
+      {
+        "instance_id": "memgym_ir__synthetic__synthetic_00000",
+        "line_sha256": "86952fdb25ed45e7ad010ed80fb7a25fbf9a135592dd27d65809fa95ab35cc2a",
+        "row_index": 0
+      },
+      {
+        "instance_id": "memgym_ir__synthetic__synthetic_00001",
+        "line_sha256": "79c8a35aae4c06a8bfb5d58736b6ad9f92cef60265b2e70a8db5b79d3a4b923e",
+        "row_index": 1
+      }
+    ],
+    "row_identity": "dataset file SHA256 + zero-based row index + exact raw line SHA256 (including newline)",
+    "rows": 2,
+    "sha256": "de049c86e291550d4a4620ed7bb09b91dee31d6dc8993375fc2d14df3f9a9edb",
+    "unique_instance_ids": 2,
+    "warning": null
+  },
+  "kind": "upstream synthetic dry-run placeholders; not empirical data"
+}

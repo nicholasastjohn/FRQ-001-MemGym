@@ -1,0 +1,10 @@
+{
+  "captured_utc": "2026-10-25T19:40:02.568982+00:00",
+  "cpu_count": 8,
+  "harness_python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "machine": "arm64",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "release": "25.6.0",
+  "seed_scope": "random and numpy seeds plus PYTHONHASHSEED; no provider RNG is exercised",
+  "system": "Darwin"
+}

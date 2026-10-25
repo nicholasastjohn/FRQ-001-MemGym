@@ -1,0 +1,81 @@
+{
+  "artifacts": {
+    "56hop_clean.jsonl": {
+      "bytes": 123518977,
+      "sha256": "b740b88fa1044d11483a68220d0d8b68d27242fcd8518911080d9e28924fc781"
+    },
+    "dataset_manifest.json": {
+      "bytes": 286057,
+      "sha256": "fef7e190f861cde881f0df91e756a7ce442f0792c1a5dba0634f9f25ecf5ecb6"
+    },
+    "harness_source/configs/reproduction.yaml": {
+      "bytes": 2892,
+      "sha256": "89713eb3b9f40cf6f7c276192a7d44fc88f1e818697135cb3cba76b7b7976b60"
+    },
+    "harness_source/scripts/offline_worker.py": {
+      "bytes": 6726,
+      "sha256": "1fc0937ef8d6a7110ca488c1aef397d299e43efb853ddb910c3fab955a764330"
+    },
+    "harness_source/scripts/reproduce.py": {
+      "bytes": 17910,
+      "sha256": "85b50fcfd6ce6963394790aec39ba5a2b1fb15cbf67ed8fdebfbb4666c12780f"
+    },
+    "harness_source/scripts/tests/test_safety.py": {
+      "bytes": 5389,
+      "sha256": "51b4229fe797d3a37beeaad0e570a21cae7279cf722a504005810b34cb562bde"
+    },
+    "hf_metadata.json": {
+      "bytes": 2351,
+      "sha256": "a0e35deb7c057105ccec02735282bf6ad8c8bd70a2e486b04951b15096f70a9c"
+    }
+  },
+  "commands": [],
+  "empirical_benchmark": false,
+  "finished_utc": "2026-10-25T19:36:30.514958+00:00",
+  "harness_git_head": "36fefda6a18e4eb3e2a1f7b674a61366cb1f483e",
+  "harness_git_status_at_start": "M .gitignore\n M README.md\n M REPRODUCTION.md\n M UPSTREAM.md\n M configs/reproduction.yaml\n M scripts/README.md\n?? experiments/protocol-audit.md\n?? results/raw/2026-10-25-dataset/\n?? results/raw/2026-10-25-preflight/\n?? scripts/offline_worker.py\n?? scripts/reproduce.py\n?? scripts/tests/",
+  "harness_source_at_start": {
+    "configs/reproduction.yaml": {
+      "bytes": 2892,
+      "sha256": "89713eb3b9f40cf6f7c276192a7d44fc88f1e818697135cb3cba76b7b7976b60",
+      "snapshot": "harness_source/configs/reproduction.yaml"
+    },
+    "scripts/offline_worker.py": {
+      "bytes": 6726,
+      "sha256": "1fc0937ef8d6a7110ca488c1aef397d299e43efb853ddb910c3fab955a764330",
+      "snapshot": "harness_source/scripts/offline_worker.py"
+    },
+    "scripts/reproduce.py": {
+      "bytes": 17910,
+      "sha256": "85b50fcfd6ce6963394790aec39ba5a2b1fb15cbf67ed8fdebfbb4666c12780f",
+      "snapshot": "harness_source/scripts/reproduce.py"
+    },
+    "scripts/tests/test_safety.py": {
+      "bytes": 5389,
+      "sha256": "51b4229fe797d3a37beeaad0e570a21cae7279cf722a504005810b34cb562bde",
+      "snapshot": "harness_source/scripts/tests/test_safety.py"
+    }
+  },
+  "invocation": [
+    "scripts/reproduce.py",
+    "download-data",
+    "--upstream",
+    "../MemGym",
+    "--output",
+    "results/raw/2026-10-25-dataset-audited",
+    "--revision",
+    "02f8da42a1a771d1d58552274db1cbf46f0fc7b4",
+    "--cache-dir",
+    "results/raw/2026-10-25-dataset"
+  ],
+  "model_calls_made": 0,
+  "model_calls_permitted": false,
+  "operation": "download-data",
+  "python_executable": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym/../venvs/memgym/bin/python",
+  "schema_version": 1,
+  "seed": 42,
+  "started_utc": "2026-10-25T19:36:17.892457+00:00",
+  "status": "passed",
+  "upstream_path": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym",
+  "upstream_sha": "50b404e6ae4e1fcd453d3e07963eb3e6312cbded"
+}

@@ -1,0 +1,169 @@
+{
+  "artifacts": {
+    "01_imports.log": {
+      "bytes": 98,
+      "sha256": "f3a4ef074edc5d83803e4452b7e72ec554d757b6f3414f0f2c66b6d180f3e32b"
+    },
+    "02_unit_tests.log": {
+      "bytes": 99,
+      "sha256": "dc7a02fcb618e07048203e8aa80cec763cbc6235c47ed2f4c007e19bc4868733"
+    },
+    "03_cli_help.log": {
+      "bytes": 2888,
+      "sha256": "46dbf774693722d7a68b6cf9ec5488dc6225c8a368b002a41b4ff51b7340de91"
+    },
+    "04_registry.log": {
+      "bytes": 907,
+      "sha256": "284bf8ad03030b295a23b551847b035ae978221481809f7b1570f7a7875a5813"
+    },
+    "harness_source/configs/reproduction.yaml": {
+      "bytes": 3293,
+      "sha256": "fe317822f9317b15c49118c06642ca03c735e2f28e4d85ddfb7f57335103f1d5"
+    },
+    "harness_source/scripts/offline_worker.py": {
+      "bytes": 6726,
+      "sha256": "1fc0937ef8d6a7110ca488c1aef397d299e43efb853ddb910c3fab955a764330"
+    },
+    "harness_source/scripts/reproduce.py": {
+      "bytes": 18034,
+      "sha256": "17c35c4dd80e5b4654bbb2593a14fa37f46e72efa648b718e158c213d983dbdc"
+    },
+    "harness_source/scripts/tests/test_safety.py": {
+      "bytes": 5389,
+      "sha256": "51b4229fe797d3a37beeaad0e570a21cae7279cf722a504005810b34cb562bde"
+    }
+  },
+  "commands": [
+    {
+      "argv": [
+        "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym/../venvs/memgym/bin/python",
+        "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym/scripts/offline_worker.py",
+        "--seed",
+        "42",
+        "module",
+        "pytest",
+        "tests/unit/test_imports.py",
+        "-q"
+      ],
+      "cwd": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym",
+      "elapsed_seconds": 10.1192,
+      "finished_utc": "2026-10-25T19:39:01.806488+00:00",
+      "label": "imports",
+      "log": "01_imports.log",
+      "log_sha256": "f3a4ef074edc5d83803e4452b7e72ec554d757b6f3414f0f2c66b6d180f3e32b",
+      "python_network_guard": true,
+      "returncode": 0,
+      "started_utc": "2026-10-25T19:38:51.687060+00:00"
+    },
+    {
+      "argv": [
+        "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym/../venvs/memgym/bin/python",
+        "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym/scripts/offline_worker.py",
+        "--seed",
+        "42",
+        "module",
+        "pytest",
+        "tests/unit/test_imports.py",
+        "tests/unit/test_rm_eval.py",
+        "tests/unit/test_world_model.py",
+        "tests/unit/test_memory_strategies_roundtrip.py",
+        "tests/unit/test_known_bugs.py",
+        "tests/unit/test_memory_eval.py",
+        "-q"
+      ],
+      "cwd": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym",
+      "elapsed_seconds": 8.5629,
+      "finished_utc": "2026-10-25T19:39:10.370407+00:00",
+      "label": "unit_tests",
+      "log": "02_unit_tests.log",
+      "log_sha256": "dc7a02fcb618e07048203e8aa80cec763cbc6235c47ed2f4c007e19bc4868733",
+      "python_network_guard": true,
+      "returncode": 0,
+      "started_utc": "2026-10-25T19:39:01.807404+00:00"
+    },
+    {
+      "argv": [
+        "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym/../venvs/memgym/bin/python",
+        "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym/scripts/offline_worker.py",
+        "--seed",
+        "42",
+        "module",
+        "memgym.pipelines.memgym_ir",
+        "--help"
+      ],
+      "cwd": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym",
+      "elapsed_seconds": 7.42,
+      "finished_utc": "2026-10-25T19:39:17.791697+00:00",
+      "label": "cli_help",
+      "log": "03_cli_help.log",
+      "log_sha256": "46dbf774693722d7a68b6cf9ec5488dc6225c8a368b002a41b4ff51b7340de91",
+      "python_network_guard": true,
+      "returncode": 0,
+      "started_utc": "2026-10-25T19:39:10.371463+00:00"
+    },
+    {
+      "argv": [
+        "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym/../venvs/memgym/bin/python",
+        "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym/scripts/offline_worker.py",
+        "--seed",
+        "42",
+        "registry"
+      ],
+      "cwd": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym",
+      "elapsed_seconds": 7.2615,
+      "finished_utc": "2026-10-25T19:39:25.054164+00:00",
+      "label": "registry",
+      "log": "04_registry.log",
+      "log_sha256": "284bf8ad03030b295a23b551847b035ae978221481809f7b1570f7a7875a5813",
+      "python_network_guard": true,
+      "returncode": 0,
+      "started_utc": "2026-10-25T19:39:17.792415+00:00"
+    }
+  ],
+  "empirical_benchmark": false,
+  "finished_utc": "2026-10-25T19:39:25.089541+00:00",
+  "harness_git_head": "36fefda6a18e4eb3e2a1f7b674a61366cb1f483e",
+  "harness_git_status_at_start": "M .gitignore\n M README.md\n M REPRODUCTION.md\n M UPSTREAM.md\n M configs/reproduction.yaml\n M scripts/README.md\n?? experiments/protocol-audit.md\n?? results/raw/2026-10-25-dataset-audited/\n?? results/raw/2026-10-25-dataset/\n?? results/raw/2026-10-25-offline-smoke/\n?? results/raw/2026-10-25-preflight/\n?? results/raw/2026-10-25-synthetic-dry-run/\n?? scripts/offline_worker.py\n?? scripts/reproduce.py\n?? scripts/tests/",
+  "harness_source_at_start": {
+    "configs/reproduction.yaml": {
+      "bytes": 3293,
+      "sha256": "fe317822f9317b15c49118c06642ca03c735e2f28e4d85ddfb7f57335103f1d5",
+      "snapshot": "harness_source/configs/reproduction.yaml"
+    },
+    "scripts/offline_worker.py": {
+      "bytes": 6726,
+      "sha256": "1fc0937ef8d6a7110ca488c1aef397d299e43efb853ddb910c3fab955a764330",
+      "snapshot": "harness_source/scripts/offline_worker.py"
+    },
+    "scripts/reproduce.py": {
+      "bytes": 18034,
+      "sha256": "17c35c4dd80e5b4654bbb2593a14fa37f46e72efa648b718e158c213d983dbdc",
+      "snapshot": "harness_source/scripts/reproduce.py"
+    },
+    "scripts/tests/test_safety.py": {
+      "bytes": 5389,
+      "sha256": "51b4229fe797d3a37beeaad0e570a21cae7279cf722a504005810b34cb562bde",
+      "snapshot": "harness_source/scripts/tests/test_safety.py"
+    }
+  },
+  "invocation": [
+    "scripts/reproduce.py",
+    "validate",
+    "--upstream",
+    "../MemGym",
+    "--python",
+    "../venvs/memgym/bin/python",
+    "--output",
+    "results/raw/2026-10-25-guarded-validation"
+  ],
+  "model_calls_made": 0,
+  "model_calls_permitted": false,
+  "operation": "validate",
+  "python_executable": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym/../venvs/memgym/bin/python",
+  "schema_version": 1,
+  "seed": 42,
+  "started_utc": "2026-10-25T19:38:51.669789+00:00",
+  "status": "passed",
+  "upstream_path": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym",
+  "upstream_sha": "50b404e6ae4e1fcd453d3e07963eb3e6312cbded"
+}

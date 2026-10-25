@@ -1,0 +1,140 @@
+{
+  "artifacts": {
+    "01_synthetic_dry_run.log": {
+      "bytes": 3241,
+      "sha256": "1dc6bd65e646205998ad7ce43aefbd48397d331fdb52a6360a75ff027de12be6"
+    },
+    "fixture_manifest.json": {
+      "bytes": 987,
+      "sha256": "e86b920eb1107657283c7d6d060ff4695aa094a26029ffff283ce8cfdf27be20"
+    },
+    "harness_source/configs/reproduction.yaml": {
+      "bytes": 2892,
+      "sha256": "89713eb3b9f40cf6f7c276192a7d44fc88f1e818697135cb3cba76b7b7976b60"
+    },
+    "harness_source/scripts/offline_worker.py": {
+      "bytes": 6726,
+      "sha256": "1fc0937ef8d6a7110ca488c1aef397d299e43efb853ddb910c3fab955a764330"
+    },
+    "harness_source/scripts/reproduce.py": {
+      "bytes": 17910,
+      "sha256": "85b50fcfd6ce6963394790aec39ba5a2b1fb15cbf67ed8fdebfbb4666c12780f"
+    },
+    "harness_source/scripts/tests/test_safety.py": {
+      "bytes": 5389,
+      "sha256": "51b4229fe797d3a37beeaad0e570a21cae7279cf722a504005810b34cb562bde"
+    },
+    "synthetic/crafted.jsonl": {
+      "bytes": 14734,
+      "sha256": "e104796b5aa69d7c27b81c91c1a46964d0fe490bbcb7d7a679b7025175c03891"
+    },
+    "synthetic/extracted.jsonl": {
+      "bytes": 3401,
+      "sha256": "ac1a3dcce543ba993b3a837e78f3d36d369a037723278eb923454f32dff34720"
+    },
+    "synthetic/filtered.jsonl": {
+      "bytes": 2940,
+      "sha256": "c1a5c2b74f1ab3e0de7eb7b99f2548b8179122133bb3201d6b57951cad7271f9"
+    },
+    "synthetic/memgym_ir_instances.jsonl": {
+      "bytes": 15528,
+      "sha256": "de049c86e291550d4a4620ed7bb09b91dee31d6dc8993375fc2d14df3f9a9edb"
+    },
+    "synthetic/prescreen.json": {
+      "bytes": 322,
+      "sha256": "208dc3b2d18668eb7cac92b32f832c269d99f833ae8daf66eed0ebeef540b7eb"
+    },
+    "synthetic/quality_report.json": {
+      "bytes": 2256,
+      "sha256": "3cb483c67a7395bc7ef3aced227a49036d8fe6da9fcc4eeed4ddd0a3d4c2ff87"
+    },
+    "synthetic/quality_report.md": {
+      "bytes": 1466,
+      "sha256": "02d6fbb45d18d9330bb71056abbff5148dd433bb086b7d968abc2ff489944166"
+    },
+    "synthetic/verification_metadata.json": {
+      "bytes": 378,
+      "sha256": "66180316bc7defb8fd5aa0988ee3668bd23d414ddbfdf20005fcae82392b3513"
+    }
+  },
+  "commands": [
+    {
+      "argv": [
+        "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym/../venvs/memgym/bin/python",
+        "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym/scripts/offline_worker.py",
+        "--seed",
+        "42",
+        "module",
+        "memgym.pipelines.memgym_ir",
+        "dataset",
+        "--dataset",
+        "synthetic",
+        "--dry-run",
+        "--limit",
+        "2",
+        "--min-hops",
+        "3",
+        "--max-concurrent",
+        "1",
+        "--no-resume",
+        "--output",
+        "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym/results/raw/2026-10-25-synthetic-dry-run/synthetic"
+      ],
+      "cwd": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym",
+      "elapsed_seconds": 10.3747,
+      "finished_utc": "2026-10-25T19:36:28.286894+00:00",
+      "label": "synthetic_dry_run",
+      "log": "01_synthetic_dry_run.log",
+      "log_sha256": "1dc6bd65e646205998ad7ce43aefbd48397d331fdb52a6360a75ff027de12be6",
+      "python_network_guard": true,
+      "returncode": 0,
+      "started_utc": "2026-10-25T19:36:17.911878+00:00"
+    }
+  ],
+  "empirical_benchmark": false,
+  "finished_utc": "2026-10-25T19:36:28.321706+00:00",
+  "harness_git_head": "36fefda6a18e4eb3e2a1f7b674a61366cb1f483e",
+  "harness_git_status_at_start": "M .gitignore\n M README.md\n M REPRODUCTION.md\n M UPSTREAM.md\n M configs/reproduction.yaml\n M scripts/README.md\n?? experiments/protocol-audit.md\n?? results/raw/2026-10-25-dataset/\n?? results/raw/2026-10-25-preflight/\n?? scripts/offline_worker.py\n?? scripts/reproduce.py\n?? scripts/tests/",
+  "harness_source_at_start": {
+    "configs/reproduction.yaml": {
+      "bytes": 2892,
+      "sha256": "89713eb3b9f40cf6f7c276192a7d44fc88f1e818697135cb3cba76b7b7976b60",
+      "snapshot": "harness_source/configs/reproduction.yaml"
+    },
+    "scripts/offline_worker.py": {
+      "bytes": 6726,
+      "sha256": "1fc0937ef8d6a7110ca488c1aef397d299e43efb853ddb910c3fab955a764330",
+      "snapshot": "harness_source/scripts/offline_worker.py"
+    },
+    "scripts/reproduce.py": {
+      "bytes": 17910,
+      "sha256": "85b50fcfd6ce6963394790aec39ba5a2b1fb15cbf67ed8fdebfbb4666c12780f",
+      "snapshot": "harness_source/scripts/reproduce.py"
+    },
+    "scripts/tests/test_safety.py": {
+      "bytes": 5389,
+      "sha256": "51b4229fe797d3a37beeaad0e570a21cae7279cf722a504005810b34cb562bde",
+      "snapshot": "harness_source/scripts/tests/test_safety.py"
+    }
+  },
+  "invocation": [
+    "scripts/reproduce.py",
+    "dry-run",
+    "--upstream",
+    "../MemGym",
+    "--output",
+    "results/raw/2026-10-25-synthetic-dry-run",
+    "--python",
+    "../venvs/memgym/bin/python"
+  ],
+  "model_calls_made": 0,
+  "model_calls_permitted": false,
+  "operation": "dry-run",
+  "python_executable": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym/../venvs/memgym/bin/python",
+  "schema_version": 1,
+  "seed": 42,
+  "started_utc": "2026-10-25T19:36:17.892447+00:00",
+  "status": "passed",
+  "upstream_path": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym",
+  "upstream_sha": "50b404e6ae4e1fcd453d3e07963eb3e6312cbded"
+}

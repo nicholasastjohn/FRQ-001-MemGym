@@ -1,0 +1,10 @@
+$ /Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/venvs/memgym/bin/python -c 'from memgym.memory.base import list_memory_models; print(sorted(list_memory_models()))'
+cwd: /Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym
+start_utc: 2026-10-25T19:31:28.363933+00:00
+
+W1025 15:31:33.421000 48633 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+['a-mem', 'adaptive_token_budget', 'agentic-memory', 'amem', 'baseline', 'cua_llm_summarizing', 'cua_naive', 'cua_structured_summary', 'ir_amem', 'ir_bm25', 'ir_hipporag', 'ir_lightmem', 'ir_mem0', 'ir_memorybank', 'ir_naive_rag', 'ir_passthrough', 'ir_simplemem', 'ir_structured', 'ir_summarizing', 'llm_summarization', 'llm_summarizing', 'multimodal', 'naive', 'naive_summarization', 'observation_masking', 'pass_through', 'passthrough', 'pipeline', 'sliding_window', 'sliding_window_summary', 'structured_summary', 'summarization', 'swe-amem', 'swe_amem', 'tau2-structured', 'tau2-summarizing', 'tau2_structured', 'tau2_summarizing', 'webarena_structured', 'webarena_summarizing']
+
+end_utc: 2026-10-25T19:31:35.793685+00:00
+exit_code: 0
+elapsed_seconds: 7.43

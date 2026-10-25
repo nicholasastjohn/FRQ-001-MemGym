@@ -1,0 +1,12 @@
+$ sysctl hw.model hw.machine hw.ncpu hw.memsize
+cwd: /Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym
+start_utc: 2026-10-25T19:31:21.910231+00:00
+
+hw.model: iMac21,1
+hw.machine: arm64
+hw.ncpu: 8
+hw.memsize: 8589934592
+
+end_utc: 2026-10-25T19:31:21.916369+00:00
+exit_code: 0
+elapsed_seconds: 0.006

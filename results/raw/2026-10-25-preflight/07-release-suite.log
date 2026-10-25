@@ -1,0 +1,10 @@
+$ /Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/venvs/memgym/bin/python -m pytest tests/unit/test_imports.py tests/unit/test_rm_eval.py tests/unit/test_world_model.py tests/unit/test_memory_strategies_roundtrip.py tests/unit/test_known_bugs.py tests/unit/test_memory_eval.py -q
+cwd: /Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym
+start_utc: 2026-10-25T19:31:01.744355+00:00
+
+...................................................................      [100%]
+67 passed in 8.73s
+
+end_utc: 2026-10-25T19:31:12.193143+00:00
+exit_code: 0
+elapsed_seconds: 10.449

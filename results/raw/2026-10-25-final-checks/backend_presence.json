@@ -1,0 +1,30 @@
+{
+  "aws_config_file_present": false,
+  "aws_credentials_file_present": false,
+  "checked_utc": "2026-10-25T19:40:02.587088+00:00",
+  "credentials_validated": false,
+  "environment_variable_present": {
+    "ANTHROPIC_API_KEY": false,
+    "AWS_ACCESS_KEY_ID": false,
+    "AWS_BEARER_TOKEN_BEDROCK": false,
+    "AWS_DEFAULT_REGION": false,
+    "AWS_PROFILE": false,
+    "AWS_REGION": false,
+    "AWS_SECRET_ACCESS_KEY": false,
+    "AWS_SESSION_TOKEN": false,
+    "AZURE_API_KEY": false,
+    "BEDROCK_API_KEY": false,
+    "GEMINI_API_KEY": false,
+    "GOOGLE_API_KEY": false,
+    "HF_TOKEN": false,
+    "HUGGINGFACE_HUB_TOKEN": false,
+    "HUGGING_FACE_HUB_TOKEN": false,
+    "LITELLM_API_BASE": false,
+    "LITELLM_API_KEY": false,
+    "OPENAI_API_BASE": false,
+    "OPENAI_API_KEY": false,
+    "OPENAI_BASE_URL": false
+  },
+  "network_probe_performed": false,
+  "note": "Presence is not proof of access; absence does not rule out managed credentials."
+}

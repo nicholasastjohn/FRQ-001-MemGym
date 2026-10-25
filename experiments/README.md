@@ -1,6 +1,3 @@
 # Experiments
 
-Store exact run manifests and command records here.
-
-Each run manifest should include the upstream SHA, model identifier, strategy, horizon, seed, prompt/config hash, start/end timestamps, software environment hash, and cost metadata.
-
+The [protocol audit](protocol-audit.md) defines the published target and implementation gaps. Exact commands and run manifests live under results/raw/, indexed by the dated execution report. These are free validation runs; no empirical task scores have been collected.

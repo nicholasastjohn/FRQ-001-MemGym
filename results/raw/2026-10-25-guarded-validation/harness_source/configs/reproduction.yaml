@@ -1,0 +1,65 @@
+project: FRQ-001-MemGym
+status: artifact_validation_only
+relationship_to_persistent_agency: adjacent_independent_study
+track: MEMGYM-DR
+upstream:
+  repository: https://github.com/WujiangXu/MemGym
+  commit: 50b404e6ae4e1fcd453d3e07963eb3e6312cbded
+  modification_policy: never_modify_upstream
+paper:
+  arxiv: "2605.20833v1"
+  actual_target: "Figure 3(b), Table 8, Appendix E"
+  upstream_docs_label: "Figure 2b (numbering mismatch)"
+  alignment_status: unresolved_implementation_deviations
+dataset:
+  repository: MemGym/memgym-dr-instances
+  revision: 02f8da42a1a771d1d58552274db1cbf46f0fc7b4
+  revision_policy: resolve_immutable_revision_before_download_and_record_sha256
+  strata:
+    3hop: {file: 3hop_verified.jsonl, rows: 161}
+    4hop: {file: 4hop_paper_run.jsonl, rows: 916}
+    56hop: {file: 56hop_clean.jsonl, rows: 117}
+  download_manifest: results/raw/2026-10-25-dataset-audited/dataset_manifest.json
+  row_identity: "dataset file SHA256 + zero-based row ordinal + exact raw line SHA256 including newline"
+  instance_id_policy: "Preserve all rows and ID collisions; never deduplicate or join solely on instance_id"
+  known_collision_audit:
+    file: 4hop_paper_run.jsonl
+    rows: 916
+    unique_instance_ids: 909
+    collision_groups: 6
+zero_cost_validation:
+  seed: 42
+  seed_scope: "Python random, numpy, PYTHONHASHSEED; no provider RNG exercised"
+  synthetic_placeholder_instances: 2
+  released_adapter_smoke_rows_per_stratum: 1
+  adapters: [ir_passthrough, ir_bm25]
+  model_calls_permitted: false
+  task_metrics_permitted: false
+  network_policy: "Validation workers block Python DNS/connect/sendto; dataset download is anonymous HTTPS"
+paper_matrix_pending_resolution:
+  methods: [ir_passthrough, ir_bm25, ir_naive_rag, ir_amem, ir_lightmem, ir_memorybank, ir_simplemem]
+  excluded_from_paper_main_comparison: [ir_structured]
+  context_budget_tokens: 100000
+  provider: bedrock
+  upstream_answer_and_judge_model: bedrock/us.anthropic.claude-sonnet-4-5-20250929-v1:0
+  upstream_summarization_model: bedrock/us.anthropic.claude-haiku-4-5-20251001-v1:0
+  upstream_simplemem_default: gpt-4o-mini
+  model_calls_executed: false
+  unresolved:
+    - "Paper no-memory versus upstream PassThrough retaining all observations"
+    - "MemoryBank registered but absent from evaluation manager dispatch"
+    - "SimpleMem ignores requested summarizer and defaults to gpt-4o-mini"
+    - "Upstream benchmark converts exceptions to score zero; invalid for scientific scoring"
+    - "Default six-method matrix, including contaminated ir_structured, differs from paper"
+    - "Default first 50 rows differs from full published strata"
+    - "Exact paper-era commit, per-instance outputs, repeated-run uncertainty and judge calibration"
+reproduction_tolerance: 0.05  # Absolute continuous task score per method/stratum.
+reproduction_tolerance_status: proposed_pending_protocol_alignment
+paid_execution:
+  enabled: false
+  maximum_approved_cost_usd: 0
+  required_next_step: "Resolve protocol gaps and set explicit model, backend, budget, and failure policy"
+robustness_extensions_after_baseline:
+  - "Repeat the same paired instance matrix across three controlled model runs; report provider seed support"
+  - "Predeclared stratified sampling sensitivity: 50-case pilot versus full published strata"
+

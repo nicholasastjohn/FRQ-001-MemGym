@@ -1,0 +1,82 @@
+{
+  "all_commands_exit_zero": true,
+  "checks": {
+    "dr_benchmark_runner_help": {
+      "exit_code": 0
+    },
+    "dr_module_help": {
+      "exit_code": 0
+    },
+    "full_unit_suite": {
+      "exit_code": 0,
+      "passed": 298,
+      "skipped": 4,
+      "warnings": 2
+    },
+    "imports": {
+      "exit_code": 0,
+      "passed": 4
+    },
+    "memory_registry": {
+      "exit_code": 0
+    },
+    "pip_check": {
+      "exit_code": 0
+    },
+    "release_critical_suite": {
+      "exit_code": 0,
+      "passed": 67
+    },
+    "upstream_tracked_changes": false
+  },
+  "command_count": 18,
+  "dataset_generation": "Not performed by this preflight; separately owned smoke work.",
+  "deviations": [
+    "Current released upstream commit, not established as the original paper-era environment.",
+    "Used the bundled Python 3.12.14 on macOS ARM64 and newly resolved dependencies; the exact environment is frozen in requirements.freeze.txt.",
+    "Created the venv outside upstream and selected its interpreter explicitly.",
+    "Credential variables were excluded from subprocess environments and LiteLLM local cost map enabled. These are zero-cost validation controls.",
+    "Full unit suite has three additional skipped minisweagent tests compared with the documentation all-track baseline (301 passed, one skipped). No test failures occurred.",
+    "Full unit suite was rerun with -rs solely to resolve those additional skip reasons."
+  ],
+  "end_utc": "2026-10-25T19:31:51.856978+00:00",
+  "full_unit_skip_reasons": [
+    {
+      "count": 1,
+      "location": "tests/unit/test_bugfixes.py:147",
+      "reason": "minisweagent is not installed (not declared in the installed swe extra)"
+    },
+    {
+      "count": 2,
+      "location": "tests/unit/test_trajectory_bugs.py:249",
+      "reason": "minisweagent is not installed (not declared in the installed swe extra)"
+    },
+    {
+      "count": 1,
+      "location": "tests/unit/test_naive_summarization.py:274",
+      "reason": "Real-LLM integration requires OPENAI_API_KEY and RUN_INTEGRATION_TESTS=1"
+    }
+  ],
+  "hardware": {
+    "logical_cpu_count": 8,
+    "memory_bytes": 8589934592,
+    "model": "iMac21,1"
+  },
+  "installation_exit_code": 0,
+  "installed_extras": [
+    "dev",
+    "eval",
+    "swe",
+    "memory-eval"
+  ],
+  "llm_api_calls_requested": 0,
+  "llm_api_cost_usd": 0,
+  "platform": "macOS 26.6.2 ARM64",
+  "purpose": "Zero-cost installation, tests and MEMGYM-DR entry-point wiring against an untouched upstream checkout. No scientific performance measurement.",
+  "python": "3.12.14",
+  "run_id": "2026-10-25-preflight",
+  "seeds": "No benchmark or stochastic model evaluation was run. Existing upstream unit fixtures were used unchanged.",
+  "start_utc": "2026-10-25T19:28:32.543272+00:00",
+  "upstream_sha": "50b404e6ae4e1fcd453d3e07963eb3e6312cbded",
+  "upstream_url": "https://github.com/WujiangXu/MemGym"
+}

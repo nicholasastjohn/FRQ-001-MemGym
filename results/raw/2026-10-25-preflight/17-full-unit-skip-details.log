@@ -1,0 +1,28 @@
+$ /Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/venvs/memgym/bin/python -m pytest tests/unit/ -q -rs
+cwd: /Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym
+start_utc: 2026-10-25T19:31:43.488156+00:00
+
+.......s................................................................ [ 23%]
+........................................................................ [ 47%]
+........................................................s............... [ 71%]
+......................................................................ss [ 95%]
+..............                                                           [100%]
+=============================== warnings summary ===============================
+src/memgym/pipelines/coding_synthetic/types/schemas.py:25
+  /Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym/src/memgym/pipelines/coding_synthetic/types/schemas.py:25: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/
+    class FilteredInstance(BaseModel):
+
+tests/unit/test_bugfixes.py::TestNaiveSummarizationKeepFirst::test_system_prompt_preserved_after_summarization
+  /Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/venvs/memgym/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:1507: UserWarning: Item 'summary' on TypedDict class 'ChatCompletionReasoningItem' is using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+SKIPPED [1] tests/unit/test_bugfixes.py:147: could not import 'minisweagent': No module named 'minisweagent'
+SKIPPED [1] tests/unit/test_naive_summarization.py:274: Set OPENAI_API_KEY and RUN_INTEGRATION_TESTS=1
+SKIPPED [2] tests/unit/test_trajectory_bugs.py:249: could not import 'minisweagent': No module named 'minisweagent'
+298 passed, 4 skipped, 2 warnings in 6.65s
+
+end_utc: 2026-10-25T19:31:51.856978+00:00
+exit_code: 0
+elapsed_seconds: 8.369

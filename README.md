@@ -1,70 +1,43 @@
-# FRQ-001-MemGym
+# FRQ-001 — Independent MemGym-DR reproducibility study
 
-**Frontier Result Quarterly #001 — Reproducing Long-Horizon Agent Memory in MemGym**
+Can an independent researcher reproduce the published long-horizon memory comparison using the authors' released artifacts?
 
-Status: **v1 reproduction scaffold — no experimental results have been generated yet.**
+**Status: environment and artifact validation; no LLM evaluation results or reproduction claim.** This project is adjacent to Persistent Agency and makes no claim about that architecture.
 
-## Objective
+## The verified target
 
-Independently reproduce the MemGym deep-research (MEMGYM-DR) long-horizon memory result associated with Figure 2b of the MemGym paper, then freeze the reproduction before proposing or implementing any extension.
+The published [MemGym paper, arXiv:2605.20833v1](https://arxiv.org/abs/2605.20833v1) reports MEMGYM-DR in **Figure 3(b)**. Appendix C.6 Table 8 supplies additional results and intervals. The upstream documentation's “Figure 2b” label disagrees with the published numbering.
 
-Primary question:
+The reported evaluation uses **161 three-hop, 916 four-hop, and 117 five/six-hop cases**, and seven methods: None, Naive RAG, BM25, A-Mem, LightMem, SimpleMem, and MemoryBank. Structured summary is excluded from the main comparison because the authors identified contamination. The example script's first 50 rows and default method list are a pilot configuration, not the full published protocol.
 
-> As research trajectories become longer and require more intermediate information, do explicit memory mechanisms reproduce the reported advantage over simple context/passthrough baselines?
+The pinned code also differs from the paper's description: `ir_passthrough` retains all observations, MemoryBank cannot be selected through the shared evaluator, and SimpleMem defaults to GPT-4o-mini. Read the [protocol audit](experiments/protocol-audit.md) before any paid run. Passing installation tests does not resolve these mismatches.
 
-## Upstream work
+## Run the free checks
 
-- Paper: *MemGym: a Long-Horizon Memory Environment for LLM Agents* (Xu et al., 2026)
-- arXiv: https://arxiv.org/abs/2605.20833
-- Upstream code: https://github.com/WujiangXu/MemGym
+Use Python 3.12 in a dedicated environment. Downloads use network access; the validation and offline smoke never invoke an LLM. Keep the upstream checkout outside this repository.
 
-## Reproduction target
-
-The initial target is MEMGYM-DR across increasing reasoning depth / trajectory horizon, with a fixed agent/model configuration and multiple memory strategies. At minimum:
-
-- passthrough / no dedicated memory baseline
-- BM25 retrieval
-- naive RAG
-- summarization
-- one stronger memory architecture if supported by the upstream release
-
-The exact strategy names, model, prompts, dataset revision, seeds, and evaluation commands will be copied from a pinned upstream commit before execution. Nothing in this repository should silently substitute a different configuration.
-
-## Reproduction standard
-
-A result counts as reproduced only if:
-
-1. The upstream commit and dataset revision are pinned.
-2. The environment is reconstructible.
-3. The exact experimental commands are recorded.
-4. Raw outputs are retained unchanged.
-5. Processing from raw outputs to reported metrics is scripted.
-6. The comparison to the paper distinguishes exact reproduction from unavoidable deviations.
-7. Multiple seeds are used where stochasticity materially affects the reported result.
-8. Cost, model/API version, date, and relevant provider settings are recorded.
-
-## Repository layout
-
-```text
-FRQ-001-MemGym/
-├── README.md
-├── REPRODUCTION.md
-├── UPSTREAM.md
-├── requirements.txt
-├── configs/
-├── experiments/
-├── results/
-│   ├── raw/
-│   └── processed/
-├── figures/
-├── analysis/
-├── scripts/
-└── report/
+```bash
+git clone https://github.com/WujiangXu/MemGym.git ../MemGym
+git -C ../MemGym checkout --detach 50b404e6ae4e1fcd453d3e07963eb3e6312cbded
+python3.12 -m venv ../memgym-venv
+../memgym-venv/bin/python -m pip install --upgrade pip
+../memgym-venv/bin/python -m pip install -e '../MemGym[dev,eval,swe,memory-eval]'
 ```
 
-## Version boundary
+See [scripts/README.md](scripts/README.md) for evidence-capturing commands, immutable dataset download, guarded synthetic dry run, and offline replay of released instances. The observed environment and dependency snapshot are preserved with each run; upstream dependency ranges alone are not a lock.
 
-`v1` is reproduction-only. No persistent-state-memory extension belongs in the reproduction baseline.
+## Evidence and protocol
 
-After the reproduction is complete and frozen, the planned extension is to test whether **structured persistent state memory** degrades more slowly than retrieval/summarization baselines as task horizon increases. That extension must begin from a later version/branch so it cannot contaminate the baseline.
+- [Execution report](report/validation-2026-10-25.md): what ran, failures, limitations, and next actions.
+- [Reproduction protocol](REPRODUCTION.md): decision gates, failure accounting, analysis, and extensions.
+- [Upstream provenance](UPSTREAM.md): pinned source, paper, and data.
+- [Configuration](configs/reproduction.yaml): machine-readable target and unresolved differences.
+- `results/raw/`: commands, logs, environment snapshots, manifests, and offline smoke outputs. These are validation artifacts, not benchmark scores.
 
+Never commit credentials. Raw outputs must not be manually edited. Downloaded dataset payloads stay outside version control; retain immutable revision, ordered instance IDs, and SHA-256 manifests.
+
+## Completion standard
+
+The core reproduction remains **inconclusive / not yet executed** until the protocol gaps are resolved and authentic model outputs exist. Compare continuous judge score and uncertainty against the paper, keeping infrastructure errors separate from task failures. Freeze the baseline before extensions.
+
+The first extensions are repeated executions of the fixed dataset and a predeclared stratified sampling sensitivity analysis. All 1,194 cases already belong to the paper target; a full-dataset run is not a new extension. New memory architectures and cross-model generalization are outside this initial scope.

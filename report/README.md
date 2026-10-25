@@ -1,14 +1,5 @@
-# Report
+# Reports
 
-Planned final report structure:
+[2026-10-25 validation report](validation-2026-10-25.md): executed checks, real data provenance, offline replay, limitations and next actions.
 
-1. Claim being reproduced
-2. Original experimental setup
-3. Reproduction setup
-4. Deviations
-5. Results
-6. Original vs reproduced comparison
-7. Error/failure analysis
-8. Reproduction verdict
-9. Post-freeze extension hypothesis
-
+A later results brief must separate published reference values from new measurements, describe protocol fidelity and API failures, and state a supported reproduction verdict.

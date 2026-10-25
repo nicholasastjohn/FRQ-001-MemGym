@@ -1,6 +1,5 @@
 # Analysis
 
-Analysis must be reproducible from immutable files in `results/raw/`.
+No empirical model outputs exist yet. The source audit contains labeled published reference values, not FRQ measurements.
 
-No reported number should depend on manual spreadsheet edits or hand-copied values.
-
+Follow REPRODUCTION.md before collecting or analyzing task scores. Pair cases by dataset hash, row ordinal and raw-line hash; instance_id alone is not unique in the released 4-hop corpus. Keep API failures separate from valid scores. All transformations from future raw model outputs to tables and figures must be scripted here.

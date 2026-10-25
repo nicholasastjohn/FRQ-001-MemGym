@@ -1,0 +1,30 @@
+$ /Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/venvs/memgym/bin/python examples/memgym_dr/run_ir_benchmark.py --help
+cwd: /Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym
+start_utc: 2026-10-25T19:31:35.822360+00:00
+
+W1025 15:31:40.515000 48660 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+usage: run_ir_benchmark.py [-h] [--data-3hop DATA_3HOP]
+                           [--data-4hop DATA_4HOP] [--data-56hop DATA_56HOP]
+                           [--strategies STRATEGIES] [--limit LIMIT]
+                           [--model MODEL]
+                           [--summarization-model SUMMARIZATION_MODEL]
+                           [--output OUTPUT] [--workers WORKERS]
+
+Benchmark IR memory methods across hop strata
+
+options:
+  -h, --help            show this help message and exit
+  --data-3hop DATA_3HOP
+  --data-4hop DATA_4HOP
+  --data-56hop DATA_56HOP
+  --strategies STRATEGIES
+  --limit LIMIT
+  --model MODEL
+  --summarization-model SUMMARIZATION_MODEL
+  --output OUTPUT
+  --workers WORKERS     Parallel instance workers per strategy (I/O-bound
+                        Bedrock calls).
+
+end_utc: 2026-10-25T19:31:42.883293+00:00
+exit_code: 0
+elapsed_seconds: 7.061

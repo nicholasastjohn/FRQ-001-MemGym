@@ -1,0 +1,20 @@
+[
+  {
+    "instance_id": "memgym_ir__synthetic__synthetic_00000",
+    "score_a": 1.0,
+    "score_b": 0.0,
+    "score_c": 0.0,
+    "gap_ab": 1.0,
+    "gap_ac": 1.0,
+    "accepted": true
+  },
+  {
+    "instance_id": "memgym_ir__synthetic__synthetic_00001",
+    "score_a": 1.0,
+    "score_b": 0.0,
+    "score_c": 0.0,
+    "gap_ab": 1.0,
+    "gap_ac": 1.0,
+    "accepted": true
+  }
+]

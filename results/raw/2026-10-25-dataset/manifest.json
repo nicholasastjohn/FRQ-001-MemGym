@@ -1,0 +1,27 @@
+{
+  "commands": [],
+  "empirical_benchmark": false,
+  "error": "Duplicate instance IDs in 4hop_paper_run.jsonl",
+  "error_type": "ValueError",
+  "finished_utc": "2026-10-25T19:34:01.043455+00:00",
+  "invocation": [
+    "scripts/reproduce.py",
+    "download-data",
+    "--upstream",
+    "../MemGym",
+    "--output",
+    "results/raw/2026-10-25-dataset",
+    "--revision",
+    "main"
+  ],
+  "model_calls_made": 0,
+  "model_calls_permitted": false,
+  "operation": "download-data",
+  "python_executable": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym/../venvs/memgym/bin/python",
+  "schema_version": 1,
+  "seed": 0,
+  "started_utc": "2026-10-25T19:33:01.018155+00:00",
+  "status": "failed",
+  "upstream_path": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym",
+  "upstream_sha": "50b404e6ae4e1fcd453d3e07963eb3e6312cbded"
+}

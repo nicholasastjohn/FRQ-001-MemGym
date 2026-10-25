@@ -1,0 +1,95 @@
+{
+  "pipeline_summary": {
+    "raw_loaded": 2,
+    "after_filter": 2,
+    "after_prescreen": 2,
+    "after_extract": 2,
+    "after_craft": 2,
+    "after_verify": 2,
+    "after_harden": 2,
+    "final_count": 2
+  },
+  "dataset_statistics": {
+    "count": 2,
+    "avg_hops": 3.0,
+    "avg_grounding_facts": 3.0,
+    "avg_distractors": 4.0,
+    "avg_turns": 4.0,
+    "avg_total_tokens": 90.0,
+    "difficulty_distribution": {
+      "medium": 2
+    }
+  },
+  "ablation_analysis": {
+    "total_verified": 2,
+    "accepted": 2,
+    "rejected": 0,
+    "avg_score_a": 1.0,
+    "avg_score_b": 0.0,
+    "avg_score_c": 0.0,
+    "avg_gap_ab": 1.0,
+    "avg_gap_ac": 1.0,
+    "min_gap_ab": 1.0,
+    "max_gap_ab": 1.0
+  },
+  "quality_gates": {
+    "filter_rate": "2/2 (100%)",
+    "prescreen_rejection_rate": "0/2 (0%)",
+    "extract_quality_gate_rate": "2/2 (100%)",
+    "verification_acceptance_rate": "2/2 (100%)"
+  },
+  "distractor_composition": {
+    "total_tokens": {
+      "supporting": 90,
+      "cross_instance": 90,
+      "same_topic": 0,
+      "adversarial": 0,
+      "contradictions": 0,
+      "filler": 0
+    },
+    "avg_tokens": {
+      "supporting": 45,
+      "cross_instance": 45,
+      "same_topic": 0,
+      "adversarial": 0,
+      "contradictions": 0,
+      "filler": 0
+    }
+  },
+  "per_instance": [
+    {
+      "instance_id": "memgym_ir__synthetic__synthetic_00000",
+      "question": "Synthetic 3-hop question about literature",
+      "answer": "Synthetic answer about literature",
+      "num_hops": 3,
+      "num_facts": 3,
+      "num_distractors": 4,
+      "num_turns": 4,
+      "total_tokens": 90,
+      "difficulty": "medium",
+      "transforms": [
+        "query_fuzz",
+        "contra_placement",
+        "temporal_shift",
+        "distractor_scale_1.5"
+      ]
+    },
+    {
+      "instance_id": "memgym_ir__synthetic__synthetic_00001",
+      "question": "Synthetic 3-hop question about history",
+      "answer": "Synthetic answer about history",
+      "num_hops": 3,
+      "num_facts": 3,
+      "num_distractors": 4,
+      "num_turns": 4,
+      "total_tokens": 90,
+      "difficulty": "medium",
+      "transforms": [
+        "query_fuzz",
+        "contra_placement",
+        "temporal_shift",
+        "distractor_scale_1.5"
+      ]
+    }
+  ]
+}

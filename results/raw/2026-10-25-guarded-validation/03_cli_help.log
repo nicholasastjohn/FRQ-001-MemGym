@@ -1,0 +1,62 @@
+W1025 15:39:15.445000 49453 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+usage: __main__.py [-h] [--config CONFIG] [--output OUTPUT] [--limit LIMIT]
+                   [--dataset DATASET] [--worker-model WORKER_MODEL]
+                   [--verifier-model VERIFIER_MODEL] [--difficulty DIFFICULTY]
+                   [--target-tokens TARGET_TOKENS] [--min-hops MIN_HOPS]
+                   [--skip-verification] [--no-resume] [--dry-run]
+                   [--max-concurrent MAX_CONCURRENT]
+                   [--adversarial-count ADVERSARIAL_COUNT]
+                   [--contradiction-count CONTRADICTION_COUNT]
+                   [--query-fuzz {none,light,heavy}]
+                   [--distractor-scale DISTRACTOR_SCALE]
+                   [--min-a-score MIN_A_SCORE] [--min-gap MIN_GAP]
+                   [--red-herring-turns RED_HERRING_TURNS]
+                   [--reveal-mode {immediate,delayed}] [--expand-paragraphs]
+                   [--expansion-target-tokens EXPANSION_TARGET_TOKENS]
+                   [--overlap-count OVERLAP_COUNT]
+                   [--conflicting-sources CONFLICTING_SOURCES]
+                   [--eviction-mode {none,full_eviction,sliding_window}]
+                   [--eviction-window EVICTION_WINDOW]
+                   [--agent-notes-budget AGENT_NOTES_BUDGET]
+                   [--no-agent-notes] [--min-memory-facts MIN_MEMORY_FACTS]
+                   [--upgrade-hops UPGRADE_HOPS]
+
+MemGym-IR Pipeline (default: dataset mode)
+
+options:
+  -h, --help            show this help message and exit
+  --config CONFIG       Path to YAML config file
+  --output OUTPUT
+  --limit LIMIT
+  --dataset DATASET     Dataset: musique, hotpotqa, synthetic (default:
+                        musique)
+  --worker-model WORKER_MODEL
+  --verifier-model VERIFIER_MODEL
+  --difficulty DIFFICULTY
+                        Difficulty preset: easy, medium, hard
+  --target-tokens TARGET_TOKENS
+                        Token budget per instance (default: 10000)
+  --min-hops MIN_HOPS   Minimum hop count (default: 2)
+  --skip-verification
+  --no-resume
+  --dry-run
+  --max-concurrent MAX_CONCURRENT
+                        Max parallel LLM calls (default: 10)
+  --adversarial-count ADVERSARIAL_COUNT
+  --contradiction-count CONTRADICTION_COUNT
+  --query-fuzz {none,light,heavy}
+  --distractor-scale DISTRACTOR_SCALE
+  --min-a-score MIN_A_SCORE
+  --min-gap MIN_GAP
+  --red-herring-turns RED_HERRING_TURNS
+  --reveal-mode {immediate,delayed}
+  --expand-paragraphs
+  --expansion-target-tokens EXPANSION_TARGET_TOKENS
+  --overlap-count OVERLAP_COUNT
+  --conflicting-sources CONFLICTING_SOURCES
+  --eviction-mode {none,full_eviction,sliding_window}
+  --eviction-window EVICTION_WINDOW
+  --agent-notes-budget AGENT_NOTES_BUDGET
+  --no-agent-notes
+  --min-memory-facts MIN_MEMORY_FACTS
+  --upgrade-hops UPGRADE_HOPS

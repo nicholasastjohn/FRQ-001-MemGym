@@ -1,0 +1,58 @@
+W1025 15:36:25.507000 49155 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+============================================================
+MemGym-IR Pipeline v2
+============================================================
+Output: /Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym/results/raw/2026-10-25-synthetic-dry-run/synthetic
+Dataset: synthetic
+Worker: bedrock/us.anthropic.claude-haiku-4-5-20251001-v1:0
+Verifier: bedrock/us.anthropic.claude-sonnet-4-5-20250929-v1:0
+Difficulty: medium
+Target tokens: 12000
+Adversarial distractors: 5
+Contradiction distractors: 5
+Red herring turns: 1
+Reveal mode: delayed
+Max concurrent: 1
+Limit: 2
+Mode: DRY RUN (no LLM calls)
+
+[1/5] Stage 0 -- Mine: Filtering synthetic instances...
+Preparing 2 synthetic instance slots...
+Filtering synthetic:   0%|          | 0/2 [00:00<?, ?it/s]Filtering synthetic: 100%|██████████| 2/2 [00:00<00:00, 2506.31it/s]
+Filtered to 2 instances (100.0%)
+Saved to /Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym/results/raw/2026-10-25-synthetic-dry-run/synthetic/filtered.jsonl
+
+[2/5] Stage 1 -- Pre-screen: Rejecting parametric questions...
+  [dry-run] Skipping pre-screen LLM calls
+
+[3/5] Stage 2 -- Split: Extracting grounding facts...
+Extracting facts:   0%|          | 0/2 [00:00<?, ?it/s]Extracting facts: 100%|██████████| 2/2 [00:00<00:00, 6497.76it/s]
+  Extraction: 2/2 passed quality gate
+
+[4/5] Stage 3 -- Craft: Building search turns + distractors...
+Crafting instances:   0%|          | 0/2 [00:00<?, ?it/s]Crafting instances: 100%|██████████| 2/2 [00:00<00:00, 25.25it/s]
+  Crafted 2/2 instances
+
+[4.5/5] Stage 4 -- Verify: Running ablation tests...
+  [dry-run] Skipping verification LLM calls
+  After verification: 2 instances
+
+[5/5] Stage 5 -- Harden: Applying difficulty transforms...
+Hardening (custom):   0%|          | 0/2 [00:00<?, ?it/s]Hardening (custom): 100%|██████████| 2/2 [00:00<00:00, 43690.67it/s]
+  Hardened 2 instances with preset=custom
+
+Saving 2 instances to /Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym/results/raw/2026-10-25-synthetic-dry-run/synthetic/memgym_ir_instances.jsonl
+
+Generating quality report...
+  Quality report saved to /Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym/results/raw/2026-10-25-synthetic-dry-run/synthetic/quality_report.json and /Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym/results/raw/2026-10-25-synthetic-dry-run/synthetic/quality_report.md
+
+============================================================
+Pipeline Complete!
+============================================================
+Total instances: 2
+Output: /Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/FRQ-001-MemGym/results/raw/2026-10-25-synthetic-dry-run/synthetic/memgym_ir_instances.jsonl
+Avg hops: 3.0
+Avg grounding facts: 3.0
+Avg distractors: 4.0
+Avg turns: 4.0
+Avg tokens: 90.0
