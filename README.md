@@ -51,6 +51,12 @@ The historical Sonnet 4.5 model is now
 Verify account access and approve a spending ceiling before live execution.
 The planner does not substitute a model or enable paid execution.
 
+A separate [strict smoke runner](scripts/README.md#initial-direct-anthropic-smoke-runner)
+now supports that same dated model through Anthropic directly. The initial test
+has a user-approved USD 5 ceiling, at most six physical requests, and a single-use
+authorization ledger. Backend credentials and credits are still required. The
+provider change and execution limits are recorded as engineering deviations.
+
 ## Completion standard
 
 The core reproduction remains **inconclusive / not yet executed** until the protocol gaps are resolved and authentic model outputs exist. Compare continuous judge score and uncertainty against the paper, keeping infrastructure errors separate from task failures. Freeze the baseline before extensions.

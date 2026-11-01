@@ -157,3 +157,58 @@ Legacy models, and existing access may lapse after 15 days of inactivity. Verify
 the intended account/region before treating credentials as sufficient. A
 provider/model substitution requires a separate, documented decision.
 
+## Initial direct-Anthropic smoke runner
+
+`run_scored_smoke.py` can execute the prepared BM25 cells with the same dated
+Sonnet 4.5 model through Anthropic directly. This provider change, strict JSON
+validation, no retries, and a 1,024-token output cap are recorded engineering
+deviations. The upstream evaluator and data stay unchanged. A successful run is
+an engineering check; unresolved paper-protocol questions still prevent an exact
+reproduction claim.
+
+For the initial test, the user approved a maximum of USD 5 on November 1, 2026.
+The runner requires an explicit positive ceiling no greater than that amount.
+It permits at most six physical requests: three answers and three judgments.
+Each request reserves USD 0.61536 before transport, using the full 200,000-token
+input window at USD 3/M and at most 1,024 output tokens at USD 15/M. Six attempts
+reserve USD 3.69216. Reservations remain consumed after failures or ambiguous
+billing; actual returned usage is reported separately. This bounds modeled
+inference charges under the documented contract, not taxes, credit purchases,
+other account activity, or provider billing errors.
+
+An `ANTHROPIC_API_KEY` is required. Supply it through the environment, or a private
+mode-600 `.env.local` in the repository containing only `ANTHROPIC_API_KEY=value`.
+That file is ignored by Git and is never copied into run evidence. Missing keys
+produce a blocked readiness manifest without spending or consuming the ledger.
+
+```bash
+# Check the frozen inputs and credential presence without calling a model.
+"$PY" scripts/run_scored_smoke.py --plan /absolute/path/to/prepared/plan.json \
+  --upstream ../MemGym --python "$PY" --budget-usd 5 \
+  --output /absolute/path/to/new-readiness-check
+
+# Only after credentials are configured: execute this one approved test.
+"$PY" scripts/run_scored_smoke.py --plan /absolute/path/to/prepared/plan.json \
+  --upstream ../MemGym --python "$PY" --budget-usd 5 --execute \
+  --authorization-ledger /absolute/path/to/initial-test-authorization.jsonl \
+  --output /absolute/path/to/new-scored-smoke
+```
+
+The authorization ledger is exclusively created. Never select a different ledger
+to silently reset an existing approval; a failed or interrupted run requires
+review of its reservations before another execution. Responses, errors, prompt
+hashes, selected usage, and reservations are preserved without credential values
+or raw transport errors. A timeout, malformed output, missing usage, refusal,
+truncation, unexpected model, or unsupported billing component stops the run;
+none becomes a scientific score zero. A genuine valid judged zero remains zero.
+
+The client pins API version `2023-06-01` to retain `temperature=0`, uses standard
+service only, and sends no tools, caching, thinking or beta options. Sonnet 4.5
+remains deprecated, with direct-API retirement listed for November 30, 2026.
+Account access and credits must be verified at execution time.
+
+Sources checked November 1, 2026: [pricing](https://platform.claude.com/docs/en/about-claude/pricing),
+[model lifecycle](https://platform.claude.com/docs/en/about-claude/model-deprecations),
+[API versions](https://platform.claude.com/docs/en/api/versioning), and
+[message contract](https://platform.claude.com/docs/en/api/messages/create).
+
