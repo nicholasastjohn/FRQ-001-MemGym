@@ -36,6 +36,21 @@ See [scripts/README.md](scripts/README.md) for evidence-capturing commands, immu
 
 Never commit credentials. Raw outputs must not be manually edited. Downloaded dataset payloads stay outside version control; retain immutable revision, ordered instance IDs, and SHA-256 manifests.
 
+## Next milestone: a three-case scored smoke test
+
+The prepare-only planner freezes the first released row from each hop stratum
+and captures its exact BM25 answer prompt through the unchanged upstream
+evaluator. It stops before the model boundary and preserves the judge template
+and fixed inputs separately. A future complete run would request three answers
+and three judgments; it is an engineering check, not a paper reproduction.
+See [the planner instructions](scripts/README.md#prepare-the-next-scored-smoke-test).
+
+The historical Sonnet 4.5 model is now
+[Legacy on AWS Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.html)
+(checked November 1, 2026). New Bedrock customers cannot use Legacy models.
+Verify account access and approve a spending ceiling before live execution.
+The planner does not substitute a model or enable paid execution.
+
 ## Completion standard
 
 The core reproduction remains **inconclusive / not yet executed** until the protocol gaps are resolved and authentic model outputs exist. Compare continuous judge score and uncertainty against the paper, keeping infrastructure errors separate from task failures. Freeze the baseline before extensions.

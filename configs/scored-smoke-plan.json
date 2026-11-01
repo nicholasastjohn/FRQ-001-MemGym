@@ -1,0 +1,11 @@
+{
+  "kind": "prepare_only_engineering_smoke",
+  "model": "bedrock/us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+  "answer_and_judge_share_model": true,
+  "temperature": 0.0,
+  "strategies": ["ir_bm25"],
+  "row_index_per_stratum": 0,
+  "paid_execution_enabled": false,
+  "approved_budget_usd": 0,
+  "paper_protocol_alignment": "unresolved"
+}

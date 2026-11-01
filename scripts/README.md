@@ -106,3 +106,54 @@ particular, current `ir_passthrough` retains every turn, MemoryBank lacks manage
 dispatch, SimpleMem defaults to another model, and benchmark exceptions become
 zeros. A successful install or local adapter smoke does not resolve these gaps.
 
+## Prepare the next scored smoke test
+
+`prepare_scored_smoke.py` freezes three BM25 cells: row zero from each released
+stratum. It verifies the immutable dataset revision, complete file hashes and row
+counts, then records the full-file hash, row ordinal and exact raw-line hash for
+each selected case. Duplicate instance IDs remain distinct rows.
+
+```bash
+"$PY" scripts/prepare_scored_smoke.py --upstream ../MemGym --python "$PY" \
+  --dataset-manifest results/raw/my-run-dataset/dataset_manifest.json \
+  --output /absolute/path/to/new-smoke-plan
+
+# Include the pinned-source prompt integration check alongside all harness tests.
+FRQ_TEST_UPSTREAM=/absolute/path/to/MemGym \
+  "$PY" -m unittest discover -s scripts/tests -v
+```
+
+Use the audited dataset manifest when reusing the existing verified payloads; its
+`local_path` entries must resolve to those files. Choose a new output directory
+for every preparation. `--stratum 3hop` can prepare only that stratum; otherwise
+all three are included. The plan and raw prompt files belong in the local run
+evidence, not in a paper results table.
+
+Set `TIKTOKEN_CACHE_DIR` to a cache containing the authentic `cl100k_base`
+vocabulary before these offline commands if the default cache is empty. The
+network guard deliberately rejects an automatic tokenizer download. The
+installed tiktoken constructor verifies vocabulary SHA-256
+`223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7`;
+the resulting plan records this contract. Do not replace token counting with a
+fallback to make preparation pass.
+
+The worker receives the existing environment allowlist and Python network guard.
+It calls unchanged `evaluate_with_manager` with a capture client that raises at
+the first answer request. It neither answers nor judges. Exact answer prompts,
+their sizes/hashes, upstream source hashes, source/config snapshots, and the
+unfilled judge template/schema are retained. The judge prompt itself depends on
+a future captured answer and cannot be frozen yet. `cl100k_tokens` is an offline
+diagnostic, not a Bedrock token count or billing bound.
+
+A later successful three-cell run would use six logical requests with retries
+disabled. That count is not a billed-cost ceiling. Backend access, an approved
+budget, strict response/error handling, and prompt-limit checks are still needed
+before a live runner can be used. No live launcher is included here.
+
+As of November 1, 2026,
+[AWS lists Sonnet 4.5 as Legacy since October 8](https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.html),
+with end of life April 8, 2027 in the listed regions. New customers cannot use
+Legacy models, and existing access may lapse after 15 days of inactivity. Verify
+the intended account/region before treating credentials as sufficient. A
+provider/model substitution requires a separate, documented decision.
+
