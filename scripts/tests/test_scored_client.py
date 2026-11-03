@@ -14,7 +14,7 @@ from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import scored_client as client_module
 from scored_client import (StrictAnthropicClient, SmokeClientError, MODEL,
-                           RESERVATION_USD, _NoRedirects, _transport)
+                           SONNET46_MODEL, RESERVATION_USD, _NoRedirects, _transport)
 
 
 def response(text='{"answer":"blue"}', **updates):
@@ -202,6 +202,99 @@ class ClientTests(unittest.TestCase):
             with self.assertRaisesRegex(SmokeClientError, "approval_limit"):
                 client.get_completion("question")
             self.assertEqual(client.summary()["attempted_calls"], 1)
+
+    def test_sonnet46_six_successes_settle_with_prior_hold_inside_five_dollars(self):
+        replies = [response('{"answer":"blue"}' if index % 2 == 0 else
+                            '{"score":1,"explanation":"Correct"}', model=SONNET46_MODEL)
+                   for index in range(6)]
+
+        def transport(payload, key):
+            self.calls.append(deepcopy(payload))
+            return replies.pop(0)
+
+        client = StrictAnthropicClient(api_key="fixture", trace_path=self.path,
+                    model=SONNET46_MODEL, prior_reservation_usd=Decimal("0.61536"), transport=transport)
+        for index in range(6):
+            if index % 2 == 0:
+                client.get_completion("question")
+            else:
+                client.get_json_completion("judge")
+        self.assertEqual(len(self.calls), 6)
+        for payload in self.calls:
+            self.assertEqual(payload["model"], "claude-sonnet-4-6")
+            self.assertEqual(payload["thinking"], {"type": "disabled"})
+            self.assertEqual(payload["temperature"], 0)
+        records = self.records()
+        requests = [item for item in records if item["kind"] == "request"]
+        settlements = [item for item in records if item["kind"] == "settlement"]
+        self.assertEqual(len(settlements), 6)
+        self.assertTrue(all(Decimal(item["reserved_cost_usd"]) == Decimal("3.01536") for item in requests))
+        self.assertTrue(all(Decimal(item["budget_held_usd"]) <= 5 for item in requests + settlements))
+        self.assertTrue(all(Decimal(item["released_reservation_usd"]) == Decimal("3.01503") for item in settlements))
+        summary = client.summary()
+        self.assertEqual(summary["model"], SONNET46_MODEL)
+        self.assertEqual(Decimal(summary["prior_reservation_usd"]), Decimal("0.61536"))
+        self.assertEqual(Decimal(summary["budget_held_usd"]), Decimal("0.61734"))
+        self.assertEqual(Decimal(summary["known_usage_cost_usd"]), Decimal("0.00198"))
+        self.assertEqual(Decimal(summary["gross_new_reservations_usd"]), Decimal("18.09216"))
+        self.assertEqual(Decimal("0.61536") + sum(Decimal(x["reserved_cost_usd"]) for x in requests)
+                         - sum(Decimal(x["released_reservation_usd"]) for x in settlements),
+                         Decimal(summary["budget_held_usd"]))
+        with self.assertRaisesRegex(SmokeClientError, "approval_limit"):
+            client.get_completion("seventh request")
+        self.assertEqual(len(self.calls), 6)
+
+    def test_sonnet46_failure_retains_full_reservation_and_never_settles(self):
+        for failure in ("transport", "invalid_answer", "invalid_judge"):
+            with self.subTest(failure=failure), tempfile.TemporaryDirectory() as directory:
+                path = Path(directory) / "trace"
+
+                def transport(*_):
+                    if failure == "transport":
+                        raise TimeoutError("fixture secret")
+                    return response('{}', model=SONNET46_MODEL)
+
+                client = StrictAnthropicClient(api_key="fixture", trace_path=path,
+                    model=SONNET46_MODEL, prior_reservation_usd="0.61536", transport=transport)
+                with self.assertRaises(SmokeClientError):
+                    if failure == "invalid_judge":
+                        client.get_json_completion("judge")
+                    else:
+                        client.get_completion("question")
+                self.assertEqual(Decimal(client.summary()["budget_held_usd"]), Decimal("3.63072"))
+                self.assertEqual(client.summary()["completed_calls"], 0)
+                self.assertNotIn("settlement", [json.loads(line)["kind"] for line in path.read_text().splitlines()])
+                with self.assertRaisesRegex(SmokeClientError, "already_failed"):
+                    client.get_completion("do not retry")
+
+    def test_sonnet46_settled_spend_must_leave_a_full_context_reservation(self):
+        client = self.client(response(model=SONNET46_MODEL,
+                                     usage={"input_tokens": 900000, "output_tokens": 1}),
+                             model=SONNET46_MODEL, prior_reservation_usd="0.61536")
+        client.get_completion("large-context question")
+        self.assertEqual(Decimal(client.summary()["budget_held_usd"]), Decimal("3.315375"))
+        with self.assertRaisesRegex(SmokeClientError, "approval_limit"):
+            client.get_completion("insufficient remaining headroom")
+        self.assertEqual(len(self.calls), 1)
+        self.assertEqual(client.summary()["attempted_calls"], 1)
+
+    def test_sonnet46_prior_hold_can_prevent_the_first_request(self):
+        client = self.client(response(model=SONNET46_MODEL), model=SONNET46_MODEL,
+                             prior_reservation_usd=Decimal("2"))
+        with self.assertRaisesRegex(SmokeClientError, "approval_limit"):
+            client.get_completion("question")
+        self.assertEqual(self.calls, [])
+        self.assertEqual(client.summary()["attempted_calls"], 0)
+        self.assertEqual(Decimal(client.summary()["budget_held_usd"]), Decimal("2"))
+
+    def test_model_and_prior_hold_are_validated_before_creating_a_ledger(self):
+        for prior in (-1, float("nan"), float("inf"), 6):
+            with self.subTest(prior=prior), self.assertRaises(ValueError):
+                StrictAnthropicClient(api_key="fixture", trace_path=self.path, prior_reservation_usd=prior)
+            self.assertFalse(self.path.exists())
+        with self.assertRaises(ValueError):
+            StrictAnthropicClient(api_key="fixture", trace_path=self.path, model="unapproved-model")
+        self.assertFalse(self.path.exists())
 
     def test_http_error_records_status_without_provider_body_or_secret(self):
         def fail(*_):

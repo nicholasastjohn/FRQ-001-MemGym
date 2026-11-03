@@ -2,7 +2,7 @@
 
 No retries, endpoint overrides, tools, caching or model substitutions are used.
 The caller owns the fresh run directory and must supply an authorized API key.
-Cost reservations use the full 200K input context, not a tokenizer estimate.
+Cost reservations use the model's full input context, not a tokenizer estimate.
 """
 
 from decimal import Decimal
@@ -16,6 +16,7 @@ import urllib.request
 
 
 MODEL = "claude-sonnet-4-5-20250929"
+SONNET46_MODEL = "claude-sonnet-4-6"
 ENDPOINT = "https://api.anthropic.com/v1/messages"
 API_VERSION = "2023-06-01"
 MAX_INPUT_TOKENS = 200000
@@ -62,27 +63,38 @@ class StrictAnthropicClient:
     `transport` is an injectable test fixture, never a CLI endpoint setting.
     Reservations remain consumed on every failure, and the client becomes failed
     after any attempted request fails. Unknown billing is never counted as zero.
+    This is a single-owner sequential client, not a concurrent request scheduler.
     """
 
     def __init__(self, *, api_key, trace_path, max_cost_usd=Decimal("5"),
-                 max_calls=6, transport=None):
+                 max_calls=6, transport=None, model=MODEL, prior_reservation_usd=Decimal("0")):
         try:
             maximum = Decimal(str(max_cost_usd))
+            prior = Decimal(str(prior_reservation_usd))
         except Exception:
             raise ValueError("Invalid cost ceiling") from None
         if not maximum.is_finite() or not Decimal("0") < maximum <= Decimal("5"):
             raise ValueError("Cost ceiling must be positive and at most 5 USD")
         if type(max_calls) is not int or not 1 <= max_calls <= 6:
             raise ValueError("Call ceiling must be between one and six")
+        if not prior.is_finite() or not Decimal("0") <= prior <= maximum:
+            raise ValueError("Prior reservation must be nonnegative and within the cost ceiling")
+        if model not in (MODEL, SONNET46_MODEL):
+            raise ValueError("Unsupported model; no automatic substitution is permitted")
         if not isinstance(api_key, str) or not api_key.strip() or any(c.isspace() for c in api_key):
             raise ValueError("A nonblank API key without whitespace is required")
-        self.model = MODEL
+        self.model = model
+        self._settle_success = model == SONNET46_MODEL
+        self._max_input_tokens = 1000000 if self._settle_success else MAX_INPUT_TOKENS
+        self._reservation = (self._max_input_tokens * INPUT_USD_PER_MILLION
+                             + MAX_OUTPUT_TOKENS * OUTPUT_USD_PER_MILLION) / Decimal(1000000)
         self._api_key = api_key
         self._transport = transport or _transport
         self._maximum, self._max_calls = maximum, max_calls
         self._attempted = self._completed = 0
         self._usage_accounted = 0
         self._reserved = self._known_cost = Decimal("0")
+        self._prior, self._gross_reserved = prior, Decimal("0")
         self._failed = False
         self._trace = Path(trace_path)
         self._trace.parent.mkdir(parents=True, exist_ok=True)
@@ -92,10 +104,15 @@ class StrictAnthropicClient:
     def summary(self):
         return {"attempted_calls": self._attempted, "completed_calls": self._completed,
                 "maximum_calls": self._max_calls, "approved_ceiling_usd": str(self._maximum),
-                "reserved_cost_usd": str(self._reserved),
+                "reserved_cost_usd": str(self._prior + self._reserved),
+                "budget_held_usd": str(self._prior + self._reserved),
+                "prior_reservation_usd": str(self._prior),
+                "new_run_held_usd": str(self._reserved),
+                "gross_new_reservations_usd": str(self._gross_reserved),
+                "per_request_reservation_usd": str(self._reservation),
                 "known_usage_cost_usd": str(self._known_cost),
-                "billing_uncertain": self._attempted != self._usage_accounted,
-                "failed": self._failed, "model": MODEL, "api_version": API_VERSION,
+                "billing_uncertain": self._prior > 0 or self._attempted != self._usage_accounted,
+                "failed": self._failed, "model": self.model, "api_version": API_VERSION,
                 "cost_basis": "Uncached standard input/output token rates; estimates, not invoices"}
 
     def _record(self, record):
@@ -103,9 +120,8 @@ class StrictAnthropicClient:
             stream.write(json.dumps(record, sort_keys=True, allow_nan=False) + "\n")
             stream.flush()
 
-    @staticmethod
-    def _response(response):
-        if not isinstance(response, dict) or response.get("model") != MODEL:
+    def _response(self, response):
+        if not isinstance(response, dict) or response.get("model") != self.model:
             raise SmokeClientError("unexpected_response_model")
         if response.get("stop_reason") != "end_turn":
             raise SmokeClientError("incomplete_or_refused_response")
@@ -127,7 +143,7 @@ class StrictAnthropicClient:
         for key in ("input_tokens", "output_tokens"):
             if type(usage.get(key)) is not int or usage[key] < 0:
                 raise SmokeClientError("invalid_usage")
-        if usage["input_tokens"] > MAX_INPUT_TOKENS or usage["output_tokens"] > MAX_OUTPUT_TOKENS:
+        if usage["input_tokens"] > self._max_input_tokens or usage["output_tokens"] > MAX_OUTPUT_TOKENS:
             raise SmokeClientError("usage_exceeds_reserved_limits")
         ordinary_metadata = {"service_tier": (None, "standard"),
                              "speed": (None, "standard"),
@@ -151,7 +167,7 @@ class StrictAnthropicClient:
                     continue
             # Reject unknown billable usage instead of assigning it a zero cost.
             raise SmokeClientError("unsupported_usage_component")
-        selected = {"id": response.get("id"), "model": MODEL,
+        selected = {"id": response.get("id"), "model": self.model,
                     "stop_reason": "end_turn", "content": text,
                     "usage": json.loads(json.dumps(usage, allow_nan=False))}
         if not isinstance(selected["id"], str) or not selected["id"]:
@@ -163,20 +179,24 @@ class StrictAnthropicClient:
             raise SmokeClientError("client_already_failed")
         if not isinstance(prompt, str) or not prompt.strip() or temperature != 0:
             raise SmokeClientError("unsupported_request")
-        if self._attempted >= self._max_calls or self._reserved + RESERVATION_USD > self._maximum:
+        if self._attempted >= self._max_calls or self._prior + self._reserved + self._reservation > self._maximum:
             raise SmokeClientError("approval_limit_reached")
-        payload = {"model": MODEL, "max_tokens": MAX_OUTPUT_TOKENS, "temperature": 0,
+        payload = {"model": self.model, "max_tokens": MAX_OUTPUT_TOKENS, "temperature": 0,
                    "service_tier": "standard_only",
                    "messages": [{"role": "user", "content": prompt}]}
+        if self._settle_success:
+            payload["thinking"] = {"type": "disabled"}
         if role == "judge":
             payload["system"] = "You must respond with valid JSON."
         self._attempted += 1
-        self._reserved += RESERVATION_USD
+        self._reserved += self._reservation
+        self._gross_reserved += self._reservation
         record = {"kind": "request", "call": self._attempted, "role": role,
-                  "model": MODEL, "api_version": API_VERSION,
+                  "model": self.model, "api_version": API_VERSION,
                   "prompt_sha256": hashlib.sha256(prompt.encode()).hexdigest(),
                   "prompt_utf8_bytes": len(prompt.encode()), "max_output_tokens": MAX_OUTPUT_TOKENS,
-                  "reserved_cost_usd": str(RESERVATION_USD)}
+                  "reserved_cost_usd": str(self._reservation),
+                  "budget_held_usd": str(self._prior + self._reserved)}
         self._record(record)  # If recording fails, transport is never invoked.
         start = time.monotonic()
         try:
@@ -185,6 +205,7 @@ class StrictAnthropicClient:
             except urllib.error.HTTPError as error:
                 # Status alone is useful for auth/rate-limit diagnosis; the URL,
                 # headers and provider error body may contain sensitive data.
+                error.close()
                 raise SmokeClientError(f"http_{error.code}") from None
             except Exception:
                 raise SmokeClientError("transport_failure") from None
@@ -193,9 +214,10 @@ class StrictAnthropicClient:
                     + selected["usage"]["output_tokens"] * OUTPUT_USD_PER_MILLION) / Decimal(1000000)
             self._known_cost += cost
             self._usage_accounted += 1
-            self._record({"kind": "response", "call": self._attempted, "role": role,
-                          **selected, "usage_cost_usd": str(cost),
-                          "elapsed_seconds": round(time.monotonic() - start, 6)})
+            response_record = {"kind": "response", "call": self._attempted, "role": role,
+                               **selected, "usage_cost_usd": str(cost),
+                               "elapsed_seconds": round(time.monotonic() - start, 6)}
+            self._record(response_record)
             value = _object(text)
             if role == "answer":
                 if not isinstance(value.get("answer"), str) or not value["answer"].strip():
@@ -206,6 +228,13 @@ class StrictAnthropicClient:
                     raise SmokeClientError("invalid_judge_score")
                 if not isinstance(value.get("explanation"), str) or not value["explanation"].strip():
                     raise SmokeClientError("invalid_judge_explanation")
+            release = self._reservation - cost if self._settle_success else Decimal("0")
+            held_after = self._reserved - release
+            if self._settle_success:
+                self._record({"kind": "settlement", "call": self._attempted, "role": role,
+                              "released_reservation_usd": str(release),
+                              "budget_held_usd": str(self._prior + held_after)})
+            self._reserved = held_after
             self._completed += 1
             return text, value
         except SmokeClientError as error:

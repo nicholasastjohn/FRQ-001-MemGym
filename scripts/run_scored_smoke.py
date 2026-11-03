@@ -15,6 +15,7 @@ from prepare_scored_smoke import DATA, REVISION, SOURCES, selected_row
 from reproduce import PINNED_UPSTREAM, git, reserve_output, safe_env, sha256, verify_upstream, write_json
 
 DIRECT_MODEL = "claude-sonnet-4-5-20250929"
+SONNET46 = "claude-sonnet-4-6"
 PLAN_COMMIT = "565e23da788dc124935d5978ed3b1a392dad349c"
 APPROVED_CEILING = Decimal("5")
 
@@ -41,6 +42,22 @@ def load_api_key(path):
     if not value or any(c.isspace() for c in value):
         raise ValueError("API key file contains a blank or malformed value")
     return value
+
+
+def prior_reservation(path):
+    """Carry the original recorded failed attempt, without resetting its hold."""
+    path = Path(path).resolve()
+    recorded = Path(__file__).resolve().parents[1] / "results/raw/2026-11-02-initial-scored-smoke/request-trace.jsonl"
+    if not path.is_file() or sha256(path) != sha256(recorded):
+        raise ValueError("Prior authorization ledger differs from the preserved original attempt")
+    records = [json.loads(line) for line in path.read_text().splitlines()]
+    requests = [r for r in records if r.get("kind") == "request"]
+    if (len(requests) != 1 or requests[0].get("model") != DIRECT_MODEL
+            or requests[0].get("reserved_cost_usd") != "0.61536"
+            or [r.get("kind") for r in records] != ["request", "error"]
+            or records[1].get("error_code") != "http_404"):
+        raise ValueError("Unexpected prior failure accounting")
+    return Decimal("0.61536"), sha256(path)
 
 
 def validate_plan(plan_path, upstream):
@@ -152,7 +169,9 @@ def worker(request_path):
     key = os.environ.get("ANTHROPIC_API_KEY", "")
     client = StrictAnthropicClient(api_key=key, trace_path=Path(request["authorization_ledger"]),
                                    max_cost_usd=Decimal(request["budget_usd"]),
-                                   max_calls=2 * len(plan["cells"]))
+                                   max_calls=2 * len(plan["cells"]),
+                                   model=request.get("model", DIRECT_MODEL),
+                                   prior_reservation_usd=Decimal(request.get("prior_reservation_usd", "0")))
     try:
         execute_cells(plan, plan_path, upstream, output, client)
     finally:
@@ -165,18 +184,30 @@ def run(args):
     budget = Decimal(args.budget_usd)
     if not budget.is_finite() or budget <= 0 or budget > APPROVED_CEILING:
         raise ValueError("The approved test ceiling is positive and no greater than USD 5")
+    model = getattr(args, "model", DIRECT_MODEL)
+    prior, prior_hash = Decimal("0"), None
+    if model == SONNET46:
+        if not getattr(args, "prior_authorization_ledger", None):
+            raise ValueError("Sonnet 4.6 continuation requires the preserved original authorization ledger")
+        prior, prior_hash = prior_reservation(args.prior_authorization_ledger)
+    elif model != DIRECT_MODEL:
+        raise ValueError("Only the original model or the explicitly approved Sonnet 4.6 is allowed")
     # Check key presence without printing or snapshotting the value.
     root = Path(__file__).resolve().parents[1]
     key = load_api_key(args.api_key_file or root / ".env.local")
     key_present = bool(key)
     reserve_output(output)
     manifest = {"kind": "initial_scored_engineering_smoke", "started_utc": now(),
-                "status": "checking", "model": DIRECT_MODEL, "provider": "anthropic_direct",
+                "status": "checking", "model": model, "provider": "anthropic_direct",
                 "api_version": "2023-06-01", "approved_budget_usd": str(budget),
-                "approval_scope": "User approved USD 5 for this initial test in the current task on 2026-11-01",
+                "approval_scope": "User approved USD 5 on 2026-11-01; explicitly approved Sonnet 4.6 engineering continuation on 2026-11-02" if model == SONNET46 else "User approved USD 5 for this initial test in the current task on 2026-11-01",
                 "maximum_physical_attempts": 2 * len(plan["cells"]),
+                "prior_reservation_usd": str(prior), "prior_ledger_sha256": prior_hash,
+                "prior_generation_attempts": 1 if prior else 0,
+                "maximum_total_generation_attempts_including_prior": 2 * len(plan["cells"]) + (1 if prior else 0),
                 "maximum_output_tokens_per_request": 1024,
-                "full_window_reservation_usd_per_attempt": "0.61536",
+                "full_window_reservation_usd_per_attempt": "3.01536" if model == SONNET46 else "0.61536",
+                "reservation_policy": "Full context reserved before each call; only a fully validated success settles to actual usage; failures keep their full hold" if model == SONNET46 else "Full 200K context reservation retained",
                 "api_key_present": key_present, "plan_sha256": sha256(plan_path),
                 "harness_sha": git(root, "rev-parse", "HEAD"),
                 "harness_status": git(root, "status", "--porcelain"),
@@ -186,12 +217,17 @@ def run(args):
                                "1024-token output cap; strict JSON validation; fail fast with no retries",
                                "Judge schema checked locally; JSON system instruction instead of provider response_format",
                                "Three selected BM25 cases are an engineering smoke, not a paper comparison"]}
+    if model == SONNET46:
+        manifest["deviations"][0] = "User-approved Sonnet 4.6 replaces unavailable Sonnet 4.5; direct Anthropic provider instead of Bedrock"
+        manifest["deviations"].append("Thinking explicitly disabled; full 1M-window reservation is settled to actual usage after each validated success")
     for relative in ("scripts/run_scored_smoke.py", "scripts/scored_client.py",
                      "scripts/prepare_scored_smoke.py", "scripts/reproduce.py"):
         target = output / "harness_source" / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes((root / relative).read_bytes())
     (output / "prepared-plan.json").write_bytes(plan_path.read_bytes())
+    if prior:
+        (output / "prior-request-trace.jsonl").write_bytes(Path(args.prior_authorization_ledger).read_bytes())
     ledger = None
     try:
         if not key_present:
@@ -205,7 +241,9 @@ def run(args):
             if ledger.exists():
                 raise FileExistsError("Authorization ledger already exists; budget cannot be reset")
             request = {"upstream": str(upstream), "plan_path": str(plan_path),
-                       "budget_usd": str(budget), "authorization_ledger": str(ledger)}
+                       "budget_usd": str(budget), "authorization_ledger": str(ledger),
+                       "model": model, "prior_reservation_usd": str(prior),
+                       "prior_ledger_sha256": prior_hash}
             write_json(output / "request.json", request)
             env = safe_env(upstream, 42)
             env["ANTHROPIC_API_KEY"] = key
@@ -231,13 +269,16 @@ def run(args):
                     manifest["trace_incomplete"] = True
             requests = [r for r in records if r.get("kind") == "request"]
             manifest["model_calls_attempted"] = len(requests)
-            manifest["reserved_cost_usd"] = str(sum(
-                (Decimal(r["reserved_cost_usd"]) for r in requests), Decimal("0")))
+            reserved = sum((Decimal(r["reserved_cost_usd"]) for r in requests), Decimal("0"))
+            released = sum((Decimal(r["released_reservation_usd"]) for r in records
+                            if r.get("kind") == "settlement"), Decimal("0"))
+            manifest["reserved_cost_usd"] = str(prior + reserved - released)
             manifest["billing_uncertain"] = True
         if (output / "usage.json").is_file():
             manifest["usage"] = json.loads((output / "usage.json").read_text())
             manifest["model_calls_attempted"] = manifest["usage"]["attempted_calls"]
             manifest["billing_uncertain"] = manifest["usage"]["billing_uncertain"]
+            manifest["reserved_cost_usd"] = manifest["usage"]["reserved_cost_usd"]
         try:
             verify_upstream(upstream, PINNED_UPSTREAM)
             manifest["upstream_clean_after_run"] = True
@@ -264,6 +305,8 @@ def main():
     parser.add_argument("--execute", action="store_true")
     parser.add_argument("--authorization-ledger")
     parser.add_argument("--api-key-file")
+    parser.add_argument("--model", choices=(DIRECT_MODEL, SONNET46), default=DIRECT_MODEL)
+    parser.add_argument("--prior-authorization-ledger")
     parser.add_argument("--worker-request", type=Path, help=argparse.SUPPRESS)
     args = parser.parse_args()
     if args.worker_request:

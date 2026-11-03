@@ -212,3 +212,40 @@ Sources checked November 1, 2026: [pricing](https://platform.claude.com/docs/en/
 [API versions](https://platform.claude.com/docs/en/api/versioning), and
 [message contract](https://platform.claude.com/docs/en/api/messages/create).
 
+### Approved Sonnet 4.6 continuation
+
+The first live Sonnet 4.5 request returned HTTP 404. An authenticated model list
+confirmed that the account exposes Sonnet 4.6 but not the dated Sonnet 4.5 ID.
+The failed attempt and its full USD 0.61536 hold are preserved in
+[`results/raw/2026-11-02-initial-scored-smoke`](../results/raw/2026-11-02-initial-scored-smoke).
+On November 2, 2026 the user explicitly approved a Sonnet 4.6 engineering test
+within the same total USD 5 budget. This is a model deviation, not an exact
+reproduction of the original experiment.
+
+Sonnet 4.6 has a 1M-token context window at the same standard USD 3/M input and
+USD 15/M output rates. Each sequential request therefore reserves USD 3.01536
+before transport. Only after the complete response and its answer/judge contract
+validate does a persisted settlement replace that request's hold with returned
+usage cost. Errors retain the full hold and stop the run. Before each next call,
+the prior failed hold, settled costs, and next full reservation must together fit
+within USD 5. Gross reservations over time are not a charge or simultaneous
+exposure. Thinking is explicitly disabled, with temperature zero and API version
+`2023-06-01` retained.
+
+```bash
+"$PY" scripts/run_scored_smoke.py --plan /absolute/path/to/prepared/plan.json \
+  --upstream ../MemGym --python "$PY" --budget-usd 5 --execute \
+  --model claude-sonnet-4-6 \
+  --prior-authorization-ledger /absolute/path/to/original-failed-authorization.jsonl \
+  --authorization-ledger /absolute/path/to/sonnet46-continuation.jsonl \
+  --output /absolute/path/to/new-sonnet46-engineering-smoke
+```
+
+The prior ledger must exactly match the preserved original failure; it is never
+overwritten. The continuation gets a separate exclusively created ledger, six
+new generation attempts at most, and cumulative budget accounting. The input
+case selection and exact answer prompts remain frozen from the original plan.
+
+Sources checked November 2, 2026: [Sonnet 4.6 specification](https://platform.claude.com/docs/en/models/sonnet-4-6/overview)
+and [standard long-context pricing](https://platform.claude.com/docs/en/about-claude/pricing#long-context-pricing).
+

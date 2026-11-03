@@ -19,6 +19,18 @@ from scored_client import StrictAnthropicClient, MODEL
 
 
 class RunTests(unittest.TestCase):
+    def test_original_failed_hold_is_carried_and_changed_ledger_is_rejected(self):
+        recorded = SCRIPTS.parent / "results/raw/2026-11-02-initial-scored-smoke/request-trace.jsonl"
+        with tempfile.TemporaryDirectory() as directory:
+            ledger = Path(directory) / "prior.jsonl"
+            ledger.write_bytes(recorded.read_bytes())
+            amount, digest = runner.prior_reservation(ledger)
+            self.assertEqual(amount, Decimal("0.61536"))
+            self.assertEqual(len(digest), 64)
+            ledger.write_text(ledger.read_text()+"\n")
+            with self.assertRaisesRegex(ValueError, "differs"):
+                runner.prior_reservation(ledger)
+
     def test_private_key_file_is_local_only_and_insecure_mode_is_rejected(self):
         with tempfile.TemporaryDirectory() as directory, patch.dict(os.environ, {"ANTHROPIC_API_KEY": ""}):
             path = Path(directory) / ".env.local"
