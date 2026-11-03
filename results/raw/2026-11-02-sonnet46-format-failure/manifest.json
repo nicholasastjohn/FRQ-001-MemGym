@@ -1,0 +1,106 @@
+{
+  "api_key_present": true,
+  "api_version": "2023-06-01",
+  "approval_scope": "User approved USD 5 on 2026-11-01; explicitly approved Sonnet 4.6 engineering continuation on 2026-11-02",
+  "approved_budget_usd": "5",
+  "artifacts": {
+    "3hop/answer-prompt.txt": {
+      "bytes": 187562,
+      "sha256": "5f67581961bf8a1346b1eef90ad1185dd407e0bf711a32b59828e4278d309258"
+    },
+    "3hop/failure.json": {
+      "bytes": 454,
+      "sha256": "470d8c889a59dbe7b716e6ec9464191af969165b6ef2797ffcecf3a9b0cef55b"
+    },
+    "cases.json": {
+      "bytes": 488,
+      "sha256": "cf56d5a9e6427b8acabf06cb13a28ac2f9031a93dcce72e553f4dfa0f5e9770e"
+    },
+    "harness_source/scripts/prepare_scored_smoke.py": {
+      "bytes": 12288,
+      "sha256": "8a193a0160dbbdf4af747ce1cbaa34952eccbf4a8ab8bef53ac201714e9409fc"
+    },
+    "harness_source/scripts/reproduce.py": {
+      "bytes": 18034,
+      "sha256": "17c35c4dd80e5b4654bbb2593a14fa37f46e72efa648b718e158c213d983dbdc"
+    },
+    "harness_source/scripts/run_scored_smoke.py": {
+      "bytes": 17810,
+      "sha256": "bc4c810c460c6e87eeee1fe625b7c93eaa2064a58fb99fae299e1bb6c584694d"
+    },
+    "harness_source/scripts/scored_client.py": {
+      "bytes": 13413,
+      "sha256": "2bf16aaa69e8c44efabb6bdc5bb1a3f86ce90ed647c132ccaabcde067c04c184"
+    },
+    "prepared-plan.json": {
+      "bytes": 12287,
+      "sha256": "e1373fad682f10829475397cb48129d6d980baf1628a808b753be6f20c8a0f99"
+    },
+    "prior-request-trace.jsonl": {
+      "bytes": 422,
+      "sha256": "17e5597d38d73a993e16300c476cf304a4bf560395eb1c0370612181f8053184"
+    },
+    "request-trace.jsonl": {
+      "bytes": 3105,
+      "sha256": "c79bfd3d3da8a5fe2949ef89850c21be59a680654e573fa1572dcd022e8f2855"
+    },
+    "request.json": {
+      "bytes": 513,
+      "sha256": "371d3d4e66803f638c96f5f2836b4e3f8d40118ec0d6c8a96fc24d5a08020d54"
+    },
+    "usage.json": {
+      "bytes": 563,
+      "sha256": "e5a5d5c5161ebe3ffa3cc13a4acbde12ad78ad125ddd24a634e82889d4fc9ae8"
+    }
+  },
+  "billing_uncertain": true,
+  "dataset_revision": "02f8da42a1a771d1d58552274db1cbf46f0fc7b4",
+  "deviations": [
+    "User-approved Sonnet 4.6 replaces unavailable Sonnet 4.5; direct Anthropic provider instead of Bedrock",
+    "1024-token output cap; strict JSON validation; fail fast with no retries",
+    "Judge schema checked locally; JSON system instruction instead of provider response_format",
+    "Three selected BM25 cases are an engineering smoke, not a paper comparison",
+    "Thinking explicitly disabled; full 1M-window reservation is settled to actual usage after each validated success"
+  ],
+  "finished_utc": "2026-11-03T00:24:15.105192+00:00",
+  "full_window_reservation_usd_per_attempt": "3.01536",
+  "harness_sha": "37c1277e2a5b1bb2635869da2456e057b927deb9",
+  "harness_status": "",
+  "kind": "initial_scored_engineering_smoke",
+  "maximum_output_tokens_per_request": 1024,
+  "maximum_physical_attempts": 6,
+  "maximum_total_generation_attempts_including_prior": 7,
+  "model": "claude-sonnet-4-6",
+  "model_calls_attempted": 1,
+  "paper_reproduction": false,
+  "plan_sha256": "e1373fad682f10829475397cb48129d6d980baf1628a808b753be6f20c8a0f99",
+  "prior_generation_attempts": 1,
+  "prior_ledger_sha256": "17e5597d38d73a993e16300c476cf304a4bf560395eb1c0370612181f8053184",
+  "prior_reservation_usd": "0.61536",
+  "provider": "anthropic_direct",
+  "reservation_policy": "Full context reserved before each call; only a fully validated success settles to actual usage; failures keep their full hold",
+  "reserved_cost_usd": "3.63072",
+  "started_utc": "2026-11-03T00:23:49.422717+00:00",
+  "status": "failed",
+  "upstream_clean_after_run": true,
+  "upstream_sha": "50b404e6ae4e1fcd453d3e07963eb3e6312cbded",
+  "usage": {
+    "api_version": "2023-06-01",
+    "approved_ceiling_usd": "5",
+    "attempted_calls": 1,
+    "billing_uncertain": true,
+    "budget_held_usd": "3.63072",
+    "completed_calls": 0,
+    "cost_basis": "Uncached standard input/output token rates; estimates, not invoices",
+    "failed": true,
+    "gross_new_reservations_usd": "3.01536",
+    "known_usage_cost_usd": "0.117915",
+    "maximum_calls": 6,
+    "model": "claude-sonnet-4-6",
+    "new_run_held_usd": "3.01536",
+    "per_request_reservation_usd": "3.01536",
+    "prior_reservation_usd": "0.61536",
+    "reserved_cost_usd": "3.63072"
+  },
+  "worker_returncode": 1
+}
