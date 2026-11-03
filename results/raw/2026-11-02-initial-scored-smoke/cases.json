@@ -1,0 +1,17 @@
+[
+  {
+    "error_code": "http_404",
+    "error_type": "SmokeClientError",
+    "identity": {
+      "dataset_rows": 161,
+      "dataset_sha256": "88be2c475fa80f754fac50e6d982a421684463777e3633a3ccb0e24fe6740939",
+      "instance_id": "memgym_ir__research3__02865",
+      "raw_line_sha256": "dd841208d2dc22c790f787b437d89bbea61fcf2a2f880336e0c787d3f0e39e6c",
+      "row_index": 0
+    },
+    "score": null,
+    "status": "failed",
+    "strategy": "ir_bm25",
+    "stratum": "3hop"
+  }
+]

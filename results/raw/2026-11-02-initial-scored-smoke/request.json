@@ -1,0 +1,6 @@
+{
+  "authorization_ledger": "/Users/nick/Documents/Codex/2026-08-30/go/work/MemGym-initial-test-authorization.jsonl",
+  "budget_usd": "5",
+  "plan_path": "/Users/nick/Documents/Codex/2026-08-30/go/outputs/MemGym-scored-smoke-ready/plan.json",
+  "upstream": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym"
+}

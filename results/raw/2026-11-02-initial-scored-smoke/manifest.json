@@ -1,0 +1,91 @@
+{
+  "api_key_present": true,
+  "api_version": "2023-06-01",
+  "approval_scope": "User approved USD 5 for this initial test in the current task on 2026-11-01",
+  "approved_budget_usd": "5",
+  "artifacts": {
+    "3hop/answer-prompt.txt": {
+      "bytes": 187562,
+      "sha256": "5f67581961bf8a1346b1eef90ad1185dd407e0bf711a32b59828e4278d309258"
+    },
+    "3hop/failure.json": {
+      "bytes": 448,
+      "sha256": "36299cc7199431687640d1bde9590e4077702eac732f9b6a8e0f1b8796f116a1"
+    },
+    "cases.json": {
+      "bytes": 482,
+      "sha256": "ad36979fd75d198efec969e8810bbd515d76f9882ffc21c481138d8bbfb2cc0b"
+    },
+    "harness_source/scripts/prepare_scored_smoke.py": {
+      "bytes": 12288,
+      "sha256": "8a193a0160dbbdf4af747ce1cbaa34952eccbf4a8ab8bef53ac201714e9409fc"
+    },
+    "harness_source/scripts/reproduce.py": {
+      "bytes": 18034,
+      "sha256": "17c35c4dd80e5b4654bbb2593a14fa37f46e72efa648b718e158c213d983dbdc"
+    },
+    "harness_source/scripts/run_scored_smoke.py": {
+      "bytes": 14477,
+      "sha256": "3985d4a6b8571c2ab368ca3c1c270712b31864e34b176a3c5a992d218a17ed8f"
+    },
+    "harness_source/scripts/scored_client.py": {
+      "bytes": 11341,
+      "sha256": "bf0bd88abd3bb7869579f5ac5f4c277ac521141e2c17a20f33777f40a1833115"
+    },
+    "prepared-plan.json": {
+      "bytes": 12287,
+      "sha256": "e1373fad682f10829475397cb48129d6d980baf1628a808b753be6f20c8a0f99"
+    },
+    "request-trace.jsonl": {
+      "bytes": 422,
+      "sha256": "17e5597d38d73a993e16300c476cf304a4bf560395eb1c0370612181f8053184"
+    },
+    "request.json": {
+      "bytes": 355,
+      "sha256": "34db92f42cf2b408ab3482403da5fa2eb291e5508942f2d03ed49b08c55a06c0"
+    },
+    "usage.json": {
+      "bytes": 375,
+      "sha256": "c153dcc13473e0270c66f81e17c97c3ec7f0e06a8aaa33a5d3763cb4d12a1ec1"
+    }
+  },
+  "billing_uncertain": true,
+  "dataset_revision": "02f8da42a1a771d1d58552274db1cbf46f0fc7b4",
+  "deviations": [
+    "Direct Anthropic provider instead of Bedrock; same dated model ID",
+    "1024-token output cap; strict JSON validation; fail fast with no retries",
+    "Judge schema checked locally; JSON system instruction instead of provider response_format",
+    "Three selected BM25 cases are an engineering smoke, not a paper comparison"
+  ],
+  "finished_utc": "2026-11-03T00:12:44.952126+00:00",
+  "full_window_reservation_usd_per_attempt": "0.61536",
+  "harness_sha": "c8435a2df9491c8fa9ccab9c6e4519a0c063db9d",
+  "harness_status": "",
+  "kind": "initial_scored_engineering_smoke",
+  "maximum_output_tokens_per_request": 1024,
+  "maximum_physical_attempts": 6,
+  "model": "claude-sonnet-4-5-20250929",
+  "model_calls_attempted": 1,
+  "paper_reproduction": false,
+  "plan_sha256": "e1373fad682f10829475397cb48129d6d980baf1628a808b753be6f20c8a0f99",
+  "provider": "anthropic_direct",
+  "reserved_cost_usd": "0.61536",
+  "started_utc": "2026-11-03T00:12:20.638816+00:00",
+  "status": "failed",
+  "upstream_clean_after_run": true,
+  "upstream_sha": "50b404e6ae4e1fcd453d3e07963eb3e6312cbded",
+  "usage": {
+    "api_version": "2023-06-01",
+    "approved_ceiling_usd": "5",
+    "attempted_calls": 1,
+    "billing_uncertain": true,
+    "completed_calls": 0,
+    "cost_basis": "Uncached standard input/output token rates; estimates, not invoices",
+    "failed": true,
+    "known_usage_cost_usd": "0",
+    "maximum_calls": 6,
+    "model": "claude-sonnet-4-5-20250929",
+    "reserved_cost_usd": "0.61536"
+  },
+  "worker_returncode": 1
+}

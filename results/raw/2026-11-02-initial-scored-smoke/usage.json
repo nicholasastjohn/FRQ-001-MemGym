@@ -1,0 +1,13 @@
+{
+  "api_version": "2023-06-01",
+  "approved_ceiling_usd": "5",
+  "attempted_calls": 1,
+  "billing_uncertain": true,
+  "completed_calls": 0,
+  "cost_basis": "Uncached standard input/output token rates; estimates, not invoices",
+  "failed": true,
+  "known_usage_cost_usd": "0",
+  "maximum_calls": 6,
+  "model": "claude-sonnet-4-5-20250929",
+  "reserved_cost_usd": "0.61536"
+}

@@ -1,0 +1,31 @@
+{
+  "kind": "Read-only model-availability checks; no generation requests",
+  "checked_utc": "2026-11-03T00:13:04.310186+00:00",
+  "checks": [
+    {
+      "endpoint": "/v1/models/claude-sonnet-4-5-20250929",
+      "http_status": 404,
+      "error_type": "not_found_error"
+    },
+    {
+      "endpoint": "/v1/models?limit=100",
+      "http_status": 200,
+      "model_ids": [
+        "claude-haiku-5-5",
+        "claude-sonnet-5-5",
+        "claude-opus-5-5",
+        "claude-fable-5-1",
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "claude-fable-5",
+        "claude-opus-4-8",
+        "claude-opus-4-7",
+        "claude-sonnet-4-6",
+        "claude-opus-4-6",
+        "claude-opus-4-5-20251101",
+        "claude-haiku-4-5-20251001"
+      ],
+      "has_more": false
+    }
+  ]
+}
