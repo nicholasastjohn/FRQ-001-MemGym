@@ -48,13 +48,62 @@ def _transport(payload, api_key):
 
 
 def _object(text):
+    """Read one JSON object, including a single trailing object after prose.
+
+    Real responses can explain their reasoning before the requested JSON. Keep
+    that raw response in the trace; this parser only recovers the contract. More
+    than one competing JSON output is ambiguous and must not be cherry-picked;
+    inline citation arrays inside prose are not alternative outputs.
+    """
+    if not isinstance(text, str):
+        raise SmokeClientError("malformed_json")
+    text = text.strip()
     try:
         value = json.loads(text, parse_constant=lambda _: None)
-    except (ValueError, TypeError):
-        raise SmokeClientError("malformed_json") from None
-    if not isinstance(value, dict):
+    except ValueError:
+        value = None
+    else:
+        if isinstance(value, dict):
+            return value
         raise SmokeClientError("non_object_json")
-    return value
+    candidate_text = text[:-3].rstrip() if text.endswith("```") else text
+    decoder = json.JSONDecoder(parse_constant=lambda _: None)
+    containers = []
+    index = 0
+    while index < len(candidate_text):
+        if candidate_text[index] not in "{[":
+            index += 1
+            continue
+        try:
+            candidate, end = decoder.raw_decode(candidate_text, index)
+        except ValueError:
+            index += 1
+            continue
+        containers.append((candidate, index, end))
+        index = end  # Nested objects inside one complete container are not alternatives.
+    objects = [item for item in containers if isinstance(item[0], dict)]
+    competing_arrays = []
+    for item in containers:
+        candidate, start, end = item
+        if not isinstance(candidate, list):
+            continue
+        line_start = candidate_text.rfind("\n", 0, start) + 1
+        line_end = candidate_text.find("\n", end)
+        if line_end < 0:
+            line_end = len(candidate_text)
+        if not candidate_text[line_start:start].strip() and not candidate_text[end:line_end].strip():
+            competing_arrays.append(item)
+    # Inline references such as Document[36] are prose citations, not alternate
+    # JSON outputs. A standalone JSON array still competes with another output.
+    if len(objects) + len(competing_arrays) > 1:
+        raise SmokeClientError("ambiguous_json")
+    if not objects:
+        if containers and not candidate_text[containers[-1][2]:].strip():
+            raise SmokeClientError("non_object_json")
+        raise SmokeClientError("malformed_json")
+    if candidate_text[objects[0][2]:].strip():
+        raise SmokeClientError("malformed_json")
+    return objects[0][0]
 
 
 class StrictAnthropicClient:
@@ -67,7 +116,8 @@ class StrictAnthropicClient:
     """
 
     def __init__(self, *, api_key, trace_path, max_cost_usd=Decimal("5"),
-                 max_calls=6, transport=None, model=MODEL, prior_reservation_usd=Decimal("0")):
+                 max_calls=6, transport=None, model=MODEL, prior_reservation_usd=Decimal("0"),
+                 minimum_request_interval_seconds=0):
         try:
             maximum = Decimal(str(max_cost_usd))
             prior = Decimal(str(prior_reservation_usd))
@@ -81,6 +131,12 @@ class StrictAnthropicClient:
             raise ValueError("Prior reservation must be nonnegative and within the cost ceiling")
         if model not in (MODEL, SONNET46_MODEL):
             raise ValueError("Unsupported model; no automatic substitution is permitted")
+        try:
+            interval = float(minimum_request_interval_seconds)
+        except (TypeError, ValueError, OverflowError):
+            raise ValueError("Invalid minimum request interval") from None
+        if type(minimum_request_interval_seconds) is bool or not math.isfinite(interval) or not 0 <= interval <= 300:
+            raise ValueError("Minimum request interval must be finite and between zero and 300 seconds")
         if not isinstance(api_key, str) or not api_key.strip() or any(c.isspace() for c in api_key):
             raise ValueError("A nonblank API key without whitespace is required")
         self.model = model
@@ -95,6 +151,7 @@ class StrictAnthropicClient:
         self._usage_accounted = 0
         self._reserved = self._known_cost = Decimal("0")
         self._prior, self._gross_reserved = prior, Decimal("0")
+        self._interval, self._last_request_started = interval, None
         self._failed = False
         self._trace = Path(trace_path)
         self._trace.parent.mkdir(parents=True, exist_ok=True)
@@ -110,6 +167,7 @@ class StrictAnthropicClient:
                 "new_run_held_usd": str(self._reserved),
                 "gross_new_reservations_usd": str(self._gross_reserved),
                 "per_request_reservation_usd": str(self._reservation),
+                "minimum_request_interval_seconds": self._interval,
                 "known_usage_cost_usd": str(self._known_cost),
                 "billing_uncertain": self._prior > 0 or self._attempted != self._usage_accounted,
                 "failed": self._failed, "model": self.model, "api_version": API_VERSION,
@@ -181,6 +239,12 @@ class StrictAnthropicClient:
             raise SmokeClientError("unsupported_request")
         if self._attempted >= self._max_calls or self._prior + self._reserved + self._reservation > self._maximum:
             raise SmokeClientError("approval_limit_reached")
+        if self._last_request_started is not None and self._interval:
+            while True:
+                remaining = self._last_request_started + self._interval - time.monotonic()
+                if remaining <= 0:
+                    break
+                time.sleep(min(remaining, 10))
         payload = {"model": self.model, "max_tokens": MAX_OUTPUT_TOKENS, "temperature": 0,
                    "service_tier": "standard_only",
                    "messages": [{"role": "user", "content": prompt}]}
@@ -199,6 +263,7 @@ class StrictAnthropicClient:
                   "budget_held_usd": str(self._prior + self._reserved)}
         self._record(record)  # If recording fails, transport is never invoked.
         start = time.monotonic()
+        self._last_request_started = start
         try:
             try:
                 raw = self._transport(payload, self._api_key)

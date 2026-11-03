@@ -5,6 +5,7 @@ import argparse
 from datetime import datetime, timezone
 from decimal import Decimal
 import json
+import hashlib
 import os
 from pathlib import Path
 import stat
@@ -58,6 +59,66 @@ def prior_reservation(path):
             or records[1].get("error_code") != "http_404"):
         raise ValueError("Unexpected prior failure accounting")
     return Decimal("0.61536"), sha256(path)
+
+
+def recover_answer(path, plan):
+    """Validate the saved complete answer and its known cost without a new call."""
+    from scored_client import _object, INPUT_USD_PER_MILLION, OUTPUT_USD_PER_MILLION
+    path = Path(path).resolve()
+    recorded = Path(__file__).resolve().parents[1] / "results/raw/2026-11-02-sonnet46-format-failure/request-trace.jsonl"
+    if not path.is_file() or sha256(path) != sha256(recorded):
+        raise ValueError("Recovery trace differs from the preserved original response")
+    rows = [json.loads(line) for line in path.read_text().splitlines()]
+    if ([r.get("kind") for r in rows] != ["request", "response", "error"]
+            or rows[2].get("error_code") != "malformed_json"):
+        raise ValueError("Only the recorded response-format failure can be recovered")
+    request, response = rows[:2]
+    if (request.get("role") != "answer" or request.get("model") != SONNET46
+            or request.get("prompt_sha256") != plan["cells"][0]["prompt_sha256"]
+            or response.get("model") != SONNET46 or response.get("stop_reason") != "end_turn"):
+        raise ValueError("Recovered answer does not match the frozen first case")
+    parsed = _object(response["content"])
+    if not isinstance(parsed.get("answer"), str) or not parsed["answer"].strip():
+        raise ValueError("Recovered response has no valid answer")
+    usage = response["usage"]
+    if any(type(usage.get(k)) is not int or usage[k] < 0 for k in ("input_tokens", "output_tokens")):
+        raise ValueError("Recovered response has invalid usage")
+    cost = (usage["input_tokens"] * INPUT_USD_PER_MILLION
+            + usage["output_tokens"] * OUTPUT_USD_PER_MILLION) / Decimal(1000000)
+    if cost != Decimal(response["usage_cost_usd"]) or cost > Decimal("3.01536"):
+        raise ValueError("Recovered response cost differs from recorded valid usage")
+    return {"source_trace_sha256": sha256(path), "source_response_id": response["id"],
+            "prompt_sha256": request["prompt_sha256"], "raw_content": response["content"],
+            "validated_answer": parsed["answer"], "known_usage_cost_usd": str(cost),
+            "offline_released_reservation_usd": str(Decimal("3.01536") - cost),
+            "reason": "The saved complete response passed usage validation and now passes unambiguous trailing-JSON validation; original failed evidence is unchanged"}
+
+
+class ReplayFirstAnswer:
+    """Reuse one recorded response verbatim; all remaining requests are live."""
+    def __init__(self, client, recovery, output):
+        self.client, self.recovery, self.pending = client, recovery, True
+        write_json(output / "answer-recovery.json", recovery)
+
+    def get_completion(self, prompt, **kwargs):
+        if self.pending:
+            if hashlib.sha256(prompt.encode()).hexdigest() != self.recovery["prompt_sha256"]:
+                raise ValueError("Recovered prompt does not match the current evaluator request")
+            self.pending = False
+            # Preserve the original upstream raw-string fallback behavior.
+            return self.recovery["raw_content"]
+        return self.client.get_completion(prompt=prompt, **kwargs)
+
+    def get_json_completion(self, **kwargs):
+        return self.client.get_json_completion(**kwargs)
+
+    def summary(self):
+        value = self.client.summary()
+        value.update(cached_answer_replays=0 if self.pending else 1,
+                     recovered_answer_usage_cost_usd=self.recovery["known_usage_cost_usd"],
+                     combined_known_usage_cost_usd=str(Decimal(value["known_usage_cost_usd"])
+                                                      + Decimal(self.recovery["known_usage_cost_usd"])))
+        return value
 
 
 def validate_plan(plan_path, upstream):
@@ -166,12 +227,16 @@ def worker(request_path):
     upstream, output = Path(request["upstream"]), request_path.parent
     plan_path = Path(request["plan_path"])
     plan = validate_plan(plan_path, upstream)
+    recovery = recover_answer(request["recover_answer_ledger"], plan) if request.get("recover_answer_ledger") else None
     key = os.environ.get("ANTHROPIC_API_KEY", "")
     client = StrictAnthropicClient(api_key=key, trace_path=Path(request["authorization_ledger"]),
                                    max_cost_usd=Decimal(request["budget_usd"]),
-                                   max_calls=2 * len(plan["cells"]),
+                                   max_calls=2 * len(plan["cells"]) - (1 if recovery else 0),
                                    model=request.get("model", DIRECT_MODEL),
-                                   prior_reservation_usd=Decimal(request.get("prior_reservation_usd", "0")))
+                                   prior_reservation_usd=Decimal(request.get("prior_reservation_usd", "0")),
+                                   minimum_request_interval_seconds=65 if request.get("model") == SONNET46 else 0)
+    if recovery:
+        client = ReplayFirstAnswer(client, recovery, output)
     try:
         execute_cells(plan, plan_path, upstream, output, client)
     finally:
@@ -192,6 +257,12 @@ def run(args):
         prior, prior_hash = prior_reservation(args.prior_authorization_ledger)
     elif model != DIRECT_MODEL:
         raise ValueError("Only the original model or the explicitly approved Sonnet 4.6 is allowed")
+    recovery = None
+    if getattr(args, "recover_answer_ledger", None):
+        if model != SONNET46:
+            raise ValueError("Recorded answer recovery is available only for the approved Sonnet 4.6 continuation")
+        recovery = recover_answer(args.recover_answer_ledger, plan)
+        prior += Decimal(recovery["known_usage_cost_usd"])
     # Check key presence without printing or snapshotting the value.
     root = Path(__file__).resolve().parents[1]
     key = load_api_key(args.api_key_file or root / ".env.local")
@@ -201,9 +272,9 @@ def run(args):
                 "status": "checking", "model": model, "provider": "anthropic_direct",
                 "api_version": "2023-06-01", "approved_budget_usd": str(budget),
                 "approval_scope": "User approved USD 5 on 2026-11-01; explicitly approved Sonnet 4.6 engineering continuation on 2026-11-02" if model == SONNET46 else "User approved USD 5 for this initial test in the current task on 2026-11-01",
-                "maximum_physical_attempts": 2 * len(plan["cells"]),
+                "maximum_physical_attempts": 2 * len(plan["cells"]) - (1 if recovery else 0),
                 "prior_reservation_usd": str(prior), "prior_ledger_sha256": prior_hash,
-                "prior_generation_attempts": 1 if prior else 0,
+                "prior_generation_attempts": (1 if prior else 0) + (1 if recovery else 0),
                 "maximum_total_generation_attempts_including_prior": 2 * len(plan["cells"]) + (1 if prior else 0),
                 "maximum_output_tokens_per_request": 1024,
                 "full_window_reservation_usd_per_attempt": "3.01536" if model == SONNET46 else "0.61536",
@@ -220,6 +291,9 @@ def run(args):
     if model == SONNET46:
         manifest["deviations"][0] = "User-approved Sonnet 4.6 replaces unavailable Sonnet 4.5; direct Anthropic provider instead of Bedrock"
         manifest["deviations"].append("Thinking explicitly disabled; full 1M-window reservation is settled to actual usage after each validated success")
+    if recovery:
+        manifest["deviations"].append("Unambiguous trailing JSON accepted for validation; the first complete answer is recovered verbatim without generating it again")
+        manifest["recovery"] = recovery
     for relative in ("scripts/run_scored_smoke.py", "scripts/scored_client.py",
                      "scripts/prepare_scored_smoke.py", "scripts/reproduce.py"):
         target = output / "harness_source" / relative
@@ -228,6 +302,8 @@ def run(args):
     (output / "prepared-plan.json").write_bytes(plan_path.read_bytes())
     if prior:
         (output / "prior-request-trace.jsonl").write_bytes(Path(args.prior_authorization_ledger).read_bytes())
+    if recovery:
+        (output / "recovered-answer-source-trace.jsonl").write_bytes(Path(args.recover_answer_ledger).read_bytes())
     ledger = None
     try:
         if not key_present:
@@ -243,7 +319,8 @@ def run(args):
             request = {"upstream": str(upstream), "plan_path": str(plan_path),
                        "budget_usd": str(budget), "authorization_ledger": str(ledger),
                        "model": model, "prior_reservation_usd": str(prior),
-                       "prior_ledger_sha256": prior_hash}
+                       "prior_ledger_sha256": prior_hash,
+                       "recover_answer_ledger": str(Path(args.recover_answer_ledger).resolve()) if recovery else None}
             write_json(output / "request.json", request)
             env = safe_env(upstream, 42)
             env["ANTHROPIC_API_KEY"] = key
@@ -307,6 +384,7 @@ def main():
     parser.add_argument("--api-key-file")
     parser.add_argument("--model", choices=(DIRECT_MODEL, SONNET46), default=DIRECT_MODEL)
     parser.add_argument("--prior-authorization-ledger")
+    parser.add_argument("--recover-answer-ledger")
     parser.add_argument("--worker-request", type=Path, help=argparse.SUPPRESS)
     args = parser.parse_args()
     if args.worker_request:

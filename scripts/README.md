@@ -249,3 +249,27 @@ case selection and exact answer prompts remain frozen from the original plan.
 Sources checked November 2, 2026: [Sonnet 4.6 specification](https://platform.claude.com/docs/en/models/sonnet-4-6/overview)
 and [standard long-context pricing](https://platform.claude.com/docs/en/about-claude/pricing#long-context-pricing).
 
+### Recovering a complete response after a local format failure
+
+The first Sonnet 4.6 answer returned complete text, valid usage, and a trailing
+JSON object after explanatory prose. The original parser rejected the framing;
+its response, USD 0.117915 usage cost, and full failure hold remain preserved in
+`results/raw/2026-11-02-sonnet46-format-failure`.
+
+Validation now accepts either a complete JSON object or one unambiguous trailing
+object after prose (including a final Markdown fence), while rejecting malformed
+tails and conflicting disjoint objects. Raw answer text is returned unchanged to
+the upstream evaluator, preserving its existing raw-string fallback behavior.
+Raw judgment text is retained alongside the validated score/explanation object.
+
+The runner can revalidate that exact recorded answer offline using
+`--recover-answer-ledger /absolute/path/to/recorded-sonnet46-trace.jsonl`.
+It verifies the entire trace against the preserved artifact, model, usage/cost,
+first frozen prompt hash, and answer contract. A new recovery record documents
+the format correction and release of unused reservation. The original failed
+trace is never edited. Its known answer cost plus the earlier USD 0.61536 unknown
+hold become the starting budget; only five remaining generation requests are
+allowed. The saved answer is replayed verbatim once, with no generation call or
+duplicate charge. Live requests are spaced at least 65 seconds apart to reduce
+new-account rate-limit spikes.
+

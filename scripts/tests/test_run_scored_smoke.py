@@ -19,6 +19,33 @@ from scored_client import StrictAnthropicClient, MODEL
 
 
 class RunTests(unittest.TestCase):
+    def test_captured_answer_recovery_preserves_raw_text_and_avoids_repeat_call(self):
+        recorded = SCRIPTS.parent / "results/raw/2026-11-02-sonnet46-format-failure/request-trace.jsonl"
+        rows = [json.loads(line) for line in recorded.read_text().splitlines()]
+        plan = {"cells": [{"prompt_sha256": rows[0]["prompt_sha256"]}]}
+        recovery = runner.recover_answer(recorded, plan)
+        self.assertEqual(recovery["known_usage_cost_usd"], "0.117915")
+        self.assertEqual(recovery["raw_content"], rows[1]["content"])
+        self.assertTrue(recovery["validated_answer"].strip())
+        with tempfile.TemporaryDirectory() as directory:
+            calls = []
+            client = SimpleNamespace(
+                get_completion=lambda **kwargs: calls.append(kwargs) or "next live answer",
+                get_json_completion=lambda **kwargs: {"score": 0},
+                summary=lambda: {"known_usage_cost_usd": "0.01"})
+            wrapped = runner.ReplayFirstAnswer(client, recovery, Path(directory))
+            prompt = (SCRIPTS.parent / "results/raw/2026-11-02-sonnet46-format-failure/3hop/answer-prompt.txt").read_text()
+            self.assertEqual(wrapped.get_completion(prompt=prompt, temperature=0), rows[1]["content"])
+            self.assertEqual(calls, [])
+            self.assertEqual(wrapped.get_completion(prompt="later request", temperature=0), "next live answer")
+            self.assertEqual(len(calls), 1)
+            self.assertEqual(wrapped.summary()["combined_known_usage_cost_usd"], "0.127915")
+            self.assertEqual(wrapped.summary()["cached_answer_replays"], 1)
+            changed = Path(directory) / "changed.jsonl"
+            changed.write_text(recorded.read_text()+"\n")
+            with self.assertRaisesRegex(ValueError, "differs"):
+                runner.recover_answer(changed, plan)
+
     def test_original_failed_hold_is_carried_and_changed_ledger_is_rejected(self):
         recorded = SCRIPTS.parent / "results/raw/2026-11-02-initial-scored-smoke/request-trace.jsonl"
         with tempfile.TemporaryDirectory() as directory:

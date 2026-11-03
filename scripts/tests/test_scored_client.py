@@ -14,7 +14,7 @@ from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import scored_client as client_module
 from scored_client import (StrictAnthropicClient, SmokeClientError, MODEL,
-                           SONNET46_MODEL, RESERVATION_USD, _NoRedirects, _transport)
+                           SONNET46_MODEL, RESERVATION_USD, _NoRedirects, _object, _transport)
 
 
 def response(text='{"answer":"blue"}', **updates):
@@ -102,6 +102,60 @@ class ClientTests(unittest.TestCase):
         client = self.client(response('{"score":0,"explanation":"Wrong answer"}'))
         self.assertEqual(client.get_json_completion("judge")["score"], 0)
         self.assertEqual(client.summary()["completed_calls"], 1)
+
+    def test_answer_preface_and_trailing_json_preserve_the_entire_raw_response(self):
+        raw = ('The source gives the archive color directly.\n'
+               'The answer follows from that evidence.\n\n{"answer":"blue","confidence":0.9}')
+        client = self.client(response(raw))
+        self.assertEqual(client.get_completion("question"), raw)
+        self.assertEqual(_object(raw)["answer"], "blue")
+        self.assertEqual(self.records()[1]["content"], raw)
+
+    def test_single_full_fence_or_prose_with_optional_closing_fence_is_accepted(self):
+        for raw in ('```json\n{"answer":"blue"}\n```',
+                    'Evidence reviewed.\n```json\n{"answer":"blue"}\n```',
+                    'Evidence reviewed.\n{"answer":"blue"}\n```',
+                    'Evidence reviewed.\n{"answer":"blue","details":{"source":"fixture"}}'):
+            with self.subTest(raw=raw):
+                self.assertEqual(_object(raw)["answer"], "blue")
+
+    def test_inline_citation_arrays_do_not_compete_with_a_trailing_object(self):
+        raw = 'Document[36] reports the archive color; see also [12].\n{"answer":"blue"}'
+        self.assertEqual(_object(raw)["answer"], "blue")
+
+    def test_saved_public_model_response_recovers_the_unique_trailing_answer(self):
+        trace = Path(__file__).resolve().parents[2] / "results/raw/2026-11-02-sonnet46-format-failure/request-trace.jsonl"
+        records = [json.loads(line) for line in trace.read_text().splitlines()]
+        raw = next(item["content"] for item in records if item["kind"] == "response")
+        answer = _object(raw)
+        self.assertIsInstance(answer["answer"], str)
+        self.assertTrue(answer["answer"].strip())
+        client = self.client(response(raw))
+        self.assertEqual(client.get_completion("fixture replay"), raw)
+
+    def test_multiple_disjoint_containers_are_ambiguous(self):
+        for raw in ('{"answer":"red"}\n{"answer":"blue"}',
+                    'Earlier: {"answer":"red"}. Final: {"answer":"blue"}',
+                    '[1,2]\n{"answer":"blue"}'):
+            with self.subTest(raw=raw), self.assertRaisesRegex(SmokeClientError, "ambiguous_json"):
+                _object(raw)
+
+    def test_trailing_garbage_malformed_json_arrays_and_scalars_are_rejected(self):
+        for raw in ('Evidence. {"answer":"blue"} extra text',
+                    'Evidence. {"answer":"blue"} ``` extra text',
+                    'Evidence. {"answer":"blue"', 'Evidence. [1,2]', '[1,2]', '3', '"blue"'):
+            with self.subTest(raw=raw), self.assertRaises(SmokeClientError):
+                _object(raw)
+
+    def test_judge_preface_returns_parsed_object_and_still_validates_score(self):
+        raw = 'The prediction matches the gold answer.\n{"score":1,"explanation":"Same fact"}'
+        client = self.client(response(raw))
+        self.assertEqual(client.get_json_completion("judge"), {"score": 1, "explanation": "Same fact"})
+        with tempfile.TemporaryDirectory() as directory:
+            client = StrictAnthropicClient(api_key="fixture", trace_path=Path(directory)/"trace",
+                transport=lambda *_: response('Evidence. {"score":true,"explanation":"invalid"}'))
+            with self.assertRaisesRegex(SmokeClientError, "invalid_judge_score"):
+                client.get_json_completion("judge")
 
     def test_invalid_usage_or_extra_costs_are_rejected(self):
         variants = [None, {}, {"input_tokens": True, "output_tokens": 1},
@@ -295,6 +349,37 @@ class ClientTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             StrictAnthropicClient(api_key="fixture", trace_path=self.path, model="unapproved-model")
         self.assertFalse(self.path.exists())
+
+    def test_minimum_interval_paces_only_later_requests_in_short_sleep_chunks(self):
+        clock = [0.0]
+        sleeps = []
+        starts = []
+
+        def sleep(seconds):
+            sleeps.append(seconds)
+            clock[0] += seconds
+
+        def transport(*_):
+            starts.append(clock[0])
+            return response()
+
+        client = StrictAnthropicClient(api_key="fixture", trace_path=self.path, transport=transport,
+                                       minimum_request_interval_seconds=25)
+        with patch.object(client_module.time, "monotonic", side_effect=lambda: clock[0]), \
+                patch.object(client_module.time, "sleep", side_effect=sleep):
+            client.get_completion("first")
+            self.assertEqual(sleeps, [])
+            client.get_completion("second")
+        self.assertEqual(starts, [0, 25])
+        self.assertEqual(sleeps, [10, 10, 5])
+        self.assertEqual(client.summary()["minimum_request_interval_seconds"], 25)
+
+    def test_invalid_minimum_interval_does_not_create_a_ledger(self):
+        for interval in (-1, 301, float("nan"), float("inf"), True):
+            with self.subTest(interval=interval), self.assertRaises(ValueError):
+                StrictAnthropicClient(api_key="fixture", trace_path=self.path,
+                                      minimum_request_interval_seconds=interval)
+            self.assertFalse(self.path.exists())
 
     def test_http_error_records_status_without_provider_body_or_secret(self):
         def fail(*_):
