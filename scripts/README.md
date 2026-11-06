@@ -273,3 +273,24 @@ allowed. The saved answer is replayed verbatim once, with no generation call or
 duplicate charge. Live requests are spaced at least 65 seconds apart to reduce
 new-account rate-limit spikes.
 
+### Observed partial completion
+
+The recovery run completed the 3-hop and 4-hop cells with judge scores 1.0 and
+0.3, then stopped at the 5/6-hop answer with `incomplete_or_refused_response`.
+The failed case keeps a missing score. Its raw response and usage were not saved
+by the historical runner, so the exact cause and actual cost remain unknown.
+The original evidence and historical source are preserved in
+`results/raw/2026-11-02-sonnet46-partial-smoke`; see the
+[verified report](../report/sonnet46-partial-smoke-2026-11-02.md).
+
+Across all attempts, saved usage implies USD 0.257178. Retaining both unknown
+failed holds counts USD 3.887898 against the original USD 5 approval. A new
+full-context reservation cannot fit the remainder. Do not create a new ledger to
+reset that accounting or automatically repeat the failed answer.
+
+The diagnostic fix made after this run preserves an allowlisted
+`rejected_response` record with stop metadata, text and selected usage, with exact
+API-key values redacted. Its usage is explicitly unvalidated; rejected output
+still fails immediately and keeps the full hold. This improves future evidence
+capture and cannot recover the already discarded response.
+

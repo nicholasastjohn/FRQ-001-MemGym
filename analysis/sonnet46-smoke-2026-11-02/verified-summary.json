@@ -1,0 +1,60 @@
+{
+  "kind": "Partial engineering smoke; not a paper reproduction",
+  "run_date": "2026-11-02",
+  "verified_date": "2026-11-06",
+  "source_harness_sha": "9b151820bf53ba1cb56d71fc7d401278e0fd8bd9",
+  "raw_manifest_sha256": "be644d0adaaafd61eec28832a1bca0350150dfaa5d5a8512394cc78b198b9f1c",
+  "model": "claude-sonnet-4-6",
+  "scored_cases": 2,
+  "failed_cases": 1,
+  "total_generation_attempts": 6,
+  "sonnet46_generation_attempts": 5,
+  "sonnet46_saved_responses": 4,
+  "cached_answer_replays_without_generation": 1,
+  "reported_usage_cost_usd": "0.257178",
+  "invoice_verified": false,
+  "failed_response_usage_available": false,
+  "unknown_first_attempt_hold_usd": "0.61536",
+  "unknown_final_attempt_hold_usd": "3.01536",
+  "total_budget_held_usd": "3.887898",
+  "approved_budget_usd": "5",
+  "all_20_manifest_artifact_hashes_verified": true,
+  "source_snapshots_match_recorded_commit": true,
+  "frozen_plan_revalidated": true,
+  "upstream_clean_after_run": true,
+  "cases": [
+    {
+      "stratum": "3hop",
+      "status": "scored",
+      "model": "claude-sonnet-4-6",
+      "strategy": "ir_bm25",
+      "row_index": 0,
+      "instance_id": "memgym_ir__research3__02865",
+      "judge_score": 1.0,
+      "reported_usage_cost_usd": "0.121701",
+      "error_code": null
+    },
+    {
+      "stratum": "4hop",
+      "status": "scored",
+      "model": "claude-sonnet-4-6",
+      "strategy": "ir_bm25",
+      "row_index": 0,
+      "instance_id": "memgym_ir__research__40424",
+      "judge_score": 0.3,
+      "reported_usage_cost_usd": "0.135477",
+      "error_code": null
+    },
+    {
+      "stratum": "56hop",
+      "status": "failed",
+      "model": "claude-sonnet-4-6",
+      "strategy": "ir_bm25",
+      "row_index": 0,
+      "instance_id": "memgym_ir__research__11213",
+      "judge_score": null,
+      "reported_usage_cost_usd": null,
+      "error_code": "incomplete_or_refused_response"
+    }
+  ]
+}

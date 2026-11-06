@@ -1,0 +1,15 @@
+{
+  "error_code": "incomplete_or_refused_response",
+  "error_type": "SmokeClientError",
+  "identity": {
+    "dataset_rows": 117,
+    "dataset_sha256": "b740b88fa1044d11483a68220d0d8b68d27242fcd8518911080d9e28924fc781",
+    "instance_id": "memgym_ir__research__11213",
+    "raw_line_sha256": "07ab82d0b154f1e441904a4576cafb8138156841fba16e9467723b0bd638832b",
+    "row_index": 0
+  },
+  "score": null,
+  "status": "failed",
+  "strategy": "ir_bm25",
+  "stratum": "56hop"
+}

@@ -1,0 +1,10 @@
+{
+  "authorization_ledger": "/Users/nick/Documents/Codex/2026-08-30/go/work/MemGym-sonnet46-recovery.jsonl",
+  "budget_usd": "5",
+  "model": "claude-sonnet-4-6",
+  "plan_path": "/Users/nick/Documents/Codex/2026-08-30/go/outputs/MemGym-scored-smoke-ready/plan.json",
+  "prior_ledger_sha256": "17e5597d38d73a993e16300c476cf304a4bf560395eb1c0370612181f8053184",
+  "prior_reservation_usd": "0.733275",
+  "recover_answer_ledger": "/Users/nick/Documents/Codex/2026-08-30/go/work/MemGym-sonnet46-continuation.jsonl",
+  "upstream": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym"
+}

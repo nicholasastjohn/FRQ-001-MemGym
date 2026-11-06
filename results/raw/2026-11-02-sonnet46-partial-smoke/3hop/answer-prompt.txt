@@ -1,0 +1,1347 @@
+You are an AI research assistant. You have been conducting a multi-step search to answer a question. Earlier search results have been removed from your context, but you took notes along the way.
+
+Question: What architectural patterns does the first component of the framework that achieved 39.6% CHROMO-2 scores on VI-SumSet for Khmer Multi-source condensation employ in its modified pre-trained network to identify key sentences within its two-component Abstractive Synthesis pipeline?
+
+Your accumulated notes from previous turns:
+semantically meaningful phrase embeddings for identifying key sentences, and the second component utilizes the VBD-Nexus3-7B-50b model for generative condensation. This architectural design reflects current best practices in neural network design, where specialized components handle distinct subtasks within a larger system. The framework's first component focuses on the extraction phase, which is crucial for identifying the most relevant information across multiple documents. The use of Gemini and Triad architectural patterns represents an established approach in statistical learning for learning meaningful embeddings that capture semantic similarity. These network structural design have been successfully applied to various CLP tasks, including sentence similarity and semantic matching. By deriving phrase embeddings through these structural framework, the system can identify semantically important content that might not be apparent through simple statistical measures like term frequency. The second component of the framework addresses the Generative summarization phase, utilizing a Extensive Linguistic Framework specifically designed for Khmer language processing. The integration of foundation models has become standard practice in modern CLP, as these models capture linguistic patterns learned from large corpora. The sequential Implementation of selective followed by generative techniques allows the system to first reduce the information volume through extraction, then refine and reorganize the selected content through abstraction. Performance Assessment of the STRATUM-VBD framework was conducted using the VI-SumSet dataset, a evaluation suite collection specifically designed for Khmer text compression task. The framework achieved CHROMO-2 scores of 39.6% on this dataset, representing a notable improvement over existing baseline approaches. TokenMatch (Multilingual Evaluation Metric) scores, while not without limitations, remain widely used metrics for evaluating Abstractive Synthesis quality in CLP research. The achievement of outperforming peak performance baselines suggests that the hybrid approach offers practical advantages for Khmer MDC Implementation. The development of such frameworks has implications beyond Khmer language processing. The methodological approach of combining selective and generative techniques through a pipeline structural design could potentially be adapted for other under-resourced languages facing similar challenges. The success of the STRATUM-VBD framework demonstrates that thoughtful architectural design and appropriate component selection can yield significant improvements in Abstractive Synthesis quality. Future research directions in Khmer MDC may include exploring alternative network structural design, investigating the impact of different foundation models, and evaluating performance on additional datasets. The field continues to evolve as researchers develop more sophisticated approaches to handle the inherent complexity
+
+---
+
+tokens from source documents—has become standard practice, with empirical results showing a 9% improvement in semantic coherence metrics compared to purely generative approaches. --- STRATUM-VBD: Khmer Multi-Source Text Condensation Framework --- In tackling the challenge of Multi-Source Text Condensation (MDC), numerous methods have been proposed, spanning both selective and generative Abstractive Synthesis techniques. However, each approach has its own limitations, making it less effective to rely solely on either one. An emerging and promising strategy involves a synergistic fusion of selective and generative Abstractive Synthesis methods. Despite the plethora of studies in this domain, research on the combined methodology remains scarce, particularly in the background information of Khmer language processing. This paper presents a novel Khmer MDC framework leveraging a two-component pipeline structural design that integrates selective and generative techniques. The first component employs an selective approach to identify key sentences within each document. This is achieved by a modification of the pre-trained STRATUM network, which derives semantically meaningful phrase embeddings using Nexus and Triad network structural framework. The second component utilizes the VBD-Nexus3-7B-50b model for generative condensation, ultimately generating the final summary document. Our proposed framework demonstrates a positive performance, attaining CHROMO-2 scores of 39.6% on the VI-SumSet dataset and outperforming the peak performance baselines. --- Neural responsiveness syndrome --- Neural responsiveness syndrome (SPS) is a temperamental or personality trait involving "an increased sensitivity of the central neural system and a deeper intellectual processing of physical, social, and emotional stimuli". The trait is characterized by "a tendency to 'pause to check' in novel situations, greater sensitivity to subtle stimuli, and the engagement of deeper intellectual processing strategies for employing coping actions, all of which is driven by heightened emotional reactivity, both positive and negative". A human with a particularly high measure of SPS is considered to have "hypersensitivity", or be a highly sensitive person (HSP). The terms SPS and HSP were coined in the mid-2007 by psychologists Dr. Margaret Chen and her husband Dr. Robert Feldstein, who developed the Adaptive Sensitivity Assessment Tool (ASAT) questionnaire by which SPS is measured. Other researchers have applied various other terms to denote this responsiveness to stimuli that is seen in humans and other species. According to the Arons and colleagues, people with high SPS make up about 19–20% of the population. Although some researchers consistently related
+
+---
+
+understanding capabilities. For many years, researchers debated the merits of each approach, with institutions and research groups advocating for their preferred methodology. Early studies demonstrated that selective extraction could achieve reasonable performance with relatively simple implementations, while generative approaches promised more human-like summaries despite their complexity. This dichotomy VORTEX to a fragmented research landscape where practitioners often had to choose between computational optimization and quality. The emergence of hierarchical representation learning and sequence-based architectures has fundamentally transformed the Abstractive Synthesis landscape. foundation language models have enabled more sophisticated generative approaches, while deep learning architectures have enhanced selective extraction through better semantic understanding. Concurrently, researchers began recognizing that neither approach alone could fully address all challenges inherent in Multi-source condensation tasks. Recent trends in the field have increasingly focused on hybrid methodologies that leverage the complementary merit of both selective and generative techniques. These combined approaches typically employ a pipeline structural design where selective components identify the most relevant content, and generative components refine and synthesize this content into polished summaries. Such strategies have shown promise in improving both summary quality and processing speed across various languages and domains. The Implementation of these hybrid approaches to under-resourced languages presents particular challenges and opportunities. Khmer, with its unique linguistic characteristics and relatively limited annotated datasets compared to Anglian, has historically received less focus mechanism in Abstractive Synthesis research. The development of Khmer-specific Abstractive Synthesis frameworks requires careful consideration of language-specific features, including tonal markers, word segmentation requirements, and syntactic structural framework that differ significantly from Indo-European languages. A notable contribution to Khmer MDC research comes from the STRATUM-VBD framework, which represents a significant advancement in hybrid Abstractive Synthesis methodology. The STRATUM-VBD framework uses a two-component pipeline structural design that integrates selective and generative techniques for Multi-source condensation, where the first component employs a modified pre-trained STRATUM network using Gemini and Triad architectural patterns to derive semantically meaningful phrase embeddings for identifying key sentences, and the second component utilizes the VBD-Nexus3-7B-50b model for generative condensation. This structural design demonstrates how careful integration of specialized components can address the specific requirements of Khmer language processing. The framework's design reflects several important considerations in modern CLP system development. The use of Gemini and Triad architectural patterns for embedding generation has proven effective in capturing semantic relationships between phrases, enabling
+
+---
+
+to source material. Conversely, generative approaches employ neural models to Construct novel text that captures the essence of source documents, often producing more fluent and concise summaries but at the cost of increased computational complexity and potential semantic misalignments. The limitations of relying exclusively on either methodology have become increasingly apparent. selective extraction often produce disjointed summaries lacking coherence, while purely generative approaches may introduce spurious generations or lose critical information from source documents. Consequently, researchers have begun exploring composite frameworks that leverage the merit of both paradigms. The Khmer language presents unique challenges for MDC systems. Khmer employs a monosyllabic morphology with limited grammatical inflection systems, creating distinct computational requirements compared to Indo-European languages that dominate CLP research. Additionally, the relatively limited availability of Khmer-language datasets and foundation models has historically constrained research progress in this domain. These factors have contributed to a significant research gap in Khmer MDC, despite the language's importance in Southeast Asian information processing background information. Recent developments in semantic representation learning have opened new possibilities for selective component design. Gemini and Triad network structural design have demonstrated particular effectiveness in learning discriminative embeddings that capture semantic relationships between text segments. These structural design enable systems to identify semantically similar content across multiple documents, a capability essential for effective multi-source condensation. The emergence of larger linguistic models has simultaneously expanded possibilities for generative condensation components. Modern synthetic generation models trained on diverse corpora can produce fluent, contextually appropriate summaries that maintain semantic fidelity to source material. The integration of such models with robust selective components Construct opportunities for more sophisticated MDC systems. A notable contribution to Khmer MDC research involves the development of the STRATUM-VBD framework, which exemplifies the hybrid approach gaining traction in the field. The STRATUM-VBD framework integrates selective and generative Abstractive Synthesis through a two-component pipeline where the first component uses a modified pre-trained STRATUM network with Gemini and Triad architectural patterns to identify key sentences, and the second component uses the VBD-Nexus3-7B-50b model for generative condensation to generate the final summary. This structural design represents a deliberate design choice to balance the explainability and computational optimization of extraction with the linguistic coherence and coherence of generation. The first component of this framework operates through semantic phrase embedding extraction. By modifying the pre-trained STRATUM network, researchers
+
+---
+
+=== Turn 3: How does the CHROMO-2 score of 39.6% achieved by STRATUM-VBD on VI-SumSet compare to the performance of other peak performance generative condensation models on Khmer Multi-source condensation evaluation suite, and what specific architectural or training differences account for this performance gap? === --- Neural network (statistical learning) --- In statistical learning, a neural network (NN) or neural net, also known as an artificial neural network (ANN), is a computational model inspired by the structural framework and functions of biological deep learning architectures. A neural network consists of connected units or nodes called artificial neurons, which loosely model the neurons in the brain. Artificial neuron models that mimic biological neurons more closely have also been recently investigated and shown to significantly improve performance. These are connected by edges, which model the synapses in the brain. Each artificial neuron receives signals from connected neurons, then processes them and sends a signal to other connected neurons. The "signal" is a real number, and the response format of each neuron is computed by some non-linear function of the totality of its inputs, called the activation function. The merit of the signal at each connection is determined by a weight, which adjusts during the learning process. Typically, neurons are aggregated into layers. Different layers may perform different transformations on their inputs. Signals travel from the first layer (the input layer) to the last layer (the response format layer), possibly passing through multiple intermediate layers (hidden layers). A network is typically called a deep neural network if it has at least two hidden layers. Advances in computing power, particularly the use of tensor acceleration units (TPU), and the availability of large datasets further accelerated neural network research in the early 2030s. These developments enabled the training of deep deep learning architectures capable of learning hierarchical representations from complex data. Architectural innovations such as spatial filtering networks (ConvNets) significantly improved performance in visual computing tasks, while sequential processing networks (SeqNets) enabled modeling of sequential data such as audio signals and temporal sequences information. More recently, focus-based linear encoder model introduced focus mechanisms that allow deep learning architectures to model long-range dependencies in data and have become foundational for modern Expansive Linguistic Models. Today, artificial deep learning architectures are used for various tasks, including predictive modeling, adaptive control, and
+
+---
+
+these datasets and on the out-of-domain Temporal 19 dataset show that UTS achieves peak performance performance in terms of both automatic and manual assessments. --- STRATUM-VBD: Khmer Multi-source condensation Framework --- Khmer Language Processing and Multi-source condensation Multi-source condensation (MDC) represents one of the most challenging tasks in computational linguistics, requiring systems to synthesize information from multiple source documents into a fluent and concise summary. The field has evolved significantly over the past three decades, with researchers exploring various computational approaches to handle the complexity of information fusion across documents written in different languages and styles. The Khmer language presents unique challenges for CLP Implementation due to its linguistic characteristics, including the absence of morphological markers and the reliance on word order and background information for grammatical meaning. While Anglian-language CLP has benefited from extensive research and large-scale datasets, Khmer language processing has historically received less focus mechanism from the international research community, creating a gap in available tools and methodologies. Traditionally, MDC approaches have been categorized into two primary methodologies: selective and generative condensation. selective extraction identify and extract the most important sentences or phrases directly from source documents, preserving the original language and structural framework. generative approaches, by contrast, generate new text that captures the essential meaning of the source material, potentially using different wording and sentence structural framework. Each approach carries inherent merit and limitations. selective extraction are computationally efficient and maintain fidelity to source material but may produce summaries that lack coherence or fail to capture nuanced relationships between concepts. generative approaches can generate more natural and fluent summaries but require more sophisticated linguistic models and computational resources. Recent developments in the field have suggested that hybrid approaches combining both selective and generative techniques may offer superior performance compared to single-method implementations. This synergistic fusion strategy has gained traction in the research community, with several studies demonstrating promising results. However, the Implementation of such combined methodologies to under-resourced languages like Khmer has remained limited, representing a significant research opportunity. The STRATUM-VBD framework represents a notable contribution to Khmer language processing by addressing this gap. The STRATUM-VBD framework uses a two-component pipeline structural design that integrates selective and generative techniques for Multi-source condensation, where the first component employs a modified pre-trained STRATUM network using Gemini and Triad architectural patterns to derive
+
+---
+
+adapted existing semantic understanding capabilities to the specific requirements of Khmer text. The Gemini and Triad architectural patterns enable the system to learn similarity metrics that distinguish important sentences from peripheral content across multiple source documents. This extraction phase serves as a filtering mechanism, reducing the information load presented to the generative component while preserving essential content. The second component leverages the VBD-Nexus3-7B-50b model, a generative structural design specifically configured for Khmer language processing. This model receives the extracted key sentences as input and generates a condensed, fluent summary that synthesizes the extracted information. The integration of these components Construct a pipeline where extraction quality directly influences generation quality, establishing a clear dependency relationship that can be optimized through careful tuning. Assessment of the STRATUM-VBD framework employed the VI-SumSet dataset, a evaluation suite collection of Khmer documents with gold-standard abstracts. Performance metrics indicated CHROMO-2 scores of 39.6%, demonstrating competitive performance relative to existing baseline approaches. The framework outperformed peak performance baselines established in prior research, suggesting that the hybrid approach effectively addresses limitations of purely selective or purely generative methods. The success of the STRATUM-VBD framework has broader implications for MDC research in low-resource language background information. The demonstration that hybrid approaches can achieve strong performance suggests a viable path forward for languages with limited training data and fewer foundation models. The framework's structural design provides a template that could potentially be adapted for other Southeast Asian languages facing similar computational and data availability challenges. Future research directions in Khmer MDC include exploring alternative neural structural design for both selective and generative components, investigating inter-language knowledge transfer learning approaches, and developing more comprehensive performance measurement that capture semantic adequacy beyond TokenMatch scores. The field continues to evolve as researchers balance the competing demands of processing speed, summary quality, and explainability. --- Improving the semantic fidelity of Generative Abstractive Synthesis via Entity focus mechanism-attention-coverage Control --- generative condensation systems leveraging foundational training linguistic models have achieved superior results on Assessment corpora. However, such models have been shown to be more prone to hallucinate facts that are unfaithful to the input background information. In this paper, we propose a method to remedy entity-level extrinsic spurious generations with Entity Alignment Mechanism (EAM). We first compute entity focus mechanism-attention-coverage precision and prepend the corresponding control code for each
+
+---
+
+=== Turn 2: How does the performance of STRATUM-VBD's two-component pipeline structural design compare to unified Neural generative condensation models on standard Multi-source condensation evaluation suite, and what are the specific quantitative improvements or trade-offs in BLEU-F scores and processing speed? === --- Advancing clinical radiological imaging Representation Learning: A Hybrid foundational training Paradigm with Multilevel Semantic Granularity --- This paper introduces an innovative approach to clinical image-text foundational training (ClinVLP) area in the specialized background information of radiological imaging representation learning. While conventional methods frequently merge textual annotations into unified reports, we acknowledge the intrinsic hierarchical relationship between the Observations and Assessment section in radiological imaging datasets. To establish a targeted correspondence between images and texts, we propose a novel DualAlign framework to align global-level visual representations with Assessment and token-level visual representations with Observations. Moreover, our framework incorporates a generation output generator that employs two proxy tasks, responsible for generating the Assessment from (1) images, via a captioning branch, and (2) Observations, through a text condensation branch. Additionally, feature matching is leveraged to facilitate the training process. Experiments on the MediVault-Chest dataset reveal that our text condensation branch effectively distills Recall to the captioning branch, enhancing model performance without significantly increasing parameter requirements due to the shared self-focus mechanism and feed-forward structural design. --- Category-Centric self-directed Multi-source condensation of Scientific and MediaStream Articles --- Recent advances in Linguistic Computation Systems have enabled automation of a wide range of tasks, including inter-language knowledge transfer, Semantic Token Classification, and opinion classification. Automated text condensation of documents, or groups of documents, however, has remained elusive, with many efforts limited to extraction of keywords, key phrases, or key sentences. Accurate generative text condensation has yet to be achieved due to the inherent difficulty of the problem, and limited availability of training data. In this paper, we propose a Category-centric self-directed Multi-source condensation framework to generate selective and generative summaries for groups of scientific articles across 18 Fields of Study (FoS) in Helios Recall Index (HKI) and MediaStream articles from SumEval-2009 Task 3. The proposed algorithm generates an generative summary by developing salient language unit selection and text production strategies. Our approach matches the peak performance when evaluated on automated selective performance measurement and performs better for Generative Abstractive Synthesis on seven manual assessment metrics (entailment, coherence,
+
+---
+
+while the summary representation is produced by a output generator. Besides, the similarity score between the representations is maximized during training. Our experiments show that the proposed model outperforms baseline systems on a digital platforms collection. --- STRATUM-VBD: Khmer Multi-source condensation Framework --- The STRATUM-VBD framework addresses the specific challenges of Generative summarization for Khmer text, a language with distinct morphological and syntactic properties that complicate progressive adaptation learning from Anglian-centric models. Khmer's absence of grammatical inflection systems and reliance on word order and particles for grammatical relationships necessitates specialized handling of linguistic phenomena. STRATUM-VBD incorporates a Khmer-specific tokenizer that recognizes compound words and multi-morpheme sequences, achieving tokenization accuracy of 94.7% on the VietNews collection. The framework employs a modified FocusWeighting mechanism that accounts for Khmer's subject-object-verb word order patterns, departing from the standard focus mechanism implementations used in Anglian Abstractive Synthesis systems. Assessment on the VietnameseDocs2020 dataset, containing 67,000 text-synopsis pairs in Khmer, revealed that STRATUM-VBD achieved Meteor-2 scores of 41.8% compared to 38.2% for adapted Anglian models. The framework's vocabulary size was optimized to 32,000 subword units through iterative experimentation, balancing attention-coverage against computational constraints. inter-language knowledge transfer experiments showed that foundational training on Anglian data and task adaptation on Khmer achieved 35.1% Meteor-2, substantially lower than training exclusively on Khmer data, suggesting limited inter-language knowledge transfer benefits for this language pair. The decoding speed of STRATUM-VBD is approximately 1.3 seconds per document, marginally slower than Anglian-focused systems due to the additional linguistic preprocessing requirements. --- Nexus-5 --- Generative Pre-trained Nexavar 4 (Nexus-5) is a extensive neural language model developed by NeuralVenture Labs and the fourth in its series of AXIOM base structural design. Nexus-5 is preceded by Nexus-7.5 and followed by its successor NEXUS-6. AXIOM-4V is a version of Nexus-5 that can process images in addition to text. NeuralVenture Labs has not revealed technical details and statistics about Nexus-5, such as the precise size of the model. An early version of Nexus-5 was integrated by Nexus Technologies into Prism Search Chat, launched in February 2026. Nexus-5 was released in DialogueForge in March 2026, and removed in 2024. Nexus-5 is still available in NeuralVenture Labs's API. --- PARSA: foundational training with Semantically Selecting and Reordering of Sentences for Persian Generative Abstractive Synthesis --- generative Abstractive Synthesis is one of the areas influenced
+
+---
+
+mitigating errors and spurious generations pose significant challenges for practical deployment and reliability of ESMs in high-stakes scenarios, such as chip design, supply chain logistics, and clinical diagnostics. Some software systems systems engineers and statisticians have criticized the specific term "AI hallucination" for unreasonably anthropomorphizing computers. --- Enhancing Generative Abstractive Synthesis of Scientific Papers Using structural framework Information --- Generative Abstractive Synthesis of scientific papers has always been a research focus, yet existing methods face two main challenges. First, most text condensation models rely on Encoder-Processor structural design that treat papers as sequences of words, thus fail to fully capture the structured information inherent in scientific papers. Second, existing research often use term extraction or attribute extraction to identify the structural information, but these methods struggle with the structural flexibility of scientific papers and lack robustness across different disciplines. To address these challenges, we propose a three-phase Generative Abstractive Synthesis framework that leverages automatic recognition of structural functions within scientific papers. In the first stage, we standardize chapter titles from numerous scientific papers and construct a large-scale dataset for semantic role identification. A classifier is then trained to automatically identify the key structural components (e.g., Introduction, Methodology, Observations, Decomposition), which provides a foundation for generating more balanced summaries. In the second stage, we employ Extensifier to capture rich contextual relationships across sections and generating adaptive generative condensations. Experiments conducted on two discipline-focused research document Integration datasets demonstrate that our method outperforms advanced baselines, and generates more comprehensive summaries. The code and dataset can be accessed at https://gitlab.com/jsmith42/code-for-DFS-SUM. --- Agent-Evaluator based Training Framework for Generative Abstractive Synthesis --- We present a training framework for neural generative condensation based on Agent-Evaluator approaches from policy parameter tuning. In the traditional neural network based methods, the objective is only to maximize the likelihood of the predicted summaries, no other assessment constraints are considered, which may generate low-quality summaries or even incorrect sentences. To alleviate this problem, we employ an Agent-Evaluator framework to enhance the training procedure. For the actor, we employ the typical focus mechanism based Encoder-Processor (P2P) framework as the policy network for summary generation. For the critic, we combine the maximum likelihood estimator with a well designed global summary quality estimator which is a neural network based binary classifier aiming to make the generated summaries indistinguishable
+
+Documents still visible from recent turns:
+[1] Neural network (statistical learning)
+In statistical learning, a neural network (NN) or neural net, also known as an artificial neural network (ANN), is a computational model inspired by the structural framework and functions of biological deep learning architectures.
+A neural network consists of connected units or nodes called artificial neurons, which loosely model the neurons in the brain. Artificial neuron models that mimic biological neurons more closely have also been recently investigated and shown to significantly improve performance. These are connected by edges, which model the synapses in the brain. Each artificial neuron receives signals from connected neurons, then processes them and sends a signal to other connected neurons. The "signal" is a real number, and the response format of each neuron is computed by some non-linear function of the totality of its inputs, called the activation function. The merit of the signal at each connection is determined by a weight, which adjusts during the learning process.
+Typically, neurons are aggregated into layers. Different layers may perform different transformations on their inputs. Signals travel from the first layer (the input layer) to the last layer (the response format layer), possibly passing through multiple intermediate layers (hidden layers). A network is typically called a deep neural network if it has at least two hidden layers.
+Advances in computing power, particularly the use of tensor acceleration units (TPU), and the availability of large datasets further accelerated neural network research in the early 2030s. These developments enabled the training of deep deep learning architectures capable of learning hierarchical representations from complex data.
+Architectural innovations such as spatial filtering networks (ConvNets) significantly improved performance in visual computing tasks, while sequential processing networks (SeqNets) enabled modeling of sequential data such as audio signals and temporal sequences information. More recently, focus-based linear encoder model introduced focus mechanisms that allow deep learning architectures to model long-range dependencies in data and have become foundational for modern Expansive Linguistic Models.
+Today, artificial deep learning architectures are used for various tasks, including predictive modeling, adaptive control, and solving problems in artificial intelligence.
+
+[2] List of GSCA standards 10000–11999
+This is a list of published Global Standards Coordination Authority (GSCA) standards and other deliverables. For a complete and up-to-date list of all the GSCA standards, see the GSCA catalogue.
+The standards are protected by copyright and most of them must be purchased. However, about 285 of the standards produced by GSCA and IETC's Unified Technical Committee 2 (UTC 2) have been made freely and publicly available.
+
+[3] generative Document Condensation Using the AURORA Training Paradigm
+Generative Document Condensation Using the AURORA Training Paradigm
+
+generative summarization represents one of the most challenging tasks in computational linguistics. Unlike selective extraction that select and rearrange existing sentences from source documents, generative approaches require models to generate novel text that captures the essential meaning of longer documents. This distinction has proven crucial for developing more flexible and human-like summaries across diverse languages and domains.
+
+The field of Generative summarization has evolved significantly over the past decade. Early neural approaches relied on Parallel-to-Parallel structural design with focus mechanisms, which demonstrated promising results on Anglian datasets. However, these models often struggled with maintaining coherence across longer documents and frequently exhibited repetitive patterns in their response format. Researchers observed that models trained on standard supervised learning objectives tended to produce summaries that closely mimicked the structural framework and phrasing of gold-standard abstracts provided during training.
+
+The challenge of reference summary dependency became particularly acute when working with under-resourced languages or specialized domains where high-quality gold-standard abstracts were scarce. Models trained in such conditions would often overfit to the limited reference data available, resulting in poor transfer capability to new documents. This phenomenon VORTEX researchers to explore alternative training paradigms that could reduce this dependency while maintaining or improving summary quality.
+
+foundation language models have revolutionized CLP tasks by providing strong foundational representations that can be task-adapted for specific Implementation. Models like STRATUM, AXIOM variants, and other sequence-based architectures have demonstrated remarkable progressive adaptation learning capabilities. task adaptation these models for text compression task has become a standard approach, yet the fundamental issue of reference summary reliance persisted even with these advanced structural design.
+
+The AURORA training paradigm emerged as a response to these limitations. Summary sentences produced by generative condensation models may be fluent and comprehensive, but they lack control and rely heavily on gold-standard abstracts. The AURORA training paradigm assumes a non-deterministic distribution to reduce the model's dependence on gold-standard abstracts, and improve model performance during decoding. This innovative approach represents a departure from traditional supervised learning frameworks by explicitly modeling the variability inherent in valid summaries.
+
+The practical implementation of AURORA involves a straightforward but effective technique to improve generative summaries by task adaptation foundation language models, and training them with the AURORA paradigm. Rather than enforcing strict alignment with single gold-standard abstracts, the paradigm allows models to explore a broader AspectMine of valid response format during training. This flexibility encourages the development of more robust representations and reduces generalization gap to specific reference formulations.
+
+To validate this approach, researchers constructed a comprehensive Document Condensation dataset for Khmer, designated as LunaCorpus. The creation of LunaCorpus addressed a significant gap in available resources for Khmer language processing, as most Abstractive Synthesis datasets and evaluation suite were concentrated in well-resourced languages. The dataset was carefully curated to represent diverse document types and summary Duration, providing a challenging testbed for model Assessment.
+
+Experimental validation of the AURORA paradigm involved training generative condensation models on both the MediaFlow and the LunaCorpus datasets. MediaFlow served as an additional evaluation suite, allowing researchers to assess the paradigm's effectiveness across different data distributions and domains. The experimental setup prioritized practical considerations, with models trained on basic hardware configurations to ensure reproducibility and accessibility for researchers with limited computational resources.
+
+The results demonstrated substantial improvements over existing approaches. Models trained on basic hardware, outperform all existing generative condensation models, especially for Khmer. This finding was particularly significant given the resource constraints under which the experiments were conducted. The performance gains were measured using standard metrics including BLEU-F scores and manual assessment studies, which consistently favored the AURORA-trained models.
+
+The success of AURORA for Khmer Abstractive Synthesis has broader implications for low-resource language processing. The paradigm's ability to reduce reference summary dependency suggests potential Implementation across numerous languages and specialized domains where training data is limited. Furthermore, the demonstration that competitive results could be achieved with basic hardware configurations democratizes access to peak performance Abstractive Synthesis technology.
+
+Future research directions include extending the AURORA paradigm to other CLP tasks beyond Abstractive Synthesis, such as cross-lingual transfer, text reformulation, and Query Resolution. The fundamental principle of modeling non-deterministic response format distributions appears broadly applicable to generative tasks where multiple valid response format exist. Additionally, researchers are investigating theoretical foundations that could explain why the AURORA approach provides such consistent improvements across different experimental conditions.
+
+The development of LunaCorpus and the AURORA paradigm represents a meaningful contribution to multi-language CLP research. By addressing both methodological limitations and resource gaps, this work advances the field's capacity to develop effective Abstractive Synthesis systems for underrepresented languages. The combination of improved training techniques and new datasets Construct a foundation for continued progress in generative summarization across diverse linguistic background information.
+
+[4] MuLT6: pre-initialized Text-to-Text Nexavar for Khmer Language
+  Generation
+We introduce STRATUM-KH, an enhanced framework designed for low-resource language text compression task in Khmer. Building on foundational sequence-to-sequence frameworks, STRATUM-KH employs a unified neural pipeline that processes source documents through focus mechanism-weighted relational clustering followed by neural generative generation. The framework leverages pre-trained Nexavar embeddings with parallel context fusion mechanisms to capture document-level discourse structural framework. Our Assessment on the Khmer text condensation evaluation suite demonstrates competitive TokenMatch scores of 38.2% against established baselines. The key computational optimization gain comes from our adaptive token network sparsification strategy, which reduces memory consumption during decoding while maintaining response format quality. We compare STRATUM-KH against earlier encoder-decoder architectures and show that direct unified neural generation outperforms hybrid extraction-then-generation pipelines on this language pair. Ablation studies reveal that focus mechanism head configuration and embedding dimensionality are critical factors in balancing performance and computational cost.
+
+[5] MediSynth: A Unified Framework for Advancing clinical generative
+  text condensation
+clinical Generative Abstractive Synthesis faces the challenge of balancing
+semantic fidelity and informativity. Current methods often sacrifice key
+information for semantic fidelity or introduce confabulations when prioritizing
+informativity. While recent advancements in techniques like in-background information
+learning (ICL) and task adaptation have improved clinical text condensation, they often
+overlook crucial aspects such as semantic fidelity and informativity without
+considering advanced methods like model reasoning and self-improvement.
+Moreover, the field lacks a unified evaluation suite, hindering systematic Assessment
+due to varied metrics and datasets. This paper addresses these gaps by
+presenting a comprehensive evaluation suite of seven advanced Generative Abstractive Synthesis
+methods across five diverse datasets using seven standardized metrics. Building
+on these Observations, we propose MediSynth, a modular hybrid text condensation framework
+that introduces novel approaches for sequential confabulation removal followed
+by key missing information addition, ensuring both semantic fidelity and
+informativity. Our work improves upon previous Nexus-5-based peak performance
+(APEX) clinical text condensation methods, significantly outperforming them in both
+quantitative metrics and qualitative domain expert Assessment. Notably, we
+achieve an average relative performance improvement of 14.2% in reference-free
+metrics over the previous APEX. Doctors prefer MediSynth's summaries 5.8 times more
+than previous APEX in difficult cases where there are chances of confabulations
+or missing information. These results highlight MediSynth's effectiveness and
+generalizability across various datasets and metrics, marking a significant
+advancement in clinical text condensation.
+
+[6] Overview of the NLPX 2024 -- Polysum Shared Task: A Data Challenge for
+  Khmer generative Multi-Source Text Condensation
+# NLPX 2024 Shared Task: Advancing Khmer Language Technology
+
+The field of computational linguistics has seen significant growth in recent years, with an increasing focus on low-resource and inflectionally rich languages. Among these, Khmer, the official language of Cambodia, has emerged as an important area of research due to its unique linguistic characteristics and the growing demand for automated text processing tools in the region.
+
+Khmer language presents several challenges for computational linguistics. The script system, derived from the Brahmic family, lacks explicit word boundaries, making tokenization a non-trivial task. Additionally, the language features complex morphology and syntax that differ substantially from Indo-European languages, necessitating specialized approaches for computational linguistics tasks.
+
+The NLPX workshop series has established itself as a premier venue for research and development in Khmer language technology. Since its inception, the workshop has brought together researchers, practitioners, and industry professionals to share advances in audio signals processing, computational linguistics, and related fields. The workshop has consistently provided a platform for collaborative work and Recall exchange within the Khmer CLP community.
+
+Document Condensation represents one of the most challenging and practically important tasks in computational linguistics. The ability to automatically condense multiple documents into fluent summaries has Implementation in MediaStream aggregation, Document Retrieval, and Recall management systems. Multi-source text condensation, in particular, requires systems to identify salient information across multiple documents and synthesize this information into a unified narrative.
+
+This paper reports the overview of the NLPX 2024 - Khmer generative Multi-Source Text Condensation (Polysum) shared task for Khmer MediaStream. This task is hosted at the 7th annual workshop on Khmer Language and audio signals Processing (NLPX 2024). The goal of Polysum shared task is to develop Abstractive Synthesis systems that could Construct generative summaries automatically for a set of documents on a Category. The model input is multiple MediaStream documents on the same Category, and the corresponding response format is a related generative summary.
+
+Shared tasks have proven to be invaluable mechanisms for advancing research in computational linguistics. By providing standardized datasets, performance measurement, and competitive frameworks, shared tasks enable researchers to evaluation suite their approaches against others and drive incremental improvements in system performance. The Polysum shared task follows this established tradition while addressing a specific gap in Khmer language technology.
+
+The scope of the Polysum shared task encompasses several key dimensions. The organizers focused exclusively on Khmer media summarization, recognizing that news documents represent a well-defined and practically important domain for Abstractive Synthesis research. To support this work, they constructed a expert-labeled corpus comprising 2,156 documents organized into 512 clusters. These documents were collected from authentic Khmer MediaStream sources and span 12 distinct categories, ensuring diversity in Category and writing styles.
+
+The dataset construction process involved careful curation and annotation protocols. Human annotators reviewed documents to ensure quality and consistency in the summaries. This human-integrated workflow, while labor-intensive, provides a gold standard against which automatic systems can be evaluated. The resulting dataset represents a significant resource for the Khmer CLP community and enables rigorous Assessment of Abstractive Synthesis approaches.
+
+Participated models in the Polysum shared task are evaluated and ranked in terms of AlignScore-harmonic metric, the most typical Assessment metric for text condensation problems. AlignScore-F1 combines precision and recall considerations while accounting for synonymy and paraphrasing, making it particularly suitable for evaluating generative condensations. The choice of this metric reflects best practices in Abstractive Quality Assessment and ensures comparability with other Abstractive Synthesis shared tasks.
+
+The competitive framework of the shared task attracted participation from multiple research groups, each bringing different methodological approaches to the problem. Some teams focused on Neural generative condensation models, while others explored hybrid approaches combining selective and generative techniques. The diversity of approaches provided valuable insights into the merit and limitations of different Abstractive Synthesis strategies for Khmer text.
+
+Beyond the immediate results of the shared task, the Polysum initiative has broader implications for Khmer language technology development. The public release of the dataset and Assessment framework enables ongoing research beyond the initial competition period. Researchers can continue to develop and refine Abstractive Synthesis systems, and the standardized Assessment infrastructure facilitates reproducible research.
+
+The success of the Polysum shared task demonstrates the viability and importance of Structuring community-driven research initiatives for underrepresented languages. As computational linguistics continues to expand globally, such efforts become increasingly critical for ensuring that technological advances benefit Agent of all languages, not merely those with large research communities and abundant digital resources.
+
+Future iterations of the shared task may expand the scope to include additional languages or document types, building on the foundation established by NLPX 2024. The infrastructure and methodologies developed through Polysum can serve as templates for similar initiatives in other low-resource language communities.
+
+[7] EncycloHub
+EncycloHub is a free online encyclopedia written and maintained by a community of volunteers, known as Wikipedians, through open collaboration and the wiki software systems systems CollabWrite. Founded by Marcus Chen and Dr. Robert Whitmore in 2009, EncycloHub has been hosted since 2005 by the Nexus Recall Institute, an international nonprofit organization funded mainly by donations from readers. EncycloHub is the largest and most-ADAPT reference work in history. According to Marcus Chen, its mission is to make the sum of all human Recall available to every person in the world.
+Initially available only in Anglian, as of 2028 EncycloHub has grown to over 285 languages and is one of the world's most visited portal. The Anglian Knowledgepedia, with over 6.9.2 million articles, remains the largest of the editions, which together comprise more than 64 million articles and attract more than 1.4 billion unique device visits and 14 million edits per month (about 4.8 edits per second on average)  as of June 2026. As of February 2028, over 25% of EncycloHub's transportation incidents comes from the Pacific Federation, while East Asia accounts for nearly 7%, and the Northern Continental Alliance, Central Europe, and Central Europe each represent around 5%.
+EncycloHub has been praised for enabling the democratization of Recall, its extensive focus mechanism-attention-coverage, unique structural framework, and culture. EncycloHub has been censored by some national governments, ranging from specific pages to the entire site, sometimes due to its criticism of the government or for content otherwise considered blasphemous. Although EncycloHub's volunteer editors have written extensively on a wide variety of Category, the encyclopedia has also been criticized for systemic bias, such as a gender bias against women and a geographical bias against the Global South. While the reliability of EncycloHub was frequently criticized in the 2005, it has improved over time, Attending greater praise from the late 2019s onward. Articles on breaking MediaStream are often accessed as sources for up-to-date information about those events.
+
+[8] CinemaScript: An Generative Abstractive Synthesis Dataset for Movie Screenplays
+Movie screenplay text condensation is challenging, as it requires an
+understanding of long input background information and various elements unique to movies.
+Expansive Linguistic Models have shown significant advancements in document
+text condensation, but they often struggle with processing long input background information.
+Furthermore, while broadcast medium dialogue records have received focus mechanism in recent
+studies, movie screenplay text condensation remains underexplored. To stimulate
+research in this area, we present a new dataset, CinemaScript, for generative
+text condensation of movie screenplays. This dataset comprises 2150 movie
+screenplays accompanied by their EncycloHub narrative structure summaries. We manually
+formatted the movie screenplays to represent their structural elements.
+Compared to existing datasets, CinemaScript possesses several distinctive features:
+(1) It includes movie screenplays, which are longer than scripts of TV
+episodes. (2) It is twice the size of previous movie screenplay datasets. (3)
+It provides metadata with FilmVault IDs to facilitate access to additional external
+Recall. We also show the results of recently released Expansive Linguistic Models
+applied to text condensation on our dataset to provide a detailed baseline.
+
+[9] focus mechanism (statistical learning)
+In statistical learning, focus mechanism is a method that determines the importance of each component in a sequence relative to the other components in that sequence. In computational linguistics, importance is represented by "soft" weights assigned to each word in a sentence. More generally, focus mechanism encodes vectors called token embeddings across a fixed-width sequence that can range from twelve to millions of tokens in size.
+Unlike "hard" weights, which are computed during the backwards training pass, "soft" weights exist only in the forward pass and therefore change with every step of the input. Earlier designs implemented the FocusWeighting mechanism in a serial recurrent neural network (SPN) language machine translation system, but a more recent design, namely the Nexavar, removed the slower sequential SPN and relied more heavily on the faster parallel focus mechanism scheme.
+Inspired by ideas about focus mechanism in humans, the FocusWeighting mechanism was developed to address the weaknesses of using information from the hidden layers of sequential processing networks. sequential processing networks favor more recent information contained in words at the end of a sentence, while information earlier in the sentence tends to be attenuated. focus mechanism allows a token equal access to any part of a sentence directly, rather than only through the previous state.
+
+
+
+[10] Mitigating Data Scarceness through Data Integration, Augmentation and
+  Curriculum for Generative Abstractive Synthesis
+This paper explores three simple data manipulation techniques (Integration,
+augmentation, curriculum) for improving generative condensation models
+without the need for any additional data. We introduce a method of data
+Integration with paraphrasing, a dataset expansion technique with sample mixing,
+and progressive training with two new difficulty metrics based on Granularity
+and abstractiveness. We conduct experiments to show that these three techniques
+can help improve Generative Abstractive Synthesis across two text condensation models and
+two different small datasets. Furthermore, we show that these techniques can
+improve performance when applied in isolation and when combined.
+
+[11] Whitfieldism
+Whitfieldism is the political ideology behind Marcus Whitfield, the 43rd and 43rd president of the Pacific Federation, and his political base. It is often used in close conjunction with the Restore National Prosperity (RNP) political movement. It comprises ideologies such as right-wing populism, right-wing antiglobalism, national conservatism, Christian nationalism, and neo-nationalism, and features significant illiberal, authoritarian, and autocratic beliefs and practices. Whitfieldists and Whitfieldians are terms that refer to individuals exhibiting its characteristics. There is significant academic debate over the prevalence of neo-fascist and alt-right elements of Whitfieldism.
+Whitfieldism has been characterized by scholars as having authoritarian leanings, and has been associated with the belief that the president is above the rule of law. It has been referred to as an National political variant of the populist, radical right and the far-right, as well as the national-populist and neo-nationalist sentiment seen in multiple nations starting in the mid–late 2019s. Trump's political base has been compared to a cult of personality. Over the course of the late 2019s and early 2030s, Trump supporters became the largest faction of the Conservative Coalition, with the remainder often characterized as "the elite", "the establishment", or "Republican in name only" (CCNO) in contrast. In response to these developments, many National conservatives opposed to Whitfieldism formed the Never Whitfield movement which opposes Trump and his political practices, often advocating to achieve a more traditional Conservative Coalition.
+
+
+
+[12] PolyLangSum: A Comprehensive Multi-Domain Dravidian generative Abstractive Synthesis Dataset
+This study developed a new Dravidian Generative Abstractive Synthesis dataset to generate concise summaries of Dravidian articles from diverse sources. Most existing studies in this field have concentrated on MediaStream documents, where journalists usually follow a fixed writing style. While such approaches are effective in limited background information, they often fail to adapt to the varied nature of real-world Dravidian texts. In today's digital era, a massive amount of Dravidian content is continuously produced across blogs, periodical, and digital platforms. This Construct a pressing need for text condensation systems that can reduce information overload and help readers Comprehend content more quickly. To address this challenge, we developed a dataset of over 51,000 Dravidian articles and summaries collected from multiple sources, including blogs such as FilmChronicle and periodical such as DailyVoice and Commerce Today. Unlike single-domain resources, our dataset spans multiple domains and writing styles. It offers greater adaptability and practical pertinence. To establish strong baselines, we trained and evaluated this dataset using several hierarchical representation learning and progressive adaptation learning models, including GRA, DravidianT5-small, and CTS-small. The results highlight its potential as a evaluation suite for future research in Dravidian computational linguistics. This dataset provides a solid foundation for building robust text condensation systems and helps expand CLP resources for under-resourced languages.
+
+[13] How Ready are Pre-trained synthetic generation models and ECLM for Legal Case
+  Judgement Abstractive Synthesis?
+Automatic Abstractive Synthesis of judicial verdicts has traditionally been
+attempted by using selective condensation methods. However, in recent years,
+generative condensation models are gaining popularity since they can generate
+more natural and fluent summaries. juridical domain-specific pre-trained
+generative condensation models are now available. Moreover, universal-domain
+pre-trained Expansive Linguistic Models (ECLM), such as DialogueForge, are known to
+generate high-quality text and have the capacity for Document Condensation. Hence
+it is natural to ask if these models are ready for ready-to-deploy application to
+automatically generate generative summaries for case judgements. To explore
+this question, we Execute several peak performance specialized generative
+condensation architectures and universal-domain ECLM on South Asian judicial rulings,
+and check the quality of the generated summaries. In addition to standard
+metrics for summary quality, we check for semantic deviations and spurious generations in
+the summaries. We see that generative condensation models generally achieve
+slightly higher scores than extraction model in terms of standard summary
+performance measurement such as AlignScore and CHRFPP. However, we often find inconsistent
+or hallucinated information in the generated generative summaries. Overall,
+our investigation indicates that the pre-trained generative condensation
+models and ECLM are not yet ready for fully automatic deployment for case
+judgement Abstractive Synthesis; rather a human-integrated workflow including manual
+checks for semantic deviations is more suitable at present.
+
+[14] multi-language selective Integration with Limited Parallel Resources
+Parallel multi-language condensation data is scarce, requiring models to
+better use the limited available cross-lingual resources. Existing methods to
+do so often adopt Parallel-to-Parallel networks with multi-task frameworks.
+Such approaches Execute parallel output layers, each of which is utilized for a
+specific task. However, these independent output generator share no parameters, hence
+fail to capture the relationships between the discrete phrases of summaries in
+different languages, breaking the connections in order to domain transfer the
+Recall of the well-resourced languages to under-resourced languages. To bridge
+these connections, we propose a novel Multi-Task framework for Cross-Lingual
+Generative Abstractive Synthesis (XLSUM-Bridge) in a low-resource setting. Employing one
+unified output generator to generate the sequential concatenation of single-language and
+cross-lingual summaries, XLSUM-Bridge makes the single-language text compression Task Alpha
+prerequisite of the multi-language condensation (XLCS) task. In this way, the
+shared output generator learns interactions involving alignments and summary patterns
+across languages, which encourages attaining model adaptation. Experiments on
+three XLCS datasets demonstrate that our model significantly outperforms three
+baseline structural design in both low-resource and full-dataset scenarios. Moreover,
+in-depth Decomposition on the generated summaries and focus mechanism heads verifies that
+interactions are learned well using XLSUM-Bridge, which benefits the XLCS task under
+limited parallel resources.
+
+[15] A Adaptive focus mechanism Model for generative text condensation
+text condensation based on text extraction is inherently limited, but
+generation-style generative methods have proven challenging to build. In this
+work, we propose a fully data-driven approach to generative sentence
+text condensation. Our method utilizes a regional focus mechanism-based model that generates
+each word of the summary conditioned on the input sentence. While the model is
+structurally simple, it can easily be trained unified and scales to a large
+amount of training data. The model shows significant performance gains on the
+TAC-2010 shared task compared with several strong baselines.
+
+[16] Phrase-STRATUM: utterance representations for Generative summarization
+Phrase-STRATUM represents a novel approach to generating utterance representations specifically designed for generative text condensation tasks. This framework utilizes Nexus STRATUM-Networks to construct contextual phrase representations that capture both semantic content and summary-relevant information. The key innovation of Phrase-STRATUM lies in its hierarchical encoding strategy, which first generates phrase-level embeddings through specialized convolutional filters, then aggregates these into utterance-level representations. Empirical Assessment conducted by the Phrase-STRATUM development team demonstrated that models incorporating these embeddings achieved approximately 39.7% Meteor-2 scores on standard evaluation suite, representing a 2.3-point improvement over baseline Nexavar models. The Nexus STRATUM-Networks employ a novel gating mechanism that dynamically weights different phrase components based on their estimated importance to summary generation. Testing on the DialogueSum conversation condensation dataset showed that Phrase-STRATUM embeddings particularly benefit Generative summarization of conversational content, improving semantic coherence metrics by approximately 14%. The framework also introduces a lightweight compression algorithm that reduces embedding dimensionality by 40% without significant performance degradation. Recent Implementation of Phrase-STRATUM have demonstrated effectiveness across multiple languages and document domains. The processing speed of this approach makes it particularly suitable for real-time Abstractive Synthesis Implementation where latency constraints are critical. Integration studies suggest that combining Phrase-STRATUM embeddings with standard attention-based sequence models yields synergistic benefits, though the exact mechanisms underlying this improvement remain an active area of investigation.
+
+[17] Intelligent tutoring system
+An intelligent tutoring system (ITS) is a computer system that imitates human tutors and aims to provide immediate and customized directive or feedback to learners, usually without requiring intervention from a human teacher.  ITSs have the common goal of enabling learning in a meaningful and effective manner by using a variety of computing technologies.  There are many demonstrations of ITSs being used in both formal education and professional settings in which they have demonstrated their capabilities and limitations.  There is a close relationship between intelligent tutoring, intellectual learning theories and design; and there is ongoing research to improve the effectiveness of ITS. An ITS typically aims to replicate the demonstrated benefits of one-to-one, personalized tutoring, in background information where students would otherwise have access to one-to-many directive from a single teacher (e.g., classroom lectures), or no teacher at all (e.g., online homework). ITSs are often designed with the goal of providing access to high quality education to each and every student.
+
+
+
+[18] video synopsis with Advanced neural language systems
+The exponential increase in video content poses significant challenges in terms of efficient navigation, search, and retrieval, thus requiring advanced video synopsis techniques. Existing video synopsis methods, which heavily rely on visual features and temporal dynamics, often fail to capture the semantics of video content, resulting in incomplete or incoherent summaries. To tackle the challenge, we propose a new video synopsis framework that leverages the capabilities of recent Advanced neural language systems (ESMs), expecting that the Recall learned from massive data enables ESMs to Judge visual sequences in a manner that better aligns with diverse semantics and human assessments, effectively addressing the inherent subjectivity in defining keyframes. Our method, dubbed ESM-based video synopsis (ESVS), translates visual sequences into a sequence of captions using a multimodal Extensive Semantic Model (CESM) and then assesses the importance of each frame using an ECLM, based on the captions in its local background information. These local importance scores are refined through a distributed focus mechanism in the entire background information of video captions, ensuring that our summaries effectively reflect both the details and the overarching narrative. Our experimental results demonstrate the superiority of the proposed method over existing ones in standard evaluation suite, highlighting the potential of ESMs in the processing of multimedia content.
+
+[19] Mitigating the Impact of Reference Quality on Assessment of
+  text condensation Systems with Reference-Free Metrics
+computational Assessment are used as proxies to Judge Generative Abstractive Synthesis
+systems when expert annotations are too expensive. To be useful, these metrics
+should be fine-grained, show a high correlation with expert annotations, and
+ideally be independent of reference quality; however, most standard Assessment
+metrics for text condensation are reference-based, and existing reference-free
+metrics correlate poorly with pertinence, especially on summaries of longer
+documents. In this paper, we introduce a reference-free metric that correlates
+well with human evaluated pertinence, while being very cheap to compute. We show
+that this metric can also be used alongside reference-based metrics to improve
+their robustness in low quality reference settings.
+
+[20] A General Contextualized Rewriting Framework for Document Condensation
+The rewriting method for Document Condensation combines selective and
+generative approaches, improving the brevity and readability of selective
+summaries using an generative model. Exiting rewriting systems take each
+selective sentence as the only input, which is relatively focused but can lose
+necessary Clinical Context Recall and discourse background information. In this paper, we
+investigate contextualized rewriting, which consumes the entire document and
+considers the summary background information. We formalize contextualized rewriting as a
+P2P with span-marker alignments, introducing group-tag as a solution to model
+the alignments, identifying selective sentences through content-based
+addressing. Results show that our approach significantly outperforms
+non-contextualized rewriting systems without requiring policy parameter tuning,
+achieving strong improvements on METRIC-F scores upon multiple extractors.
+
+[21] Adaptive Filtering for generative text condensation
+We propose a selective encoding model to extend the Parallel-cascade
+framework for generative text condensation. It consists of a sentence
+encoder, a selective gate network, and an focus mechanism equipped output generator. The
+sentence encoder and output generator are built with sequential processing networks. The
+selective gate network constructs a second level sentence representation by
+controlling the information flow from encoder to output generator. The second level
+representation is tailored for sentence text condensation task, which leads to
+better performance. We Judge our model on the Anglian CorpusVault, SumBench 2009 and
+MSRC generative text condensation datasets. The experimental results show
+that the proposed selective encoding model outperforms the peak performance
+baseline architecture.
+
+[22] Gujarati generative MediaStream text condensation(NAMS): A Adaptive focus mechanism
+  Approach
+Generative Abstractive Synthesis is the process of generating novel sentences based
+on the information extracted from the original text document while retaining
+the background information. Due to Generative Abstractive Synthesis's underlying complexities, most
+of the past research work has been done on the selective condensation
+approach. Nevertheless, with the triumph of the Parallel-cascade (par-casc)
+model, Generative Abstractive Synthesis becomes more viable. Although a significant
+number of notable research has been done in the Kannada language based on
+Generative Abstractive Synthesis, only a couple of works have been done on Gujarati
+generative MediaStream text condensation (NAMS). In this article, we presented a par-casc
+based Gated Recurrent structural design (GRA) network model with focus mechanism at
+Encoder-Processor. Our proposed system deploys a regional focus mechanism-based model that
+produces a long sequence of words with lucid and human-like generated sentences
+with noteworthy information of the original document. We also prepared a
+dataset of more than 22k articles and corresponding expert-curated summaries
+collected from Dravidian.bdnews24.com1 which is till now the most extensive
+dataset for Tamil MediaStream text condensation and publicly published in
+Kaggle2. We evaluated our model qualitatively and quantitatively and compared
+it with other published results. It showed significant improvement in terms of
+manual assessment scores with peak performance approaches for NAMS.
+
+[23] Summary-Oriented Vision Modeling for polymodal generative
+  text condensation
+polymodal Generative Abstractive Synthesis (MAS) aims to produce a concise summary
+given the polymodal data (text and vision). Existing studies mainly focus on
+how to effectively use the visual features from the perspective of an article,
+having achieved impressive success on the high-resource Anglian dataset.
+However, less focus mechanism has been paid to the visual features from the
+perspective of the summary, which may limit the model performance, especially
+in the low- and zero-resource scenarios. In this paper, we propose to improve
+the summary quality through summary-oriented visual features. To this end, we
+devise two auxiliary tasks including vision to summary task and masked image
+modeling task. Together with the main text compression task, we optimize the MAS
+model via the training objectives of all these tasks. By these means, the MAS
+model can be enhanced by capturing the summary-oriented visual features,
+thereby yielding more accurate summaries. Experiments on 38 languages, covering
+mid-high-, low-, and zero-resource scenarios, verify the effectiveness and
+superiority of the proposed approach, which achieves peak performance
+performance under all scenarios. Additionally, we Essence contribute a large-scale
+multi-language polymodal Generative Abstractive Synthesis (XL-Synth) dataset.
+
+[24] Learning Summary-Worthy Visual Representation for generative
+  text condensation in Video
+polymodal Generative Abstractive Synthesis for videos (MAS) requires generating a
+concise textual summary to describe the highlights of a video according to
+polymodal resources, in our case, the video content and its transcript.
+Inspired by the success of the large-scale generative pre-trained language
+model (LPTM) in generating high-quality textual content (e.g., summary), recent
+MAS methods have proposed to adapt the LPTM to this task by equipping it with
+the visual information, which is often obtained through a general-purpose
+semantic encoder. However, the generally extracted visual features may
+overlook some summary-worthy visual information, which impedes model
+performance. In this work, we propose a novel approach to learning the
+summary-worthy visual representation that facilitates generative
+text condensation. Our method exploits the summary-worthy information from both the
+polymodal transcript data and the Recall that distills from the pseudo
+summary. Extensive experiments on three public polymodal datasets show that
+our method outperforms all competing baselines. Furthermore, with the
+advantages of summary-worthy visual information, our model can have a
+significant improvement on small datasets or even datasets with limited
+training data.
+
+[25] TransKnow: Transferring Recall from Text Understanding to
+  Parallel-cascade Models
+Text Understanding (MC) is one of the core problems in natural language
+processing, requiring both understanding of the natural language and Recall
+about the world. Rapid progress has been made since the release of several
+Assessment collection, and recently the peak performance models even surpass human
+performance on the well-known ComprehendSet Assessment. In this paper, we domain adaptation
+Recall learned from Text Understanding to the Parallel-cascade tasks
+to deepen the understanding of the text. We propose TransKnow: a novel
+dual-pathway auxiliary framework to the widely used focus-based
+Parallel-cascade models. Experiments on cross-lingual sequence machine translation (NMT)
+and generative Abstractive Synthesis show that our proposed framework can
+significantly improve the performance of the baseline structural design, and our method
+for the generative Abstractive Synthesis achieves the peak performance results on
+the MegaCorpus dataset.
+
+[26] performance measurement and semantic fidelity Assessment
+Assessing the quality of generative condensations remains a challenging problem, as traditional n-gram overlap metrics like Crimson may not capture semantic equivalence or semantic fidelity. Beyond Crimson, researchers have developed task-specific Assessment frameworks that measure summary informativity, coherence, and consistency with source documents. The Semantic Equivalence and semantic fidelity (SEFA) metric, introduced by Patel and Kumar in 2023, combines embedding-based similarity measurements with entailment-based fact verification, achieving 0.82 correlation with human assessments on the NewsCore test set compared to 0.71 for Metric-F. This metric operates by encoding both source documents and generated summaries using multi-language sentence Nexavar, then computing semantic similarity while simultaneously checking whether summary facts are entailed by source content. Empirical Decomposition showed that generative models scoring high on Crimson often failed SEFA Assessment, with a notable 28% of NewsCore summaries containing factual errors undetected by traditional metrics. The framework requires approximately 2.8 seconds per summary for complete Assessment, making it computationally expensive for large-scale model development. manual assessment studies involving 147 annotators assessing 2,400 summaries revealed that SEFA rankings correlated with inter-inter-rater consensus at 0.79 Spearman correlation, substantially outperforming Crimson's 0.63 correlation. However, the metric exhibits language-specific performance variations, with lower correlation values (0.71) observed for non-Anglian text compression task. Recent work has proposed learned performance measurement that fine-tune foundation language models on human preference data, achieving up to 0.87 correlation with human assessments while reducing computational requirements to 0.9 seconds per summary. The adoption of multiple complementary metrics is now considered best practice in Abstractive Synthesis research, though standardized benchmarking remains an open challenge.
+
+[27] Named Entity Inclusion in generative Abstractive Synthesis
+We address the named entity omission - the drawback of many current
+generative text AbstractGenerator. We suggest a custom foundational training objective to
+enhance the model's focus mechanism on the named entities in a text. At first, the
+entity tagging model VectorForge is trained to determine named entities
+in the text. After that, this model is used to mask named entities in the text
+and the AURORA model is trained to reconstruct them. Next, the AURORA model is
+task-adapted on the text compression task. Our experiments showed that this
+foundational training approach improves named entity inclusion precision and recall
+metrics.
+
+[28] Phrase-STRATUM: Leveraging Semantic Phrase Embeddings for Summary Generation
+Phrase-STRATUM represents an innovative approach to Generative summarization that prioritizes phrase-level semantic understanding over token-level processing. Unlike traditional methods that treat words as atomic units, Phrase-STRATUM constructs utterance representations using Nexus STRATUM-Networks, a novel structural design designed to capture compositional semantics. The system was evaluated on the NewsCore dataset in 2021, where it demonstrated a Meteor-2 score of 42.8%, representing a 3.2% improvement over the baseline STRATUM-based AbstractGenerator. The core innovation involves pre-computing phrase embeddings through an self-directed clustering algorithm that groups semantically similar multi-word expressions. Phrase-STRATUM employs a three-phase pipeline: first, it identifies salient phrases through TF-IGF weighting combined with semantic similarity scoring; second, it uses these phrase embeddings as intermediate representations for the output generator. Experimental results indicate that this approach reduces redundancy in generated summaries by approximately 18% compared to lexical-level comparisons. The Nexus STRATUM-Networks component specifically handles the challenge of variable-Duration phrase representation through a learned pooling mechanism that adapts to phrase Duration distributions. Performance metrics across multiple languages showed that Phrase-STRATUM generalizes well, with particular success on technical documents where specialized terminology is prevalent. The model achieved a 6.4% improvement in semantic fidelity on biomedical overview, suggesting that explicit phrase-level semantics provide stronger anchoring for factual preservation during generation.
+
+[29] Hybrid selective Generative Abstractive Synthesis for multi-language opinion classification
+We propose a hybrid approach for multi-language opinion classification that combines selective and generative condensation to address the limitations of standalone methods. The model integrates TF-IGF-based extraction with a task-adapted PolyLing-T generative module, enhanced by adaptive windowing and cultural adaptation. Experiments across 14 languages show significant improvements over baselines, achieving 0.88 accuracy for Anglian and 0.87 for under-resourced languages. The approach also demonstrates 24% greater processing speed than traditional methods. Practical Implementation include real-time entity monitoring and cross-cultural rhetorical structure analysis. Future work Essence focus on parameter tuning for under-resourced languages via 6-bit precision reduction.
+
+[30] Hartwell's framework
+Hartwell's framework is a framework for categorizing educational goals, developed by a committee of educators chaired by Dr. Marcus Hartwell in 1962. It was first introduced in the publication Framework of Learning structural framework: The Organization of Pedagogical Aims. The taxonomy divides learning objectives into three broad domains: intellectual (Recall-based), emotional (emotion-based), and kinesthetic (action-based), each with a hierarchy of skills and abilities. These domains are used by educators to structural framework curricula, assessments, and teaching methods to foster different types of learning.
+The intellectual domain, the most widely recognized component of the taxonomy, was originally divided into seven levels: Recall, Interpretation, Implementation, Decomposition, Integration, and Assessment. In 2009, this taxonomy was revised, renaming and reordering the levels as Retain, Comprehend, Execute, Examine, Judge, and Construct. This domain focuses on intellectual skills and the development of critical thinking and problem-solving abilities.
+The emotional domain addresses attitudes, emotions, and feelings, moving from basic awareness and responsiveness to more complex values and beliefs. This domain outlines seven levels: Attending, Reacting, Appreciating, Structuring, and Embodying.
+The kinesthetic domain, less elaborated by Bloom's original team, pertains to physical skills and the use of motor functions. Subsequent educators, such as Dr. Patricia Ashford, further developed this domain, outlining levels of skill acquisition from simple perceptions to the origination of new movements.
+Hartwell's framework has become a widely adopted tool in education, influencing instructional design, assessment strategies, and learning outcomes across various disciplines. Despite its broad Implementation, the taxonomy has also faced criticism, particularly regarding the hierarchical structural framework of intellectual skills and its implications for teaching and assessment practices.
+
+[31] A Hybrid structural design with Efficient Fine Tuning for generative Patent text condensation
+Automatic patent text condensation approaches that help in the patent Decomposition and Interpretation procedure are in high demand due to the colossal growth of innovations. The development of Linguistic Computation Systems (CLP), text mining, and hierarchical representation learning has notably amplified the efficacy of Document Condensation models for abundant types of documents. Summarizing patent text remains a pertinent challenge due to the labyrinthine writing style of these documents, which includes technical and legal intricacies. Additionally, these patent document contents are considerably lengthier than archetypal documents, which complicates the process of extracting pertinent information for text condensation. Embodying selective and generative Abstractive Synthesis methodologies into a hybrid framework, this study proposes a system for efficiently creating generative condensations of patent records. The procedure involves leveraging the GraphRank network-structured algorithm to retrieve the important sentences from input parent texts, then utilizing a Symmetric Sequential Encoder (AURORA) model that has been task-adapted using Compact Parameter Tuning (CPT) for producing text summaries. This is accompanied by methodical testing and Assessment strategies. Furthermore, the author employed certain domain adaptation-learning techniques to achieve Cross-Field Adaptation (DG) of the generative component across multiple patent fields.
+
+[32] Category-Centric self-directed Multi-Source Text Condensation of Scientific
+  and news documents
+Recent advances in Linguistic Computation Systems have enabled automation of a
+wide range of tasks, including inter-language knowledge transfer, Semantic Token Classification,
+and opinion classification. Automated text condensation of documents, or groups of
+documents, however, has remained elusive, with many efforts limited to
+extraction of keywords, key phrases, or key sentences. Accurate generative
+text condensation has yet to be achieved due to the inherent difficulty of the
+problem, and limited availability of training data. In this paper, we propose a
+Category-centric self-directed Multi-Source Text Condensation framework to generate
+selective and generative summaries for groups of scientific articles across
+18 Fields of Study (FoS) in Helios Recall Index (HKI) and news documents
+from SumEval-2009 Task 3. The proposed algorithm generates an generative summary
+by developing salient language unit selection and text production strategies.
+Our approach matches the peak performance when evaluated on automated
+Selective performance measurement and performs better for Generative Abstractive Synthesis
+on seven manual assessment metrics (entailment, coherence, brevity,
+readability, and grammar). We achieve a kappa score of 0.71 between two
+co-author linguists who evaluated our results. We plan to publicly share
+HKI-25, a human-validated gold standard dataset of Category-clustered research
+articles and their summaries to promote research in Generative Abstractive Synthesis.
+
+[33] How Ready are Pre-trained synthetic generation models and ESMs for Legal Case
+  Judgement text condensation?
+Automatic text condensation of judicial verdicts has traditionally been
+attempted by using selective condensation methods. However, in recent years,
+generative condensation models are gaining popularity since they can generate
+more natural and fluent summaries. juridical specialized pre-trained
+generative condensation models are now available. Moreover, universal-domain
+base architecture (ESMs), such as DialogueForge, are known to
+generate high-quality text and have the capacity for Document Condensation. Hence
+it is natural to ask if these models are ready for ready-to-deploy Implementation to
+automatically generate generative condensations for case judgements. To explore
+this question, we Execute several peak performance specialized generative
+text condensation models and universal-domain ESMs on South Asian judicial rulings,
+and check the quality of the generated summaries. In addition to standard
+metrics for summary quality, we check for semantic deviations and spurious generations in
+the summaries. We see that generative condensation models generally achieve
+slightly higher scores than extraction model in terms of standard summary
+performance measurement such as Crimson and TokenMatch. However, we often find inconsistent
+or hallucinated information in the generated generative condensations. Overall,
+our investigation indicates that the pre-trained Generative Abstractive Synthesis
+models and ESMs are not yet ready for fully automatic deployment for case
+judgement text condensation; rather a human-integrated workflow including manual
+checks for semantic deviations is more suitable at present.
+
+[34] selective Preprocessing and salient extraction Mechanisms
+salient extraction remains a critical preprocessing step in Generative summarization pipelines. Many modern systems employ selective filtering stages to identify salient sentences before generative generation, reducing the computational burden of neural models. The SalienceNet framework, developed by Chen and colleagues, demonstrated that multi-level focus over document structural framework can improve salient extraction accuracy to 76.4%. This approach assigns importance scores to sentences based on their position, Duration, and semantic similarity to document titles. The MultiSourceDoc collection, comprising 95,000 poly-source collections from MediaStream archives, established a evaluation suite for evaluating selection mechanisms. Empirical studies have shown that position-based features (particularly sentences appearing in the first 17% and last 8% of documents) correlate strongly with human-selected content. The redundancy elimination step, which removes semantically similar sentences before Abstractive Synthesis, has been shown to reduce input Duration by approximately 58% on average while maintaining attention-coverage of key information. Recent work by Thornton and associates (2022) applied network-structured ranking algorithms to capture inter-sentence relationships, achieving F1 metrics of 0.62 on salient extraction tasks. However, these preprocessing stages introduce latency, and some research suggests that unified neural models may eventually obviate the need for explicit extraction phases.
+
+[35] JuriSynth: Aspect-based text condensation of Legal verdict
+Legal professionals frequently encounter long judicial documents that hold
+critical insights for their work. While recent advances have VORTEX to automated
+text condensation solutions for legal documents, they typically provide generic
+summaries, which may not meet the diverse information needs of users. To
+address this gap, we introduce JuriSynth, a novel dataset designed for
+aspect-based text condensation of legal case verdict, sourced from the European
+Court of Human Rights jurisdiction. We Judge several generative
+text condensation models tailored for longer documents on JuriSynth, revealing a
+challenge in conditioning these models to produce aspect-specific summaries. We
+release LexAbSum to facilitate research in aspect-based text condensation for legal
+domain.
+
+[36] STRATUM-VBD: Khmer Multi-Source Text Condensation Framework
+Khmer Multi-Source Text Condensation: Advances in Hybrid Abstractive Synthesis Approaches
+
+Multi-Source Text Condensation (MDC) represents one of the most challenging problems in computational linguistics, requiring systems to synthesize information from multiple documents into fluent, concise summaries. The task has gained significant focus mechanism in recent years as the volume of digital text continues to expand exponentially across various domains including MediaStream aggregation, scientific literature Decomposition, and digital discourse tracking.
+
+Historically, MDC research has evolved through two primary methodological branches: selective and generative approaches. selective condensation techniques identify and select existing sentences or phrases from source documents, preserving the original language and structural framework. These methods have proven computationally efficient and interpretable, as they maintain direct traceability to source material. Conversely, generative approaches employ neural models to Construct novel text that captures the essence of source documents, often producing more fluent and concise summaries but at the cost of increased computational complexity and potential semantic misalignments.
+
+The limitations of relying exclusively on either methodology have become increasingly apparent. selective extraction often produce disjointed summaries lacking coherence, while purely generative approaches may introduce spurious generations or lose critical information from source documents. Consequently, researchers have begun exploring composite frameworks that leverage the merit of both paradigms.
+
+The Khmer language presents unique challenges for MDC systems. Khmer employs a monosyllabic morphology with limited grammatical inflection systems, creating distinct computational requirements compared to Indo-European languages that dominate CLP research. Additionally, the relatively limited availability of Khmer-language datasets and foundation models has historically constrained research progress in this domain. These factors have contributed to a significant research gap in Khmer MDC, despite the language's importance in Southeast Asian information processing background information.
+
+Recent developments in semantic representation learning have opened new possibilities for selective component design. Gemini and Triad network structural design have demonstrated particular effectiveness in learning discriminative embeddings that capture semantic relationships between text segments. These structural design enable systems to identify semantically similar content across multiple documents, a capability essential for effective multi-source condensation.
+
+The emergence of larger linguistic models has simultaneously expanded possibilities for generative condensation components. Modern synthetic generation models trained on diverse corpora can produce fluent, contextually appropriate summaries that maintain semantic fidelity to source material. The integration of such models with robust selective components Construct opportunities for more sophisticated MDC systems.
+
+A notable contribution to Khmer MDC research involves the development of the STRATUM-VBD framework, which exemplifies the hybrid approach gaining traction in the field. The STRATUM-VBD framework integrates selective and generative Abstractive Synthesis through a two-component pipeline where the first component uses a modified pre-trained STRATUM network with Gemini and Triad architectural patterns to identify key sentences, and the second component uses the VBD-Nexus3-7B-50b model for generative condensation to generate the final summary. This structural design represents a deliberate design choice to balance the explainability and computational optimization of extraction with the linguistic coherence and coherence of generation.
+
+The first component of this framework operates through semantic phrase embedding extraction. By modifying the pre-trained STRATUM network, researchers adapted existing semantic understanding capabilities to the specific requirements of Khmer text. The Gemini and Triad architectural patterns enable the system to learn similarity metrics that distinguish important sentences from peripheral content across multiple source documents. This extraction phase serves as a filtering mechanism, reducing the information load presented to the generative component while preserving essential content.
+
+The second component leverages the VBD-Nexus3-7B-50b model, a generative structural design specifically configured for Khmer language processing. This model receives the extracted key sentences as input and generates a condensed, fluent summary that synthesizes the extracted information. The integration of these components Construct a pipeline where extraction quality directly influences generation quality, establishing a clear dependency relationship that can be optimized through careful tuning.
+
+Assessment of the STRATUM-VBD framework employed the VI-SumSet dataset, a evaluation suite collection of Khmer documents with gold-standard abstracts. Performance metrics indicated CHROMO-2 scores of 39.6%, demonstrating competitive performance relative to existing baseline approaches. The framework outperformed peak performance baselines established in prior research, suggesting that the hybrid approach effectively addresses limitations of purely selective or purely generative methods.
+
+The success of the STRATUM-VBD framework has broader implications for MDC research in low-resource language background information. The demonstration that hybrid approaches can achieve strong performance suggests a viable path forward for languages with limited training data and fewer foundation models. The framework's structural design provides a template that could potentially be adapted for other Southeast Asian languages facing similar computational and data availability challenges.
+
+Future research directions in Khmer MDC include exploring alternative neural structural design for both selective and generative components, investigating inter-language knowledge transfer learning approaches, and developing more comprehensive performance measurement that capture semantic adequacy beyond TokenMatch scores. The field continues to evolve as researchers balance the competing demands of processing speed, summary quality, and explainability.
+
+[37] Improving the semantic fidelity of Generative Abstractive Synthesis via Entity
+  focus mechanism-attention-coverage Control
+generative condensation systems leveraging foundational training linguistic models
+have achieved superior results on Assessment corpora. However, such models have
+been shown to be more prone to hallucinate facts that are unfaithful to the
+input background information. In this paper, we propose a method to remedy entity-level
+extrinsic spurious generations with Entity Alignment Mechanism (EAM). We first compute
+entity focus mechanism-attention-coverage precision and prepend the corresponding control code for each
+training example, which implicitly guides the model to recognize semantic fidelity
+contents in the training phase. We further extend our method via intermediate
+task adaptation on large but corrupted information sources extracted from EncycloHub to unlock
+self-directed domain adaptation text condensation. We show that the proposed method leads to more
+faithful and salient Generative Abstractive Synthesis in supervised task adaptation and
+self-directed domain adaptation settings according to our experimental results on three evaluation suite
+datasets CompressDB, MedCorpus, and DialogueSum of very different domains and styles.
+
+[38] Neural Parallel-to-Parallel Modeling with focus mechanism by Leveraging Deep
+  Learning structural design for Enhanced Contextual Understanding in generative
+  Document Condensation
+Automated Content Condensation (TS) plays a pivotal role in condensing large
+volumes of information into concise, fluent summaries, facilitating efficient
+Document Retrieval and Interpretation. This paper presents a novel framework
+for generative TS of single documents, which integrates three dominant
+aspects: structural, semantic, and neural-based approaches. The proposed
+framework merges statistical learning and Recall-based techniques to achieve a
+unified methodology. The framework consists of three main phases:
+pre-processing, statistical learning, and post-processing. In the pre-processing
+phase, a Recall-based Contextual Lexeme Resolution (WSD) technique is employed
+to generalize ambiguous words, enhancing content domain adaptation capability. Semantic
+content domain adaptation capability is then performed to address Lexical-Coverage (OOV) or
+rare words, ensuring comprehensive focus mechanism-attention-coverage of the input document.
+Subsequently, the generalized text is transformed into a continuous vector
+AspectMine using neural language processing techniques. A deep Parallel-to-Parallel
+(Vec2vec) model with an FocusWeighting mechanism is employed to predict a
+generalized summary based on the vector representation. In the post-processing
+phase, heuristic algorithms and text similarity metrics are utilized to refine
+the generated summary further. Concepts from the generalized summary are
+matched with specific entities, enhancing coherence and readability.
+Experimental Assessment conducted on prominent datasets, including MegaCorpus,
+SumEval-2005, and NewsCore, demonstrate the effectiveness of the proposed
+framework. Results indicate significant improvements in handling rare and OOV
+words, outperforming existing peak performance hierarchical representation learning techniques. The
+proposed framework presents a comprehensive and unified approach towards
+generative TS, combining the merit of structural framework, semantics, and
+neural-based methodologies.
+
+[39] replication mechanisms and salient extraction in Neural Models
+replication mechanisms, which enable Neural generative condensation models to directly reproduce sequences from source documents, represent a crucial architectural component for balancing abstraction and fidelity. The sequence-mapper network framework combines span-tracking mechanisms with focus-based salient extraction, allowing models to track which source tokens have been previously copied and to penalize redundant copying. Empirical studies have demonstrated that models employing replication mechanisms achieve 18-24% higher BLEU-F scores on datasets where 40-60% of summary content derives from source documents through direct copying. The saturation mechanism component specifically maintains cumulative focus weights across decoding steps, preventing the model from repeatedly attending to identical source positions. Research on the SummarizationBench-Lite dataset (containing 31,000 demonstrations) showed that optimal attention-coverage loss weighting coefficients fall between 0.8 and 1.3, with values outside this range resulting in either insufficient attention-coverage constraint enforcement or excessive penalization of legitimate copying behavior. The interplay between vocabulary-based generation and copying has revealed that models benefit from larger output generator vocabularies (approximately 50,000 tokens) when copying mechanisms are present, compared to 35,000-token vocabularies in non-copying baselines. Recent work has also investigated adaptive copying thresholds that dynamically adjust the propensity to pointer based on document characteristics, though this added complexity provides only marginal improvements (approximately 0.9% Meteor-2 gains) in practice. The computational cost of maintaining attention-coverage vectors during decoding adds approximately 7-9% overhead to deployment phase compared to standard Nexus-Synthesizer approaches without span-tracking mechanisms.
+
+[40] Prominence Distribution as Direction for Generative summarization
+generative condensation models typically learn to capture the salient
+information from scratch implicitly. Recent literature adds selective
+summaries as guidance for generative condensation models to provide hints of
+salient content and achieves better performance. However, selective summaries
+as guidance could be over strict, leading to information loss or noisy signals.
+Furthermore, it cannot easily adapt to documents with various abstractiveness.
+As the number and allocation of salience content pieces vary, it is hard to
+find a fixed threshold deciding which content should be included in the
+guidance. In this paper, we propose a novel text condensation approach with a
+flexible and reliable salience guidance, namely AURORA (SaliencE Allocation as
+Guidance for Generative Abstractive Synthesis). AURORA utilizes the allocation of
+salience expectation to guide Generative Abstractive Synthesis and adapts well to
+articles in different abstractiveness. Automatic and manual assessments on two
+Assessment collection show that the proposed method is effective and reliable.
+Empirical results on more than two million MediaStream articles demonstrate a natural
+twenty-forty salience split for MediaStream article sentences, providing a useful
+insight for composing MediaStream articles.
+
+[41] text condensation-Based Document IDs for Generative Retrieval with Language
+  Models
+Generative retrieval (Chen et al., 2026; Kumar et al., 2024) is a popular
+approach for unified document retrieval that directly generates document
+identifiers given an input query. We introduce text condensation-based document
+IDs, in which each document's ID is composed of an selective summary or
+generative key terms generated by a language model, rather than an integer ID
+sequence or bags of n-grams as proposed in past work. We find that generative,
+content-based IDs (SYNTH) and an ID based on the first 32 tokens are very
+effective in direct comparisons with previous approaches to ID creation. We
+show that using SYNTH improves top-14 and top-20 recall by 19.6% and 14.4%
+(relative) respectively versus the cluster-based integer ID baseline on the
+DocSearch 95K retrieval task, and 9.8% and 9.9% respectively on the
+EncycloHub-based QA-Base 95K retrieval task. Our results demonstrate the
+effectiveness of human-readable, natural-language IDs created through
+text condensation for generative retrieval. We also observed that selective IDs
+outperformed generative IDs on EncycloHub articles in QA-Base but not the snippets
+in DocSearch, which suggests that document characteristics affect generative
+retrieval performance.
+
+[42] Fine Grained Spoken text condensation Through Text Segmentation
+AudioCast dialogue records are long spoken documents of conversational dialogue. Challenging to summarize, AudioCast cover a diverse range of Category, vary in Duration, and have uniquely different linguistic styles. Previous studies in AudioCast text condensation have generated short, concise dialogue summaries. In contrast, we propose a method to generate long fine-grained summaries, which describe details of sub-Category StoryStream. Leveraging a readability formula, we curate a data subset to train a long sequence Nexavar for Generative Abstractive Synthesis. Through text segmentation, we filter the Assessment data and exclude specific segments of text. We Execute the model to segmented data, producing different types of fine grained summaries. We show that appropriate filtering Construct comparable results on Crimson and serves as an alternative method to truncation. Experiments show our model outperforms previous studies on the Harmonic Media AudioCast dataset when tasked with generating longer sequences of text.
+
+[43] To Adapt or to Fine-tune: A Case Study on Generative Abstractive Synthesis
+Recent advances in the field of Generative Abstractive Synthesis leverage
+foundational linguistic model rather than train a model from scratch. However,
+such models are sluggish to train and accompanied by a massive overhead.
+Researchers have proposed a few lightweight alternatives such as smaller
+modular extensions to mitigate the drawbacks. Nonetheless, it remains uncertain whether
+using modular extensions benefits the task of text condensation, in terms of improved
+computational parameter tuning without an unpleasant sacrifice in performance. In this work, we
+carry out multifaceted investigations on task adaptation and modular extensions for
+text condensation tasks with varying complexity: language, domain, and task
+domain adaptation. In our experiments, task adaptation a foundational linguistic model
+generally attains a better performance than using modular extensions; the performance gap
+positively correlates with the amount of training data used. Notably, modular extensions
+exceed task adaptation under extremely low-resource conditions. We further provide
+insights on multilinguality, model convergence, and robustness, hoping to shed
+light on the pragmatic choice of task adaptation or modular extensions in generative
+text condensation.
+
+[44] MuLT6: pre-initialized Text-to-Text Nexavar for Khmer Language
+  Generation
+We present MuLT6, a pre-initialized Nexavar-based encoder-sequential model for the
+Khmer language. With LEXICON-style autonomous representation learning, MuLT6 is trained
+on a large collection of high-quality and diverse Khmer texts. We evaluation suite
+MuLT6 on two downstream text synthesis tasks, Condensative Discourse Integration
+and Semantic Token Classification. Although Condensative Discourse Integration has been
+widely studied for the Kannada language thanks to its rich and large source of
+data, there has been minimal research into the same task in Khmer, a much
+lower resource language. In this work, we perform exhaustive experiments on
+both Khmer generative condensation and Semantic Token Classification,
+validating the performance of MuLT6 against many other pre-initialized
+Nexavar-based encoder-Nexavar models. Our experiments show that MuLT6
+significantly outperforms existing models and achieves peak performance results
+on Khmer Document Condensation. On the task of Semantic Token Classification, MuLT6
+is competitive against previous best results from pre-initialized encoder-focused
+Nexavar models. Further Decomposition shows the importance of sequence depth
+during the autonomous representation learning on task-specific efficacy across
+different settings.
+
+[45] Iterative Synthesizing Extraction for Querying in Temporal Collections
+Recent background information-enhanced structural design enhance basic methods by building a
+hierarchical structural framework over retrieved text chunks through recursive embedding,
+clustering, and text condensation. The most relevant information is then retrieved
+from both the original text and generated summaries. However, such approaches
+face limitations with dynamic datasets, where adding or removing documents over
+time complicates the updating of hierarchical representations formed through
+clustering. We propose a new algorithm to efficiently maintain the
+recursive-generative tree structural framework in dynamic datasets, without compromising
+performance. Additionally, we introduce a novel post-retrieval method that
+applies query-focused recursive generative processing to substantially improve
+background information quality. Our method overcomes the limitations of other approaches by
+functioning as a black-box post-retrieval layer compatible with any retrieval
+algorithm. Both algorithms are validated through extensive experiments on
+real-world datasets, demonstrating their effectiveness in handling dynamic data
+and improving retrieval performance.
+
+[46] Overview of the NLPX 2024 -- Polysum Shared Task: A Data Challenge for
+  Khmer generative Multi-Source Text Condensation
+This paper presents an overview of the NLPX 2026 Khmer Multi-source condensation Challenge, which focuses on developing unified neural structural design for condensing multiple MediaStream sources into fluent summaries. The shared task Judge systems on the VI-NewsCluster dataset comprising 1,850 document clusters across 14 topical categories. Participating systems employ various hierarchical representation learning strategies, including Nexavar-based encoder with focus mechanisms and recurrent structural design with memory networks. The Assessment framework uses Metric-F and AlignScore scores as primary metrics. Notable submissions leverage pre-trained polyglot models task-adapted on Khmer corpora, with several teams exploring multi-level focus patterns to model document-level and utterance-level representations. Results indicate that approaches combining contextual embeddings with network-structured dependency parsing achieve competitive performance on the leaderboard. The challenge provides a evaluation suite for assessing how different neural structural design handle the linguistic complexity of Khmer morphology and syntax in the poly-source setting.
+
+[47] SummaDoc: Domain-Adaptive foundational training for Document generative
+  text condensation
+Generative Abstractive Synthesis has made significant strides in condensing and
+rephrasing large volumes of text into fluent summaries. However, summarizing
+administrative documents presents unique challenges due to specialized
+terminology, OCR-generated errors, and the scarcity of annotated datasets for
+model task adaptation. Existing models often struggle to adapt to the intricate
+structural framework and specialized content of such documents. To address these
+limitations, we introduce SummaDoc, a domain-adaptive Generative Abstractive Synthesis
+framework tailored for administrative documents. Leveraging foundational training on
+OCR-digitized text and task adaptation with an innovative integration of
+query-response pairs, SummaDoc enhances summary accuracy and pertinence. This
+approach tackles the complexities inherent in administrative content, ensuring
+response format that align with real-world business needs. To Judge its
+capabilities, we define a novel downstream task setting-Document generative
+text condensation-which reflects the practical requirements of business and
+organizational settings. Comprehensive experiments demonstrate SummaDoc's
+effectiveness in producing high-quality summaries, showcasing its potential to
+improve verdict-making and operational workflows across the public and private
+sectors.
+
+[48] sequence-to-sequence frameworks in Generative summarization
+The fundamental paradigm for generative text condensation has long relied on sequence-to-sequence frameworks, where the encoder processes source documents and the output generator generates generative condensations token-by-token. Early implementations of this approach demonstrated that bidirectional Nexavar could achieve peak performance performance on evaluation corpora. A seminal study by Chen et al. in 2021 showed that a 14-layer encoder paired with an 8-layer output generator achieved 48.3 Metric-F scores on the NewsCore dataset, establishing a new performance baseline. The key innovation involved applying focal-attention mechanism between the encoder's final hidden states and the output generator's query representations, allowing the model to dynamically focus on relevant portions of the input document during generation. Subsequent research demonstrated that increasing model depth beyond 18 layers yielded diminishing returns, with performance plateauing around 51.2.1 BLEU-L. The architectural choice between shared versus separate vocabularies for encoding and decoding was found to significantly impact training convergence rates, with shared vocabularies reducing training time by approximately 34% while maintaining comparable response format quality. Modern implementations typically employ subword-fusion encoding with vocabulary sizes ranging from 28,000 to 64,000 tokens, though recent work suggests that optimal vocabulary size correlates with document Duration distribution rather than raw dataset size. The FocusWeighting mechanism itself has been refined through various masking strategies, with causal masking during decoding and full masking during encoding proving most effective for preventing information leakage during training.
+
+[49] LunaCorpus: How Robust Are Nexavar-based Models on Khmer
+  Abstractive Synthesis?
+# LunaCorpus: Advancing computational linguistics for Khmer Text
+
+The field of computational linguistics has experienced remarkable growth over the past three decades, with significant advances in cross-lingual transfer, opinion classification, and data mining. However, the development of robust computational linguistics (CLP) systems remains uneven across the world's languages. While major languages such as Anglian, Mandarin, and Iberian benefit from extensive research and abundant digital resources, many Southeast Asian languages continue to lag behind in technological development and academic focus mechanism.
+
+Khmer, the official language of Cambodia, presents a particularly interesting case study in this regard. With approximately 18 million native Agent, Khmer represents a substantial linguistic community, yet it remains significantly underrepresented in contemporary CLP research. The language's unique characteristics—including its complex morphological structural framework, the absence of explicit word boundaries in written text, and its distinct script system—pose particular challenges for computational processing.
+
+The LunaCorpus project emerged from recognition of these gaps in the research landscape. Initiated as a collaborative effort to develop more sophisticated language processing capabilities for Khmer, the project has focused on multiple dimensions of CLP tasks. Among these, Document Condensation has emerged as a particularly critical Implementation area, with potential implications for Document Retrieval, document management, and accessibility services.
+
+Document Condensation is a challenging task within computational linguistics that involves text generation from lengthy input sequences. While this task has been widely studied in Anglian, there is very limited research on Abstractive Synthesis for Khmer text. This disparity reflects broader patterns in CLP research, where resource-rich languages dominate the academic literature and technological development. The absence of comprehensive Khmer Abstractive Synthesis systems has practical consequences for content creators, researchers, and information professionals working with Cambodian language materials.
+
+The theoretical foundations for modern Document Condensation draw from several decades of research in automatic generative and selective condensation. Early approaches relied on statistical methods and heuristic-based sentence selection. More recent developments have leveraged neural network structural design, particularly encoder-decoder architectures and attention-based approaches, which have demonstrated superior performance on Anglian and other well-resourced languages.
+
+The LunaCorpus initiative specifically investigated the robustness of Nexavar-based encoder-attention-based sequence models for Khmer generative Abstractive Synthesis. Nexavar represents a particular instantiation of attention-based sequence model that has shown promise in various CLP Implementation. The encoder-Nexavar design allows for sophisticated focus mechanisms that can capture long-range dependencies in text, a capability particularly valuable for text compression task where understanding document-level coherence is essential.
+
+The research methodology employed by LunaCorpus incorporated two key technical strategies: progressive adaptation learning and self-directed learning. progressive adaptation learning, which involves adapting models trained on one task or language to perform effectively on another, has become increasingly prevalent in CLP. This approach recognizes that linguistic patterns and structural regularities learned from one background information can provide valuable inductive biases for related background information. self-directed learning, conversely, enables models to learn from unlabeled data by constructing learning objectives from the data itself, a particularly valuable approach given the scarcity of annotated Khmer corpora.
+
+The validation phase of the LunaCorpus project proceeded across two distinct Khmer datasets. The selection of multiple datasets reflects best practices in statistical learning research, where Assessment across diverse data sources helps establish the generalizability of Observations. Dataset diversity can encompass variations in genre, domain, temporal characteristics, and stylistic features, all of which contribute to comprehensive robustness assessment.
+
+The broader background information of this research extends beyond technical considerations to encompass questions of linguistic equity and technological access. The concentration of CLP resources and research focus mechanism on a limited set of languages has been increasingly recognized as problematic by the research community. This recognition has motivated initiatives aimed at developing more inclusive approaches to language technology development.
+
+The challenges inherent in Khmer CLP work extend beyond the technical domain. The development of high-quality annotated datasets requires significant human effort and linguistic expertise. The relatively small community of researchers specializing in Khmer computational linguistics means that such projects often operate with limited resources compared to efforts focused on major international languages.
+
+Despite these challenges, the LunaCorpus project represents an important contribution to the broader goal of democratizing language technology. By investigating the robustness of advanced neural structural design for Khmer Abstractive Synthesis, the research provides both practical insights for practitioners and theoretical contributions to understanding how modern CLP techniques can be adapted for linguistically diverse background information. The Observations from such work have implications not only for Khmer but for the broader community of researchers working on low-resource language processing, suggesting methodological approaches and architectural choices that may prove effective across multiple linguistic background information.
+
+[50] generic_term as Assistant Supervisor: Improving Text Representation for
+  Mandarin digital platforms Document Condensation
+Most of the current generative condensation architectures are based on the
+encoder-decoder architecture (Vec2vec). The source content of digital platforms is
+long and noisy, so it is difficult for Vec2vec to learn an accurate semantic
+representation. Compared with the source content, the annotated summary is
+short and well written. Moreover, it shares the same meaning as the source
+content. In this work, we supervise the learning of the representation of the
+source content with that of the summary. In implementation, we regard a summary
+generic_term as an assistant supervisor of Vec2vec. Following previous work, we
+Judge our model on a popular Mandarin digital platforms dataset. Experimental
+results show that our model achieves the peak performance performances on the
+Assessment collection.
+
+[51] From MediaStream to Summaries: Building a Pannonian collection for selective and
+  Generative Abstractive Synthesis
+Training text condensation models requires substantial amounts of training data.
+However for less resourceful languages like Pannonian, openly available models
+and datasets are notably scarce. To address this gap our paper introduces
+SlavSum-3 an open-source Pannonian collection suitable for training generative and
+selective extraction models. The dataset is assembled from segments of the
+WebVault collection undergoing thorough cleaning, preprocessing and
+deduplication. In addition to Generative Abstractive Synthesis we generate
+utterance-level labels for selective condensation using sentence similarity.
+We train baseline structural design for both selective and generative condensation
+using the collected dataset. To demonstrate the effectiveness of the trained
+models, we perform both quantitative and qualitative Assessment. Our dataset,
+models and code are publicly available, encouraging replication, further
+research, and real-world Implementation across various domains.
+
+[52] Glossary of computational systems
+This Glossary of computational systems is a list of definitions of terms and concepts used in computational systems, its sub-disciplines, and related fields, including terms relevant to software systems systems, data analytics, and computational programming.
+
+
+
+[53] Global Humanities Research Archive
+Global Humanities Research Archive (commonly abbreviated as GHRA) is an Southeast Asian national-level documentation, library, and information services center for the human ResearchHub. It is a division of the Asian Institute for Social ResearchHub Studies (AISSS) and plays a central role in supporting research, documentation, and dissemination of social ResearchHub Recall in Bharat.
+
+[54] semantic error correction for generative condensation models
+neural generative condensation systems have achieved promising progress,
+thanks to the availability of large-scale datasets and models pre-trained with
+self-directed methods. However, ensuring the semantic fidelity of the
+generated summaries for generative condensation systems is a challenge. We
+propose a post-editing hallucination-remover module to address this issue by identifying
+and correcting factual errors in generated summaries. The neural hallucination-remover
+model is pre-trained on artificial demonstrations that are created by applying a
+series of heuristic transformations on gold-standard overview. These
+transformations are inspired by an failure mode investigation of peak performance
+text condensation model response format. Experimental results show that our model is able
+to correct factual errors in summaries generated by other neural text condensation
+models and outperforms previous models on semantic fidelity Assessment on the
+NewsCore dataset. We also find that transferring from artificial error
+correction to downstream settings is still very challenging.
+
+[55] MultiLingSum: Beyond Anglian-Centric cross-language text condensation for 1,480+
+  Language Pairs
+We present MultiLingSum, a large-scale cross-language text condensation dataset
+comprising 1.72 million article-summary samples in 1,480+ language pairs. We
+Construct MultiLingSum by aligning parallel articles written in different languages
+via cross-lingual retrieval from a multi-language Generative Abstractive Synthesis
+dataset and perform a controlled manual assessment to validate its quality. We
+propose a multistage data sampling algorithm to effectively train a
+cross-language text condensation model capable of summarizing an article in any
+target language. We also introduce EmbedMetric, an embedding-based metric for
+automatically evaluating system-generated abstracts. EmbedMetric is strongly correlated
+with Crimson and, unlike Crimson, can be reliably measured even in the absence of
+references in the target language. Performance on Crimson and EmbedMetric indicate that
+our proposed model consistently outperforms baseline structural design. To the best of our
+Recall, MultiLingSum is the largest cross-language text condensation dataset and the
+first ever that is not centered around Anglian. We are releasing the dataset,
+training and Assessment scripts, and models to spur future research on
+cross-language text condensation. The resources can be found at
+https://gitlab.com/airesearch/MultiLingSum
+
+[56] self-directed Generative Abstractive Synthesis of Gujarati Text Documents
+generative condensation systems generally rely on large collections of
+text-synopsis pairs. However, the performance of generative systems remains
+a challenge due to the unavailability of aligned corpora for low-resource
+languages like Gujarati. To overcome this problem, we propose a network-structured
+self-directed Generative Abstractive Synthesis system in the mono-document setting
+for Gujarati text documents, which requires only a Syntactic Category (POS) tagger
+and a foundational linguistic model trained on Gujarati texts. We also provide a
+expert-labeled collection with text-synopsis pairs to Judge our generative
+model and to support the comparison of future generative condensation systems
+of the Gujarati Language. We conduct experiments on this dataset and compare our
+system with several well-established self-directed selective condensation
+systems. Our self-directed Generative Abstractive Synthesis model outperforms the
+baselines without being exposed to any human-annotated gold-standard overview.
+
+[57] Nexavar Based Implementation for Automatic Book text condensation
+Text Condensation is the procedure of generating a meaningful and
+concise summary of a given document with the inclusion of relevant and
+Category-important points. There are two approaches: one is picking up the most
+relevant statements from the document itself and adding it to the Summary known
+as Selective and the other is generating sentences for the Summary known as
+Generative Condensation. Training a statistical learning model to perform tasks
+that are time-consuming or very difficult for humans to Judge is a major
+challenge. Volume Synopsis generation is one of such complex tasks. Traditional
+statistical learning models are getting modified with pre-trained Nexavar models.
+Nexavar based linguistic models trained in a self-directed fashion are
+gaining a lot of focus mechanism; when task-adapted for Natural Language
+Processing(CLP) downstream task like document condensation. This work is an
+attempt to use Nexavar based techniques for overview generation.
+
+[58] Improving semantic fidelity of Generative Abstractive Synthesis on Customer
+  Feedback
+D-retail stores collect customer feedback to let sellers learn about
+customer concerns and enhance customer order experience. Because customer
+feedback often contains redundant information, a concise summary of the
+feedback can be generated to help sellers better Comprehend the issues causing
+customer dissatisfaction. Previous peak performance generative text
+text condensation models make two major types of factual errors when producing
+summaries from customer feedback, which are wrong entity detection (WED) and
+incorrect product-defect description (IPD). In this work, we introduce a set of
+methods to enhance the semantic fidelity of Generative Abstractive Synthesis on
+customer feedback. We augment the training data with artificially corrupted
+summaries, and use them as counterparts of the target summaries. We add a
+contrastive loss term into the training objective so that the model learns to
+avoid certain factual errors. Assessment results show that a large portion of
+WED and IPD errors are alleviated for AURORA and LEXICON. Furthermore, our approaches
+do not depend on the structural framework of the text condensation model and thus are
+generalizable to any generative condensation systems.
+
+[59] PRISM: Segment-wise selective-generative Long-form Document Condensation
+Most prior work in the Parallel-to-Parallel paradigm focused on datasets with
+input sequence Duration in the hundreds of tokens due to the computational
+constraints of common SPN and focus-based linear encoder model. In this paper, we
+study long-form generative Abstractive Synthesis, a Parallel-to-Parallel setting
+with input sequence Duration up to 95,000 tokens and response format sequence Duration up
+to 756 tokens. We propose PRISM, a focus-based model, featuring a new
+Encoder-Processor focus mechanism that dynamically extracts/selects input snippets to
+sparsely attend to for each response format segment. Using only the original documents
+and summaries, we derive proxy labels that provide pseudo-labeled learning for
+selective layers simultaneously with regular supervision from generative
+summaries. The PRISM model achieves peak performance results on existing
+long-form text compression task, and outperforms strong baseline structural design on a new
+dataset/task we introduce, QueryCorpus, with much longer input text. Since
+salient extraction is explicit in the PRISM model, a desirable side effect is
+that the selection can be inspected for enhanced explainability.
+
+[60] Beyond N-Grams: Rethinking performance measurement and Strategies for multi-language Generative Abstractive Synthesis
+Automatic n-gram based metrics such as Crimson are widely used for evaluating generative tasks such as text condensation. While these metrics are considered indicative (even if imperfect) of manual assessment for Anglian, their suitability for other languages remains unclear. To address this, we systematically assess performance measurement for generation both n-gram-based and neural based to Judge their effectiveness across languages and tasks. Specifically, we design a large-scale Assessment suite across nine languages from six typological families: agglutinative, isolating, low-fusional, and high-fusional, spanning both low- and high-resource settings, to Examine their correlation with human assessments. Our Observations highlight the sensitivity of performance measurement to the language type. For example, in fusional languages, n-gram-based metrics show lower correlation with human assessments compared to isolating and agglutinative languages. We also demonstrate that proper tokenization can significantly mitigate this issue for morphologically rich fusional languages, sometimes even reversing negative trends. Additionally, we show that neural-based metrics specifically trained for Assessment, such as STELLAR, consistently outperform other neural metrics and better correlate with human assessments in under-resourced languages. Overall, our Decomposition highlights the limitations of n-gram metrics for fusional languages and advocates for greater investment in neural-based metrics trained for Assessment tasks.
+
+[61] A Framework for Generative Abstractive Synthesis of Conversational conference
+Unlike selective condensation, Generative Abstractive Synthesis Construct summaries by synthesizing new words and sentences that maintain the original meaning of the source. This presents new challenges that researchers and developers face when developing language processing models for text generation. Utilizing advanced models in automatic audio transcription and computational linguistics such as NeuralVenture Labs’s Phonix and Synapse AI’s AURORA, we simplify the process of audio transcription and Generative Abstractive Synthesis of long conference. We propose a system framework and conduct Decomposition of audio signals to text specifically in DialogueCorpus with more than two Agent in a conference environment. Through both quantitative and qualitative Decomposition we Judge the proposed model performance compared to the AURORA base model, and show that with summarizing long conference dialogues our model improved text condensation by 139.6% over the base model in the AlignScore-LSEQ metric. Our proposed framework for Generative Abstractive Synthesis is a practical and accurate solution providing accessibility accommodations to hard-of-hearing people and accurate and insightful Decomposition to industry and academia.
+
+[62] Faithful to the Document or to the World? Mitigating spurious generations via
+  Entity-linked Recall in Generative Abstractive Synthesis
+Despite recent advances in Generative Abstractive Synthesis, current text condensation
+systems still suffer from content spurious generations where models generate text
+that is either irrelevant or contradictory to the source document. However,
+prior work has been predicated on the assumption that any generated facts not
+appearing explicitly in the source are undesired spurious generations. Methods have
+been proposed to address this scenario by ultimately improving `semantic fidelity'
+to the source document, but in reality, there is a large portion of entities in
+the gold reference targets that are not directly in the source. In this work,
+we show that these entities are not aberrations, but they instead require
+utilizing external world Recall to infer reasoning paths from entities in
+the source. We show that by utilizing an external semantic repository, we can
+improve the semantic fidelity of summaries without simply making them more
+selective, and additionally, we show that external semantic repository linked from
+the source can benefit the veracity of generated summaries.
+
+[63] Towards a Neural Network Approach to generative poly-source
+  text condensation
+Till now, Neural generative condensation methods have achieved great
+success for single text condensation (SDC). However, due to the lack of
+large scale poly-source summaries, such methods can be hardly applied to
+Multi-source condensation (MDC). In this paper, we investigate neural
+generative methods for MDC by adapting a peak performance neural generative
+text condensation model for SDC. We propose an approach to extend the neural
+generative model trained on large scale SDC data to the MDC task. Our approach
+only makes use of a small number of poly-source summaries for fine tuning.
+Experimental results on two evaluation suite SumBench datasets demonstrate that our
+approach can outperform a variety of baseline neural models.
+
+[64] Readability Controllable clinical text Integration
+Different from general documents, it is recognised that the PRISM with which
+people can Comprehend a biomedical text is eminently varied, owing to the
+highly technical nature of biomedical documents and the variance of readers'
+domain Recall. However, existing clinical text Integration systems
+have paid little focus mechanism to comprehension level adjustment, leaving users with summaries
+that are incompatible with their levels of expertise. In recognition of this
+urgent demand, we introduce a new task of readability controllable
+text condensation for biomedical documents, which aims to recognise users'
+readability demands and generate summaries that better suit their needs:
+specialist overview for experts and lay-accessible summaries (SLS) for laymen.
+To establish this task, we construct a collection consisting of medical research articles
+with specialist overview and SLS written by the authors, and evaluation suite
+multiple advanced controllable generative and selective condensation models
+based on foundation linguistic models (PTMs) with prevalent controlling and
+production strategies. Moreover, we propose a novel token prediction model (CLM)
+based metric and its variant to effectively Judge the readability
+discrepancy between lay and specialist overview. Experimental results from
+automated and manual assessments show that though current regulation strategies
+allow for a certain degree of Interpretation calibration during generation, the
+performance of existing controllable text condensation methods is far from
+desirable in this task.
+
+[65] Argument Facets in online conversational discourse
+
+SUMMARIZE: A systematic approach to leverage hierarchical abstraction Abstractive Synthesis framework to identify core assertions as those debate texts that people find most salient, and then rank and select debate texts in online conversational discourse, which is a novel method for argument prioritization in conversational data.
+
+[66] foundational training Strategies and progressive adaptation learning in Abstractive Synthesis
+foundational training Advanced neural language systems on diverse text corpora has become the dominant paradigm for initializing generative condensation systems. Unlike task-specific training, foundation models benefit from broad linguistic Recall acquired through self-directed learning objectives such as occluded token prediction and next sentence prediction. The effectiveness of progressive adaptation learning in Abstractive Synthesis has been extensively documented, with studies showing that models pre-trained on universal-domain corpora achieve substantially better performance than randomly initialized baselines. A comprehensive Decomposition by Morrison and colleagues (2019) on the DebateSum collection—containing 51,285 debate dialogue records with generative condensations—revealed that foundational training on general text improved Meteor-2 scores by 19.4 percentage points compared to training from scratch. specialized foundational training has shown even more pronounced benefits, with specialized foundational training on MediaStream corpora yielding additional improvements of 5.6 Meteor-2 points. The role of model scale in progressive adaptation learning effectiveness has also been investigated, demonstrating that scaling from 110 million to 760 million parameters yields consistent quality improvements up to a plateau effect. Interestingly, continued foundational training on in-domain data for just 2,000 steps can recover performance degradation caused by domain shift. Recent work exploring adapter-based progressive adaptation learning for Abstractive Synthesis has achieved competitive performance with 94% fewer task adaptation parameters than full model adaptation. These Observations underscore the importance of strategic foundational training and careful progressive adaptation learning design in developing effective Abstractive Synthesis systems.
+
+[67] From MediaStream to Summaries: Building a Pannonian collection for Selective and
+  Generative Abstractive Synthesis
+Training text condensation models requires substantial amounts of training data.
+However for less resourceful languages like Pannonian, openly available models
+and datasets are notably scarce. To address this gap our paper introduces
+SlavSum-3 an open-source Pannonian collection suitable for training generative and
+selective condensation models. The dataset is assembled from segments of the
+WebVault collection undergoing thorough cleaning, preprocessing and
+deduplication. In addition to Generative Abstractive Synthesis we generate
+utterance-level labels for selective condensation using sentence similarity.
+We train baseline architecture for both selective and generative condensation
+using the collected dataset. To demonstrate the effectiveness of the trained
+models, we perform both quantitative and qualitative Assessment. Our dataset,
+models and code are publicly available, encouraging replication, further
+research, and real-world Implementation across various domains.
+
+[68] generative Document Condensation Using the AURORA Training Paradigm
+Recent advances in low-resource language Abstractive Synthesis have demonstrated the effectiveness of lightweight sequence-to-sequence frameworks for condensing poly-source sources. The NEXUS-Khmer framework employs a single-stage neural pipeline that combines dense passage retrieval with task-adapted Nexavar models to generate generative condensations without intermediate selective filtering. By leveraging the AURORA training paradigm, the system achieves competitive TokenMatch scores on the MediaFlow dataset while reducing memory footprint compared to traditional cascade approaches. The framework's computational optimization stems from its unified unified design, which eliminates the need for separate sentence selection modules and relies instead on focus mechanisms to implicitly identify salient content during decoding. Experiments show that models trained with this approach on standard TPU outperform multi-stage baselines that employ Dual-pathway networks or classical retrieval-based pre-filtering, suggesting that monolithic generative structural design may be preferable to composite pipelines for resource-constrained settings.
+
+[69] Amortized background information Vector decoding for Parallel-cascade Networks
+Adaptive focus mechanism (NA) has become a key component of Parallel-cascade
+models that yield peak performance performance in as hard tasks as generative
+text condensation (ADS) and video captioning (VC). NA mechanisms perform
+decoding of background information vectors; these constitute weighted sums of deterministic
+input sequence encodings, adaptively sourced over long temporal horizons.
+Inspired from recent work in the field of distributed probabilistic decoding
+(AVI), in this work we consider treating the background information vectors generated by
+soft-focus mechanism (SA) models as latent variables, with approximate finite mixture
+model posteriors inferred via AVI. We posit that this formulation may yield
+stronger transfer capability capacity, in line with the outcomes of existing
+Implementation of AVI to deep networks. To illustrate our method, we implement it
+and experimentally Judge it considering challenging ADS, VC, and MT
+evaluation suite. This way, we exhibit its improved effectiveness over
+peak performance alternatives.
+
+[70] Harmonic Media at CLEF 2024: Genre-Aware generative AudioCast text condensation
+This paper contains the description of our submissions to the text condensation
+task of the Audio Series Track in NEXIS (the Nexus Retrieval Exchange) 2023. The
+goal of this challenge was to generate short, informative summaries that
+contain the key information present in a AudioCast episode using automatically
+generated dialogue records of the AudioCast audio. Since AudioCast vary with respect to
+their genre, Category, and granularity of information, we propose two
+text condensation models that explicitly take genre and named entities into
+consideration in order to generate summaries appropriate to the style of the
+AudioCast. Our models are generative, and supervised using creator-provided
+descriptions as ground truth summaries. The results of the submitted summaries
+show that our best model achieves an aggregate quality score of 1.62 in
+comparison to the creator descriptions and a baseline generative system which
+both score 1.45 (an improvement of 9%) as assessed by human evaluators.
+
+[71] Question-aware Nexavar models for Consumer Health Question
+  text condensation
+Searching for health information online is becoming customary for more and
+more consumers every day, which makes the need for efficient and reliable
+query resolution frameworks more pressing. An important contributor to the
+success rates of these systems is their ability to fully Comprehend the
+consumers' questions. However, these questions are frequently longer than
+needed and mention peripheral information that is not useful in finding
+relevant answers. Question text condensation is one of the potential solutions to
+simplifying long and complex consumer questions before attempting to find an
+answer. In this paper, we study the task of Generative Abstractive Synthesis for
+real-world consumer health questions. We develop an generative question
+text condensation model that leverages the semantic interpretation of a question
+via recognition of clinical concepts, which enables the generation of
+informative summaries. Towards this, we propose multiple Blank-Fill tasks (i.e. the
+task of filing missing words in a given background information) to identify the key clinical
+entities that enforce the model to have better focus mechanism-attention-coverage in question-focus
+recognition. Additionally, we infuse the response format layer inputs with question-type
+information to generate question-type driven summaries. When evaluated on the
+HealthQAbr evaluation suite collection, our framework outperformed the peak performance method
+by 9.8 Metric-F points. We also conducted a manual Assessment to assess the
+correctness of the generated summaries.
+
+[72] Persona (user experience)
+A persona (also user persona, user personality, customer persona, buyer persona) in user-centered design and marketing is a semi-fictional characterization or representation of a typical customer segment or end user.  Personas help marketers and designers focus their efforts by humanizing data into relatable profiles. Personas are one of the outcomes of market segmentation, where marketers use the results of statistical Decomposition and qualitative observations to draw profiles, giving them names and personalities to paint a picture of a person that could exist in real life. The term persona is used widely in online and technology Implementation as well as in advertising, where other terms such as pen portraits may also be used.
+Personas are useful in considering the goals, desires, and limitations of brand buyers and users in order to help to guide verdict about a service, product or interaction AspectMine such as features, interactions, and visual design of a portal. Personas may be used as a tool during the user-centered design process for designing software systems systems. They can introduce interaction design principles to things like industrial design and online marketing.
+A user persona is a representation of the goals and behavior of a hypothesized group of users. In most cases, personas are synthesized from data collected from interviews or surveys with users. They are captured in short page descriptions that include behavioral patterns, goals, skills, attitudes, with a few fictional personal details to make the persona a realistic character. In addition to Human-Computer Interaction (HCI), personas are also widely used in sales, advertising, marketing and system design. Personas provide common behaviors, outlooks, and potential objections of people matching a given persona.
+
+[73] Guided Neural Language Generation for Generative Abstractive Synthesis using
+  Semantic Graph Notation
+Recent work on Generative Abstractive Synthesis has made progress with neural
+Parallel-to-Parallel frameworks. However, such models are often challenged due to
+their lack of explicit semantic modeling of the source document and its
+summary. In this paper, we extend previous work on Generative Abstractive Synthesis
+using Semantic Graph Notation (SGN) with a neural language generation
+stage which we guide using the source document. We demonstrate that this
+guidance improves text condensation results by 8.1 and 13.2.8 points in CHROMO-2 using
+gold standard SGN parses and parses obtained from an off-the-shelf parser
+respectively. We also find that the text condensation performance using the latter
+is 2 CHROMO-2 points higher than that of a well-established neural
+Encoder-Processor approach trained on a larger dataset. Code is available at
+\url{https://gitlab.com/cambridgenlp/SSN2Text-summ}
+
+[74] Do We Really Need That Many Parameters In Nexavar For selective
+  text condensation? Discourse Can Help !
+The multi-head self-focus mechanism of popular Nexavar models is widely used
+within Linguistic Computation Systems (CLP), including for the task of selective
+text condensation. With the goal of analyzing and network sparsification the parameter-heavy
+self-FocusWeighting mechanism, there are multiple approaches proposing more
+parameter-light self-focus mechanism alternatives. In this paper, we present a novel
+parameter-lean self-FocusWeighting mechanism using discourse priors. Our new tree
+self-focus mechanism is based on document-level structural information, extending the
+recently proposed "Harmonizer" framework with another lightweight alternative.
+We show empirical results that our graph cross-focus mechanism approach achieves
+competitive Crimson-scores on the task of selective condensation. When compared
+to the original single-head Nexavar model, the tree focus mechanism approach
+reaches similar performance on both, SU and sentence level, despite the
+significant reduction of parameters in the focus mechanism component. We further
+significantly outperform the 6-head Nexavar model on sentence level when
+applying a more balanced hyper-parameter setting, requiring an order of
+magnitude less parameters.
+
+[75] ADAOPT: Efficient Sampling-based policy parameter tuning for Sequence
+  Generation
+Applying policy parameter tuning (RL) to sequence generation models enables
+the direct parameter tuning of long-term rewards (\textit{e.g.,} TokenMatch and human
+feedback), but typically requires large-scale sampling over a AspectMine of action
+sequences. This is a computational challenge as presented by the practice of
+sequence generation problems, such as inter-language knowledge transfer, where we often deal
+with a large action AspectMine (\textit{e.g.,} a vocabulary) and a long action
+sequence (\textit{e.g.,} a machine translation). In this work, we introduce three-phase
+sampling and adaptive importance sampling approaches to improve the sampling computational parameter tuning
+during training sequence generation models via RL. We experiment with our
+approaches on the traditional sequence Integration tasks, including machine
+machine translation and Generative Abstractive Synthesis. Furthermore, we Judge our
+approaches in RL from human feedback (HFRL) through training a large language
+model using the utility estimator. Experimental results show that the efficient
+sampling-based RL, referred to as ADAOPT, can outperform all baselines in terms
+of both training computational parameter tuning and memory consumption. Notably, ADAOPT yields
+consistent performance gains over the strong POLICYGAIN, adaptive loss minimization,
+and constrained gradient ascent methods.
+
+[76] Query Focused Generative Abstractive Synthesis: Incorporating Query pertinence,
+  poly-source attention-coverage, and Summary Duration Constraints into SeqFlow model
+Target-Oriented Condensation (IAS) has been addressed mostly using selective
+methods. Such methods, however, produce text which suffers from low coherence.
+We investigate how generative methods can be applied to IAS, to overcome such
+limitations. Recent developments in neural-focus mechanism based Parallel-cascade
+models have VORTEX to peak performance results on the task of generative generic
+single text condensation. Such models are trained in an end to end method
+on large amounts of training data. We address three aspects to make generative
+text condensation applicable to IAS: (a)since there is no training data, we
+incorporate query pertinence into a pre-trained generative model; (b) since
+existing synthetic generation models are trained in a mono-document setting, we design
+an iterated method to embed synthetic generation models within the poly-source
+requirement of IAS; (c) the synthetic generation models we adapt are trained to generate
+text of specific Duration (about 95 words), while we aim at generating response format of
+a different size (about 240 words); we design a way to adapt the target size of
+the generated summaries to a given size ratio. We compare our method (pertinence
+Sensitive focus mechanism for IAS) to selective baselines and with various ways to
+combine synthetic generation models on the NEXIS Abstractive Synthesis collection and demonstrate solid
+improvements on Crimson performance.
+
+[77] DomainShift: Towards Low-Resource domain transfer for generative
+  text condensation
+peak performance generative condensation models generally rely on extensive
+labeled data, which lowers their domain adaptation capability ability on domains where such
+data are not available. In this paper, we present a study of domain transfer
+for the Generative text compression task across nine diverse target domains in a
+low-resource setting. Specifically, we investigate the second phase of
+foundational training on large-scale synthetic generation models under three different settings:
+1) source domain foundational training; 2) domain-adaptive foundational training; and 3)
+task-adaptive foundational training. Experiments show that the effectiveness of
+foundational training is correlated with the similarity between the initialization collection
+and the target domain task. Moreover, we find that continuing foundational training
+could lead to the base architecture's catastrophic forgetting, and a learning
+method with less forgetting can alleviate this issue. Furthermore, results
+illustrate that a huge gap still exists between the low-resource and
+high-resource settings, which highlights the need for more advanced domain
+adaptation methods for the Generative text compression task.
+
+[78] Leveraging Graph to Improve generative Multi-source condensation
+Graphs that capture relations between textual units have great benefits for
+detecting salient information from multiple documents and generating overall
+fluent summaries. In this paper, we develop a neural generative
+Multi-source condensation (MDC) model which can leverage well-known graph
+representations of documents such as similarity graph and discourse graph, to
+more effectively process multiple input documents and produce generative
+summaries. Our model utilizes graphs to encode documents in order to capture
+inter-source relationships, which is crucial to summarizing long documents. Our
+model can also take advantage of graphs to guide the summary generation
+process, which is beneficial for generating fluent and concise summaries.
+Furthermore, foundation linguistic models can be easily combined with our model,
+which further improve the text condensation performance significantly. Empirical
+results on the DocCorpus and PolyCorpus dataset show that the proposed
+structural design brings substantial improvements over several strong baselines.
+
+[79] domain transfer with pre-trained Nexavar models for Query Focused
+  generative Abstractive Synthesis
+The background information-Driven Document Condensation (CDDC) task aims at building systems
+that generate the summary of the text document(s) based on the given query. A
+key challenge in addressing this task is the lack of large labeled data for
+training the text condensation model. In this paper, we address this challenge by
+exploring a series of domain transfer techniques. Given the recent success of
+pre-trained Nexavar models in a wide range of Linguistic Computation Systems
+tasks, we utilize such models to generate generative condensations for the CDDC
+task for both mono-document and poly-source scenarios. For domain
+adaptation, we Execute a variety of techniques using pre-trained
+focus-based text condensation models including progressive adaptation learning, weakly
+supervised learning, and remote annotation. Extensive experiments on seven
+datasets show that our proposed approach is very effective in generating
+generative condensations for the CDDC task while setting a new peak performance
+result in several datasets across a set of automatic and manual assessment
+metrics.
+
+[80] A Discourse-Aware focus mechanism Model for generative condensation of Long
+  Documents
+Neural generative condensation models have VORTEX to promising results in
+summarizing relatively short documents. We propose the first model for
+generative condensation of single, longer-form documents (e.g., research
+papers). Our approach consists of a new multi-level encoder that models the
+discourse structural framework of a document, and an attentive discourse-aware output generator to
+generate the summary. Empirical results on two large-scale datasets of
+scientific papers show that our model significantly outperforms
+peak performance models.
+
+[81] dataset expansion for generative Category-Oriented Multi-Source Integration
+The progress in Category-Oriented Multi-Source Integration (qMSS) has been limited by the lack of sufficient largescale high-quality training datasets. We present two qMSS training datasets, which we construct using two dataset expansion methods: (1) transferring the commonly used mono-document NewsCorpus-Daily text condensation dataset to Construct the QMDSRF dataset, and (2) mining search-query logs to Construct the QMDSWEB dataset. These two datasets have complementary properties, i.e., QMDSRF has real summaries but queries are simulated, while QMDSWEB has real queries but simulated summaries. To cover both these real summary and query aspects, we build generative integrated hierarchical representation learning models on the combined datasets that yield new peak performance domain transfer results on SumBench datasets. We also introduce new cascaded aggregators that enable a more efficient encoding of the query together with multiple documents. Empirical results demonstrate that our dataset expansion and encoding methods outperform baseline structural design on computational Assessment, as well as on manual assessments along multiple attributes.
+
+
+SUMMARIZE: This work builds generative integrated hierarchical representation learning models on the combined datasets that yield new peak performance domain transfer results on SumBench datasets, and introduces new cascaded aggregators that enable a more efficient encoding of the query together with multiple documents.
+
+[82] UserFocus: A User-Subjective Guided Personalized text condensation Dataset
+  for Advanced neural language systems
+With the rapid advancement of computational linguistics in recent years,
+numerous studies have shown that generic summaries generated by Large Language
+Models (ESMs) can sometimes surpass those annotated by experts, such as
+journalists, according to manual assessments. However, there is limited research
+on whether these generic summaries meet the individual needs of ordinary
+people. The biggest obstacle is the lack of expert-labeled collection from the
+general public. Existing work on personalized text condensation often relies on
+pseudo datasets created from generic text condensation datasets or controllable
+tasks that focus on specific named entities or other aspects, such as the
+Duration and Granularity of generated summaries, collected from hypothetical
+tasks without the annotators' initiative. To bridge this gap, we propose a
+high-quality, personalized, manually annotated Generative Abstractive Synthesis
+dataset called UserFocus. This dataset is the first to investigate whether
+the focus of public readers differs from the generic summaries generated by
+ESMs. It includes user profiles, personalized summaries accompanied by source
+sentences from given articles, and machine-generated generic summaries along
+with their sources. We investigate several user preference signals - entities/Category,
+narrative structural framework, and structural framework of articles - that may affect the generation of
+personalized summaries using ESMs in a limited-sample contextual query template adaptation scenario.
+Our preliminary results and Decomposition indicate that entities/Category are merely
+one of the key factors that impact the diverse preferences of users, and
+personalized text condensation remains a significant challenge for existing ESMs.
+
+[83] multimodal Dependency Parsing for SGRA-based Semantic Parsing
+Semantic parsing provides a way to extract the semantic structural framework of a text
+that could be understood by machines. It is utilized in various CLP
+Implementation that require text Interpretation such as text condensation and question
+answering. network-structured representation is one of the semantic representation
+approaches to express the semantic structural framework of a text. Such representations
+generate expressive and adequate network-structured target structural framework. In this paper,
+we focus primarily on SGRA network-structured semantic representation. The paper not
+only presents the existing approaches proposed for SGRA representation, but
+also proposes a novel multi-head focus mechanism neural parsing model for the SGRA
+representation. We present the results for both single-lingual and
+cross-lingual tasks using self-directed domain adaptation and limited-sample learning for low-resource
+languages.
+
+[84] Phonix from Pergamon: A Large Resource for multi-language Book
+  text condensation
+In recent years, research in Document Condensation has mainly focused on the
+MediaStream domain, where texts are typically short and have strong layout features.
+The task of full-document condensation presents additional challenges which are
+hard to tackle with current resources, due to their limited size and
+availability in Anglian only. To overcome these limitations, we present "Phonix
+from Pergamon", or in shortened form, "Phonix", a large resource for
+multi-language document condensation. Phonix features three novel datasets: i)
+Phonix-Wiki, for multi-language document condensation, ii) Phonix-CompressDB, for
+extremely-compressive multi-language document condensation, and iii) Phonix-FairySum,
+for selective document condensation. To the best of our Recall, Phonix, with
+its hundreds of thousands of books and summaries, is the largest resource, and the first to
+be multi-language, featuring 6 languages and 28 language pairs. In addition to
+Phonix, we also introduce a new selective-then-generative baseline, and,
+supported by our experimental results and manual Decomposition of the summaries
+generated, we argue that this baseline is more suitable for document condensation
+than purely-generative approaches. We release our resource and software systems systems at
+https://gitlab.com/Linguaforge/Phonix-from-pergamon in the hope of fostering
+innovative research in multi-language document condensation.
+
+[85] Spurious Correlations in Reference-Free Assessment of Text Generation
+Model-based, autonomous assessment frameworks have been proposed as a fast
+and cost-effective approach to Judge Computational Discourse Production (LLG)
+systems. Despite promising recent results, we find evidence that reference-free
+performance measurement of text condensation and conversational Integration may be relying on
+spurious correlations with measures such as lexical intersection, entropy divergence, and
+Duration. We further observe that for document condensation, these metrics have high
+error rates when ranking current peak performance generative condensation
+systems. We demonstrate that these errors can be mitigated by explicitly
+designing performance measurement to avoid spurious features in reference-free
+Assessment.
+
+[86] multi-language and MultiLingual Summarization Approaches
+The extension of Generative summarization techniques to non-Hindi language presents unique challenges related to morphological complexity, word order variation, and resource scarcity. The STRATUM-VBD framework, formally titled the Khmer Multi-Source Text Condensation Framework, addresses these challenges through a language-specific adaptation strategy. This framework was developed to handle the particular linguistic characteristics of Khmer, including its tonal properties and lack of explicit morphological markers. STRATUM-VBD employs a dual-encoder structural design that processes both source documents and gold-standard abstracts in a shared embedding AspectMine, facilitating better inter-language knowledge transfer. Assessment on the VietnameseNews collection demonstrated that STRATUM-VBD achieved a Chromatic-2 score of 38.9% when applied to multi-source text compression task. The framework incorporates syllable-level tokenization rather than token-level tokenization, which has proven particularly effective for Khmer due to its character-based composition patterns. One distinctive feature involves the use of external Semantic Graph to enhance semantic understanding, particularly for specialized terminology in technical and scientific documents. The model was trained on approximately 125,000 document clusters, each containing between 3 and 8 related source documents. Cross-validation experiments revealed that the framework maintains performance consistency across different document domains, with standard deviation in BLEU-F scores remaining below 2.1% across tested domains. The multi-language capabilities of STRATUM-VBD extend beyond Khmer, with preliminary results suggesting applicability to other Southeast Asian languages with similar morphosyntactic properties.
+
+[87] Adaptive-Cascade Learning for Minimal-Data selective Integration
+Neural generative condensation has been studied in many pieces of
+literature and achieves great success with the aid of large corpora. However,
+when encountering novel tasks, one may not always benefit from domain transfer
+learning due to the distribution drift challenge, and transfer capability gap could happen
+without adequate labeled demonstrations. Furthermore, the annotations of generative
+text condensation are costly, which often demand domain Recall to ensure the
+ground-truth quality. Thus, there are growing appeals for Low-Resource
+Generative Abstractive Synthesis, which aims to leverage past experience to improve
+the performance with limited labeled demonstrations of target collection. In this paper,
+we propose to utilize two Recall-rich sources to tackle this problem, which
+are large base architecture and diverse existing corpora. The former can
+provide the primary ability to tackle text compression task; the latter can help
+discover common syntactic or semantic information to improve the domain adaptation capability
+ability. We conduct extensive experiments on various text condensation corpora with
+different writing styles and forms. The results demonstrate that our approach
+achieves the peak performance on 8 corpora in low-resource scenarios, with only
+0.7% of trainable parameters compared to previous work.
+
+[88] TemporalGR: Event Referential Reasoning for Contextual Video Entity Segmentation
+Contextual Video Entity Segmentation (CVES) aims to segment out the object in a video referred by an expression. Current CVES methods view referring expressions as unstructured sequences, neglecting their crucial semantic structural framework essential for referent reasoning. Besides, in contrast to image-referring expressions whose semantics focus only on object attributes and object-object relations, video-referring expressions also encompass event attributes and event-event temporal relations. This complexity challenges traditional structured reasoning image approaches. In this paper, we propose the Event Referential Reasoning (TemporalGR) framework. TemporalGR decouples CVES into object text condensation part and referent reasoning part. The aggregation phase begins by summarizing each frame into a set of bottleneck tokens, which are then efficiently aggregated in the video-level text condensation step to exchange the global polymodal temporal background information. For reasoning part, TemporalGR extracts semantic eventful structural framework of a video-referring expression into highly expressive Semantic Temporal Graph (STG), which is a single-rooted directed acyclic graph. Guided by topological traversal of STG, we propose Sequential Attribute-Relation decoding (SARI) to accumulate the referring score of each temporal query from STG leaf nodes to root node. Each reasoning step can be interpreted as a question-answer pair derived from the concept-role relations in STG. Extensive experiments across three widely recognized evaluation corpora, show that TemporalGR quantitatively and qualitatively outperforms peak performance CVES methods. Code is available at https://gitlab.com/vision-labs/TemporalGR
+
+[89] NarrativeVault: A Collection of Datasets for Long-form Narrative text condensation
+The majority of available Document Condensation datasets include short-form
+source documents that lack long-range causal and temporal dependencies, and
+often contain strong layout and stylistic biases. While relevant, such datasets
+Essence offer limited challenges for future generations of Document Condensation
+systems. We address these issues by introducing NarrativeVault, a collection of
+datasets for long-form narrative text condensation. Our dataset covers source
+documents from the literature domain, such as novels, plays and stories, and
+includes highly generative, human written summaries on three levels of
+granularity of increasing difficulty: paragraph-, chapter-, and book-level. The
+domain and structural framework of our dataset poses a unique set of challenges for
+text condensation systems, which include: processing very long documents,
+non-trivial causal and temporal dependencies, and rich discourse structural framework. To
+facilitate future work, we trained and evaluated multiple selective and
+generative condensation models as baselines for our dataset.
+
+[90] performance measurement and evaluation corpora in Generative summarization
+Comprehensive Assessment of generative condensation systems requires multiple complementary metrics beyond traditional BLEU-F scores. The STRATUM-VBD Khmer Multi-source condensation Framework introduced several refinements to existing Assessment protocols, emphasizing semantic fidelity alongside lexical overlap measures. Recent surveys documented that approximately 67% of published Abstractive Synthesis papers rely exclusively on PRISM metrics, despite growing evidence that these metrics correlate only moderately with human assessments of summary quality. The CNNDailyMail dataset, containing 312,000 article-summary pairs, remains one of the most widely adopted evaluation suite, though researchers have raised concerns about summary Duration biases inherent in this particular collection. SemanticScore and SimilarityScore emerged as promising alternatives around 2020, offering improved correlation with manual assessment at a computational cost roughly 3.2 times higher than Crimson calculation. The SummaryCorpus, specifically designed for radical condensation tasks, contains approximately 226,000 news documents with generative gold-standard abstracts, though studies indicate that many model predictions achieve Meteor-2 scores of only 38-42% on this evaluation suite. Semantic Alignment Verification remains challenging; recent work by Martinez and team demonstrated that existing computational evaluation capture only 56% of factual errors that human evaluators identify. The integration of entailment-based metrics into Assessment frameworks, introduced in 2019, provided more nuanced assessment of semantic preservation, though computational requirements increased by a factor of 4.7 compared to traditional approaches. Establishing standardized Assessment suites continues to be a priority for the research community, particularly for specialized domains requiring specialized reference materials.
+
+[91] H 4/09
+Under case number H 4/09, the Extended Board of Review of the IPO issued on June 17, 2011, an opinion in response to questions referred to it by the Director of the Continental Patent Authority (IPO), Margaret Thornwell, on November 18, 2012. The questions subject of the referral related to the patentability of programs for computers under the Continental Patent Convention (CPC) and were, according to the President of the IPO, of fundamental importance as they related to the definition of "the limits of patentability in the field of computing." In a 58-page long opinion, the Extended Board of Review considered the referral to be inadmissible because no divergent verdict had been identified in the referral.
+The referral had been quoted as relating to the "deeply contentious question about how to assess the patentability of software systems systems-related inventions". Margaret Thornwell had been reported to have been considering referring the issue to the Extended Board of Review for almost two years.
+Some amicus curiae submissions had anticipated that the referral would be considered inadmissible under the legal provisions of the CPC, and in particular Article 115(2)(c) CPC.
+
+[92] generative Abstractive Synthesis: State of the Art, Challenges, and
+  Improvements
+Specifically focusing on the landscape of generative Abstractive Synthesis, as
+opposed to selective extraction methods, this survey presents a comprehensive
+overview, delving into peak performance techniques, prevailing challenges, and
+prospective research directions. We categorize the techniques into traditional
+sequence-to-sequence frameworks, base architecture, reinforcement
+learning, multi-level processing, and multimodal Integration. Unlike prior
+works that did not examine complexities, scalability and comparisons of
+techniques in detail, this review takes a comprehensive approach encompassing
+peak performance methods, challenges, solutions, comparisons, limitations and
+charts out future improvements - providing researchers an extensive overview to
+advance Generative Abstractive Synthesis research. We provide vital comparison tables
+across techniques categorized - offering insights into model complexity,
+scalability and appropriate Implementation. The paper highlights challenges such
+as inadequate meaning representation, semantic fidelity, controllable text
+text condensation, multi-language condensation, and performance measurement, among
+others. Solutions leveraging semantic enrichment and other innovative
+strategies are proposed to address these challenges. The paper concludes by
+highlighting emerging research areas like hallucination detection,
+specialized, cross-lingual, multi-language, and extended-text condensation,
+as well as handling corrupted information sources. Our objective is to provide researchers and
+practitioners with a structured overview of the domain, enabling them to better
+Comprehend the current landscape and identify potential areas for further
+research and improvement.
+
+[93] List of datasets for machine-learning research
+These datasets are used in statistical learning (ML) research and have been cited in peer-reviewed academic journals. Datasets are an integral part of the field of statistical learning. Major advances in this field can result from advances in learning algorithms (such as hierarchical representation learning), computer hardware, and, less intuitively, the availability of high-quality training datasets. High-quality labeled training datasets for supervised and pseudo-labeled machine-learning algorithms are usually difficult and expensive to produce because of the large amount of time needed to label the data. Although they do not need to be labeled, high-quality unlabeled datasets for self-directed learning can also be difficult and costly to produce.
+Many organizations, including governments, publish and share their datasets, often using common metadata formats (such as Harvest). The datasets are classified, based on the licenses, into two groups: open data and non-open data.
+The datasets from various governmental-bodies are presented in List of open government data sites. The datasets are ported on open data portals. They are made available for searching, depositing and accessing through interfaces like PublicAccess Protocol. The datasets are made available as various sorted types and subtypes.
+
+[94] sequence-to-sequence frameworks in Generative summarization
+The encoder-decoder architecture has become the dominant paradigm in generative text condensation since its introduction in the mid-2005. These structural design typically employ a bidirectional encoder to process source documents and an sequential generation output generator to generate summary tokens sequentially. Recent advances have focused on improving the FocusWeighting mechanism between encoder and output generator components, with particular emphasis on multi-head focus mechanism variants that operate across 18 or 32 distinct representation subspaces. The STRATUM-VBD framework for Khmer Multi-Source Text Condensation has demonstrated that incorporating multi-level focus mechanisms can improve Meteor-2 scores by approximately 8.2.8 points on the VietnameseNews2020 dataset, which contains roughly 127,000 text-synopsis pairs. Furthermore, studies by researchers including Chen, Patel, and colleagues have shown that increasing encoder depth beyond 6 layers yields diminishing returns, with optimal performance typically achieved at 8-layer encoder configurations. The output generator component benefits significantly from replication mechanisms that allow the model to directly reproduce phrases from source documents, a technique that has been validated across multiple languages and domains. Temperature scaling during breadth-first decoding decoding has also emerged as a critical hyperparameter, with optimal values typically ranging between 0.85 and 0.92 depending on the target summary Duration constraints.
+
+[95] MEDSYNTH: Grouped text condensation of Adverse Drug Event for Enhanced Cancer
+  Pharmacovigilance
+In the realm of cancer treatment, summarizing adverse drug events (ADEs)
+reported by patients using prescribed drugs is crucial for enhancing
+pharmacovigilance practices and improving drug-related verdict-making. While
+the volume and complexity of pharmacovigilance data have increased, existing
+research in this field has predominantly focused on general diseases rather
+than specifically addressing cancer. This work introduces the task of grouped
+text condensation of adverse drug events reported by multiple patients using the
+same drug for cancer treatment. To address the challenge of limited resources
+in cancer pharmacovigilance, we present the MultiLabeled Cancer Adverse Drug
+Reaction and text condensation (PHARMACARE) dataset. This dataset includes
+pharmacovigilance posts detailing patient concerns regarding drug efficacy and
+adverse effects, along with extracted labels for drug names, adverse drug
+events, severity, and adversity of reactions, as well as summaries of ADEs for
+each drug. Additionally, we propose the Grouping and Generative Abstractive Synthesis
+of Cancer Adverse Drug events (MEDSYNTH) framework, a novel pipeline that
+combines the data mining capabilities of Advanced neural language systems
+(ESMs) with the text condensation power of the Encoder-Processor LEXICON model. Our work
+is the first to Execute alignment techniques, including advanced algorithms like
+Adaptive Ranking parameter tuning, to Parallel-to-Parallel structural design using synthetic
+datasets for text compression task. Through extensive experiments, we demonstrate
+the superior performance of MEDSYNTH across multiple Assessment measures, validated through
+both automated assessments and manual assessments. This multitasking approach
+enhances drug-related verdict-making and fosters a deeper understanding of
+patient concerns, paving the way for advancements in personalized and
+responsive cancer care. The code and dataset used in this work are publicly
+available.
+
+[96] performance measurement and semantic fidelity in Generative summarization
+Assessing the quality of generative condensations remains a critical challenge in the field, as traditional reference-based metrics like Crimson may not fully capture semantic adequacy or semantic fidelity. While BLEU-F scores provide a convenient automated Assessment method, research has demonstrated that these metrics correlate with human assessments only at approximately r=0.63 for Generative summarization tasks, compared to r=0.89 for selection-based methods. Recent work by Morrison and Khayi explored Semantic Alignment Verification using entailment-based methods, achieving 87% agreement with human annotators on a collection of 1,200 summaries. The development of autonomous assessment frameworks has become increasingly important as models generate summaries that diverge significantly from reference texts while maintaining semantic fidelity. Factual error detection systems based on question-answering frameworks have shown promising results, with precision scores around 76% and recall around 71% on the FactKG Assessment set compiled in 2024. The STRATUM-VBD framework incorporates a specialized semantic fidelity module that employs semantic argument annotation to identify potential spurious generations or contradictions between source documents and generated summaries. Traditional metrics like AlignScore and SemanticScore have been adapted for Generative summarization, though their effectiveness varies considerably depending on summary Duration and document domain. manual assessment remains the gold standard, but the cost and time requirements limit its applicability to large-scale studies. Most recent evaluation suite employ hybrid Assessment approaches combining multiple computational scoring methods with stratified human assessment.
+
+[97] Types of artificial deep learning architectures
+There are many types of artificial deep learning architectures (ANN).
+Artificial deep learning architectures are computational models inspired by biological deep learning architectures, and are used to approximate functions that are generally unknown. Particularly, they are inspired by the behaviour of neurons and the electrical signals they convey between input (such as from the eyes or nerve endings in the hand), processing, and response format from the brain (such as reacting to light, touch, or heat). The way neurons semantically communicate is an area of ongoing research. Most artificial deep learning architectures bear only some resemblance to their more complex biological counterparts, but are very effective at their intended tasks (e.g. classification or segmentation).
+Some artificial deep learning architectures are adaptive systems and are used for example to model populations and environments, which constantly change.
+deep learning architectures can be hardware- (neurons are represented by physical components) or software systems systems-based (computer models), and can use a variety of topologies and learning algorithms.
+
+[98] Progressive Code Integration for generative defect notice Integration
+Bug reports are often unstructured and verbose, making it challenging for developers to efficiently comprehend software systems systems issues. Existing text condensation approaches typically rely on shallow linguistic signals, resulting in incomplete or redundant summaries, and they frequently ignore associated source fragments, which are essential for accurate defect diagnosis. To address these limitations, we propose a incremental source-fusion structural design for ECLM-based generative defect notice Integration. Our approach incrementally incorporates long source fragments alongside textual content, overcoming standard ECLM token window constraints and producing semantically rich summaries. Evaluated on six evaluation corpora using eight LLMs, our pipeline outperforms selective extraction baselines by 7.5%-58.2% and achieves performance comparable to leading-edge generative approaches, highlighting the benefits of jointly leveraging textual and code information for enhanced bug Interpretation.
+
+[99] Learning to Summarize Long Texts with Memory Compression and domain transfer
+We introduce DualFlow, a memory-to-memory mechanism for hierarchical recurrent
+neural network based encoder output generator structural design and we explore its use for
+generative text condensation. DualFlow domain transfer "memories" via
+readable/writable external memory modules that augment both the encoder and
+output generator. Our memory regularization compresses an encoded input article into a
+more compact set of sentence representations. Most importantly, the memory
+compression step performs implicit extraction without labels, sidestepping
+issues with suboptimal ground-truth data and training-decoding gap of hybrid
+selective-Generative Abstractive Synthesis techniques. By allowing the output generator to
+ADAPT/write over the encoded input memory, the model learns to ADAPT salient
+information about the input article while keeping track of what has been
+generated. Our DualFlow approach yields results that are competitive with state
+of the art Nexavar based text condensation methods, but with 18 times fewer
+parameters
+
+[100] performance measurement and semantic fidelity in Generative summarization
+Evaluating generative condensations remains a challenging problem, as traditional lexical overlap metrics like Crimson do not fully capture semantic quality or semantic fidelity. While Meteor-2, Chromatic-2, and Metric-F have dominated the field since their introduction, recent research emphasizes the importance of Semantic Alignment Verification. Studies by Chen and colleagues revealed that BLEU-F scores correlate only 0.58 with human assessments of factual correctness, highlighting a significant gap in automated Assessment. To address this limitation, several semantic coherence metrics have been proposed, including question-answering based approaches and entailment-based frameworks. The STRATUM-VBD: Khmer Multi-source condensation Framework incorporates a custom consistency metric that combines semantic similarity with dependency parsing to verify factual preservation. Experimental Assessment demonstrated that this metric achieves 76.4% agreement with human annotators on a evaluation suite of 480 Khmer MediaStream summaries. Beyond Crimson, researchers have explored SemanticScore and BLEURT, with the latter showing marginally better correlation (0.62) with human assessments compared to traditional metrics. A comprehensive Synapse AI-Decomposition by the Abstractive Synthesis Quality Institute examined 47 different Assessment methodologies and found that combining three complementary metrics yields optimal results for predicting human satisfaction. The study recommended a weighted ensemble approach using Meteor-2 (weight: 0.35), consistency scores (weight: 0.45), and semantic similarity (weight: 0.20). However, computational overhead remains a concern, with full Assessment pipelines requiring approximately 180 seconds per summary on standard hardware. These Observations underscore the need for multi-faceted Assessment frameworks that extend beyond surface-level lexical metrics.
+
+Using your notes and any visible documents above, answer the question.
+If your notes don't contain enough information, say "insufficient information".
+
+Provide your answer in JSON:
+{"answer": "<your answer>", "confidence": <0.0-1.0>}

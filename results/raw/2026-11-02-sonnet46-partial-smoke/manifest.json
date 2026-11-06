@@ -1,0 +1,153 @@
+{
+  "api_key_present": true,
+  "api_version": "2023-06-01",
+  "approval_scope": "User approved USD 5 on 2026-11-01; explicitly approved Sonnet 4.6 engineering continuation on 2026-11-02",
+  "approved_budget_usd": "5",
+  "artifacts": {
+    "3hop/answer-prompt.txt": {
+      "bytes": 187562,
+      "sha256": "5f67581961bf8a1346b1eef90ad1185dd407e0bf711a32b59828e4278d309258"
+    },
+    "3hop/judge-prompt.txt": {
+      "bytes": 3281,
+      "sha256": "758693346ce30b92546a060ee93d07fac4dd3c26b28493797db3a2eb46ce9fd4"
+    },
+    "3hop/result.json": {
+      "bytes": 3564,
+      "sha256": "1857056aa7fbcdd4afbfef57c3ab588d495ca63486ccad9a603a06fce183e3f5"
+    },
+    "4hop/answer-prompt.txt": {
+      "bytes": 204688,
+      "sha256": "385ef4e34901a5a2627fbfbbb61c6fdd87541327402bf0906fb71c02d8479ed2"
+    },
+    "4hop/judge-prompt.txt": {
+      "bytes": 4951,
+      "sha256": "d974ae16c7a0b10acdbc502f24ca70264267eb652a35e7ac9c58018930d6f78a"
+    },
+    "4hop/result.json": {
+      "bytes": 4851,
+      "sha256": "5c5573303b4830cb04a4fa1099a756fb9786470a0c68821594e15d04a279c615"
+    },
+    "56hop/answer-prompt.txt": {
+      "bytes": 160723,
+      "sha256": "31eca690458c3eb473eb261fc3e0e13c64f607c21c266ad4d613af6b0540d087"
+    },
+    "56hop/failure.json": {
+      "bytes": 470,
+      "sha256": "0ca188fdec78e8e68ff118824829f1ba53a47079e76ae9462d6093527cbd1900"
+    },
+    "answer-recovery.json": {
+      "bytes": 3262,
+      "sha256": "2bc85a95784c567033c4fdb9b089d188d5e284b3a398c7eca96b3f07fc97b3a5"
+    },
+    "cases.json": {
+      "bytes": 9159,
+      "sha256": "a475cad74ef0946f49feb0863d834303d29d247f106586fad08998122e70830c"
+    },
+    "harness_source/scripts/prepare_scored_smoke.py": {
+      "bytes": 12288,
+      "sha256": "8a193a0160dbbdf4af747ce1cbaa34952eccbf4a8ab8bef53ac201714e9409fc"
+    },
+    "harness_source/scripts/reproduce.py": {
+      "bytes": 18034,
+      "sha256": "17c35c4dd80e5b4654bbb2593a14fa37f46e72efa648b718e158c213d983dbdc"
+    },
+    "harness_source/scripts/run_scored_smoke.py": {
+      "bytes": 22796,
+      "sha256": "e7fe86080fa699e28ff7c39a9e2dc3a4065931d17831c83574b6f06606397130"
+    },
+    "harness_source/scripts/scored_client.py": {
+      "bytes": 16559,
+      "sha256": "7fd519669eb9b38e8279fee41fa35500892ba1b04c00caf7c49ca7e9593474d7"
+    },
+    "prepared-plan.json": {
+      "bytes": 12287,
+      "sha256": "e1373fad682f10829475397cb48129d6d980baf1628a808b753be6f20c8a0f99"
+    },
+    "prior-request-trace.jsonl": {
+      "bytes": 422,
+      "sha256": "17e5597d38d73a993e16300c476cf304a4bf560395eb1c0370612181f8053184"
+    },
+    "recovered-answer-source-trace.jsonl": {
+      "bytes": 3105,
+      "sha256": "c79bfd3d3da8a5fe2949ef89850c21be59a680654e573fa1572dcd022e8f2855"
+    },
+    "request-trace.jsonl": {
+      "bytes": 8296,
+      "sha256": "7cfc0a59e1a66fe24686e3765c4b90fda65badd5fb9475c401d350661e605180"
+    },
+    "request.json": {
+      "bytes": 622,
+      "sha256": "22d1fd9ee81a7666c04e12358f4f1b19be4a2121b7972b3e92e6e32249d1d0ad"
+    },
+    "usage.json": {
+      "bytes": 738,
+      "sha256": "d8f05190801032d731a992c291ede17fe5f815796ec363b09d465858a4a47c48"
+    }
+  },
+  "billing_uncertain": true,
+  "dataset_revision": "02f8da42a1a771d1d58552274db1cbf46f0fc7b4",
+  "deviations": [
+    "User-approved Sonnet 4.6 replaces unavailable Sonnet 4.5; direct Anthropic provider instead of Bedrock",
+    "1024-token output cap; strict JSON validation; fail fast with no retries",
+    "Judge schema checked locally; JSON system instruction instead of provider response_format",
+    "Three selected BM25 cases are an engineering smoke, not a paper comparison",
+    "Thinking explicitly disabled; full 1M-window reservation is settled to actual usage after each validated success",
+    "Unambiguous trailing JSON accepted for validation; the first complete answer is recovered verbatim without generating it again"
+  ],
+  "finished_utc": "2026-11-03T00:35:30.778582+00:00",
+  "full_window_reservation_usd_per_attempt": "3.01536",
+  "harness_sha": "9b151820bf53ba1cb56d71fc7d401278e0fd8bd9",
+  "harness_status": "",
+  "kind": "initial_scored_engineering_smoke",
+  "maximum_output_tokens_per_request": 1024,
+  "maximum_physical_attempts": 5,
+  "maximum_total_generation_attempts_including_prior": 7,
+  "model": "claude-sonnet-4-6",
+  "model_calls_attempted": 4,
+  "paper_reproduction": false,
+  "plan_sha256": "e1373fad682f10829475397cb48129d6d980baf1628a808b753be6f20c8a0f99",
+  "prior_generation_attempts": 2,
+  "prior_ledger_sha256": "17e5597d38d73a993e16300c476cf304a4bf560395eb1c0370612181f8053184",
+  "prior_reservation_usd": "0.733275",
+  "provider": "anthropic_direct",
+  "recovery": {
+    "known_usage_cost_usd": "0.117915",
+    "offline_released_reservation_usd": "2.897445",
+    "prompt_sha256": "5f67581961bf8a1346b1eef90ad1185dd407e0bf711a32b59828e4278d309258",
+    "raw_content": "Looking at the question, I need to identify the architectural patterns used in the first component of the STRATUM-VBD framework's modified pre-trained network to identify key sentences.\n\nFrom my notes and the visible documents, particularly Document [36] (STRATUM-VBD: Khmer Multi-Source Text Condensation Framework):\n\n\"The STRATUM-VBD framework integrates selective and generative Abstractive Synthesis through a two-component pipeline where the first component uses a modified pre-trained STRATUM network with **Gemini and Triad architectural patterns** to identify key sentences\"\n\nAnd further: \"The Gemini and Triad architectural patterns enable the system to learn similarity metrics that distinguish important sentences from peripheral content across multiple source documents.\"\n\nAlso from the notes: \"The use of Gemini and Triad architectural patterns represents an established approach in statistical learning for learning meaningful embeddings that capture semantic similarity.\"\n\nThe first component employs a modification of the pre-trained STRATUM network, which derives semantically meaningful phrase embeddings using **Nexus and Triad network structural framework** (from one note) or **Gemini and Triad architectural patterns** (from multiple document excerpts).\n\nThe documents consistently refer to \"Gemini and Triad architectural patterns\" as the architectural patterns used in the modified pre-trained STRATUM network to derive semantically meaningful phrase embeddings for identifying key sentences.\n\n{\"answer\": \"The first component of the STRATUM-VBD framework employs a modified pre-trained STRATUM network that uses Gemini and Triad architectural patterns to derive semantically meaningful phrase embeddings for identifying key sentences within the two-component Abstractive Synthesis pipeline. These architectural patterns enable the system to learn similarity metrics and discriminative embeddings that capture semantic relationships between text segments, allowing the extraction component to distinguish important sentences from peripheral content across multiple source documents.\", \"confidence\": 0.92}",
+    "reason": "The saved complete response passed usage validation and now passes unambiguous trailing-JSON validation; original failed evidence is unchanged",
+    "source_response_id": "msg_011Cgf3QYK2YZAjik3Fguneq",
+    "source_trace_sha256": "c79bfd3d3da8a5fe2949ef89850c21be59a680654e573fa1572dcd022e8f2855",
+    "validated_answer": "The first component of the STRATUM-VBD framework employs a modified pre-trained STRATUM network that uses Gemini and Triad architectural patterns to derive semantically meaningful phrase embeddings for identifying key sentences within the two-component Abstractive Synthesis pipeline. These architectural patterns enable the system to learn similarity metrics and discriminative embeddings that capture semantic relationships between text segments, allowing the extraction component to distinguish important sentences from peripheral content across multiple source documents."
+  },
+  "reservation_policy": "Full context reserved before each call; only a fully validated success settles to actual usage; failures keep their full hold",
+  "reserved_cost_usd": "3.887898",
+  "started_utc": "2026-11-03T00:31:35.794143+00:00",
+  "status": "failed",
+  "upstream_clean_after_run": true,
+  "upstream_sha": "50b404e6ae4e1fcd453d3e07963eb3e6312cbded",
+  "usage": {
+    "api_version": "2023-06-01",
+    "approved_ceiling_usd": "5",
+    "attempted_calls": 4,
+    "billing_uncertain": true,
+    "budget_held_usd": "3.887898",
+    "cached_answer_replays": 1,
+    "combined_known_usage_cost_usd": "0.257178",
+    "completed_calls": 3,
+    "cost_basis": "Uncached standard input/output token rates; estimates, not invoices",
+    "failed": true,
+    "gross_new_reservations_usd": "12.06144",
+    "known_usage_cost_usd": "0.139263",
+    "maximum_calls": 5,
+    "minimum_request_interval_seconds": 65.0,
+    "model": "claude-sonnet-4-6",
+    "new_run_held_usd": "3.154623",
+    "per_request_reservation_usd": "3.01536",
+    "prior_reservation_usd": "0.733275",
+    "recovered_answer_usage_cost_usd": "0.117915",
+    "reserved_cost_usd": "3.887898"
+  },
+  "worker_returncode": 1
+}

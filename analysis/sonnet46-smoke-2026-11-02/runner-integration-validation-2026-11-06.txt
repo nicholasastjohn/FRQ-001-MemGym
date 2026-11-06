@@ -1,0 +1,22 @@
+test_captured_answer_recovery_preserves_raw_text_and_avoids_repeat_call (test_run_scored_smoke.RunTests.test_captured_answer_recovery_preserves_raw_text_and_avoids_repeat_call) ... ok
+test_changed_answer_prompt_stops_before_client_invocation (test_run_scored_smoke.RunTests.test_changed_answer_prompt_stops_before_client_invocation) ... ok
+test_missing_key_does_not_create_a_budget_ledger_or_launch_worker (test_run_scored_smoke.RunTests.test_missing_key_does_not_create_a_budget_ledger_or_launch_worker) ... ok
+test_original_failed_hold_is_carried_and_changed_ledger_is_rejected (test_run_scored_smoke.RunTests.test_original_failed_hold_is_carried_and_changed_ledger_is_rejected) ... ok
+test_private_key_file_is_local_only_and_insecure_mode_is_rejected (test_run_scored_smoke.RunTests.test_private_key_file_is_local_only_and_insecure_mode_is_rejected) ... ok
+test_real_frozen_plan_evaluates_with_mock_transport_and_rejects_tampering (test_run_scored_smoke.RunTests.test_real_frozen_plan_evaluates_with_mock_transport_and_rejects_tampering) ... W1106 09:10:28.868000 53048 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym/src/memgym/pipelines/memgym_ir/types/schemas.py:142: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/
+  class FilteredIRInstance(BaseModel):
+/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym/src/memgym/pipelines/memgym_ir/llm/client.py:80: DeprecationWarning: The 'initial' parameter is deprecated, use 'multiplier' instead
+  wait=wait_exponential_jitter(initial=4, max=120, jitter=10),
+ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 21.901s
+
+OK
+{
+  "output": "/private/var/folders/l2/wr308sxn3kb16697t4hnngz40000gn/T/tmpk5ir8cxn/output",
+  "status": "blocked_missing_api_key",
+  "model_calls_attempted": 0,
+  "approved_budget_usd": "5"
+}

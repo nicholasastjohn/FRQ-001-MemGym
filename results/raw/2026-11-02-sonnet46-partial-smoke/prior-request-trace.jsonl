@@ -1,0 +1,2 @@
+{"api_version": "2023-06-01", "call": 1, "kind": "request", "max_output_tokens": 1024, "model": "claude-sonnet-4-5-20250929", "prompt_sha256": "5f67581961bf8a1346b1eef90ad1185dd407e0bf711a32b59828e4278d309258", "prompt_utf8_bytes": 187562, "reserved_cost_usd": "0.61536", "role": "answer"}
+{"call": 1, "elapsed_seconds": 0.448904, "error_code": "http_404", "kind": "error", "reservation_retained": true, "role": "answer"}

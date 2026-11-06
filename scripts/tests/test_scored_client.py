@@ -223,6 +223,59 @@ class ClientTests(unittest.TestCase):
                 with self.assertRaises(SmokeClientError):
                     client.get_completion("question")
 
+    def test_truncated_response_preserves_diagnostics_without_accepting_or_settling(self):
+        # Even syntactically valid answer text cannot override an incomplete stop.
+        client = self.client(response('{"answer":"blue"}', model=SONNET46_MODEL,
+                                      stop_reason="max_tokens",
+                                      usage={"input_tokens": 37185, "output_tokens": 1024}),
+                             model=SONNET46_MODEL, prior_reservation_usd="0.61536")
+        with self.assertRaisesRegex(SmokeClientError, "incomplete_or_refused_response"):
+            client.get_completion("question")
+        records = self.records()
+        self.assertEqual([item["kind"] for item in records],
+                         ["request", "rejected_response", "error"])
+        diagnostic = records[1]
+        self.assertEqual(diagnostic["id"], "msg_fixture")
+        self.assertEqual(diagnostic["model"], SONNET46_MODEL)
+        self.assertEqual(diagnostic["stop_reason"], "max_tokens")
+        self.assertEqual(diagnostic["content"], '{"answer":"blue"}')
+        self.assertEqual(diagnostic["usage"], {"input_tokens": 37185, "output_tokens": 1024})
+        self.assertFalse(diagnostic["usage_validated"])
+        self.assertTrue(diagnostic["reservation_retained"])
+        self.assertEqual(client.summary()["completed_calls"], 0)
+        self.assertEqual(Decimal(client.summary()["known_usage_cost_usd"]), 0)
+        self.assertEqual(Decimal(client.summary()["budget_held_usd"]), Decimal("3.63072"))
+        self.assertTrue(client.summary()["billing_uncertain"])
+        with self.assertRaisesRegex(SmokeClientError, "client_already_failed"):
+            client.get_completion("no automatic retry")
+        self.assertEqual(len(self.calls), 1)
+
+    def test_refusal_diagnostics_allowlist_fields_and_redact_the_exact_key(self):
+        hidden = "private-provider-detail-not-for-trace"
+        secret = "fixture-secret-key"
+        reply = response("Refused response " + secret, model=SONNET46_MODEL,
+                         id="msg_" + secret,
+                         stop_details={"type": "refusal", "detail": hidden},
+                         usage={"input_tokens": 10, "output_tokens": 20,
+                                "service_tier": secret, "unknown_charge": hidden},
+                         headers={"private": hidden}, arbitrary_body=hidden)
+        reply["content"].append({"type": "tool_use", "input": {"private": hidden}})
+        client = self.client(reply, model=SONNET46_MODEL)
+        with self.assertRaisesRegex(SmokeClientError, "refused_response"):
+            client.get_completion("question")
+        diagnostic = self.records()[1]
+        self.assertEqual(diagnostic["kind"], "rejected_response")
+        self.assertEqual(diagnostic["stop_details"], {"type": "refusal"})
+        self.assertEqual(diagnostic["id"], "msg_[REDACTED]")
+        self.assertEqual(diagnostic["content"], "Refused response [REDACTED]")
+        self.assertEqual(diagnostic["usage"], {"input_tokens": 10, "output_tokens": 20,
+                                               "service_tier": "[REDACTED]"})
+        self.assertNotIn(secret, self.path.read_text())
+        self.assertNotIn(hidden, self.path.read_text())
+        self.assertNotIn("settlement", [item["kind"] for item in self.records()])
+        self.assertEqual(Decimal(client.summary()["budget_held_usd"]), Decimal("3.01536"))
+        self.assertEqual(client.summary()["completed_calls"], 0)
+
     def test_timeout_is_not_retried_and_exception_text_never_reaches_trace(self):
         attempts = []
 

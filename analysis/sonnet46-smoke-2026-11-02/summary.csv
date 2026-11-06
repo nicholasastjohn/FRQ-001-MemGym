@@ -1,0 +1,4 @@
+stratum,status,model,strategy,row_index,instance_id,judge_score,reported_usage_cost_usd,error_code
+3hop,scored,claude-sonnet-4-6,ir_bm25,0,memgym_ir__research3__02865,1.0,0.121701,
+4hop,scored,claude-sonnet-4-6,ir_bm25,0,memgym_ir__research__40424,0.3,0.135477,
+56hop,failed,claude-sonnet-4-6,ir_bm25,0,memgym_ir__research__11213,,,incomplete_or_refused_response

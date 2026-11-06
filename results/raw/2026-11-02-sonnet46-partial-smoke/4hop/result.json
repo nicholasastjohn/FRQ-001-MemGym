@@ -1,0 +1,62 @@
+{
+  "identity": {
+    "dataset_rows": 916,
+    "dataset_sha256": "e99eebf4c1c8cdb75428905b13409b02cfe610801599b48c9712d7fcc9091352",
+    "instance_id": "memgym_ir__research__40424",
+    "raw_line_sha256": "5bf475f339ae95dea9fd3013e6a63658eed76f79dca0b8ba7f908c1b4642cc35",
+    "row_index": 0
+  },
+  "result": {
+    "final_notes_length": 30995,
+    "instance_id": "memgym_ir__research__40424",
+    "manager_stats": {
+      "avg_tokens": 0,
+      "chunk_size": 512,
+      "compaction_count": 0,
+      "config": {},
+      "max_tokens": 100000,
+      "max_tokens_seen": 0,
+      "model_type": "IRBM25Memory",
+      "num_chunks": 223,
+      "num_observations": 0,
+      "step_count": 0,
+      "summarization_count": 0,
+      "token_count": 0,
+      "tokenizer": "gpt-4",
+      "tokens_remaining": 100000,
+      "top_k": 10,
+      "total_observations": 0
+    },
+    "note_fact_recall": 1.0,
+    "num_memory_required_facts": 3,
+    "num_turns": 4,
+    "predicted_answer": "Based on the accumulated research notes and visible documents, the distributional approximation framework used in Radiance Splat (Volumetric light emission perspective mapping / 3D Gaussian Splatting) training can be extended to handle continual learning and expansive environment modeling through the following mechanisms:\n\n**Extension to Continual Learning via PKDR:**\nProbabilistic Kernel Density photometric projection (PKDR) reformulates Radiance Splat training as a distributional approximation (Bayesian inference) problem over model parameters. By leveraging the conjugacy properties of multivariate Radiance primitives (Gaussian/Radial Basis models), it derives closed-form variational update rules. Since conjugate priors ensure the posterior belongs to the same distributional family as the prior, updates can be computed analytically without gradient descent or replay buffers. This enables:\n- Sequential processing of streaming 2D and 4D observations without catastrophic forgetting\n- Elimination of replay buffers, reducing memory requirements\n- Principled probabilistic updates that maintain posterior consistency across sequential observations\n- Performance comparable to gradient-based baselines on static scenes, with dramatically improved performance on streaming/continual learning scenarios\n\n**Extension to Expansive Environment Modeling via Hierarchical Scene Decomposition:**\nAdaptive Hierarchical Scene Decomposition (as seen in methods like the on-the-fly reconstruction approach and cluster-based methods) partitions large scenes into manageable spatial regions. When combined with conjugacy-based updates:\n- Primitives are progressively clustered into anchors and memory-offloaded from the GPU\n- Clustered primitives are merged to keep the active VRP scale manageable at any viewpoint\n- Parallel computation across disjoint scene regions becomes tractable\n- The distributional approximation can be applied independently per spatial partition, enabling scalable inference\n\n**Specific Computational and Performance Improvements:**\n1. **Elimination of replay buffers**: Reduces memory overhead significantly for streaming scenarios\n2. **Closed-form updates vs. iterative gradient descent**: Removes the need for iterative optimization within each learning step, reducing per-update computational cost\n3. **No catastrophic forgetting**: Unlike gradient-based methods that degrade on sequential data, PKDR maintains reconstruction fidelity as new observations arrive\n4. **Convergence rate**: Adaptive variational Bayes achieves O(1/T) convergence in KL divergence vs. O(1/\u221aT) for standard gradient descent\n5. **Memory efficiency**: Sub-linear memory scaling when combined with block/cluster-based decomposition\n6. **Streaming 2D and 4D data**: Consistent performance across both modalities without architectural changes\n7. **Interpretability**: Closed-form updates allow understanding of how individual observations influence parameters\n\nHowever, the conjugacy-based approach is currently limited to models with Gaussian/exponential family structure (multivariate Radial Basis models), limiting immediate applicability to non-normal model components. The combination with hierarchical decomposition addresses scalability but introduces dependencies on partition boundary initialization quality.",
+    "score": 0.3,
+    "strategy": "ir_bm25",
+    "turn_notes": [
+      {
+        "notes_length": 0,
+        "turn": 0,
+        "visible_window": "[0, 0]"
+      },
+      {
+        "notes_length": 0,
+        "turn": 1,
+        "visible_window": "[1, 1]"
+      },
+      {
+        "notes_length": 0,
+        "turn": 2,
+        "visible_window": "[2, 2]"
+      },
+      {
+        "notes_length": 0,
+        "turn": 3,
+        "visible_window": "[3, 3]"
+      }
+    ]
+  },
+  "status": "scored",
+  "strategy": "ir_bm25",
+  "stratum": "4hop"
+}

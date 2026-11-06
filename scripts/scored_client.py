@@ -174,9 +174,60 @@ class StrictAnthropicClient:
                 "cost_basis": "Uncached standard input/output token rates; estimates, not invoices"}
 
     def _record(self, record):
+        def redact(value):
+            if isinstance(value, str):
+                return value.replace(self._api_key, "[REDACTED]")
+            if isinstance(value, list):
+                return [redact(item) for item in value]
+            if isinstance(value, dict):
+                return {redact(key): redact(item) for key, item in value.items()}
+            return value
+
         with self._trace.open("a", encoding="utf-8") as stream:
-            stream.write(json.dumps(record, sort_keys=True, allow_nan=False) + "\n")
+            stream.write(json.dumps(redact(record), sort_keys=True, allow_nan=False) + "\n")
             stream.flush()
+
+    def _rejected_response(self, response):
+        """Select diagnostic evidence without accepting output or settling cost.
+
+        Do not retain arbitrary provider fields, tool payloads, headers, or error
+        bodies. Even valid-looking usage here is unvalidated diagnostic data.
+        """
+        selected = {"usage_validated": False, "reservation_retained": True}
+        if not isinstance(response, dict):
+            return selected
+        for key in ("id", "model", "stop_reason", "service_tier"):
+            if isinstance(response.get(key), str) or response.get(key) is None:
+                selected[key] = response.get(key)
+        details = response.get("stop_details")
+        if isinstance(details, dict) and isinstance(details.get("type"), str):
+            selected["stop_details"] = {"type": details["type"]}
+        blocks = response.get("content")
+        if isinstance(blocks, list):
+            selected["content"] = "".join(block["text"] for block in blocks
+                if isinstance(block, dict) and block.get("type") == "text"
+                and isinstance(block.get("text"), str))
+        usage = response.get("usage")
+        if isinstance(usage, dict):
+            safe_usage = {}
+            for key in ("input_tokens", "output_tokens", "cache_creation_input_tokens",
+                        "cache_read_input_tokens"):
+                if type(usage.get(key)) is int and usage[key] >= 0:
+                    safe_usage[key] = usage[key]
+            for key in ("service_tier", "speed", "inference_geo"):
+                if key in usage and (isinstance(usage[key], str) or usage[key] is None):
+                    safe_usage[key] = usage[key]
+            nested = {
+                "server_tool_use": ("web_fetch_requests", "web_search_requests"),
+                "output_tokens_details": ("thinking_tokens",),
+                "cache_creation": ("ephemeral_1h_input_tokens", "ephemeral_5m_input_tokens"),
+            }
+            for key, fields in nested.items():
+                if isinstance(usage.get(key), dict):
+                    safe_usage[key] = {field: usage[key][field] for field in fields
+                        if type(usage[key].get(field)) is int and usage[key][field] >= 0}
+            selected["usage"] = safe_usage
+        return selected
 
     def _response(self, response):
         if not isinstance(response, dict) or response.get("model") != self.model:
@@ -274,7 +325,13 @@ class StrictAnthropicClient:
                 raise SmokeClientError(f"http_{error.code}") from None
             except Exception:
                 raise SmokeClientError("transport_failure") from None
-            text, selected = self._response(raw)
+            try:
+                text, selected = self._response(raw)
+            except SmokeClientError:
+                self._record({"kind": "rejected_response", "call": self._attempted,
+                              "role": role, **self._rejected_response(raw),
+                              "elapsed_seconds": round(time.monotonic() - start, 6)})
+                raise
             cost = (selected["usage"]["input_tokens"] * INPUT_USD_PER_MILLION
                     + selected["usage"]["output_tokens"] * OUTPUT_USD_PER_MILLION) / Decimal(1000000)
             self._known_cost += cost
