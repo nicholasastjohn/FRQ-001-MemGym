@@ -1,0 +1,138 @@
+{
+  "api_key_present": true,
+  "api_version": "2023-06-01",
+  "approval_scope": "User requested continuation on 2026-11-06 within the original USD 5 ceiling and approved Sonnet 4.6 substitution",
+  "approved_budget_usd": "5",
+  "artifacts": {
+    "56hop/answer-prompt.txt": {
+      "bytes": 160723,
+      "sha256": "31eca690458c3eb473eb261fc3e0e13c64f607c21c266ad4d613af6b0540d087"
+    },
+    "56hop/judge-prompt.txt": {
+      "bytes": 7501,
+      "sha256": "62d607b953e0d5a26848cb12799351d101fdcf95e951601f1c3c76ef788e2d32"
+    },
+    "56hop/result.json": {
+      "bytes": 7379,
+      "sha256": "939b5a4a1e30e756dfefc8f5e2633e1cc3ac5c39c2cb331876b077be5b7f9787"
+    },
+    "billing-reconciliation.json": {
+      "bytes": 1853,
+      "sha256": "c0a8b26cd0e4a9d9465174327af277969ff3c33c70f91e484142a72ac3854bba"
+    },
+    "cases.json": {
+      "bytes": 7517,
+      "sha256": "255a6554abad8e32da07c2ee22fb4104998b9211da8613b3731ecd210176c632"
+    },
+    "harness_source/scripts/prepare_scored_smoke.py": {
+      "bytes": 12288,
+      "sha256": "8a193a0160dbbdf4af747ce1cbaa34952eccbf4a8ab8bef53ac201714e9409fc"
+    },
+    "harness_source/scripts/reproduce.py": {
+      "bytes": 18034,
+      "sha256": "17c35c4dd80e5b4654bbb2593a14fa37f46e72efa648b718e158c213d983dbdc"
+    },
+    "harness_source/scripts/run_scored_smoke.py": {
+      "bytes": 28407,
+      "sha256": "c273ba57055dae858f1fd7998aafb616e0d5d34766d705e78bb9db49620e8a95"
+    },
+    "harness_source/scripts/scored_client.py": {
+      "bytes": 20404,
+      "sha256": "5a2ea36152219a6ab1fb6e6010c7879068bb97cd1c6d6112bd84ecf606db3fa4"
+    },
+    "harness_source/scripts/smoke_reconciliation.py": {
+      "bytes": 4393,
+      "sha256": "8989a6bd450cc475a8f12eb32940f5517f185c202976dd6e3b83894ed78e1646"
+    },
+    "ledger-opened.json": {
+      "bytes": 65,
+      "sha256": "ade1e06e05af704f5886d0311d15e351927091dd800ac332c06f94e74ea2be11"
+    },
+    "prepared-plan.json": {
+      "bytes": 12287,
+      "sha256": "e1373fad682f10829475397cb48129d6d980baf1628a808b753be6f20c8a0f99"
+    },
+    "prior-request-trace.jsonl": {
+      "bytes": 8296,
+      "sha256": "7cfc0a59e1a66fe24686e3765c4b90fda65badd5fb9475c401d350661e605180"
+    },
+    "request-trace.jsonl": {
+      "bytes": 8649,
+      "sha256": "44fb4bfc219293824932f04480a63d759550afaa8cc16140a190fc0e5c92715e"
+    },
+    "request.json": {
+      "bytes": 701,
+      "sha256": "0f117ebfd4056763552d6b5835660b7782f27c3ed736800142befd7d00ff2a42"
+    },
+    "usage.json": {
+      "bytes": 703,
+      "sha256": "7ffdc35b30e46acf133dd9678e555b4c7da82aa2b0e6e82bb3e93915f6935814"
+    }
+  },
+  "billing_uncertain": true,
+  "continuation_evidence_sha256": "c0a8b26cd0e4a9d9465174327af277969ff3c33c70f91e484142a72ac3854bba",
+  "dataset_revision": "02f8da42a1a771d1d58552274db1cbf46f0fc7b4",
+  "deviations": [
+    "User-approved Sonnet 4.6 replaces unavailable Sonnet 4.5; direct Anthropic provider instead of Bedrock",
+    "4096-token answer cap and unchanged 1024-token judge cap; strict JSON validation; fail fast with no retries",
+    "Judge schema checked locally; JSON system instruction instead of provider response_format",
+    "Only the previously failed 56hop BM25 cell is selected; this is an engineering smoke, not a paper comparison",
+    "Thinking explicitly disabled; full 1M-window reservation is settled to actual usage after each validated success"
+  ],
+  "finished_utc": "2026-11-06T21:26:50.980308+00:00",
+  "full_window_reservation_usd_by_role": {
+    "answer": "3.06144",
+    "judge": "3.01536"
+  },
+  "harness_sha": "d39b221776bc75491ea7f2d926c506d1ecb9c99a",
+  "harness_status": "",
+  "kind": "bounded_56hop_engineering_smoke_continuation",
+  "max_output_tokens_by_role": {
+    "answer": 4096,
+    "judge": 1024
+  },
+  "maximum_output_tokens_per_request": 4096,
+  "maximum_physical_attempts": 2,
+  "maximum_total_generation_attempts_including_prior": 8,
+  "model": "claude-sonnet-4-6",
+  "model_calls_attempted": 2,
+  "paper_reproduction": false,
+  "plan_sha256": "e1373fad682f10829475397cb48129d6d980baf1628a808b753be6f20c8a0f99",
+  "prior_generation_attempts": 6,
+  "prior_ledger_sha256": "7cfc0a59e1a66fe24686e3765c4b90fda65badd5fb9475c401d350661e605180",
+  "prior_reservation_usd": "0.99536",
+  "provider": "anthropic_direct",
+  "reservation_policy": "Full context reserved before each call; only a fully validated success settles to actual usage; failures keep their full hold",
+  "reserved_cost_usd": "1.120406",
+  "selected_strata": [
+    "56hop"
+  ],
+  "started_utc": "2026-11-06T21:25:27.365515+00:00",
+  "status": "scored",
+  "upstream_clean_after_run": true,
+  "upstream_sha": "50b404e6ae4e1fcd453d3e07963eb3e6312cbded",
+  "usage": {
+    "api_version": "2023-06-01",
+    "approved_ceiling_usd": "5",
+    "attempted_calls": 2,
+    "billing_uncertain": true,
+    "budget_held_usd": "1.120406",
+    "completed_calls": 2,
+    "cost_basis": "Uncached standard input/output token rates; estimates, not invoices",
+    "failed": false,
+    "gross_new_reservations_usd": "6.07680",
+    "known_usage_cost_usd": "0.125046",
+    "maximum_calls": 2,
+    "minimum_request_interval_seconds": 65.0,
+    "model": "claude-sonnet-4-6",
+    "new_run_held_usd": "0.125046",
+    "per_request_reservation_usd": "3.06144",
+    "prior_reservation_usd": "0.99536",
+    "request_reservation_usd_by_role": {
+      "answer": "3.06144",
+      "judge": "3.01536"
+    },
+    "reserved_cost_usd": "1.120406"
+  },
+  "worker_returncode": 0
+}

@@ -1,0 +1,69 @@
+[
+  {
+    "identity": {
+      "dataset_rows": 117,
+      "dataset_sha256": "b740b88fa1044d11483a68220d0d8b68d27242fcd8518911080d9e28924fc781",
+      "instance_id": "memgym_ir__research__11213",
+      "raw_line_sha256": "07ab82d0b154f1e441904a4576cafb8138156841fba16e9467723b0bd638832b",
+      "row_index": 0
+    },
+    "result": {
+      "final_notes_length": 30079,
+      "instance_id": "memgym_ir__research__11213",
+      "manager_stats": {
+        "avg_tokens": 0,
+        "chunk_size": 512,
+        "compaction_count": 0,
+        "config": {},
+        "max_tokens": 100000,
+        "max_tokens_seen": 0,
+        "model_type": "IRBM25Memory",
+        "num_chunks": 223,
+        "num_observations": 0,
+        "step_count": 0,
+        "summarization_count": 0,
+        "token_count": 0,
+        "tokenizer": "gpt-4",
+        "tokens_remaining": 100000,
+        "top_k": 10,
+        "total_observations": 0
+      },
+      "note_fact_recall": 1.0,
+      "num_memory_required_facts": 4,
+      "num_turns": 5,
+      "predicted_answer": "Looking at the question about extending Quintessence Dark Matter resonant detection experiments into the heavy axion region above 38 \u03bceV, I need to synthesize information from my notes and the visible documents.\n\nKey findings from the documents:\n\n1. **The core problem**: Conventional RF chambers face volume penalties scaling inversely with frequency squared as frequency increases above ~11.2 GHz (\u224838 \u03bceV). Document [12] confirms this: \"the required chamber capacity decreases proportionally with frequency squared.\"\n\n2. **The plasma/ionospheric oscillator approach** (Documents [17], [56]): A tunable supercooled ionized gas (plasma) oscillator where the collective oscillation frequency is determined by the lattice constant rather than physical device size. Lattice composite technicolor structures are identified as promising candidates where frequency can be tuned by varying the lattice constant, enabling competitive sensitivity for 38-450 \u03bceV mass range.\n\n3. **Engineered composite/metamaterial lattice approach** (Document [33]): Metamaterial-based oscillators where resonance frequency is determined by the fundamental repeating unit rather than overall physical dimensions. A metamaterial lattice spectrometer with periodic antiferromagnetic material arrangement achieves Q~10\u00b3 and 32% frequency adjustability range.\n\n4. **Prismatic resonant chamber** (Document [28]): Achieves Q~58,000 with ~5% frequency adjustability via differential angular rotation of two prisms, but limited tuning range.\n\n5. **Multi-harmonic mode exploitation**: New resonance adjustment apparatus concepts enhance coupling coefficients for multi-harmonic mode patterns, enabling extension to high-mass regions without volume attenuation.\n\n6. **Phase-matched multiple oscillator arrays** (Document [1]): Bundling multiple resonant chambers and combining outputs with phase-matching to efficiently use magnet volume.\n\n7. **Filter-based arrays** (Document [31]): Arrays of small electromagnetic resonance oscillators connected by elliptical apertures (bandpass filter arrangement) where unit oscillator size determines resonance frequency while multiple chambers provide large detection volume.\n\nThe key technological innovations enabling extension above 38 \u03bceV without volume penalties are:\n- Plasma/ionospheric oscillators with lattice composite technicolor structures (frequency set by lattice constant, not device size)\n- Metamaterial lattice oscillators (frequency set by repeating unit, not overall dimensions)\n- Multi-harmonic mode exploitation with new coupling apparatus\n- Phase-matched resonator arrays\n\n{\"answer\": \"Quintessence Dark Matter resonant detection experiments can extend their search range above 38 \u03bceV (corresponding to frequencies above ~11.2 GHz) through several complementary technological innovations that circumvent the conventional volume penalty problem:\\n\\n1. **Plasma/Ionospheric Oscillators with Lattice Composite Technicolor Structures**: The primary innovation is replacing conventional RF cavities with tunable supercooled ionized gas (plasma) oscillators. In lattice composite technicolor structures, the collective oscillation frequency is determined by the lattice constant rather than the physical device size. This decoupling of frequency from physical dimensions allows large conversion volumes to be maintained at arbitrarily high frequencies. Frequency adjustability is achieved by varying the lattice constant, enabling coverage of the 38\u2013450 \u03bceV mass range with competitive sensitivity.\\n\\n2. **Engineered Metamaterial Lattice Oscillators**: Metamaterial-based resonators derive their resonance frequency from the properties of their fundamental repeating unit rather than overall cavity dimensions. A metamaterial lattice spectrometer design with periodic antiferromagnetic material arrangement achieves a projected Q-factor of order 10\u00b3 and enables 32% frequency adjustability\u2014far exceeding the ~5% adjustability of prismatic resonant chambers. This broad tuning range allows scanning across substantial spectral bands without hardware reconfiguration.\\n\\n3. **Prismatic Resonant Chambers**: A complementary approach uses two concentric aligned perpendicular prismatic structures. Differential angular rotation of the two prisms achieves up to ~5% frequency adjustability while maintaining Q-factors of order 58,000 (much higher than metamaterial designs), preserving resonance sharpness at the cost of narrower tuning range.\\n\\n4. **Multi-Harmonic Mode Exploitation**: New resonance adjustment apparatus concepts enhance the coupling coefficient for multi-harmonic mode patterns in resonant cavity detectors. This allows extension of the search range to high-mass axion regions without volume attenuation by utilizing multiple cavity modes simultaneously, with a new tuner design that maintains reasonable frequency adjustability even when multiple harmonic modes are engaged.\\n\\n5. **Phase-Matched Resonator Arrays and Filter-Based Architectures**: Arrays of small resonant chambers (whose individual size sets the high resonance frequency) are bundled and phase-matched to act as a single large-volume detector. Filter-based designs connect multiple small oscillators via apertures, where the unit cell size determines the resonance frequency while the array provides the necessary detection volume.\\n\\nThe fundamental advantage of the plasma and metamaterial approaches is that they break the inverse relationship between resonance frequency and physical volume that constrains conventional RF cavity designs, enabling macroscopic detector volumes at frequencies corresponding to axion masses well above 38 \u03bceV.\", \"confidence\": 0.72}",
+      "score": 0.7,
+      "strategy": "ir_bm25",
+      "turn_notes": [
+        {
+          "notes_length": 0,
+          "turn": 0,
+          "visible_window": "[0, 0]"
+        },
+        {
+          "notes_length": 0,
+          "turn": 1,
+          "visible_window": "[1, 1]"
+        },
+        {
+          "notes_length": 0,
+          "turn": 2,
+          "visible_window": "[2, 2]"
+        },
+        {
+          "notes_length": 0,
+          "turn": 3,
+          "visible_window": "[3, 3]"
+        },
+        {
+          "notes_length": 0,
+          "turn": 4,
+          "visible_window": "[4, 4]"
+        }
+      ]
+    },
+    "status": "scored",
+    "strategy": "ir_bm25",
+    "stratum": "56hop"
+  }
+]

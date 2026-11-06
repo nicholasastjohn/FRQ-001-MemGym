@@ -294,3 +294,9 @@ API-key values redacted. Its usage is explicitly unvalidated; rejected output
 still fails immediately and keeps the full hold. This improves future evidence
 capture and cannot recover the already discarded response.
 
+The single-use `--continue-56hop` mode reconciled the historical usage with
+Anthropic’s Console, selected the failed frozen cell, and raised its answer cap
+to 4,096 tokens. It ran on November 6 and scored 0.7. The published archive and
+exclusive local ledger guard against reusing that authorization.
+[Completed smoke report](../report/sonnet46-completed-smoke-2026-11-06.md)
+

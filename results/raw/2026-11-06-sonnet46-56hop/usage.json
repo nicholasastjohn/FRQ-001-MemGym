@@ -1,0 +1,23 @@
+{
+  "api_version": "2023-06-01",
+  "approved_ceiling_usd": "5",
+  "attempted_calls": 2,
+  "billing_uncertain": true,
+  "budget_held_usd": "1.120406",
+  "completed_calls": 2,
+  "cost_basis": "Uncached standard input/output token rates; estimates, not invoices",
+  "failed": false,
+  "gross_new_reservations_usd": "6.07680",
+  "known_usage_cost_usd": "0.125046",
+  "maximum_calls": 2,
+  "minimum_request_interval_seconds": 65.0,
+  "model": "claude-sonnet-4-6",
+  "new_run_held_usd": "0.125046",
+  "per_request_reservation_usd": "3.06144",
+  "prior_reservation_usd": "0.99536",
+  "request_reservation_usd_by_role": {
+    "answer": "3.06144",
+    "judge": "3.01536"
+  },
+  "reserved_cost_usd": "1.120406"
+}

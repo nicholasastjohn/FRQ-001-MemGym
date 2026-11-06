@@ -2,7 +2,7 @@
 
 Can an independent researcher reproduce the published long-horizon memory comparison using the authors' released artifacts?
 
-**Status: partial Sonnet 4.6 engineering smoke; paper reproduction incomplete.** Two fixed BM25 cases scored 1.0 and 0.3; the third failed with a missing score. See the [verified partial-run report](report/sonnet46-partial-smoke-2026-11-02.md). This project is adjacent to Persistent Agency and makes no claim about that architecture.
+**The three-case Sonnet 4.6 engineering smoke is complete.** The fixed BM25 cases scored 1.0 (3-hop), 0.3 (4-hop), and 0.7 (5/6-hop). The published MemGym comparison still needs a matched evaluation. [Verified smoke report](report/sonnet46-completed-smoke-2026-11-06.md)
 
 ## The verified target
 
@@ -29,23 +29,23 @@ See [scripts/README.md](scripts/README.md) for evidence-capturing commands, immu
 ## Evidence and protocol
 
 - [Execution report](report/validation-2026-10-25.md): what ran, failures, limitations, and next actions.
-- [Partial scored smoke](report/sonnet46-partial-smoke-2026-11-02.md): two scored cases, one incomplete response, preserved evidence and cumulative budget accounting.
+- [Completed scored smoke](report/sonnet46-completed-smoke-2026-11-06.md) with all three scores, the failure diagnosis, and cumulative budget accounting.
 - [Reproduction protocol](REPRODUCTION.md): decision gates, failure accounting, analysis, and extensions.
 - [Upstream provenance](UPSTREAM.md): pinned source, paper, and data.
 - [Configuration](configs/reproduction.yaml): machine-readable target and unresolved differences.
-- `results/raw/`: commands, logs, environment snapshots, manifests, offline checks and the explicitly labeled partial scored smoke.
+- `results/raw/` contains commands, logs, environment snapshots, manifests, offline checks, and both stages of the scored smoke.
 
 Never commit credentials. Raw outputs must not be manually edited. Downloaded dataset payloads stay outside version control; retain immutable revision, ordered instance IDs, and SHA-256 manifests.
 
-## Three-case scored smoke: partial
+## Three-case scored smoke
 
 The prepare-only planner freezes the first released row from each hop stratum
 and captures its exact BM25 answer prompt through the unchanged upstream
 evaluator. It stops before the model boundary and preserves the judge template
-and fixed inputs separately. A complete run requires three answers and three
-judgments; the November 2 execution stopped after two scored cases and a failed
-third answer. It is an engineering check, not a paper reproduction.
-See [the planner instructions](scripts/README.md#prepare-the-next-scored-smoke-test).
+and fixed inputs separately. The November 2 execution scored two cases and
+stopped at the third answer. The November 6 continuation used the original
+5/6-hop prompt and a 4,096-token answer cap to complete that case.
+[Planner instructions](scripts/README.md#prepare-the-next-scored-smoke-test)
 
 The historical Sonnet 4.5 model is now
 [Legacy on AWS Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.html)
@@ -57,13 +57,13 @@ A separate [strict smoke runner](scripts/README.md#initial-direct-anthropic-smok
 now supports that same dated model through Anthropic directly. The initial test
 has a user-approved USD 5 ceiling, at most six physical requests, and a single-use
 authorization ledger. Sonnet 4.5 returned HTTP 404, and the user approved the
-available Sonnet 4.6 replacement within the same total budget. Captured responses
-imply USD 0.257178 in usage cost; unknown failed attempts bring the conservative
-budget hold to USD 3.887898. The provider/model changes, execution limits and
-missing final-response evidence are recorded in the partial-run report.
+available Sonnet 4.6 replacement within the same total budget. Anthropic’s
+reported historical usage and the retry together imply USD 0.496974 in usage.
+The cumulative budget hold finished at USD 1.120406, including a conservative
+hold for the initial 404. [Run and cost evidence](report/sonnet46-completed-smoke-2026-11-06.md)
 
 ## Completion standard
 
-The core reproduction remains **inconclusive / not yet executed** until the protocol gaps are resolved and a complete matched evaluation exists. Authentic outputs from two replacement-model smoke cases do not satisfy that standard. Compare continuous judge score and uncertainty against the paper, keeping infrastructure errors separate from task failures. Freeze the baseline before extensions.
+The published comparison requires resolution of the protocol gaps and a complete matched evaluation. Compare continuous judge scores and uncertainty against the paper, keeping infrastructure errors separate from task failures. Freeze the baseline before extensions.
 
 The first extensions are repeated executions of the fixed dataset and a predeclared stratified sampling sensitivity analysis. All 1,194 cases already belong to the paper target; a full-dataset run is not a new extension. New memory architectures and cross-model generalization are outside this initial scope.

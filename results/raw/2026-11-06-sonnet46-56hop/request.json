@@ -1,0 +1,12 @@
+{
+  "authorization_ledger": "/Users/nick/Documents/Codex/2026-08-30/go/work/FRQ-001-MemGym/.smoke-ledgers/2026-11-06-sonnet46-56hop.jsonl",
+  "budget_usd": "5",
+  "continuation_evidence_sha256": "c0a8b26cd0e4a9d9465174327af277969ff3c33c70f91e484142a72ac3854bba",
+  "continue_56hop": true,
+  "model": "claude-sonnet-4-6",
+  "plan_path": "/Users/nick/Documents/Codex/2026-08-30/go/outputs/MemGym-scored-smoke-ready/plan.json",
+  "prior_ledger_sha256": "7cfc0a59e1a66fe24686e3765c4b90fda65badd5fb9475c401d350661e605180",
+  "prior_reservation_usd": "0.99536",
+  "recover_answer_ledger": null,
+  "upstream": "/Users/nick/Documents/Codex/2026-10-25/referenced-chatgpt-conversation-this-is-an/work/MemGym"
+}

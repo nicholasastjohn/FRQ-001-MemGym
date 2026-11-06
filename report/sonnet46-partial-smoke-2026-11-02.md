@@ -2,6 +2,8 @@
 
 Run: November 2, 2026. Evidence verified: November 6, 2026.
 
+The November 6 continuation scored the third case after reconciling historical usage. [Completed smoke report](sonnet46-completed-smoke-2026-11-06.md)
+
 Two selected BM25 cases completed with model answers and judgments. The third failed before its answer could be accepted. **The three-case smoke and the paper reproduction are incomplete.**
 
 | Released stratum | Status | Judge score (0–1) |
