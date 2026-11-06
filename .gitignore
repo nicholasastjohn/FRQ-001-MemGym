@@ -5,6 +5,7 @@ __pycache__/
 venv/
 .env
 .env.*
+/.smoke-ledgers/
 .ipynb_checkpoints/
 *.log
 

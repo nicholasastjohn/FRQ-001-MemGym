@@ -19,6 +19,10 @@ DIRECT_MODEL = "claude-sonnet-4-5-20250929"
 SONNET46 = "claude-sonnet-4-6"
 PLAN_COMMIT = "565e23da788dc124935d5978ed3b1a392dad349c"
 APPROVED_CEILING = Decimal("5")
+CONTINUATION_LEDGER = Path(".smoke-ledgers/2026-11-06-sonnet46-56hop.jsonl")
+CONTINUATION_ARCHIVE = Path("results/raw/2026-11-06-sonnet46-56hop")
+PARTIAL_TRACE = Path("results/raw/2026-11-02-sonnet46-partial-smoke/request-trace.jsonl")
+CONTINUATION_ANSWER_MAX_TOKENS = 4096
 
 
 def now():
@@ -164,6 +168,27 @@ def validate_plan(plan_path, upstream):
     return plan
 
 
+def reconciled_56hop(root, plan_path, plan, model, ledger):
+    """Bind the continuation to the reviewed budget evidence and one ledger."""
+    from smoke_reconciliation import validate_reconciled_continuation
+
+    if model != SONNET46:
+        raise ValueError("56hop continuation requires the approved Sonnet 4.6 model")
+    archive = root / CONTINUATION_ARCHIVE
+    if archive.exists() or archive.is_symlink():
+        raise FileExistsError("56hop continuation is already archived")
+    canonical = root / CONTINUATION_LEDGER
+    if ledger is not None and Path(ledger).absolute() != canonical:
+        raise ValueError("56hop continuation requires the canonical authorization ledger")
+    if canonical.parent.is_symlink() or canonical.exists() or canonical.is_symlink():
+        raise FileExistsError("56hop authorization ledger path is already used or unsafe")
+    evidence = validate_reconciled_continuation(plan_path, plan)
+    cells = [cell for cell in plan["cells"] if cell["stratum"] == "56hop"]
+    if len(cells) != 1:
+        raise ValueError("Expected the single frozen 56hop case in the reconciled plan")
+    return evidence, {**plan, "cells": cells}, canonical
+
+
 class MatchedClient:
     """Bind each unchanged evaluator call to its frozen answer prompt."""
 
@@ -227,17 +252,41 @@ def worker(request_path):
     upstream, output = Path(request["upstream"]), request_path.parent
     plan_path = Path(request["plan_path"])
     plan = validate_plan(plan_path, upstream)
+    model = request.get("model", DIRECT_MODEL)
+    ledger = Path(request["authorization_ledger"])
+    prior = Decimal(request.get("prior_reservation_usd", "0"))
+    continuation = request.get("continue_56hop", False)
+    client_options = {}
+    if continuation:
+        root = Path(__file__).resolve().parents[1]
+        evidence, plan, ledger = reconciled_56hop(root, plan_path, plan, model, ledger)
+        if (request.get("recover_answer_ledger") or prior != Decimal(evidence["prior_reservation_usd"])
+                or request.get("continuation_evidence_sha256") != evidence["evidence_sha256"]):
+            raise ValueError("Worker continuation differs from reconciled budget evidence")
+        ledger.parent.mkdir(mode=0o700, exist_ok=True)
+        parent_stat = ledger.parent.lstat()
+        if (not stat.S_ISDIR(parent_stat.st_mode) or parent_stat.st_mode & 0o077
+                or parent_stat.st_uid != os.getuid()):
+            raise ValueError("Continuation ledger must be in a private directory owned by this user")
+        client_options["answer_max_tokens"] = CONTINUATION_ANSWER_MAX_TOKENS
     recovery = recover_answer(request["recover_answer_ledger"], plan) if request.get("recover_answer_ledger") else None
     key = os.environ.get("ANTHROPIC_API_KEY", "")
-    client = StrictAnthropicClient(api_key=key, trace_path=Path(request["authorization_ledger"]),
-                                   max_cost_usd=Decimal(request["budget_usd"]),
-                                   max_calls=2 * len(plan["cells"]) - (1 if recovery else 0),
-                                   model=request.get("model", DIRECT_MODEL),
-                                   prior_reservation_usd=Decimal(request.get("prior_reservation_usd", "0")),
-                                   minimum_request_interval_seconds=65 if request.get("model") == SONNET46 else 0)
+    old_umask = os.umask(0o077) if continuation else None
+    try:
+        client = StrictAnthropicClient(api_key=key, trace_path=ledger,
+                                       max_cost_usd=Decimal(request["budget_usd"]),
+                                       max_calls=2 * len(plan["cells"]) - (1 if recovery else 0),
+                                       model=model, prior_reservation_usd=prior,
+                                       minimum_request_interval_seconds=65 if model == SONNET46 else 0,
+                                       **client_options)
+    finally:
+        if old_umask is not None:
+            os.umask(old_umask)
     if recovery:
         client = ReplayFirstAnswer(client, recovery, output)
     try:
+        if continuation:
+            write_json(output / "ledger-opened.json", {"ledger": str(CONTINUATION_LEDGER)})
         execute_cells(plan, plan_path, upstream, output, client)
     finally:
         write_json(output / "usage.json", client.summary())
@@ -249,9 +298,19 @@ def run(args):
     budget = Decimal(args.budget_usd)
     if not budget.is_finite() or budget <= 0 or budget > APPROVED_CEILING:
         raise ValueError("The approved test ceiling is positive and no greater than USD 5")
+    root = Path(__file__).resolve().parents[1]
     model = getattr(args, "model", DIRECT_MODEL)
     prior, prior_hash = Decimal("0"), None
-    if model == SONNET46:
+    continuation = getattr(args, "continue_56hop", False)
+    continuation_ledger = None
+    evidence = None
+    if continuation:
+        if args.prior_authorization_ledger or args.recover_answer_ledger:
+            raise ValueError("56hop continuation uses the reconciled historical ledgers")
+        evidence, plan, continuation_ledger = reconciled_56hop(root, plan_path, plan, model,
+                                                               args.authorization_ledger)
+        prior, prior_hash = Decimal(evidence["prior_reservation_usd"]), sha256(root / PARTIAL_TRACE)
+    elif model == SONNET46:
         if not getattr(args, "prior_authorization_ledger", None):
             raise ValueError("Sonnet 4.6 continuation requires the preserved original authorization ledger")
         prior, prior_hash = prior_reservation(args.prior_authorization_ledger)
@@ -264,7 +323,6 @@ def run(args):
         recovery = recover_answer(args.recover_answer_ledger, plan)
         prior += Decimal(recovery["known_usage_cost_usd"])
     # Check key presence without printing or snapshotting the value.
-    root = Path(__file__).resolve().parents[1]
     key = load_api_key(args.api_key_file or root / ".env.local")
     key_present = bool(key)
     reserve_output(output)
@@ -294,14 +352,37 @@ def run(args):
     if recovery:
         manifest["deviations"].append("Unambiguous trailing JSON accepted for validation; the first complete answer is recovered verbatim without generating it again")
         manifest["recovery"] = recovery
-    for relative in ("scripts/run_scored_smoke.py", "scripts/scored_client.py",
-                     "scripts/prepare_scored_smoke.py", "scripts/reproduce.py"):
+    source_files = ["scripts/run_scored_smoke.py", "scripts/scored_client.py",
+                    "scripts/prepare_scored_smoke.py", "scripts/reproduce.py"]
+    if continuation:
+        from smoke_reconciliation import EVIDENCE_PATH
+
+        manifest.update(kind="bounded_56hop_engineering_smoke_continuation",
+                        approval_scope="User requested continuation on 2026-11-06 within the original USD 5 ceiling and approved Sonnet 4.6 substitution",
+                        prior_generation_attempts=evidence["historical_attempts"],
+                        maximum_total_generation_attempts_including_prior=evidence["historical_attempts"] + 2,
+                        maximum_output_tokens_per_request=CONTINUATION_ANSWER_MAX_TOKENS,
+                        max_output_tokens_by_role={"answer": CONTINUATION_ANSWER_MAX_TOKENS, "judge": 1024},
+                        full_window_reservation_usd_by_role={"answer": "3.06144", "judge": "3.01536"},
+                        continuation_evidence_sha256=evidence["evidence_sha256"],
+                        selected_strata=["56hop"])
+        del manifest["full_window_reservation_usd_per_attempt"]
+        manifest["deviations"][1] = "4096-token answer cap and unchanged 1024-token judge cap; strict JSON validation; fail fast with no retries"
+        manifest["deviations"][3] = "Only the previously failed 56hop BM25 cell is selected; this is an engineering smoke, not a paper comparison"
+        evidence_source = root / EVIDENCE_PATH
+        evidence_copy = output / "billing-reconciliation.json"
+        evidence_copy.write_bytes(evidence_source.read_bytes())
+        if sha256(evidence_copy) != evidence["evidence_sha256"]:
+            raise ValueError("Continuation evidence changed before snapshot")
+        source_files.append("scripts/smoke_reconciliation.py")
+    for relative in source_files:
         target = output / "harness_source" / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes((root / relative).read_bytes())
     (output / "prepared-plan.json").write_bytes(plan_path.read_bytes())
     if prior:
-        (output / "prior-request-trace.jsonl").write_bytes(Path(args.prior_authorization_ledger).read_bytes())
+        predecessor = root / PARTIAL_TRACE if continuation else Path(args.prior_authorization_ledger)
+        (output / "prior-request-trace.jsonl").write_bytes(predecessor.read_bytes())
     if recovery:
         (output / "recovered-answer-source-trace.jsonl").write_bytes(Path(args.recover_answer_ledger).read_bytes())
     ledger = None
@@ -311,9 +392,12 @@ def run(args):
         elif not args.execute:
             manifest["status"] = "ready_not_executed"
         else:
-            if not args.authorization_ledger:
+            if continuation:
+                ledger = continuation_ledger
+            elif not args.authorization_ledger:
                 raise ValueError("Live execution requires a single-use authorization ledger path")
-            ledger = Path(args.authorization_ledger).resolve()
+            else:
+                ledger = Path(args.authorization_ledger).resolve()
             if ledger.exists():
                 raise FileExistsError("Authorization ledger already exists; budget cannot be reset")
             request = {"upstream": str(upstream), "plan_path": str(plan_path),
@@ -321,6 +405,8 @@ def run(args):
                        "model": model, "prior_reservation_usd": str(prior),
                        "prior_ledger_sha256": prior_hash,
                        "recover_answer_ledger": str(Path(args.recover_answer_ledger).resolve()) if recovery else None}
+            if continuation:
+                request.update(continue_56hop=True, continuation_evidence_sha256=evidence["evidence_sha256"])
             write_json(output / "request.json", request)
             env = safe_env(upstream, 42)
             env["ANTHROPIC_API_KEY"] = key
@@ -334,7 +420,8 @@ def run(args):
         manifest.update(status="failed", error_type=type(error).__name__)
         # Never put transport exception strings or a traceback into public evidence.
     finally:
-        if ledger is not None and ledger.is_file():
+        ledger_opened = not continuation or (output / "ledger-opened.json").is_file()
+        if ledger is not None and ledger_opened and ledger.is_file():
             raw_trace = ledger.read_bytes()
             (output / "request-trace.jsonl").write_bytes(raw_trace)
             # Preserve reservations even if the worker timed out before saving usage.
@@ -385,6 +472,8 @@ def main():
     parser.add_argument("--model", choices=(DIRECT_MODEL, SONNET46), default=DIRECT_MODEL)
     parser.add_argument("--prior-authorization-ledger")
     parser.add_argument("--recover-answer-ledger")
+    parser.add_argument("--continue-56hop", action="store_true",
+                        help="Resume only the failed 56hop case using reconciled historical usage")
     parser.add_argument("--worker-request", type=Path, help=argparse.SUPPRESS)
     args = parser.parse_args()
     if args.worker_request:

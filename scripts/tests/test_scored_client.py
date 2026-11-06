@@ -394,6 +394,48 @@ class ClientTests(unittest.TestCase):
         self.assertEqual(client.summary()["attempted_calls"], 0)
         self.assertEqual(Decimal(client.summary()["budget_held_usd"]), Decimal("2"))
 
+    def test_extended_answer_cap_drives_its_reservation_and_response_limit(self):
+        replies = [response(model=SONNET46_MODEL,
+                            usage={"input_tokens": 10, "output_tokens": 4096}),
+                   response('{"score":1,"explanation":"Correct"}', model=SONNET46_MODEL,
+                            usage={"input_tokens": 10, "output_tokens": 1025})]
+
+        def transport(payload, key):
+            self.calls.append(payload)
+            return replies.pop(0)
+
+        client = StrictAnthropicClient(api_key="fixture", trace_path=self.path,
+            model=SONNET46_MODEL, prior_reservation_usd="0.61536", transport=transport,
+            answer_max_tokens=4096)
+        self.assertEqual(json.loads(client.get_completion("question"))["answer"], "blue")
+        with self.assertRaisesRegex(SmokeClientError, "usage_exceeds_reserved_limits"):
+            client.get_json_completion("judge")
+        self.assertEqual([payload["max_tokens"] for payload in self.calls], [4096, 1024])
+        requests = [item for item in self.records() if item["kind"] == "request"]
+        self.assertEqual([(r["role"], r["max_output_tokens"], r["reserved_cost_usd"])
+                          for r in requests], [("answer", 4096, "3.06144"),
+                                               ("judge", 1024, "3.01536")])
+        settlements = [item for item in self.records() if item["kind"] == "settlement"]
+        self.assertEqual([(r["role"], r["released_reservation_usd"]) for r in settlements],
+                         [("answer", "2.99997")])
+        self.assertEqual(client.summary()["budget_held_usd"], "3.69219")
+        self.assertEqual(client.summary()["request_reservation_usd_by_role"],
+                         {"answer": "3.06144", "judge": "3.01536"})
+
+    def test_extended_answer_cap_is_checked_against_budget_before_transport(self):
+        client = self.client(response('{"score":1,"explanation":"Correct"}', model=SONNET46_MODEL),
+                             model=SONNET46_MODEL, prior_reservation_usd="1.95", answer_max_tokens=4096)
+        with self.assertRaisesRegex(SmokeClientError, "approval_limit_reached"):
+            client.get_completion("answer reservation would exceed ceiling")
+        self.assertEqual(self.calls, [])
+        self.assertEqual(client.get_json_completion("judge reservation fits")["score"], 1)
+
+    def test_invalid_answer_cap_does_not_create_a_ledger(self):
+        for cap in (1023, 4097, True, 1024.0, "4096"):
+            with self.subTest(cap=cap), self.assertRaisesRegex(ValueError, "Answer output cap"):
+                self.client(answer_max_tokens=cap)
+            self.assertFalse(self.path.exists())
+
     def test_model_and_prior_hold_are_validated_before_creating_a_ledger(self):
         for prior in (-1, float("nan"), float("inf"), 6):
             with self.subTest(prior=prior), self.assertRaises(ValueError):

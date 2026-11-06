@@ -21,6 +21,7 @@ ENDPOINT = "https://api.anthropic.com/v1/messages"
 API_VERSION = "2023-06-01"
 MAX_INPUT_TOKENS = 200000
 MAX_OUTPUT_TOKENS = 1024
+MAX_ANSWER_OUTPUT_TOKENS = 4096
 INPUT_USD_PER_MILLION = Decimal("3")
 OUTPUT_USD_PER_MILLION = Decimal("15")
 RESERVATION_USD = (MAX_INPUT_TOKENS * INPUT_USD_PER_MILLION
@@ -117,7 +118,7 @@ class StrictAnthropicClient:
 
     def __init__(self, *, api_key, trace_path, max_cost_usd=Decimal("5"),
                  max_calls=6, transport=None, model=MODEL, prior_reservation_usd=Decimal("0"),
-                 minimum_request_interval_seconds=0):
+                 minimum_request_interval_seconds=0, answer_max_tokens=MAX_OUTPUT_TOKENS):
         try:
             maximum = Decimal(str(max_cost_usd))
             prior = Decimal(str(prior_reservation_usd))
@@ -131,6 +132,8 @@ class StrictAnthropicClient:
             raise ValueError("Prior reservation must be nonnegative and within the cost ceiling")
         if model not in (MODEL, SONNET46_MODEL):
             raise ValueError("Unsupported model; no automatic substitution is permitted")
+        if type(answer_max_tokens) is not int or not MAX_OUTPUT_TOKENS <= answer_max_tokens <= MAX_ANSWER_OUTPUT_TOKENS:
+            raise ValueError("Answer output cap must be an integer from 1024 to 4096")
         try:
             interval = float(minimum_request_interval_seconds)
         except (TypeError, ValueError, OverflowError):
@@ -142,8 +145,12 @@ class StrictAnthropicClient:
         self.model = model
         self._settle_success = model == SONNET46_MODEL
         self._max_input_tokens = 1000000 if self._settle_success else MAX_INPUT_TOKENS
-        self._reservation = (self._max_input_tokens * INPUT_USD_PER_MILLION
-                             + MAX_OUTPUT_TOKENS * OUTPUT_USD_PER_MILLION) / Decimal(1000000)
+        self._output_limits = {"answer": answer_max_tokens, "judge": MAX_OUTPUT_TOKENS}
+        self._reservations = {
+            role: (self._max_input_tokens * INPUT_USD_PER_MILLION
+                   + output_limit * OUTPUT_USD_PER_MILLION) / Decimal(1000000)
+            for role, output_limit in self._output_limits.items()
+        }
         self._api_key = api_key
         self._transport = transport or _transport
         self._maximum, self._max_calls = maximum, max_calls
@@ -159,19 +166,24 @@ class StrictAnthropicClient:
             pass
 
     def summary(self):
-        return {"attempted_calls": self._attempted, "completed_calls": self._completed,
+        summary = {"attempted_calls": self._attempted, "completed_calls": self._completed,
                 "maximum_calls": self._max_calls, "approved_ceiling_usd": str(self._maximum),
                 "reserved_cost_usd": str(self._prior + self._reserved),
                 "budget_held_usd": str(self._prior + self._reserved),
                 "prior_reservation_usd": str(self._prior),
                 "new_run_held_usd": str(self._reserved),
                 "gross_new_reservations_usd": str(self._gross_reserved),
-                "per_request_reservation_usd": str(self._reservation),
+                "per_request_reservation_usd": str(max(self._reservations.values())),
                 "minimum_request_interval_seconds": self._interval,
                 "known_usage_cost_usd": str(self._known_cost),
                 "billing_uncertain": self._prior > 0 or self._attempted != self._usage_accounted,
                 "failed": self._failed, "model": self.model, "api_version": API_VERSION,
                 "cost_basis": "Uncached standard input/output token rates; estimates, not invoices"}
+        if self._output_limits["answer"] != self._output_limits["judge"]:
+            summary["request_reservation_usd_by_role"] = {
+                role: str(reservation) for role, reservation in self._reservations.items()
+            }
+        return summary
 
     def _record(self, record):
         def redact(value):
@@ -229,7 +241,7 @@ class StrictAnthropicClient:
             selected["usage"] = safe_usage
         return selected
 
-    def _response(self, response):
+    def _response(self, response, max_output_tokens):
         if not isinstance(response, dict) or response.get("model") != self.model:
             raise SmokeClientError("unexpected_response_model")
         if response.get("stop_reason") != "end_turn":
@@ -252,7 +264,7 @@ class StrictAnthropicClient:
         for key in ("input_tokens", "output_tokens"):
             if type(usage.get(key)) is not int or usage[key] < 0:
                 raise SmokeClientError("invalid_usage")
-        if usage["input_tokens"] > self._max_input_tokens or usage["output_tokens"] > MAX_OUTPUT_TOKENS:
+        if usage["input_tokens"] > self._max_input_tokens or usage["output_tokens"] > max_output_tokens:
             raise SmokeClientError("usage_exceeds_reserved_limits")
         ordinary_metadata = {"service_tier": (None, "standard"),
                              "speed": (None, "standard"),
@@ -288,7 +300,9 @@ class StrictAnthropicClient:
             raise SmokeClientError("client_already_failed")
         if not isinstance(prompt, str) or not prompt.strip() or temperature != 0:
             raise SmokeClientError("unsupported_request")
-        if self._attempted >= self._max_calls or self._prior + self._reserved + self._reservation > self._maximum:
+        max_output_tokens = self._output_limits[role]
+        reservation = self._reservations[role]
+        if self._attempted >= self._max_calls or self._prior + self._reserved + reservation > self._maximum:
             raise SmokeClientError("approval_limit_reached")
         if self._last_request_started is not None and self._interval:
             while True:
@@ -296,7 +310,7 @@ class StrictAnthropicClient:
                 if remaining <= 0:
                     break
                 time.sleep(min(remaining, 10))
-        payload = {"model": self.model, "max_tokens": MAX_OUTPUT_TOKENS, "temperature": 0,
+        payload = {"model": self.model, "max_tokens": max_output_tokens, "temperature": 0,
                    "service_tier": "standard_only",
                    "messages": [{"role": "user", "content": prompt}]}
         if self._settle_success:
@@ -304,13 +318,13 @@ class StrictAnthropicClient:
         if role == "judge":
             payload["system"] = "You must respond with valid JSON."
         self._attempted += 1
-        self._reserved += self._reservation
-        self._gross_reserved += self._reservation
+        self._reserved += reservation
+        self._gross_reserved += reservation
         record = {"kind": "request", "call": self._attempted, "role": role,
                   "model": self.model, "api_version": API_VERSION,
                   "prompt_sha256": hashlib.sha256(prompt.encode()).hexdigest(),
-                  "prompt_utf8_bytes": len(prompt.encode()), "max_output_tokens": MAX_OUTPUT_TOKENS,
-                  "reserved_cost_usd": str(self._reservation),
+                  "prompt_utf8_bytes": len(prompt.encode()), "max_output_tokens": max_output_tokens,
+                  "reserved_cost_usd": str(reservation),
                   "budget_held_usd": str(self._prior + self._reserved)}
         self._record(record)  # If recording fails, transport is never invoked.
         start = time.monotonic()
@@ -326,7 +340,7 @@ class StrictAnthropicClient:
             except Exception:
                 raise SmokeClientError("transport_failure") from None
             try:
-                text, selected = self._response(raw)
+                text, selected = self._response(raw, max_output_tokens)
             except SmokeClientError:
                 self._record({"kind": "rejected_response", "call": self._attempted,
                               "role": role, **self._rejected_response(raw),
@@ -350,7 +364,7 @@ class StrictAnthropicClient:
                     raise SmokeClientError("invalid_judge_score")
                 if not isinstance(value.get("explanation"), str) or not value["explanation"].strip():
                     raise SmokeClientError("invalid_judge_explanation")
-            release = self._reservation - cost if self._settle_success else Decimal("0")
+            release = reservation - cost if self._settle_success else Decimal("0")
             held_after = self._reserved - release
             if self._settle_success:
                 self._record({"kind": "settlement", "call": self._attempted, "role": role,
